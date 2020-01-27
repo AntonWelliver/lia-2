@@ -81,6 +81,11 @@ a:hover,
     background-color: darkgray;
 }
 
+.dropbtn {
+    color: grey;
+    float: right;
+}
+
 .dropdown-content {
     display: none;
     position: absolute;
