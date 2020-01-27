@@ -19,9 +19,10 @@ window.onclick = function (e) {
 }
 
 function addNewGeofence() {
+    console.log("hej");
     var createGeofenceView = document.getElementById("createGeofenceView");
     var manageGeofenceTable = document.getElementById("manageGeofenceTable");
-    if (createGeofenceView.style.display === "none") {
+    if (createGeofenceView.style.display !== "grid") {
         createGeofenceView.style.display = "grid";
         manageGeofenceTable.style.display = "none";
     } else {
