@@ -38,6 +38,6 @@ function cancelManageView() {
         createGeofenceView.style.display = "none";
     } else {
         manageGeofenceTable.style.display = "none";
-        createGeofenceView.style.display = "table";
+        createGeofenceView.style.display = "grid";
     }
 }
