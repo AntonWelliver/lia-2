@@ -113,31 +113,11 @@
                             </form>
                         </div>
 
-                        <div class="placeDropdown">
-                            <div class="input-container">
-                                <input class="input-field" type="text" placeholder="Place">
-                                <span>
-                                    <i class="fas fa-caret-down icon" style="position: relative;"></i>
-                                </span>
-                            </div>
-                            <!-- <input
-                                type="text"
-                                placeholder="Place"
-                                name="placeInput"
-                                id="placeInput"
-                                onclick="toggleDropdown()"
-                                class="fas fa-caret-down"
-                            />
-                                <button type="menu" class="dropbtn fas fa-caret-down" onclick="toggleDropdown()"></button>
-                            <div
-                                class="dropdown-content"
-                                id="placeDropdownMenu"
-                            >
-                                <a href="#">Place 1</a>
-                                <a href="#">Place 2</a>
-                                <a href="#">Place 3</a>
-                            </div> -->
-                        </div>
+                        <input
+                            type="text"
+                            placeholder="Place"
+                            name="placeInput"
+                        />
 
                         <input
                             type="text"
@@ -202,7 +182,16 @@
                     Manage Geofences
                 </caption>
                 <caption>
-                    <button type="add" onclick="addNewGeofence()" style="float: right; padding: 7px; margin-bottom: 5px;">
+                    <button 
+                        type="add" 
+                        onclick="addNewGeofence()" 
+                        style="float: right; 
+                            padding: 7px; 
+                            margin-bottom: 5px; 
+                            background-color: white; 
+                            border-radius: 5px; 
+                            cursor: pointer;"
+                    >
                         Add Geofence
                         <i class="fas fa-plus"></i>
                     </button>

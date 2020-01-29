@@ -1,23 +1,4 @@
 
-function toggleDropdown() {
-    document.getElementById("placeDropdownMenu").classList.toggle("show");
-}
-
-window.onclick = function (e) {
-    e.preventDefault();
-
-    if (!e.target.matches('.dropbtn')) {
-        var placeDropdownMenu = document.getElementsByClassName("placeDropdownMenu");
-        var i;
-        for (i = 0; i < placeDropdownMenu.length; i++) {
-            var openDropdown = placeDropdownMenu[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
-    }
-}
-
 function addNewGeofence() {
     console.log("hej");
     var createGeofenceView = document.getElementById("createGeofenceView");
