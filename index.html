@@ -85,7 +85,7 @@
             <div>
                 <form action="/">
                     <div class="container">
-                        <h3>Create a new geofence</h3>
+                        <h3 style="color: white;">Create a new geofence</h3>
 
                         <input
                             type="text"
@@ -96,7 +96,7 @@
                         <div style="padding-top: 10px;">
                             <label
                                 for=""
-                                style="color: grey; padding-left: 12px;"
+                                style="color: white; padding-left: 12px;"
                                 >Type:</label
                             >
                             <form action="/">
@@ -113,18 +113,22 @@
                             </form>
                         </div>
 
-                        <hr />
-
-<!--                         <input
-                            type="text"
-                            placeholder="Place"
-                            name="placeInput"
-                            id="placeInput"
-                        /> -->
-                        <div class="placeDropdown" style="width: 100%; border: none; border-bottom: 1px solid grey; margin-bottom: 20px;">
-                            <button class="dropbtn" onclick="toggleDropdown()">
-                                <i class="fas fa-caret-down"></i>
-                            </button>
+                        <div class="placeDropdown">
+                            <div class="input-container">
+                                <input class="input-field" type="text" placeholder="Place">
+                                <span>
+                                    <i class="fas fa-caret-down icon" style="position: relative;"></i>
+                                </span>
+                            </div>
+                            <!-- <input
+                                type="text"
+                                placeholder="Place"
+                                name="placeInput"
+                                id="placeInput"
+                                onclick="toggleDropdown()"
+                                class="fas fa-caret-down"
+                            />
+                                <button type="menu" class="dropbtn fas fa-caret-down" onclick="toggleDropdown()"></button>
                             <div
                                 class="dropdown-content"
                                 id="placeDropdownMenu"
@@ -132,7 +136,7 @@
                                 <a href="#">Place 1</a>
                                 <a href="#">Place 2</a>
                                 <a href="#">Place 3</a>
-                            </div>
+                            </div> -->
                         </div>
 
                         <input
