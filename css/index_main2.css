@@ -6,16 +6,32 @@ body {
     padding: 0;
     height: 100%;
     font-family: Helvetica, Arial, sans-serif;
+    background-color: #121e2d;
 }
 
 table {
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
         "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     width: 70%;
-    border: 1px solid lightgray;
+    border: 1px solid white;
     border-radius: 5px;
+    border-collapse: collapse;
     margin: 10px;
     box-shadow: 2px 2px 2px grey;
+    background-color: #121e2d;
+    color: white;
+}
+
+tr {
+    border: solid grey;
+    border-width: 1px 0;
+}
+
+tr:first-child {
+    border-top: none;
+}
+tr:last-child {
+    border-bottom: none;
 }
 
 td,
@@ -23,7 +39,6 @@ th {
     text-align: left;
     padding: 8px;
     border: none;
-    border-bottom: 0.5px dotted grey;
 }
 
 .wrapper {
@@ -33,6 +48,7 @@ th {
     grid-column-gap: 5px;
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
         "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    background-color: #121e2d;
 }
 
 #createGeofenceView {
@@ -45,7 +61,7 @@ th {
 
 .container {
     padding: 16px;
-    background-color: white;
+    background-color: #081420;
 }
 
 input[type="text"] {
@@ -57,59 +73,36 @@ input[type="text"] {
     border-bottom: 1px solid grey;
 }
 
+.input-container {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.icon {
+    padding: 7px;
+    margin-top: 5px;
+    background: white;
+    color: black;
+    min-width: 50px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+}
+
+.input-field:focus {
+    border: 2px solid white;
+}
+
 #placeInput {
     width: 80%;
     float: left;
-}
-
-.placeDropdown {
-    float: left;
-    overflow: hidden;
-}
-
-.placeDropdown .dropbtn {
-    cursor: pointer;
-    padding: 10px 5px;
-    border: none;
-    border-radius: 5px;
-    background-color: white;
-}
-
-a:hover,
-.placeDropdown:hover .dropbtn,
-.dropbtn:focus {
-    background-color: darkgray;
-}
-
-.dropbtn {
-    color: grey;
-    float: right;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
-
-.show {
-    display: block;
 }
 
 #radiusInput {
@@ -124,7 +117,7 @@ table.center {
 }
 
 hr {
-    border: 0.5px solid rgb(124, 123, 123);
+    border: 0.5px solid white;
     border-radius: 10px;
     margin-bottom: 25px;
 }
@@ -137,7 +130,7 @@ hr {
     );
     color: white;
     padding: 16px 20px;
-    margin: 8px 10px;
+    margin: 20px 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -158,7 +151,7 @@ hr {
     );
     color: white;
     padding: 16px 20px;
-    margin: 8px 10px;
+    margin: 20px 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
