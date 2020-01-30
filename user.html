@@ -445,7 +445,568 @@
 
 
 				
-</div>
+
+				
+					
+					
+					<form  id='setUserForm5013' action='' method='post'>
+							<button type="button" class="collapsible">
+								<td  rowspan='15' class='rownum'>2</td>
+								<td class='rowhdr'>User ID</td>
+								<td class='rowinfo'>
+									<span name='userid'>SMUU5013</span>
+								</td>
+								<td class='rowhdr' style="margin-left: 20px">Status</td>
+								<td class='rowinfo'>
+									<img id='online5013' style='display:none' src='images/userOnline.png'>
+									<img id='offline5013' style='display:none' src='images/userOffline.png'> 
+									<span id='status5013'></span></span>
+								</td>
+							</button>
+						<table class="formContainer" style='margin:0;padding-top:16px; margin-right: 20px; display: none;'>
+							<tr style='height:40px;'>
+									
+								<td  rowspan='15' class='rownum'>2</td>
+								<td class='rowhdr'>User ID</td>
+								<td class='rowinfo'>
+									<span name='userid'>SMUU5013</span>
+								</td>
+								
+								<td rowspan='15' class='rowbtn' style='vertical-align:center;padding-bottom:3px'>
+									<div class='savebtn'>
+										<a href='javascript:checkPhoneAndSubmit(document.getElementById("setUserForm5013"));'>
+											<img src='images/save.png' alt='save icon'/>
+										</a>
+									</div>
+								</td>
+								<td rowspan='15' class='rowbtn' style='vertical-align:center;padding-bottom:5px'>
+									<div class='savebtn'>
+										<a href='javascript:deleteUser(5013);'>
+											<img src='images/delete.png' alt='save icon'/>
+										</a>
+									</div>
+								</td>
+							</tr>
+						
+							<tr style='height:40px;'>
+								<td class='rowhdr'>Status</td>
+								<td class='rowinfo'>
+									<img id='online5013' style='display:none' src='images/userOnline.png'>
+									<img id='offline5013' style='display:none' src='images/userOffline.png'> 
+									<span id='status5013'></span></span>
+								</td>
+							</tr>
+							<tr style='height:40px;'>
+								<td class='rowhdr'>Battery</td>
+								<td class='rowinfo'><span id='battery5013'></span></td>
+							</tr>
+							<tr style='height:40px;'>
+								<td class='rowhdr'>Signal strength</td>
+								<td class='rowinfo'><span id='signal5013'></span></td>
+							</tr>
+							<tr style='height:40px;'>
+								<td class='rowhdr'>Last known position</td>
+								<td class='rowinfo'><span id='lastposition5013'></span>
+									<input id='showlastposition5013' type='button' value='Show on map' onclick='showLastPosition(5013)' style='width:120px;float:right;height:25px;margin-right:3px;display:none'/>
+								</td>
+							</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Latest Alerty PBA test</td>
+									<td class='rowinfo'><span id='lasttest5013'></span>
+										<input id='flictest5013' type='button' value='Reminder' onclick='sendFlicTest(5013,"en")' style='width:120px;float:right;height:25px;margin-right:3px;display:none'/>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Version</td>
+									<td class='rowinfo'>
+										<span name='version'>
+											<span id='version5013' style="float:left;margin-top:4px;width:244px;">1.0.2</span>
+										</span>
+										<input id='update5013' type='button' value='Software update' onclick='sendSoftwareUpdate(5013,"en")' style='width: 150px; margin-left:10px;height:25px;'/>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Name</td>
+									<td class='rowinfo'>
+										<input name='username' type='text' placeholder='Full name' value='Sara Elg' maxlength='23'/>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Phone nr</td>
+									<td class='rowinfo'>
+										<input name='phonenr' type='text' placeholder='+46123123456' value='0760250360' onkeypress='return event.charCode <= 57'>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Phonenr2</td>
+									<td class='rowinfo'>
+										<input name='phone_secondary' type='text' placeholder='e.g. Apple Watch eSIM' value='' onkeypress='return event.charCode <= 57'>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Email</td>
+									<td class='rowinfo'>
+										<input name='email' type='text' placeholder='someone@somewhere' value=''>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Invitation</td>
+									<td class='rowinfo' style='padding-top:0px;'>
+										<select style='width:404px;' name='userlang'>
+											<option value='en'>Send SMS in English</option>
+											<option value='sv' >Skicka SMS på Svenska</option>
+										</select>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Contact group</td>
+									<td class='rowinfo'>
+										<select name='alarmgroup'>
+											<option value='0' selected>Default</option>
+											<option value='1'>Emanuel</option>
+										</select>
+									</td>
+									</tr>
+									<tr style='height:40px;'>
+										<td class='rowhdr'>Authorization code</td>
+										<td class='rowinfo'>
+											<span id='pin5013'>1234</span>
+										</td>
+									</tr>
+									<tr style='height:40px;'>
+										<td class='rowhdr'>SCAIP ARC</td>
+										<td class='rowinfo'>
+											<span id='scaip5013'></span>
+										</td>
+									</tr>
+									<input type='hidden' name='id' value='5013'/>
+									<input type='hidden' name='action' id='action5013' value='saveuser'/>
+									<input type='hidden' name='latitude' id='latitude5013'/>
+									<input type='hidden' name='longitude' id='longitude5013'/>
+								</table>
+								<!-- <hr/> -->
+							</form>
+
+
+				
+
+					
+					
+					<form  id='setUserForm5013' action='' method='post'>
+							<button type="button" class="collapsible">
+								<td  rowspan='15' class='rownum'>3</td>
+								<td class='rowhdr'>User ID</td>
+								<td class='rowinfo'>
+									<span name='userid'>SMUU5013</span>
+								</td>
+								<td class='rowhdr' style="margin-left: 20px">Status</td>
+								<td class='rowinfo'>
+									<img id='online5013' style='display:none' src='images/userOnline.png'>
+									<img id='offline5013' style='display:none' src='images/userOffline.png'> 
+									<span id='status5013'></span></span>
+								</td>
+							</button>
+						<table class="formContainer" style='margin:0;padding-top:16px; margin-right: 20px; display: none;'>
+							<tr style='height:40px;'>
+									
+								<td  rowspan='15' class='rownum'>3</td>
+								<td class='rowhdr'>User ID</td>
+								<td class='rowinfo'>
+									<span name='userid'>SMUU5013</span>
+								</td>
+								
+								<td rowspan='15' class='rowbtn' style='vertical-align:center;padding-bottom:3px'>
+									<div class='savebtn'>
+										<a href='javascript:checkPhoneAndSubmit(document.getElementById("setUserForm5013"));'>
+											<img src='images/save.png' alt='save icon'/>
+										</a>
+									</div>
+								</td>
+								<td rowspan='15' class='rowbtn' style='vertical-align:center;padding-bottom:5px'>
+									<div class='savebtn'>
+										<a href='javascript:deleteUser(5013);'>
+											<img src='images/delete.png' alt='save icon'/>
+										</a>
+									</div>
+								</td>
+							</tr>
+						
+							<tr style='height:40px;'>
+								<td class='rowhdr'>Status</td>
+								<td class='rowinfo'>
+									<img id='online5013' style='display:none' src='images/userOnline.png'>
+									<img id='offline5013' style='display:none' src='images/userOffline.png'> 
+									<span id='status5013'></span></span>
+								</td>
+							</tr>
+							<tr style='height:40px;'>
+								<td class='rowhdr'>Battery</td>
+								<td class='rowinfo'><span id='battery5013'></span></td>
+							</tr>
+							<tr style='height:40px;'>
+								<td class='rowhdr'>Signal strength</td>
+								<td class='rowinfo'><span id='signal5013'></span></td>
+							</tr>
+							<tr style='height:40px;'>
+								<td class='rowhdr'>Last known position</td>
+								<td class='rowinfo'><span id='lastposition5013'></span>
+									<input id='showlastposition5013' type='button' value='Show on map' onclick='showLastPosition(5013)' style='width:120px;float:right;height:25px;margin-right:3px;display:none'/>
+								</td>
+							</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Latest Alerty PBA test</td>
+									<td class='rowinfo'><span id='lasttest5013'></span>
+										<input id='flictest5013' type='button' value='Reminder' onclick='sendFlicTest(5013,"en")' style='width:120px;float:right;height:25px;margin-right:3px;display:none'/>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Version</td>
+									<td class='rowinfo'>
+										<span name='version'>
+											<span id='version5013' style="float:left;margin-top:4px;width:244px;">1.0.2</span>
+										</span>
+										<input id='update5013' type='button' value='Software update' onclick='sendSoftwareUpdate(5013,"en")' style='width: 150px; margin-left:10px;height:25px;'/>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Name</td>
+									<td class='rowinfo'>
+										<input name='username' type='text' placeholder='Full name' value='Sara Elg' maxlength='23'/>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Phone nr</td>
+									<td class='rowinfo'>
+										<input name='phonenr' type='text' placeholder='+46123123456' value='0760250360' onkeypress='return event.charCode <= 57'>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Phonenr2</td>
+									<td class='rowinfo'>
+										<input name='phone_secondary' type='text' placeholder='e.g. Apple Watch eSIM' value='' onkeypress='return event.charCode <= 57'>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Email</td>
+									<td class='rowinfo'>
+										<input name='email' type='text' placeholder='someone@somewhere' value=''>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Invitation</td>
+									<td class='rowinfo' style='padding-top:0px;'>
+										<select style='width:404px;' name='userlang'>
+											<option value='en'>Send SMS in English</option>
+											<option value='sv' >Skicka SMS på Svenska</option>
+										</select>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Contact group</td>
+									<td class='rowinfo'>
+										<select name='alarmgroup'>
+											<option value='0' selected>Default</option>
+											<option value='1'>Emanuel</option>
+										</select>
+									</td>
+									</tr>
+									<tr style='height:40px;'>
+										<td class='rowhdr'>Authorization code</td>
+										<td class='rowinfo'>
+											<span id='pin5013'>1234</span>
+										</td>
+									</tr>
+									<tr style='height:40px;'>
+										<td class='rowhdr'>SCAIP ARC</td>
+										<td class='rowinfo'>
+											<span id='scaip5013'></span>
+										</td>
+									</tr>
+									<input type='hidden' name='id' value='5013'/>
+									<input type='hidden' name='action' id='action5013' value='saveuser'/>
+									<input type='hidden' name='latitude' id='latitude5013'/>
+									<input type='hidden' name='longitude' id='longitude5013'/>
+								</table>
+								<!-- <hr/> -->
+							</form>
+					<form  id='setUserForm5013' action='' method='post'>
+							<button type="button" class="collapsible">
+								<td  rowspan='15' class='rownum'>4</td>
+								<td class='rowhdr'>User ID</td>
+								<td class='rowinfo'>
+									<span name='userid'>SMUU5013</span>
+								</td>
+								<td class='rowhdr' style="margin-left: 20px">Status</td>
+								<td class='rowinfo'>
+									<img id='online5013' style='display:none' src='images/userOnline.png'>
+									<img id='offline5013' style='display:none' src='images/userOffline.png'> 
+									<span id='status5013'></span></span>
+								</td>
+							</button>
+						<table class="formContainer" style='margin:0;padding-top:16px; margin-right: 20px; display: none;'>
+							<tr style='height:40px;'>
+									
+								<td  rowspan='15' class='rownum'>4</td>
+								<td class='rowhdr'>User ID</td>
+								<td class='rowinfo'>
+									<span name='userid'>SMUU5013</span>
+								</td>
+								
+								<td rowspan='15' class='rowbtn' style='vertical-align:center;padding-bottom:3px'>
+									<div class='savebtn'>
+										<a href='javascript:checkPhoneAndSubmit(document.getElementById("setUserForm5013"));'>
+											<img src='images/save.png' alt='save icon'/>
+										</a>
+									</div>
+								</td>
+								<td rowspan='15' class='rowbtn' style='vertical-align:center;padding-bottom:5px'>
+									<div class='savebtn'>
+										<a href='javascript:deleteUser(5013);'>
+											<img src='images/delete.png' alt='save icon'/>
+										</a>
+									</div>
+								</td>
+							</tr>
+						
+							<tr style='height:40px;'>
+								<td class='rowhdr'>Status</td>
+								<td class='rowinfo'>
+									<img id='online5013' style='display:none' src='images/userOnline.png'>
+									<img id='offline5013' style='display:none' src='images/userOffline.png'> 
+									<span id='status5013'></span></span>
+								</td>
+							</tr>
+							<tr style='height:40px;'>
+								<td class='rowhdr'>Battery</td>
+								<td class='rowinfo'><span id='battery5013'></span></td>
+							</tr>
+							<tr style='height:40px;'>
+								<td class='rowhdr'>Signal strength</td>
+								<td class='rowinfo'><span id='signal5013'></span></td>
+							</tr>
+							<tr style='height:40px;'>
+								<td class='rowhdr'>Last known position</td>
+								<td class='rowinfo'><span id='lastposition5013'></span>
+									<input id='showlastposition5013' type='button' value='Show on map' onclick='showLastPosition(5013)' style='width:120px;float:right;height:25px;margin-right:3px;display:none'/>
+								</td>
+							</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Latest Alerty PBA test</td>
+									<td class='rowinfo'><span id='lasttest5013'></span>
+										<input id='flictest5013' type='button' value='Reminder' onclick='sendFlicTest(5013,"en")' style='width:120px;float:right;height:25px;margin-right:3px;display:none'/>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Version</td>
+									<td class='rowinfo'>
+										<span name='version'>
+											<span id='version5013' style="float:left;margin-top:4px;width:244px;">1.0.2</span>
+										</span>
+										<input id='update5013' type='button' value='Software update' onclick='sendSoftwareUpdate(5013,"en")' style='width: 150px; margin-left:10px;height:25px;'/>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Name</td>
+									<td class='rowinfo'>
+										<input name='username' type='text' placeholder='Full name' value='Sara Elg' maxlength='23'/>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Phone nr</td>
+									<td class='rowinfo'>
+										<input name='phonenr' type='text' placeholder='+46123123456' value='0760250360' onkeypress='return event.charCode <= 57'>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Phonenr2</td>
+									<td class='rowinfo'>
+										<input name='phone_secondary' type='text' placeholder='e.g. Apple Watch eSIM' value='' onkeypress='return event.charCode <= 57'>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Email</td>
+									<td class='rowinfo'>
+										<input name='email' type='text' placeholder='someone@somewhere' value=''>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Invitation</td>
+									<td class='rowinfo' style='padding-top:0px;'>
+										<select style='width:404px;' name='userlang'>
+											<option value='en'>Send SMS in English</option>
+											<option value='sv' >Skicka SMS på Svenska</option>
+										</select>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Contact group</td>
+									<td class='rowinfo'>
+										<select name='alarmgroup'>
+											<option value='0' selected>Default</option>
+											<option value='1'>Emanuel</option>
+										</select>
+									</td>
+									</tr>
+									<tr style='height:40px;'>
+										<td class='rowhdr'>Authorization code</td>
+										<td class='rowinfo'>
+											<span id='pin5013'>1234</span>
+										</td>
+									</tr>
+									<tr style='height:40px;'>
+										<td class='rowhdr'>SCAIP ARC</td>
+										<td class='rowinfo'>
+											<span id='scaip5013'></span>
+										</td>
+									</tr>
+									<input type='hidden' name='id' value='5013'/>
+									<input type='hidden' name='action' id='action5013' value='saveuser'/>
+									<input type='hidden' name='latitude' id='latitude5013'/>
+									<input type='hidden' name='longitude' id='longitude5013'/>
+								</table>
+								<!-- <hr/> -->
+							</form>
+					<form  id='setUserForm5013' action='' method='post'>
+							<button type="button" class="collapsible">
+								<td  rowspan='15' class='rownum'>5</td>
+								<td class='rowhdr'>User ID</td>
+								<td class='rowinfo'>
+									<span name='userid'>SMUU5013</span>
+								</td>
+								<td class='rowhdr' style="margin-left: 20px">Status</td>
+								<td class='rowinfo'>
+									<img id='online5013' style='display:none' src='images/userOnline.png'>
+									<img id='offline5013' style='display:none' src='images/userOffline.png'> 
+									<span id='status5013'></span></span>
+								</td>
+							</button>
+						<table class="formContainer" style='margin:0;padding-top:16px; margin-right: 20px; display: none;'>
+							<tr style='height:40px;'>
+									
+								<td  rowspan='15' class='rownum'>5</td>
+								<td class='rowhdr'>User ID</td>
+								<td class='rowinfo'>
+									<span name='userid'>SMUU5013</span>
+								</td>
+								
+								<td rowspan='15' class='rowbtn' style='vertical-align:center;padding-bottom:3px'>
+									<div class='savebtn'>
+										<a href='javascript:checkPhoneAndSubmit(document.getElementById("setUserForm5013"));'>
+											<img src='images/save.png' alt='save icon'/>
+										</a>
+									</div>
+								</td>
+								<td rowspan='15' class='rowbtn' style='vertical-align:center;padding-bottom:5px'>
+									<div class='savebtn'>
+										<a href='javascript:deleteUser(5013);'>
+											<img src='images/delete.png' alt='save icon'/>
+										</a>
+									</div>
+								</td>
+							</tr>
+						
+							<tr style='height:40px;'>
+								<td class='rowhdr'>Status</td>
+								<td class='rowinfo'>
+									<img id='online5013' style='display:none' src='images/userOnline.png'>
+									<img id='offline5013' style='display:none' src='images/userOffline.png'> 
+									<span id='status5013'></span></span>
+								</td>
+							</tr>
+							<tr style='height:40px;'>
+								<td class='rowhdr'>Battery</td>
+								<td class='rowinfo'><span id='battery5013'></span></td>
+							</tr>
+							<tr style='height:40px;'>
+								<td class='rowhdr'>Signal strength</td>
+								<td class='rowinfo'><span id='signal5013'></span></td>
+							</tr>
+							<tr style='height:40px;'>
+								<td class='rowhdr'>Last known position</td>
+								<td class='rowinfo'><span id='lastposition5013'></span>
+									<input id='showlastposition5013' type='button' value='Show on map' onclick='showLastPosition(5013)' style='width:120px;float:right;height:25px;margin-right:3px;display:none'/>
+								</td>
+							</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Latest Alerty PBA test</td>
+									<td class='rowinfo'><span id='lasttest5013'></span>
+										<input id='flictest5013' type='button' value='Reminder' onclick='sendFlicTest(5013,"en")' style='width:120px;float:right;height:25px;margin-right:3px;display:none'/>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Version</td>
+									<td class='rowinfo'>
+										<span name='version'>
+											<span id='version5013' style="float:left;margin-top:4px;width:244px;">1.0.2</span>
+										</span>
+										<input id='update5013' type='button' value='Software update' onclick='sendSoftwareUpdate(5013,"en")' style='width: 150px; margin-left:10px;height:25px;'/>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Name</td>
+									<td class='rowinfo'>
+										<input name='username' type='text' placeholder='Full name' value='Sara Elg' maxlength='23'/>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Phone nr</td>
+									<td class='rowinfo'>
+										<input name='phonenr' type='text' placeholder='+46123123456' value='0760250360' onkeypress='return event.charCode <= 57'>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Phonenr2</td>
+									<td class='rowinfo'>
+										<input name='phone_secondary' type='text' placeholder='e.g. Apple Watch eSIM' value='' onkeypress='return event.charCode <= 57'>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Email</td>
+									<td class='rowinfo'>
+										<input name='email' type='text' placeholder='someone@somewhere' value=''>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Invitation</td>
+									<td class='rowinfo' style='padding-top:0px;'>
+										<select style='width:404px;' name='userlang'>
+											<option value='en'>Send SMS in English</option>
+											<option value='sv' >Skicka SMS på Svenska</option>
+										</select>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Contact group</td>
+									<td class='rowinfo'>
+										<select name='alarmgroup'>
+											<option value='0' selected>Default</option>
+											<option value='1'>Emanuel</option>
+										</select>
+									</td>
+									</tr>
+									<tr style='height:40px;'>
+										<td class='rowhdr'>Authorization code</td>
+										<td class='rowinfo'>
+											<span id='pin5013'>1234</span>
+										</td>
+									</tr>
+									<tr style='height:40px;'>
+										<td class='rowhdr'>SCAIP ARC</td>
+										<td class='rowinfo'>
+											<span id='scaip5013'></span>
+										</td>
+									</tr>
+									<input type='hidden' name='id' value='5013'/>
+									<input type='hidden' name='action' id='action5013' value='saveuser'/>
+									<input type='hidden' name='latitude' id='latitude5013'/>
+									<input type='hidden' name='longitude' id='longitude5013'/>
+								</table>
+								<!-- <hr/> -->
+							</form>
+
+
+						</div>
+
 			</div>
 		</div>
 	</div>
