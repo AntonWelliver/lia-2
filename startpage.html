@@ -1,115 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html" ; charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            http-equiv="X-UA-Compatible"
+            content="text/html"
+            ;
+            charset="UTF-8"
+        />
 
         <title>Salus mea - Alarm portal</title>
 
         <link rel="stylesheet" type="text/css" href="css/index_main2.css" />
-        <link href="css/loginbox.css" rel="stylesheet" type="text/css" />
-        <link rel="icon" type="image/png" href="alertyFavicon.png" />
-        <script
-            type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA1vUw498bcppAYRAMyytc6Kr-oy1wRao&libraries=geometry"
-        ></script>
-        <script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>
-        <script type="text/javascript" src="js/alerty.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index_main3.css" />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css"
+        />
+        <script type="text/javascript" src="js/main.js"></script>
     </head>
-    <body>
-        <audio id="alertsound">
-            <source src="alert.wav" type="audio/wav" />
-        </audio>
-        <div id="sound_element"></div>
-        <div id="video" class="Popdiv">
-            <div class="Fader"></div>
-            <div class="Overlay">
-                <div class="Container" style="width:310px;height:250px">
-                    <a
-                        href="javascript:toggleVisible('video');"
-                        class="Close"
-                    ></a>
-                    <div class="Content" id="videocontent">
-                        <iframe id="videoframe" src="" width="265" height="200">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="verify" class="Popdiv" style="visibility:none">
-            <div class="Fader"></div>
-            <div class="Overlay">
-                <div
-                    class="Container"
-                    style="width:600px;height:300px;background:#ffffff;margin-left:-400px"
-                >
-                    <a
-                        href="javascript:toggleVisible('verify');"
-                        class="Close"
-                    ></a>
-                    <div class="Content" id="videocontent">
-                        The entered number is already used for another Alerty
-                        account. To create a new account and to disable the old
-                        one press the send button below. A 6 digit long code
-                        will be sent to the entered number. By submitting the
-                        same code below you accept that the old account is
-                        getting disabled and that a new one is created.
-                        <center>
-                            <br /><input
-                                id="sendverify"
-                                type="button"
-                                value="Send code"
-                                onclick="verify()"
-                            />
-                            <br /><br />
-                            <input
-                                id="verificationCode"
-                                type="text"
-                                value=""
-                                placeholder="Enter verification code"
-                                maxlength="6"
-                            /><br /><br />
-                            <input
-                                type="button"
-                                value="Proceed"
-                                onclick='confirmPhone(phoneVerification, "en", phoneNumber, document.getElementById("verificationCode").value)'
-                                style="width:150px;height:25px;"
-                            />
-                        </center>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="lastpositionmap" class="Popdiv">
-            <div class="Fader"></div>
-            <div class="Overlay">
-                <div
-                    class="Container"
-                    style="width:800px;height:600px;background-color:#fff;margin-left:-350px;margin-top:-300px"
-                >
-                    <a
-                        href="javascript:toggleVisible('lastpositionmap');"
-                        class="Close"
-                    ></a>
-                    <div class="Content">
-                        <div
-                            class="mapClass"
-                            id="wmap"
-                            style="left:0;top:0px;right:0px"
-                        ></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Header -->
+    <body id="wrapper">
         <div id="header">
             <img id="logo" src="brand/logo.png" class="left" />
             <div id="menu" class="">
                 <ul>
                     <li>
                         <a href="main.php" class="imageLink"
-                            ><img src="images/portalHeader/alerts.png" />
-                            <p>Alarm</p></a
+                            ><img src="images/portalHeader/map.png" />
+                            <p>Map</p></a
                         >
                     </li>
                     <li>
@@ -132,8 +54,8 @@
                     </li>
                     <li>
                         <a href="archive.php" class="imageLink"
-                            ><img src="images/portalHeader/archive.png" />
-                            <p>Archives</p></a
+                            ><img src="images/portalHeader/alerts.png" />
+                            <p>Alarm</p></a
                         >
                     </li>
                     <li>
@@ -152,12 +74,191 @@
                 </ul>
             </div>
             <input
+                type="text"
                 id="filter"
                 onkeyup="doFilter()"
                 placeholder="Search..."
                 maxlength="20"
-                type="text"
             />
         </div>
+
+        <!-- Sidebar -->
+        
+			<div id="sidebar">
+				<div id="sidebarheader">
+					<p class="left">Alarm</p>
+					<a href="#" onclick="toggleSound();"><img id="sound" src="images/sound_on.png" class="right"/></a>
+				</div>
+			
+			<div id="alerts">
+				<script type='text/javascript'>lastAlert=24979833602514314471;</script><div class='alarm' id='alert24979833602514314471' onclick='javascript:window.location.assign("main.php?action=show&id=24979833602514314471&status=3")' style='cursor:pointer'><div id='status' class='closed'></div><ul class='statusul'><li class='closed'>Closed</li><li class='statusulli'>29/01 15:15</li><li class='statusulli'>Emanuel</li><li class='statusulli' name='userphone'>+46736881065</li><li class='statusulli' name='usercompany'>Salus mea users</li></ul></div><div class='alarm' id='alert26977104983291058997' onclick='javascript:window.location.assign("main.php?action=show&id=26977104983291058997&status=3")' style='cursor:pointer'><div id='status' class='closed'></div><ul class='statusul'><li class='closed'>Closed</li><li class='statusulli'>29/01 15:02</li><li class='statusulli'>Emanuel</li><li class='statusulli' name='userphone'>+46736881065</li><li class='statusulli' name='usercompany'>Salus mea users</li></ul></div><div class='alarm' id='alert12858343736723748929' onclick='javascript:window.location.assign("main.php?action=show&id=12858343736723748929&status=3")' style='cursor:pointer'><div id='status' class='closed'></div><ul class='statusul'><li class='closed'>Closed</li><li class='statusulli'>26/01 23:36</li><li class='statusulli'>Emanuel</li><li class='statusulli' name='userphone'>+46736881065</li><li class='statusulli' name='usercompany'>Salus mea users</li></ul></div><div class='alarm' id='alert77539814874764659816' onclick='javascript:window.location.assign("main.php?action=show&id=77539814874764659816&status=3")' style='cursor:pointer'><div id='status' class='closed'></div><ul class='statusul'><li class='closed'>Closed</li><li class='statusulli'>26/01 23:11</li><li class='statusulli'>Emanuel</li><li class='statusulli' name='userphone'>+46736881065</li><li class='statusulli' name='usercompany'>Salus mea users</li></ul></div><div class='alarm' id='alert68095726401582374383' onclick='javascript:window.location.assign("main.php?action=show&id=68095726401582374383&status=3")' style='cursor:pointer'><div id='status' class='closed'></div><ul class='statusul'><li class='closed'>Closed</li><li class='statusulli'>26/01 23:10</li><li class='statusulli'>Emanuel</li><li class='statusulli' name='userphone'>+46736881065</li><li class='statusulli' name='usercompany'>Salus mea users</li></ul></div><div class='alarm' id='alert54477209241375239840' onclick='javascript:window.location.assign("main.php?action=show&id=54477209241375239840&status=3")' style='cursor:pointer'><div id='status' class='closed'></div><ul class='statusul'><li class='closed'>Closed</li><li class='statusulli'>26/01 15:01</li><li class='statusulli'>Emanuel</li><li class='statusulli' name='userphone'>+46736881065</li><li class='statusulli' name='usercompany'>Salus mea users</li></ul></div><div class='alarm' id='alert12888981454269784372' onclick='javascript:window.location.assign("main.php?action=show&id=12888981454269784372&status=3")' style='cursor:pointer'><div id='status' class='closed'></div><ul class='statusul'><li class='closed'>Closed</li><li class='statusulli'>26/01 14:17</li><li class='statusulli'>Emanuel</li><li class='statusulli' name='userphone'>+46736881065</li><li class='statusulli' name='usercompany'>Salus mea users</li></ul></div><div class='alarm' id='alert33698075211219852616' onclick='javascript:window.location.assign("main.php?action=show&id=33698075211219852616&status=3")' style='cursor:pointer'><div id='status' class='closed'></div><ul class='statusul'><li class='closed'>Closed</li><li class='statusulli'>26/01 13:02</li><li class='statusulli'>Emanuel</li><li class='statusulli' name='userphone'>+46736881065</li><li class='statusulli' name='usercompany'>Salus mea users</li></ul></div><div class='alarm' id='alert55757876654633423440' onclick='javascript:window.location.assign("main.php?action=show&id=55757876654633423440&status=3")' style='cursor:pointer'><div id='status' class='closed'></div><ul class='statusul'><li class='closed'>Closed</li><li class='statusulli'>26/01 12:42</li><li class='statusulli'>Emanuel</li><li class='statusulli' name='userphone'>+46736881065</li><li class='statusulli' name='usercompany'>Salus mea users</li></ul></div><div class='alarm' id='alert51968480912168155291' onclick='javascript:window.location.assign("main.php?action=show&id=51968480912168155291&status=3")' style='cursor:pointer'><div id='status' class='closed'></div><ul class='statusul'><li class='closed'>Closed</li><li class='statusulli'>25/01 23:44</li><li class='statusulli'>Emanuel</li><li class='statusulli' name='userphone'>+46736881065</li><li class='statusulli' name='usercompany'>Salus mea users</li></ul></div><div class='alarm' id='alert75383150557758486958' onclick='javascript:window.location.assign("main.php?action=show&id=75383150557758486958&status=3")' style='cursor:pointer'><div id='status' class='closed'></div><ul class='statusul'><li class='closed'>Closed</li><li class='statusulli'>25/01 23:21</li><li class='statusulli'>Emanuel</li><li class='statusulli' name='userphone'>+46736881065</li><li class='statusulli' name='usercompany'>Salus mea users</li></ul></div><div class='alarm' id='alert40268466852721645593' onclick='javascript:window.location.assign("main.php?action=show&id=40268466852721645593&status=3")' style='cursor:pointer'><div id='status' class='closed'></div><ul class='statusul'><li class='closed'>Closed</li><li class='statusulli'>25/01 23:08</li><li class='statusulli'>Emanuel</li><li class='statusulli' name='userphone'>+46736881065</li><li class='statusulli' name='usercompany'>Salus mea users</li></ul></div><div class='alarm' id='alert60236427685087886510' onclick='javascript:window.location.assign("main.php?action=show&id=60236427685087886510&status=3")' style='cursor:pointer'><div id='status' class='closed'></div><ul class='statusul'><li class='closed'>Closed</li><li class='statusulli'>25/01 22:49</li><li class='statusulli'>Emanuel</li><li class='statusulli' name='userphone'>+46736881065</li><li class='statusulli' name='usercompany'>Salus mea users</li></ul></div>
+			</div>
+		</div>
+
+        <div class="wrapper" id="createGeofenceView">
+            <div>
+                <form action="/">
+                    <div class="container">
+                        <h3 style="color: white;">Create a new geofence</h3>
+
+                        <input
+                            type="text"
+                            placeholder="Name"
+                            name="nameInput"
+                        />
+
+                        <div style="padding-top: 10px;">
+                            <label
+                                for=""
+                                style="color: white; padding-left: 12px;"
+                                >Type:</label
+                            >
+                            <form action="/">
+                                <select name="types">
+                                    <option
+                                        value=""
+                                        selected="true"
+                                        disabled="disabled"
+                                        >...</option
+                                    >
+                                    <option value="polygon">Polygon</option>
+                                    <option value="circle">Circle</option>
+                                </select>
+                            </form>
+                        </div>
+
+                        <input
+                            type="text"
+                            placeholder="Place"
+                            name="placeInput"
+                        />
+
+                        <input
+                            type="text"
+                            placeholder="Floor"
+                            name="floorInput"
+                        />
+
+                        <input
+                            type="text"
+                            placeholder="Department"
+                            name="departmentInput"
+                        />
+
+                        <input
+                            type="text"
+                            placeholder="Address"
+                            name="addressInput"
+                        />
+
+                        <input
+                            type="text"
+                            placeholder="Latitude"
+                            name="latitudeInput"
+                        />
+
+                        <input
+                            type="text"
+                            placeholder="Longitude"
+                            name="longitudeInput"
+                        />
+
+                        <input
+                            type="number"
+                            placeholder="Radius"
+                            name="radiusInput"
+                            id="radiusInput"
+                        />
+
+                        <button type="cancel" class="cancelbtn" id="cancelbtn" onclick="cancelManageView()">
+                            Cancel
+                        </button>
+
+                        <button type="submit" class="registerbtn" id="registerbtn">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div>
+                <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://api.maptiler.com/maps/streets/?key=cRryMLniO3NyotbQKOtf#17.2/57.69252/11.97388"
+                ></iframe>
+            </div>
+        </div>
+
+        
+        <table class="center" id="manageGeofenceTable">
+                <div id="statusdataheader" style="font-weight: bold;">
+                    <p>Manage Geofences</p>
+                </div>
+                <caption>
+                    <button 
+                        type="add" 
+                        onclick="addNewGeofence()" 
+                        style="float: right; 
+                            padding: 7px; 
+                            margin-bottom: 5px; 
+                            background-color: white;
+                            border-radius: 10px; 
+                            cursor: pointer;"
+                    >
+                        Add Geofence
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </caption>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Address</th>
+                <th>Place</th>
+                <th>Floor</th>
+                <th>Department</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+            </tr>
+            <tr>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+            </tr>
+            <tr>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+                <td>Anton</td>
+            </tr>
+            <tbody id="tableBody"></tbody>
+        </table class="center">
     </body>
 </html>

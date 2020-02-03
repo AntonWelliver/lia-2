@@ -1,6 +1,5 @@
 
 function addNewGeofence() {
-    console.log("hej");
     var createGeofenceView = document.getElementById("createGeofenceView");
     var manageGeofenceTable = document.getElementById("manageGeofenceTable");
     if (createGeofenceView.style.display !== "grid") {
