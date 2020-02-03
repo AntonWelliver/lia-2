@@ -53,6 +53,7 @@ th {
 
 #createGeofenceView {
     display: none;
+    overflow: scroll;
 }
 
 * {
