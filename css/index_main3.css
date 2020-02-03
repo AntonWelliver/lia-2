@@ -115,7 +115,7 @@ background-size:50px;
 float:left;
 -webkit-border-radius: 3px 3px 0px 0px;
 border-radius: 0px 8px 0px 0px;
-
+}
 
 
 #sidebarheader img {
@@ -485,21 +485,6 @@ right: 640px;
 #contactgroupheader div {
     background: #444444;
 }
-
-
-#contactgroupheader select {
-  border: 1px solid #c9c9c9;
-  height: 25px;
-  width: 200px;
-  -webkit-border-radius: 4px;
-  moz-border-radius: 4px;
-  border-radius: 12px;
-  margin-right: 20px;
- }
-
-#contactgroupheader div
-{
-background: #444444; }
 
 #personcontainer
 {
