@@ -5,9 +5,6 @@ function addNewGeofence() {
     if (createGeofenceView.style.display !== "grid") {
         createGeofenceView.style.display = "grid";
         manageGeofenceTable.style.display = "none";
-    } else {
-        createGeofenceView.style.display = "none";
-        manageGeofenceTable.style.display = "table";
     }
 }
 
@@ -17,8 +14,5 @@ function cancelManageView() {
     if (manageGeofenceTable.style.display === "none") {
         manageGeofenceTable.style.display = "table";
         createGeofenceView.style.display = "none";
-    } else {
-        manageGeofenceTable.style.display = "none";
-        createGeofenceView.style.display = "grid";
     }
 }
