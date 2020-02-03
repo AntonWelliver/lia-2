@@ -11,7 +11,7 @@
 
         <title>Salus mea - Alarm portal</title>
 
-        <link rel="stylesheet" type="text/css" href="css/index_main2.css" />
+        <link rel="stylesheet" type="text/css" href="css/startpage.css" />
         <link
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
@@ -22,10 +22,10 @@
         />
         <script type="text/javascript" src="js/main.js"></script>
     </head>
-    <body>
+    <body id="wrapper">
         <div id="header">
             <img id="logo" src="brand/logo.png" class="left" />
-            <div id="menu" class="">
+            <div id="menu">
                 <ul>
                     <li>
                         <a href="main.php" class="imageLink"
@@ -80,6 +80,28 @@
                 maxlength="20"
             />
         </div>
+
+        <!-- Sidebar -->
+        
+		<div id="sidebar">
+				<div id="sidebarheader">
+					<p class="left">Alarm</p>
+					<a href="#" onclick="toggleSound();"><img id="sound" src="images/sound_on.png" class="right"/></a>
+				</div>
+			
+			<div id="alerts">
+                <script type='text/javascript'>lastAlert=24979833602514314471;</script>
+                <div class='alarm' id='alert12888981454269784372' onclick='javascript:window.location.assign("main.php?action=show&id=12888981454269784372&status=3")' style='cursor:pointer'>
+                    <div id='status' class='closed'></div>
+                    <ul class='statusul'><li class='closed'>Closed</li>
+                        <li class='statusulli'>26/01 14:17</li>
+                        <li class='statusulli'>Emanuel</li>
+                        <li class='statusulli' name='userphone'>+46736881065</li>
+                        <li class='statusulli' name='usercompany'>Salus mea users</li>
+                    </ul>
+                </div>
+			</div>
+		</div>
 
         <div class="wrapper" id="createGeofenceView">
             <div>
@@ -178,9 +200,9 @@
 
         
         <table class="center" id="manageGeofenceTable">
-                <caption style="font-weight: bold;">
-                    Manage Geofences
-                </caption>
+                <div id="statusdataheader" style="font-weight: bold;">
+                    <p>Manage Geofences</p>
+                </div>
                 <caption>
                     <button 
                         type="add" 
@@ -189,7 +211,7 @@
                             padding: 7px; 
                             margin-bottom: 5px; 
                             background-color: white;
-                            border-radius: 5px; 
+                            border-radius: 10px; 
                             cursor: pointer;"
                     >
                         Add Geofence
@@ -207,42 +229,6 @@
                 <th>Longitude</th>
                 <th>Created At</th>
                 <th>Actions</th>
-            </tr>
-            <tr>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-            </tr>
-            <tr>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-            </tr>
-            <tr>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
-                <td>Anton</td>
             </tr>
             <tbody id="tableBody"></tbody>
         </table class="center">
