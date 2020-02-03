@@ -53,7 +53,6 @@ th {
 
 #createGeofenceView {
     display: none;
-    overflow: scroll;
 }
 
 * {
@@ -172,6 +171,7 @@ table.center {
     height: 100%;
     overflow: hidden;
     background-color: #121e2d;
+    overflow: scroll;
 }
 
 #wrapper::-webkit-scrollbar {
@@ -446,64 +446,10 @@ div.accepted {
     font-weight: bold;
 }
 
-/* --- Map --- */
-
-#mapContainer {
-    min-height: 100%;
-    height: 100%;
-    overflow: auto;
-    -webkit-border-radius: 3px 3px 0px 0px;
-}
-#mapContainer::-webkit-scrollbar {
-    width: 8px;
-}
-
-/* Track */
-#mapContainer::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-}
-
-/* Handle */
-#mapContainer::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background: #b2b2b2;
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
-}
-#mapContainer::-webkit-scrollbar-thumb:window-inactive {
-    background: #b2b2b2;
-}
-
-#gMapContainer {
-    width: 100%;
-}
-
-.mapClass {
-    position: absolute;
-    top: 270px;
-    bottom: 0;
-    left: 290px;
-    right: 640px;
-    background-color: #ddd;
-    overflow: auto;
-}
-
-#pusher {
-    padding-bottom: 150px;
-    overflow: auto;
-}
-
 #satusdata {
-    /* background-color: #444; */
     -webkit-border-radius: 3px 3px 0px 0px;
 }
 
-#iceinfo {
-    overflow: hidden;
-    width: 800px;
-}
 .collapsible {
     background-color: #081420;
     color: white;
