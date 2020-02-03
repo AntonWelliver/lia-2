@@ -10,7 +10,7 @@ body {
 
 #wrapper {
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
     background-color: #121e2d;
 }
 
