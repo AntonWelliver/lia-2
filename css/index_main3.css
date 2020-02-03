@@ -96,23 +96,27 @@ ul {
 /* --- Sidebar --- */
 
 #sidebar {
-    background: #121e2d;
-    width: 275px;
-    min-height: 100%;
-    height: 100%;
-    float: left;
-    margin-right: 15px;
-    padding-bottom: -100px;
+
+  background: #121E2D;
+  width: 275px;
+  min-height: 82%;
+height: 82%;
+  float:left;
+  margin-right: 15px;
+  padding-bottom: -100px;
 }
 
-#sidebarheader {
-    height: 50px;
-    width: 275px;
-    background-color: #081420;
-    background-size: 50px;
-    float: left;
-    -webkit-border-radius: 3px 3px 0px 0px;
-}
+#sidebarheader
+{
+height:50px;
+width:275px;
+background-color: #081420;
+background-size:50px;
+float:left;
+-webkit-border-radius: 3px 3px 0px 0px;
+border-radius: 0px 8px 0px 0px;
+
+
 
 #sidebarheader img {
     margin-right: 10px;
@@ -134,11 +138,18 @@ ul {
     padding-left: 5px;
 }
 
-#alerts {
-    width: 275px;
-    height: 100%;
-    overflow: scroll;
-    background-color: #081420;
+
+
+#alerts
+{	
+width:275px;
+height: 100%;
+overflow: auto;
+background-color: #081420;
+padding-bottom: 8px;
+border-radius: 0 0 8px;
+
+
 }
 
 #alerts::-webkit-scrollbar {
@@ -216,6 +227,11 @@ a,
 img {
     border: none;
 }
+.statusulliDate{
+  color: gray;
+  float: right;
+  padding-right: 12px;
+}
 
 .grey {
     color: #495966;
@@ -256,8 +272,12 @@ div.accepted {
     border-width: 1px;
 }
 
-.closed {
-    font-weight: bold;
+
+.closed
+{
+font-weight: bold;
+display: inline-block;
+
 }
 
 .active {
@@ -302,14 +322,18 @@ div.accepted {
     width: 100%;
 }
 
-.mapClass {
-    position: absolute;
-    top: 270px;
-    bottom: 0;
-    left: 290px;
-    right: 640px;
-    background-color: #ddd;
-    overflow: auto;
+
+.mapClass
+{
+position: absolute;
+top: 292px;
+bottom: 0;
+left: 290px;
+right: 640px;
+  background-color: #DDD;
+  overflow: auto;
+  border-radius: 3px;
+
 }
 
 #pusher {
@@ -462,69 +486,94 @@ div.accepted {
     background: #444444;
 }
 
-#personcontainer {
-    float: left;
-    /*width: 365px;*/
-    line-height: 22px;
+
+#contactgroupheader select {
+  border: 1px solid #c9c9c9;
+  height: 25px;
+  width: 200px;
+  -webkit-border-radius: 4px;
+  moz-border-radius: 4px;
+  border-radius: 12px;
+  margin-right: 20px;
+ }
+
+#contactgroupheader div
+{
+background: #444444; }
+
+#personcontainer
+{
+float:left;
+/*width: 365px;*/
+line-height: 22px;
 }
 
-#personcontainer ul {
-    margin: 10px 0px 0px 15px;
-    padding: 0px;
-    list-style: none;
-    font-size: 16px;
+#personcontainer ul
+{
+margin: 10px 0px 0px 15px;
+padding:0px;
+list-style: none;
+font-size: 16px;
 }
 
-.datadiv {
-    /*width: 100%;*/
-    height: 132px;
-    background-color: #444;
-    color: #fff;
+.datadiv
+{
+/* width: 100%; */
+height: 132px;
+background-color: #0f1f2e;
+color: #fff;
 }
 
-.dSettings {
-    /* background-color: #081420 !important; */
-    /* height:100% !important; */
-    min-height: 100% !important;
-    padding-bottom: 90px;
+.dSettings
+{
+/* background-color: #081420 !important; */
+/* height:100% !important; */
+min-height: 100% !important;
+padding-bottom: 90px;
 }
 
-.dSettings hr {
-    -webkit-margin-after: 0px;
+.dSettings hr
+{
+-webkit-margin-after: 0px;
 }
 
-#acceptbutton {
-    float: right;
-    margin-top: 0px;
-    border: 1px solid #6e9635;
-    color: white;
-    box-shadow: 0 0.05em 0.25em rgba(0, 0, 0, 0.5);
-    text-shadow: 0 -0.05em 0.05em rgba(0, 0, 0, 0.5);
-    font-size: 150%;
-    background-color: #8dc73f;
+#acceptbutton
+{
+float: right;
+margin-top: 0px;
+border: 1px solid #6e9635;
+color: white;
+box-shadow: 0 0.05em 0.25em rgba(0, 0, 0, 0.5);
+text-shadow: 0 -0.05em 0.05em rgba(0, 0, 0, 0.5);
+font-size: 150%;
+background-color: #8dc73f;
 }
 
-#closebutton {
-    float: right;
-    margin-top: 0px;
-    border: 1px solid #c80100;
-    color: white;
-    box-shadow: 0 0.05em 0.25em rgba(0, 0, 0, 0.5);
-    text-shadow: 0 -0.05em 0.05em rgba(0, 0, 0, 0.5);
-    font-size: 150%;
-    background-color: #ff0201;
+#closebutton
+{
+float: right;
+margin-top: 0px;
+border: 1px solid #c80100;
+color: white;
+box-shadow: 0 0.05em 0.25em rgba(0, 0, 0, 0.5);
+text-shadow: 0 -0.05em 0.05em rgba(0, 0, 0, 0.5);
+font-size: 150%;
+background-color: #ff0201;
 }
 
-#statuscontainer {
-    margin-right: 15px;
-    margin-top: 15px;
-    font-size: 16px;
-    width: 30%;
+#statuscontainer
+{
+margin-right: 15px;
+margin-top: 15px;
+font-size: 16px;
+width: 30%;
 }
 
-#statuscontainer li {
-    text-align: right;
-    margin-bottom: 5px;
+#statuscontainer li
+{
+text-align: right;
+margin-bottom: 5px;
+
 }
 
 #alertactive div {
@@ -645,13 +694,16 @@ input {
     border: 1px solid #c9c9c9;
 }
 
-.rowinfo select {
-    width: 400px;
-    height: 25px;
-    -webkit-border-radius: 4px;
-    moz-border-radius: 4px;
-    border-radius: 4px;
-    border: 1px solid #c9c9c9;
+
+.rowinfo select
+{
+width: 300px;
+height: 25px;
+-webkit-border-radius: 4px;
+moz-border-radius: 4px;
+border-radius: 10px;
+border: 1px solid #c9c9c9;
+
 }
 
 table {
@@ -696,83 +748,99 @@ td {
     left: 50%;
 }
 
-#durationCounter {
-    margin-left: -270px;
-    padding-top: 7px;
-    height: 70px;
-    background-color: #fff;
-    border-bottom-style: solid;
-    border-color: #868686;
-    border-width: 3px;
-    opacity: 0.8;
-    filter: alpha(opacity=80); /* For IE8 and earlier */
-    width: 200px;
+
+/* --- Mätare på kartan --- */
+#duration p
+{
+font-weight: 200%;
+font-size: 34px;
+color: white;
+margin: 0px;
+color:#000;
+
+}
+#duration small
+{
+font-size: 15px;
 }
 
-#distance {
-    width: 200px;
-    height: 70px;
-    position: absolute;
-    bottom: 20px;
-    display: inline;
-    text-align: center;
+#duration
+{
+width: 200px;
+height: 70px;	
+position: absolute;
+bottom: 20px;
+display: inline;
+text-align: center;
 
-    margin-left: auto;
-    margin-right: auto;
-    left: 50%;
-}
-
-#distance p {
-    font-weight: 200%;
-    font-size: 34px;
-    color: white;
-    margin: 0px;
-    color: #000;
-}
-#distance small {
-    font-size: 15px;
-}
-#sticky {
-    min-height: 100%;
+margin-left: auto;
+margin-right: auto;
+left:50%;
 }
 
-#tabheader {
-    background-color: #232323;
-    color: #ededed;
-    border-radius: 5px 5px 0px 0px;
-    width: 800px;
-}
-#tabheader ul {
-    font-weight: normal;
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-    vertical-align: middle;
-    width: 100%;
-}
-#tabheader li {
-    float: left;
-    vertical-align: middle;
-    margin: 0px;
-    line-height: 34px;
-    font-size: 19px;
-    padding: 8px 30px;
-    cursor: pointer;
-    border-radius: 5px 5px 0px 0px;
-}
-#tabheader li.selected {
-    background-color: #444;
-}
-#tabheader li.unselected {
-    background-color: #232323;
+#durationCounter
+{
+margin-left: -270px;
+padding-top: 7px;
+height: 70px;
+background-color: #fff;	
+border-bottom-style:solid;
+border-color:#868686;
+border-width:3px;	
+opacity:0.8;	
+filter:alpha(opacity=80); /* For IE8 and earlier */
+width: 200px;
 }
 
-input[name="wlaninfo"] {
-    border: 0px;
+#distance
+{
+width: 200px;
+height: 70px;	
+position: absolute;
+bottom: 20px;
+display: inline;
+text-align: center;
+
+margin-left: auto;
+margin-right: auto;
+left:50%;
 }
 
-.portaladdress {
-    border: 1px solid #c9c9c9 !important;
+#distance p
+{
+font-weight: 200%;
+font-size: 34px;
+color: white;
+margin: 0px;
+color:#000;
+
+}
+#distance small
+{
+font-size: 15px;
+}
+#sticky
+{
+min-height: 100%;
+}
+
+#tabheader { background-color: #232323; color: #ededed; border-radius: 5px 5px 0px 0px; width: 800px;}
+#tabheader ul { font-weight: normal; list-style: none; padding-left:0; margin:0; vertical-align: middle; width:100%}
+#tabheader li { float: left; vertical-align: middle; margin:0px; line-height: 34px; font-size:19px; padding:8px 30px; cursor:pointer; border-radius: 5px 5px 0px 0px; }
+#tabheader li.selected {background-color: #444;}
+#tabheader li.unselected {background-color: #232323;}
+
+input[name=wlaninfo] {    
+border: 0px;
+background-color: transparent;
+color: gainsboro;
+}  
+
+.portaladdress
+{
+border: 1px solid #c9c9c9 !important;
+
+
 }
 
 #videobuttons {
