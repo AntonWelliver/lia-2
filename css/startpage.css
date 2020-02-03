@@ -6,25 +6,198 @@ body {
     padding: 0;
     height: 100%;
     font-family: Helvetica, Arial, sans-serif;
+    background-color: #121e2d;
+}
+
+table {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    width: 70%;
+    border: 1px solid white;
+    border-radius: 5px;
+    border-collapse: collapse;
+    margin: 10px;
+    box-shadow: 2px 2px 2px grey;
+    background-color: #121e2d;
+    color: white;
+}
+
+tr {
+    border: solid grey;
+    border-width: 1px 0;
+}
+
+tr:first-child {
+    border-top: none;
+}
+tr:last-child {
+    border-bottom: none;
+}
+
+td,
+th {
+    text-align: left;
+    padding: 8px;
+    border: none;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-auto-rows: minmax(480px, auto);
+    grid-column-gap: 5px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    background-color: #121e2d;
+}
+
+#createGeofenceView {
+    display: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    padding: 16px;
+    background-color: #081420;
+}
+
+input {
+    width: 400px;
+    height: 25px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #c9c9c9;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    border-bottom: 1px solid grey;
+}
+
+.input-container {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+}
+
+.input-field:focus {
+    border: 2px solid white;
+}
+
+#placeInput {
+    width: 80%;
+    float: left;
+}
+
+#radiusInput {
+    border: none;
+    border-bottom: 1px solid grey;
+    padding: 15px;
+}
+
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cancelbtn {
+    background-image: linear-gradient(
+        to right,
+        rgb(230, 120, 175),
+        rgb(243, 24, 97)
+    );
+    color: white;
+    padding: 16px 20px;
+    margin: 20px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 40%;
+    opacity: 0.9;
+    float: left;
+}
+
+.cancelbtn:hover {
+    opacity: 1;
+}
+
+.registerbtn {
+    background-image: linear-gradient(
+        to right,
+        rgb(100, 193, 255),
+        rgb(43, 135, 241)
+    );
+    color: white;
+    padding: 16px 20px;
+    margin: 20px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 40%;
+    opacity: 0.9;
+    float: right;
+}
+
+.registerbtn:hover {
+    opacity: 1;
+}
+
+#statusdataheader {
+    height: 50px;
+    background-color: #2192fe;
+    background-size: 50px;
+    -webkit-border-radius: 3px 3px 0px 0px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    margin-right: 20px;
 }
 
 #wrapper {
     height: 100%;
     overflow: hidden;
     background-color: #121e2d;
+    overflow: scroll;
 }
 
-.LoginContent {
-    width: 30%;
-    margin-left: 35%;
-    margin-top: 40px;
+#wrapper::-webkit-scrollbar {
+    width: 5px;
+}
+
+#wrapper::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+#wrapper::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #b2b2b2;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+#wrapper::-webkit-scrollbar-thumb:window-inactive {
+    background: #b2b2b2;
 }
 
 ul {
     margin: 0px;
     padding: 0px;
     list-style: none;
-    /*font-weight: bold;*/
 }
 
 .left {
@@ -37,11 +210,9 @@ ul {
 
 /* --- Header --- */
 #header {
-    margin-bottom: 15px;
+    margin-bottom: 0;
     height: 75px;
     width: 100%;
-    /* box-shadow: 0px 3px 15px #888888; */
-    background-color: #121e2d;
 }
 
 #header input {
@@ -50,7 +221,7 @@ ul {
     margin-bottom: 0px;
     padding-left: 10px;
     float: right;
-    width: 200px;
+    width: 20%;
 }
 
 #logo {
@@ -96,13 +267,14 @@ ul {
 /* --- Sidebar --- */
 
 #sidebar {
-    background: #121e2d;
+    background: #fff;
     width: 275px;
     min-height: 100%;
     height: 100%;
     float: left;
     margin-right: 15px;
     padding-bottom: -100px;
+    border-radius: 5px;
 }
 
 #sidebarheader {
@@ -132,6 +304,12 @@ ul {
     margin-top: 11px;
     margin-left: 15px;
     padding-left: 5px;
+}
+
+.LoginContent {
+    width: 30%;
+    margin-left: 35%;
+    margin-top: 40px;
 }
 
 #alerts {
@@ -268,64 +446,10 @@ div.accepted {
     font-weight: bold;
 }
 
-/* --- Map --- */
-
-#mapContainer {
-    min-height: 100%;
-    height: 100%;
-    overflow: auto;
-    -webkit-border-radius: 3px 3px 0px 0px;
-}
-#mapContainer::-webkit-scrollbar {
-    width: 8px;
-}
-
-/* Track */
-#mapContainer::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-}
-
-/* Handle */
-#mapContainer::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background: #b2b2b2;
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
-}
-#mapContainer::-webkit-scrollbar-thumb:window-inactive {
-    background: #b2b2b2;
-}
-
-#gMapContainer {
-    width: 100%;
-}
-
-.mapClass {
-    position: absolute;
-    top: 270px;
-    bottom: 0;
-    left: 290px;
-    right: 640px;
-    background-color: #ddd;
-    overflow: auto;
-}
-
-#pusher {
-    padding-bottom: 150px;
-    overflow: auto;
-}
-
 #satusdata {
-    /* background-color: #444; */
     -webkit-border-radius: 3px 3px 0px 0px;
 }
 
-#iceinfo {
-    overflow: hidden;
-    width: 800px;
-}
 .collapsible {
     background-color: #081420;
     color: white;
@@ -349,13 +473,9 @@ div.accepted {
 .active:after {
     content: "\21E7";
 }
-/* .active, .collapsible {
-  border-radius: 10px 10px 0px 0px;
-} */
 
 #statusdataheader {
     height: 50px;
-    /* width:100%; */
     background-color: #2192fe;
     background-size: 50px;
     -webkit-border-radius: 3px 3px 0px 0px;
@@ -464,7 +584,6 @@ div.accepted {
 
 #personcontainer {
     float: left;
-    /*width: 365px;*/
     line-height: 22px;
 }
 
@@ -476,15 +595,12 @@ div.accepted {
 }
 
 .datadiv {
-    /*width: 100%;*/
     height: 132px;
     background-color: #444;
     color: #fff;
 }
 
 .dSettings {
-    /* background-color: #081420 !important; */
-    /* height:100% !important; */
     min-height: 100% !important;
     padding-bottom: 90px;
 }

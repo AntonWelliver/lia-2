@@ -1,25 +1,22 @@
 
 function addNewGeofence() {
-    console.log("hej");
     var createGeofenceView = document.getElementById("createGeofenceView");
     var manageGeofenceTable = document.getElementById("manageGeofenceTable");
+    var statusDataHeader = document.getElementById("statusdataheader");
     if (createGeofenceView.style.display !== "grid") {
         createGeofenceView.style.display = "grid";
         manageGeofenceTable.style.display = "none";
-    } else {
-        createGeofenceView.style.display = "none";
-        manageGeofenceTable.style.display = "table";
+        statusDataHeader.style.display = "none";
     }
 }
 
 function cancelManageView() {
     var createGeofenceView = document.getElementById("createGeofenceView");
     var manageGeofenceTable = document.getElementById("manageGeofenceTable");
+    var statusDataHeader = document.getElementById("statusdataheader");
     if (manageGeofenceTable.style.display === "none") {
         manageGeofenceTable.style.display = "table";
         createGeofenceView.style.display = "none";
-    } else {
-        manageGeofenceTable.style.display = "none";
-        createGeofenceView.style.display = "grid";
+        statusDataHeader.style.display = "grid";
     }
 }
