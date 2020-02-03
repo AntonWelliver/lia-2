@@ -14,6 +14,13 @@ body {
     background-color: #121e2d;
 }
 
+#wrapperManual {
+    height: 100%;
+    background-color: #121e2d;
+    overflow: auto;
+    color: white;
+}
+
 .LoginContent {
     width: 30%;
     margin-left: 35%;
