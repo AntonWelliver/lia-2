@@ -14,7 +14,26 @@
         <link rel="stylesheet" type="text/css" href="css/index_main3.css" />
         <link rel="stylesheet" type="text/css" href="faq.css" />
         <link rel="stylesheet" type="text/css" href="default.css" />
-        <link rel="stylesheet" href="css/flexboxgrid.min.css" type="text/css" />
+        <link
+            rel="stylesheet"
+            href="flexboxgrid/css/flexboxgrid.css"
+            type="text/css"
+        />
+        <link
+            rel="stylesheet"
+            href="flexboxgrid/css/flexboxgrid.min.css"
+            type="text/css"
+        />
+        <link
+            rel="stylesheet"
+            href="flexboxgrid/css/index.css"
+            type="text/css"
+        />
+        <link
+            rel="stylesheet"
+            href="flexboxgrid/css/index.min.css"
+            type="text/css"
+        />
         <link
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
@@ -78,267 +97,233 @@
                     </ul>
                 </div>
             </div>
-            <div id="content">
-                <div id="contentFaq">
-                    <div class="cWrapper_faq">
-                        <div class="dataFaq" id="data">
-                            <ul>
-                                <li>
-                                    <div class="bT">Larmlista</div>
-                                    <br />
-                                    <div class="bC">
-                                        <p>
-                                            Längst upp finner du menyn och
-                                            rubrikerna i larmportalen. Larm
-                                            listas till vänster i larmhistorik,
-                                            tillhörande karta och
-                                            larminformation visas till höger.
-                                        </p>
-                                        <img
-                                            style="margin-left:200px;"
-                                            src="images/wireframe_se.png"
-                                        />
-                                    </div>
-                                </li>
-                                <div class="row top-xs">
-                                    <div class="col-xs-6">
-                                        <div class="box">
-                                            <h3>
-                                                Larmhistorik
-                                            </h3>
-                                            <div>
-                                                <p>
-                                                    Det första du möts av när du
-                                                    loggat in är det senaste
-                                                    larmet. Till väster visas
-                                                    larmstatus, när det är
-                                                    startat och vem som har
-                                                    skickat det.
-                                                </p>
-                                                <p>
-                                                    Larmstatus har tre olika
-                                                    färger:
-                                                </p>
-                                                <ul>
-                                                    <li>
-                                                        <b>Grön</b> - Larmet är
-                                                        avslutat
-                                                    </li>
-                                                    <li>
-                                                        <b>Gul</b> - Larmet är
-                                                        aktivt och accepterat av
-                                                        någon larmmottagare.
-                                                    </li>
-                                                    <li>
-                                                        <b>Röd</b> - Aktivt ännu
-                                                        inte accepterat av någon
-                                                        larmmottagre
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <div class="col-xs-6">
-                                        <div class="box">
-                                            <h3>Karta</h3>
-                                            <div>
-                                                Kartan visar positionen för den
-                                                som har startat det aktuella
-                                                larmet, detta visas som en blå
-                                                prick. Larmets startposition är
-                                                markerat med en röd pil. Efter
-                                                pricken ritas ett rött spår som
-                                                visar hur mobilen har förflyttat
-                                                sig under larmets gång. Då
-                                                mobiltelefonen använder sig av
-                                                GPS och inte
-                                                inomhuspositionering visas även
-                                                positionens noggranhet med en
-                                                cirkel.
-                                                <br />
-                                                Då ett larm är aktivt har kartan
-                                                visas hur länge larmet har varit
-                                                aktivt samt ett avstånd mellan
-                                                mobiltelefonen och datorn där
-                                                larmportalen används, avståndet
-                                                som anges gäller fågelvägen.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <li>
-                                    <div class="bT">Larminformation</div>
-                                    <br />
-                                    <div class="bC">
-                                        <p>
-                                            På larmsidan ovanför kartan visas
-                                            fyra flikar med information om
-                                            larmhändelsen.
-                                            <b
-                                                >Info, Video, Personuppgifter &
-                                                ICE-kontakter.</b
-                                            >
-                                            <br />
-                                            <br />
-                                            - Information om tid och plats då
-                                            larmet aktiverades, namnet på
-                                            larmbäraren och den aktuella adress
-                                            då larmet aktiverades. Till höger
-                                            ser man även när ett larm
-                                            accepterats och av vem.
-                                            <br />
-                                            - Video - Video i realtid,
-                                            tvåvägskommunikation.
-                                            <br />
-                                            - Personuppgifter - Uppgifter om
-                                            larmbäraren, fylls i via appen
-                                            (valfrittt).
-                                            <br />
-                                            - ICE-kontakter - Uppgifter om In
-                                            Case of Emergency-kontakter, fylls i
-                                            via appen (valfrittt).
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="bT">Användare (larmbärare)</div>
-                                    <br />
-                                    <div class="bC">
-                                        <p>
-                                            Här kan du registrera användare, ett
-                                            sms skickas till larmbärarens
-                                            telefonnummer med information hur
-                                            man laddar ner Alerty och loggar in
-                                            i appen. För att skapa en användare,
-                                            fyll i namn och telefonnummer. Tryck
-                                            sedan på Spara. Varje användar-ID är
-                                            unikt och bundet till det aktuella
-                                            företaget.
-                                        </p>
-
-                                        <br />
-                                        <b>Status</b>
-                                        <p>
-                                            Status Visar om Alerty-appen är
-                                            igång och ansluten till internet. Om
-                                            appen skulle stängs ner försöker den
-                                            automatiskt att starta inom 600
-                                            sekunder. Om appen inte
-                                            återanslutningen inom 675 sekunder
-                                            ändras statusen till ”Offline”.
-                                            <br />
-                                            <br />
-                                            - Online: Alerty är igång och
-                                            ansluten till internet.
-                                            <br />
-                                            - Offline: Alerty är avstängd eller
-                                            att internet anslutning saknas.
-                                            <br />
-                                            <br />
-                                            <b>Anslut</b>: Klicka på knappen för
-                                            att skicka ett meddelande till
-                                            användaren om att öppna Alerty för
-                                            att ansluta.
-                                        </p>
-                                        <br />
-                                        <b>Version</b>
-                                        <p>
-                                            Visar vilken version av appen som är
-                                            installerad. Ingen app installerad
-                                            Användaren har inte installerat
-                                            Alerty-appen alternativt har
-                                            användaren bytt användar-ID.
-                                            <br />
-                                            <b>Programuppdatering</b>: Klicka på
-                                            knappen för att för att skicka ett
-                                            meddelande till användaren om att
-                                            uppdatera appen.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="bT">Kontakter</div>
-                                    <br />
-                                    <div class="bC">
-                                        <p>
-                                            En kontakt som läggs till från
-                                            larmportalen kommer att stå som
-                                            larmmottagare i appen i gruppen
-                                            <b>Företagsgrupp</b>. Användaren av
-                                            appen kan inte ta bort dessa, dessa
-                                            kan bara tas bort eller ändras via
-                                            larmportalen.
-                                            <br />
-                                            För att lägga till en ny kontakt,
-                                            fyll i namn och telefonnummer. Tryck
-                                            sedan på spara. Observera att alla
-                                            nummer måste läggas till med
-                                            internationell standard. Exempel:
-                                            +46701234567
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="bT">Wlan</div>
-                                    <br />
-                                    <div class="bC">
-                                        <p>
-                                            Med ett ”WIFI” förbättras
-                                            noggrannheten på positionen när man
-                                            befinner sig på en plats där GPSen
-                                            saknar täckning. Här sparar/ändrar
-                                            man router/accesspunkter som
-                                            användas för inomhuspositionering.
-                                            För att lägga till ett wlan, fyll i
-                                            en beskrivning av wlanet samt
-                                            routerns BSSID (MAC adress) i listan
-                                            till vänster. Tryck sedan spara.
-                                            Efter det ska du välja wlanets
-                                            position på kartan. Alla wlan visas
-                                            även i appen. Wlan som sparas i
-                                            appen då man valt att spara som
-                                            företag visas och kan ändras här.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="bT">Inställningar</div>
-                                    <br />
-                                    <div class="bC">
-                                        <p>
-                                            Här väljer man en plats där
-                                            larmportalen befinner sig. Platsen
-                                            används för att beräkna avståndet
-                                            (fågelvägen) till larmbäraren.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="bT">Arkiv</div>
-                                    <br />
-                                    <div class="bC">
-                                        <p>
-                                            Här visas arkiverade larm man inte
-                                            längre vill visa i den aktuella
-                                            larmlista. För att arkivera ett
-                                            larm, välj ett larm och tryck på
-                                            ikonen som föreställer en låda. Man
-                                            kan på samma sätt avarkivera de larm
-                                            som visas i arkivet.
-                                        </p>
-                                    </div>
-                                </li>
-                                <hr />
-                            </ul>
+            <div>
+                <br>
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="box" style="background: #121e2d; color: white; border: none; text-align: center; padding-left: 200px;">                            
+                            <div>Larmlista</div>
+                            <div style="color: grey;">
+                                <p>
+                                    Längst upp finner du menyn och rubrikerna i
+                                    larmportalen. 
+                                </br>
+                                    Larm listas till vänster i
+                                    larmhistorik, tillhörande karta och
+                                    larminformation visas till höger.
+                                </p>
+                            </div>
                         </div>
-                        <!-- Data -->
                     </div>
-                    <!-- cWrapper -->
+                    <div class="col-md-10">
+                        <div class="box" style="background: #121e2d; border: none;">
+                            <img
+                                style="margin-left:200px;"
+                                src="images/wireframe_se.png"
+                            />
+                        </div>
+                    </div>
                 </div>
-                <!-- contentOne end -->
+                    <div class="row top-xs">
+                        <div class="col-xs-6">
+                            <div
+                                class="box"
+                                style="background: #121e2d; color: white; border: none; text-align: left;"
+                            >
+                                <div>
+                                    <b>Larmhistorik</b>
+                                </div>
+                                <div style="color: grey;">
+                                    <p>
+                                        Det första du möts av när du loggat in
+                                        är det senaste larmet. Till väster visas
+                                        larmstatus, när det är startat och vem
+                                        som har skickat det.
+                                    </p>
+                                    <p>
+                                        Larmstatus har tre olika färger:
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            <b style="color: lime;">Grön</b> - Larmet är avslutat
+                                        </li>
+                                        <li>
+                                            <b style="color: aqua;">Blå</b style="color: white;"> - Larmet är aktivt och
+                                            accepterat av någon larmmottagare.
+                                        </li>
+                                        <li>
+                                            <b style="color: red;">Röd</b style="color: white;"> - Aktivt ännu inte
+                                            accepterat av någon larmmottagre
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="col-xs-6">
+                            <div
+                                class="box"
+                                style="background: #121e2d; color: white; border: none; text-align: left;"
+                            >
+                                <div><b>Karta</b></div>
+                                <div style="color: grey;">
+                                    <p>
+                                        Kartan visar positionen för den som har startat det aktuella larmet, detta visas som en blå prick. 
+                                        Larmets startposition är markerat med en röd pil. 
+                                        Efter pricken ritas ett rött spår som visar hur mobilen har förflyttat sig under larmets gång. 
+                                        Då mobiltelefonen använder sig av GPS och inte inomhuspositionering visas även positionens noggranhet med en cirkel.
+                                        Då ett larm är aktivt har kartan visas hur länge larmet har varit aktivt samt ett avstånd mellan mobiltelefonen och datorn där larmportalen används, avståndet som anges gäller fågelvägen.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <li>
+                        <div class="bT">Larminformation</div>
+                        <br />
+                        <div class="bC">
+                            <p>
+                                På larmsidan ovanför kartan visas fyra flikar
+                                med information om larmhändelsen.
+                                <b
+                                    >Info, Video, Personuppgifter &
+                                    ICE-kontakter.</b
+                                >
+                                <br />
+                                <br />
+                                - Information om tid och plats då larmet
+                                aktiverades, namnet på larmbäraren och den
+                                aktuella adress då larmet aktiverades. Till
+                                höger ser man även när ett larm accepterats och
+                                av vem.
+                                <br />
+                                - Video - Video i realtid, tvåvägskommunikation.
+                                <br />
+                                - Personuppgifter - Uppgifter om larmbäraren,
+                                fylls i via appen (valfrittt).
+                                <br />
+                                - ICE-kontakter - Uppgifter om In Case of
+                                Emergency-kontakter, fylls i via appen
+                                (valfrittt).
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bT">Användare (larmbärare)</div>
+                        <br />
+                        <div class="bC">
+                            <p>
+                                Här kan du registrera användare, ett sms skickas
+                                till larmbärarens telefonnummer med information
+                                hur man laddar ner Alerty och loggar in i appen.
+                                För att skapa en användare, fyll i namn och
+                                telefonnummer. Tryck sedan på Spara. Varje
+                                användar-ID är unikt och bundet till det
+                                aktuella företaget.
+                            </p>
+
+                            <br />
+                            <b>Status</b>
+                            <p>
+                                Status Visar om Alerty-appen är igång och
+                                ansluten till internet. Om appen skulle stängs
+                                ner försöker den automatiskt att starta inom 600
+                                sekunder. Om appen inte återanslutningen inom
+                                675 sekunder ändras statusen till ”Offline”.
+                                <br />
+                                <br />
+                                - Online: Alerty är igång och ansluten till
+                                internet.
+                                <br />
+                                - Offline: Alerty är avstängd eller att internet
+                                anslutning saknas.
+                                <br />
+                                <br />
+                                <b>Anslut</b>: Klicka på knappen för att skicka
+                                ett meddelande till användaren om att öppna
+                                Alerty för att ansluta.
+                            </p>
+                            <br />
+                            <b>Version</b>
+                            <p>
+                                Visar vilken version av appen som är
+                                installerad. Ingen app installerad Användaren
+                                har inte installerat Alerty-appen alternativt
+                                har användaren bytt användar-ID.
+                                <br />
+                                <b>Programuppdatering</b>: Klicka på knappen för
+                                att för att skicka ett meddelande till
+                                användaren om att uppdatera appen.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bT">Kontakter</div>
+                        <br />
+                        <div class="bC">
+                            <p>
+                                En kontakt som läggs till från larmportalen
+                                kommer att stå som larmmottagare i appen i
+                                gruppen
+                                <b>Företagsgrupp</b>. Användaren av appen kan
+                                inte ta bort dessa, dessa kan bara tas bort
+                                eller ändras via larmportalen.
+                                <br />
+                                För att lägga till en ny kontakt, fyll i namn
+                                och telefonnummer. Tryck sedan på spara.
+                                Observera att alla nummer måste läggas till med
+                                internationell standard. Exempel: +46701234567
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bT">Wlan</div>
+                        <br />
+                        <div class="bC">
+                            <p>
+                                Med ett ”WIFI” förbättras noggrannheten på
+                                positionen när man befinner sig på en plats där
+                                GPSen saknar täckning. Här sparar/ändrar man
+                                router/accesspunkter som användas för
+                                inomhuspositionering. För att lägga till ett
+                                wlan, fyll i en beskrivning av wlanet samt
+                                routerns BSSID (MAC adress) i listan till
+                                vänster. Tryck sedan spara. Efter det ska du
+                                välja wlanets position på kartan. Alla wlan
+                                visas även i appen. Wlan som sparas i appen då
+                                man valt att spara som företag visas och kan
+                                ändras här.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bT">Inställningar</div>
+                        <br />
+                        <div class="bC">
+                            <p>
+                                Här väljer man en plats där larmportalen
+                                befinner sig. Platsen används för att beräkna
+                                avståndet (fågelvägen) till larmbäraren.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bT">Arkiv</div>
+                        <br />
+                        <div class="bC">
+                            <p>
+                                Här visas arkiverade larm man inte längre vill
+                                visa i den aktuella larmlista. För att arkivera
+                                ett larm, välj ett larm och tryck på ikonen som
+                                föreställer en låda. Man kan på samma sätt
+                                avarkivera de larm som visas i arkivet.
+                            </p>
+                        </div>
+                    </li>
+                    <hr />
+                </ul>
             </div>
-            <!-- Content -->
+            <!-- Data -->
         </div>
     </body>
 </html>
