@@ -267,14 +267,13 @@ ul {
 /* --- Sidebar --- */
 
 #sidebar {
-    background: #121E2D;
+    background: #121e2d;
     width: 275px;
-    min-height: 82%;
+    min-height: 100%;
     height: 82%;
     float: left;
     margin-right: 15px;
     padding-bottom: -100px;
-    
 }
 
 #sidebarheader {
@@ -966,10 +965,9 @@ input[name="wlaninfo"] {
 .toolTip {
     position: relative;
     display: inline-block;
-    
-  }
-  
-  .toolTip .toolTipText {
+}
+
+.toolTip .toolTipText {
     visibility: hidden;
     width: 300px;
     background-color: #0f1f2e;
@@ -979,7 +977,7 @@ input[name="wlaninfo"] {
     padding: 10px 0;
     margin: 10px;
     border: 1px solid #1879d4;
-  
+
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
@@ -987,19 +985,19 @@ input[name="wlaninfo"] {
     top: 100%;
     left: 50%;
     margin-left: -60px;
-  }
-  
-  .toolTip:hover .toolTipText {
+}
+
+.toolTip:hover .toolTipText {
     visibility: visible;
-  }
-  /* Arrow tooltip */
-  .toolTip .toolTipText::after {
+}
+/* Arrow tooltip */
+.toolTip .toolTipText::after {
     content: " ";
     position: absolute;
-    bottom: 100%; 
+    bottom: 100%;
     left: 50%;
-    margin-left: -10px;    
+    margin-left: -10px;
     border-width: 10px;
-    border-style: solid; 
-    border-color: transparent transparent #1879d4 transparent; 
+    border-style: solid;
+    border-color: transparent transparent #1879d4 transparent;
 }
