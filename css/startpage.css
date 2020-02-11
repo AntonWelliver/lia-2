@@ -62,7 +62,7 @@ th {
 }
 
 .wrapper {
-    
+    height: 100%;
     grid-template-columns: 1fr 3fr;
     grid-auto-rows: minmax(480px, auto);
     grid-column-gap: 5px;
@@ -70,13 +70,12 @@ th {
     background-color: #121e2d;
 }
 
-
-
 * {
     box-sizing: border-box;
 }
 
 .container {
+    height: 615px;
     padding: 16px;
     background-color: #081420;
 }
@@ -132,6 +131,7 @@ input[type="number"] {
     border: none;
     border-bottom: 1px solid grey;
     padding: 15px;
+    margin-bottom: 15px;
 }
 
 table.center {
@@ -146,8 +146,10 @@ table.center {
         rgb(243, 24, 97)
     );
     color: white;
-    padding: 16px 20px;
-    margin: 20px 10px;
+    padding: 15px 20px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -167,8 +169,10 @@ table.center {
         rgb(43, 135, 241)
     );
     color: white;
-    padding: 16px 20px;
-    margin: 20px 10px;
+    padding: 15px 20px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -194,7 +198,6 @@ table.center {
 
 #wrapper {
     height: 100%;
-    overflow: hidden;
     background-color: #121e2d;
     overflow: scroll;
 }
@@ -295,7 +298,7 @@ ul {
     background: #121e2d;
     width: 275px;
     min-height: 100%;
-    height: 82%;
+    height: 100%;
     float: left;
     margin-right: 15px;
     padding-bottom: -100px;
@@ -381,7 +384,7 @@ ul {
     border-width: 1px;
     overflow: hidden;
     line-height: 20px;
-    margin-top: 1em;
+    margin-top: 20px;
 }
 
 .alarm.selected {
@@ -1028,7 +1031,6 @@ input[name="wlaninfo"] {
     border-color: transparent transparent #1879d4 transparent;
 }
 
- 
 /* Mapbox  */
 .calculation-box {
     height: 75px;
@@ -1041,26 +1043,25 @@ input[name="wlaninfo"] {
     text-align: center;
 }
 
-#map { 
-    position: absolute; 
-    top: 0; 
-    bottom: 0; 
-    width: 100%; 
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
     height: 100%;
-    
 }
 
 #info {
-display: block;
-position: relative;
-margin: 0px auto;
-width: 25%;
-padding: 10px;
-border: none;
-border-radius: 3px;
-font-size: 12px;
-text-align: center;
-color: #222;
-background: #fff;
-left: -250px;
+    display: block;
+    position: relative;
+    margin: 0px auto;
+    width: 25%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    text-align: center;
+    color: #222;
+    background: #fff;
+    left: -250px;
 }

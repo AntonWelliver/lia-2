@@ -180,7 +180,7 @@ ul {
 
 #alerts {
     width: 275px;
-    height: 100%;
+    height: 90%;
     overflow: auto;
     background-color: #081420;
     padding-bottom: 8px;
@@ -222,7 +222,7 @@ ul {
     border-width: 1px;
     overflow: hidden;
     line-height: 20px;
-    margin-top: 1em;
+    margin-top: 20px;
 }
 
 .alarm.selected {
