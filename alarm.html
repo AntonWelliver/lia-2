@@ -163,169 +163,140 @@
 		</div>
 	</div>
 
-		<!-- Map -->
-		<div id="mapContainer" style="background-color:#0f1f2e" >
-			<div id="satusdata">
-				<div id='statusdataheader'>
-							<div id='alertbuttons' style="float:right;padding-left:10px;line-height:50px;">
-								<button id='acceptbutton' style="display:none;height:50px;" class='acceptbutton' onclick='setAlertAccepted()'>Accept</button>
-								<button id='closebutton' style="display:none;height:50px;" class='closebutton' onclick='setAlertClosed()'>Stop</button>
-								<img id='archivebutton' style="display:none;margin-top:10px;margin-right:10px" title='Archive' src='images/archive2.png' onclick='setArchived()'>
-							</div>
-							<div class="info" style="color: whitesmoke;">
-								Closed: <span id='alertend'></span><br/>
-								Closed by: <span id='alertclosedby'></span>
-							</div>
-							<div class="info" style="color:whitesmoke">
-								Accepted: <span id='alertacceptedtime'></span><br/>
-								Accepted by: <span id='alertaccepters'></span>
-							</div>
-							<div>
-								<div id="alertactive" style="display:none"><div id="alertactivetext"></div></div>
-								<div id="alertaccepted" style="display:none"><div id="alertacceptedtext"></div></div>
-								<div id="alertclosed" style="display:none"><div id="alertclosedtext"></div></div>
-								<div id="noposition" style="display:none"><p>No connection to phone</p></div>
-							</div>
-						</tr>
-					</table>
-				</div>
-
-				<div class='datadiv' id='alertinfo'>
-					<div id='personcontainer'>
-						<ul>
-							<li>Address: <span id='alertinfoaddress'></span> <a id="screenshotlink" href="javascript:showSlide();" style="display:none">Assignment</a></li>
-							<li>Location: <span id='alertinfowifi'></span></li>
-							<li>Alarm type: <span id='alertinfosource'></span></li>
-							<li>Accuracy: <span id='alertinfoaccuracy'></span></li>
-							<li>Battery level: <span id='alertinfobattery'></span></li>
-						</ul>
-					</div>	
-					<div class='right' id='chatcontainer' style='width:350px;background:#081420;height:120px;padding:5px; border: 1px solid #495966; border-radius: 10px; margin-right: 20px;'>
-						<div id='chatmessages' style='overflow-y:auto;height:85px; font-size: 16px; line-height:13px;margin-bottom:5px'></div>
-						<input type="text" placeholder="Message..."style="width:256px; margin-left: 11px; height: 29px; border-radius: 15px; text-indent: 13px;" id="chat_message"><input type="button" value="Send" style="width:60px;float:right;height:29px" onclick="sendMessage()">
-					</div>
-
-				</div>
+	<!-- Map -->
+	<div id="mapContainer" style="background-color:#0f1f2e" >
+		<div id="satusdata">
+			<div id='statusdataheader'>
+						<div id='alertbuttons' style="float:right;padding-left:10px;line-height:50px;">
+							<button id='acceptbutton' style="display:none;height:50px;" class='acceptbutton' onclick='setAlertAccepted()'>Accept</button>
+							<button id='closebutton' style="display:none;height:50px;" class='closebutton' onclick='setAlertClosed()'>Stop</button>
+							<img id='archivebutton' style="display:none;margin-top:10px;margin-right:10px" title='Archive' src='images/archive2.png' onclick='setArchived()'>
+						</div>
+						<div class="info" style="color: whitesmoke;">
+							Closed: <span id='alertend'></span><br/>
+							Closed by: <span id='alertclosedby'></span>
+						</div>
+						<div class="info" style="color:whitesmoke">
+							Accepted: <span id='alertacceptedtime'></span><br/>
+							Accepted by: <span id='alertaccepters'></span>
+						</div>
+						<div>
+							<div id="alertactive" style="display:none"><div id="alertactivetext"></div></div>
+							<div id="alertaccepted" style="display:none"><div id="alertacceptedtext"></div></div>
+							<div id="alertclosed" style="display:none"><div id="alertclosedtext"></div></div>
+							<div id="noposition" style="display:none"><p>No connection to phone</p></div>
+						</div>
+					</tr>
+				</table>
 			</div>
-			<div id="gMapContainer">
-				<div class="mapClass" id="map"></div>
-				<div id="sticky"></div>
-				<div id="duration"></div>
 
-				<div id='videoinfo' style="width:640px;position:absolute;top:292px;right:0px;background:#444444">
-					
-					<div id='local-media' style="position:absolute;width:120px;height:160px;"></div>
-
-	<!-- OPENTOK 
-	<table id='videotable' cellpadding=0 cellspacing=0 style='display:none;margin-top:0px'>
-	<tr><td rowspan="2" style="padding-bottom:0px;vertical-align: top">
-	<div id="myCamera" class="publisherContainer"></div>
-	</td><td style="padding-bottom:0px">
-	<div id="subscribers" style="height:198px;overflow:hidden"></div>
-	</td></tr>
-	<tr><td style="padding-bottom:0px">
-	<div id="subscribers2" style="padding-top:0px"></div>
-	</td></tr>
-	</table> -->
-
-					<div id="signals"></div>
-
-					<video id='videoframe' width='640' height='480' controls style="display:none"></video>
-
-					<div id="videoinprogress" style="display:none">
-						Video processing...					</div>
-
-					<!-- <table id="videobuttons">
-						<tr>
-							<td><input id="btnmic" type="button" onclick="audioMuteToggle();" value="Mic on"/></td>
-							<td><input id="btnvideo" type="button" onclick="videoMuteToggle();" value="Video on"/></td>
-							<td><input id="btnendcall" type="button" onclick="endCall();" value="End call"/></td>
-						</tr>
-					</table> -->
+			<div class='datadiv' id='alertinfo'>
+				<div id='personcontainer'>
+					<ul>
+						<li>Address: <span id='alertinfoaddress'></span> <a id="screenshotlink" href="javascript:showSlide();" style="display:none">Assignment</a></li>
+						<li>Location: <span id='alertinfowifi'></span></li>
+						<li>Alarm type: <span id='alertinfosource'></span></li>
+						<li>Accuracy: <span id='alertinfoaccuracy'></span></li>
+						<li>Battery level: <span id='alertinfobattery'></span></li>
+					</ul>
+				</div>	
+				<div class='right' id='chatcontainer' style='width:350px;background:#081420;height:120px;padding:5px; border: 1px solid #495966; border-radius: 10px; margin-right: 20px;'>
+					<div id='chatmessages' style='overflow-y:auto;height:85px; font-size: 16px; line-height:13px;margin-bottom:5px'></div>
+					<input type="text" placeholder="Message..."style="width:256px; margin-left: 11px; height: 29px; border-radius: 15px; text-indent: 13px;" id="chat_message"><input type="button" value="Send" style="width:60px;float:right;height:29px" onclick="sendMessage()">
 				</div>
+
 			</div>
-		</div>		
+		</div>
+		<div id="gMapContainer">
+			<div class="mapClass" id="map"></div>
+			<div id="sticky"></div>
+			<div id="duration"></div>
+
+			<div id='videoinfo' style="width:640px;position:absolute;top:292px;right:0px;background:#444444">
+				
+				<div id='local-media' style="position:absolute;width:120px;height:160px;"></div>
+
+				<!-- OPENTOK 
+				<table id='videotable' cellpadding=0 cellspacing=0 style='display:none;margin-top:0px'>
+					<tr>
+						<td rowspan="2" style="padding-bottom:0px;vertical-align: top">
+							<div id="myCamera" class="publisherContainer"></div>
+						</td>
+						<td style="padding-bottom:0px">
+							<div id="subscribers" style="height:198px;overflow:hidden"></div>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding-bottom:0px">
+							<div id="subscribers2" style="padding-top:0px"></div>
+						</td>
+					</tr>
+				</table> -->
+
+				<div id="signals"></div>
+
+				<video id='videoframe' width='640' height='480' controls style="display:none"></video>
+
+				<div id="videoinprogress" style="display:none">
+					Video processing...					</div>
+
+				<!-- <table id="videobuttons">
+					<tr>
+						<td><input id="btnmic" type="button" onclick="audioMuteToggle();" value="Mic on"/></td>
+						<td><input id="btnvideo" type="button" onclick="videoMuteToggle();" value="Video on"/></td>
+						<td><input id="btnendcall" type="button" onclick="endCall();" value="End call"/></td>
+					</tr>
+				</table> -->
+			</div>
+		</div>
 	</div>
+	<!-- <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="pswp__bg"></div>
+		<div class="pswp__scroll-wrap">
+			<div class="pswp__container">
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+			</div>
+			<div class="pswp__ui pswp__ui--hidden">
+				<div class="pswp__top-bar">
+					<div class="pswp__counter"></div>
+					<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+					<button class="pswp__button pswp__button--share" title="Share"></button>
+					<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+					<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+					<div class="pswp__preloader">
+						<div class="pswp__preloader__icn">
+						  <div class="pswp__preloader__cut">
+							<div class="pswp__preloader__donut"></div>
+						  </div>
+						</div>
+					</div>   
+            	</div>
+				<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+					<div class="pswp__share-tooltip"></div> 
+				</div>
+				<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+				</button>
+				<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+				</button>
+	
+				<div class="pswp__caption">
+					<div class="pswp__caption__center"></div>
+				</div>
+			</div>
+		</div>
+	</div> -->
+<!-- 	Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR
+        element will get class pswp__preloader--active when preloader is running
+	Controls are self-explanatory. Order can be changed.
+	Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed.
+		Container that holds slides. 
+	PhotoSwipe keeps only 3 of them in the DOM to save memory.
+		Don't modify these 3 pswp__item elements, data is added later on.
+		Slides wrapper with overflow:hidden.
+		Background of PhotoSwipe. 
+		It's a separate element as animating opacity is faster than rgba(). -->
 
-    </div>
-
-
-
-<!-- <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    
-    <div class="pswp__bg"></div>
-
-    
-    <div class="pswp__scroll-wrap">
-
-       
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div> -->
-<!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-
-								<!--  Controls are self-explanatory. Order can be changed. -->
-
-								<!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-
-								<!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-						Don't modify these 3 pswp__item elements, data is added later on. -->
-						
-						 <!-- Slides wrapper with overflow:hidden. -->
-
-						 <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
 </body>
 </html>
