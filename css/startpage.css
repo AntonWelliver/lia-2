@@ -52,6 +52,15 @@ th {
     margin-left: 8px;
 }
 
+#filter {
+    width: 200px !important;
+    height: 25px;
+    border-radius: 10px;
+    border: 1px solid #c9c9c9;
+    padding: 5px;
+    margin: 5px 0 22px 0;
+}
+
 .wrapper {
     display: grid;
     grid-template-columns: 1fr 3fr;
