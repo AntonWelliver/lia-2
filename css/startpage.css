@@ -40,6 +40,18 @@ th {
     border: none;
 }
 
+.edit-icon {
+    height: 20px;
+    width: 20px;
+    margin-right: 8px;
+}
+
+.delete-icon {
+    height: 17px;
+    width: 17px;
+    margin-left: 8px;
+}
+
 .wrapper {
     display: grid;
     grid-template-columns: 1fr 3fr;
