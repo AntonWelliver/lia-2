@@ -20,9 +20,11 @@
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css"
         />
-        <script type="text/javascript" src="js/main.js"></script>
+        
+
     </head>
     <body id="wrapper">
+    
         <div id="header" style="padding-bottom: 90px;">
             <img id="logo" src="brand/salusmea-logo3.png" class="left" />
             <div id="menu">
@@ -78,7 +80,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="main.php?action=logout" class="imageLink">
+                        <a href="login.html" class="imageLink">
                             <img src="images/portalHeader/signout.png" />
                             <p>Log out</p>
                         </a>
@@ -244,129 +246,34 @@
             </div>
         </div>
 
-        <div class="wrapper" id="createGeofenceView">
+        <div class="wrapper">
             <div>
-                <form action="/">
-                    <div class="container">
-                        <h3 style="color: white;">Create a new geofence</h3>
-
-                        <input
-                            type="text"
-                            placeholder="Name"
-                            name="nameInput"
-                        />
-
-                        <div style="padding-top: 10px;">
-                            <label
-                                for=""
-                                style="color: white; padding-left: 12px;"
-                                >Type:</label
-                            >
-                            <form action="/">
-                                <select name="types">
-                                    <option
-                                        value=""
-                                        selected="true"
-                                        disabled="disabled"
-                                        >...</option
-                                    >
-                                    <option value="polygon">Polygon</option>
-                                    <option value="circle">Circle</option>
-                                </select>
-                            </form>
-                        </div>
-
-                        <input
-                            type="text"
-                            placeholder="Place"
-                            name="placeInput"
-                        />
-
-                        <input
-                            type="text"
-                            placeholder="Floor"
-                            name="floorInput"
-                        />
-
-                        <input
-                            type="text"
-                            placeholder="Department"
-                            name="departmentInput"
-                        />
-
-                        <input
-                            type="text"
-                            placeholder="Address"
-                            name="addressInput"
-                        />
-
-                        <input
-                            type="text"
-                            placeholder="Latitude"
-                            name="latitudeInput"
-                        />
-
-                        <input
-                            type="text"
-                            placeholder="Longitude"
-                            name="longitudeInput"
-                        />
-
-                        <input
-                            type="number"
-                            placeholder="Radius"
-                            name="radiusInput"
-                            id="radiusInput"
-                        />
-
-                        <button
-                            type="cancel"
-                            class="cancelbtn"
-                            id="cancelbtn"
-                            onclick="cancelManageView()"
-                        >
-                            Cancel
-                        </button>
-
-                        <button
-                            type="submit"
-                            class="registerbtn"
-                            id="registerbtn"
-                        >
-                            Submit
-                        </button>
-                    </div>
-                </form>
+               
             </div>
 
-            <div>
-                <iframe
-                    width="100%"
-                    height="100%"
-                    src="https://api.maptiler.com/maps/streets/?key=cRryMLniO3NyotbQKOtf#17.2/57.69252/11.97388"
-                ></iframe>
-            </div>
+           
         </div>
 
-        <table class="center" id="manageGeofenceTable">
+        <table class="center" >
             <div id="statusdataheader" style="font-weight: bold;">
                 <p>Manage Geofences</p>
             </div>
             <caption>
                 <button
                     type="add"
-                    onclick="addNewGeofence()"
+                    
                     style="float: right; 
                             padding: 7px; 
                             margin-bottom: 5px; 
                             background-color: white;
                             border-radius: 10px; 
                             cursor: pointer;"
-                >
-                    Add Geofence
-                    <i class="fas fa-plus"></i>
+                    >
+                    
+                    <a href="edit.html" style="text-decoration: none; color: black;" class="button">Add Geofence 
+                    <i class="fas fa-plus"></i></a>
                 </button>
-            </caption>
+                </caption>
             <tr>
                 <th>Name</th>
                 <th>Type</th>
@@ -426,6 +333,8 @@
                 </td>
             </tr>
             <tbody id="tableBody"></tbody>
-        </table>
+        </table class="center">
+        <script type="text/javascript" src="js/main.js"></script>
+        
     </body>
 </html>
