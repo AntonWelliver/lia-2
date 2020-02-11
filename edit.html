@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            http-equiv="X-UA-Compatible"
+            content="text/html"
+            ;
+            charset="UTF-8"
+        />
+
+        <title>Salus mea - Alarm portal</title>
+
+        <link rel="stylesheet" type="text/css" href="css/startpage.css" />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css"
+        />
+        <link
+        rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.css"
+        type="text/css"
+        />
+        <link
+        rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
+        type="text/css"
+        />
+        <link href="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css" rel="stylesheet" />
+
+       <!--  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+        <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v3.0.11/turf.min.js"></script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.js"></script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script> -->
+    </head>
+    <body id="wrapper">
+    
+        <div id="header" style="padding-bottom: 90px;">
+            <img id="logo" src="brand/salusmea-logo3.png" class="left" />
+            <div id="menu">
+                <ul>
+                    <li class="toolTip">
+                        <a href="index.html" class="imageLink">
+                            <img src="images/portalHeader/map.png"/>
+                            <span class="toolTipText">Handle geofence settings</span>
+                            <p>Geofences</p>
+                        </a>
+                    </li>
+					<li class="toolTip">
+                        <a href="user.html" class="imageLink">
+                            <img src="images/portalHeader/users.png"/>
+                            <span class="toolTipText">All user information</span>
+                            <p>Users</p>
+                        </a>
+                    </li>
+					<li class="toolTip">
+                        <a href="contact.html" class="imageLink">
+                            <img src="images/portalHeader/contacts.png"/>
+                            <span class="toolTipText">Save and delete users</span>
+                            <p>Contacts</p>
+                        </a>
+                    </li>
+					<li class="toolTip">
+                        <a href="wlan.html" class="imageLink">
+                            <img src="images/portalHeader/wlan.png"/>
+                            <span class="toolTipText">Handle the position</span>
+                            <p>Wlan</p>
+                        </a>
+                    </li>
+					<li class="toolTip">
+                        <a href="alarm.html" class="imageLink">
+                            <img src="images/portalHeader/alerts.png"/>
+                            <span class="toolTipText">Handle alarms</span>
+                            <p>Alarm</p>
+                        </a>
+                    </li>
+					<li class="toolTip">
+                        <a href="manual.html" class="imageLink">
+                            <img src="images/portalHeader/help.png"/>
+                            <span class="toolTipText">Support and information about site</span>
+                            <p>Guide</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='login.html' class='imageLink'>
+                            <img src='images/portalHeader/signout.png'/>
+                            <p>Log out</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <input
+                type="text"
+                id="filter"
+                onkeyup="doFilter()"
+                placeholder="Search..."
+                maxlength="20"
+            />
+        </div>
+
+        <!-- Sidebar -->
+        
+		<div id="sidebar">
+				<div id="sidebarheader">
+					<p class="left">Alarm</p>
+					<a href="#" onclick="toggleSound();"><img id="sound" src="images/sound_on.png" class="right"/></a>
+				</div>
+			
+			<div id="alerts">
+                <script type='text/javascript'>lastAlert=24979833602514314471;</script>
+                <div class='alarm' id='alert12888981454269784372' onclick='javascript:window.location.assign("main.php?action=show&id=12888981454269784372&status=3")' style='cursor:pointer'>
+                    <div id='status' class='closed'></div>
+                    <ul class='statusul'><li class='closed'>Closed</li>
+                        <li class='statusulli'>26/01 14:17</li>
+                        <li class='statusulli'>Emanuel</li>
+                        <li class='statusulli' name='userphone'>+46736881065</li>
+                        <li class='statusulli' name='usercompany'>Salus mea users</li>
+                    </ul>
+                </div>
+                <div class='alarm' id='alert12888981454269784372' onclick='javascript:window.location.assign("main.php?action=show&id=12888981454269784372&status=3")' style='cursor:pointer'>
+                    <div id='status' class='closed'></div>
+                    <ul class='statusul'><li class='closed'>Closed</li>
+                        <li class='statusulli'>26/01 14:17</li>
+                        <li class='statusulli'>Emanuel</li>
+                        <li class='statusulli' name='userphone'>+46736881065</li>
+                        <li class='statusulli' name='usercompany'>Salus mea users</li>
+                    </ul>
+                </div>
+                <div class='alarm' id='alert12888981454269784372' onclick='javascript:window.location.assign("main.php?action=show&id=12888981454269784372&status=3")' style='cursor:pointer'>
+                    <div id='status' class='closed'></div>
+                    <ul class='statusul'><li class='closed'>Closed</li>
+                        <li class='statusulli'>26/01 14:17</li>
+                        <li class='statusulli'>Emanuel</li>
+                        <li class='statusulli' name='userphone'>+46736881065</li>
+                        <li class='statusulli' name='usercompany'>Salus mea users</li>
+                    </ul>
+                </div>
+                <div class='alarm' id='alert12888981454269784372' onclick='javascript:window.location.assign("main.php?action=show&id=12888981454269784372&status=3")' style='cursor:pointer'>
+                    <div id='status' class='closed'></div>
+                    <ul class='statusul'><li class='closed'>Closed</li>
+                        <li class='statusulli'>26/01 14:17</li>
+                        <li class='statusulli'>Emanuel</li>
+                        <li class='statusulli' name='userphone'>+46736881065</li>
+                        <li class='statusulli' name='usercompany'>Salus mea users</li>
+                    </ul>
+                </div>
+                <div class='alarm' id='alert12888981454269784372' onclick='javascript:window.location.assign("main.php?action=show&id=12888981454269784372&status=3")' style='cursor:pointer'>
+                    <div id='status' class='closed'></div>
+                    <ul class='statusul'><li class='closed'>Closed</li>
+                        <li class='statusulli'>26/01 14:17</li>
+                        <li class='statusulli'>Emanuel</li>
+                        <li class='statusulli' name='userphone'>+46736881065</li>
+                        <li class='statusulli' name='usercompany'>Salus mea users</li>
+                    </ul>
+                </div>
+                <div class='alarm' id='alert12888981454269784372' onclick='javascript:window.location.assign("main.php?action=show&id=12888981454269784372&status=3")' style='cursor:pointer'>
+                    <div id='status' class='closed'></div>
+                    <ul class='statusul'><li class='closed'>Closed</li>
+                        <li class='statusulli'>26/01 14:17</li>
+                        <li class='statusulli'>Emanuel</li>
+                        <li class='statusulli' name='userphone'>+46736881065</li>
+                        <li class='statusulli' name='usercompany'>Salus mea users</li>
+                    </ul>
+                </div>
+                <div class='alarm' id='alert12888981454269784372' onclick='javascript:window.location.assign("main.php?action=show&id=12888981454269784372&status=3")' style='cursor:pointer'>
+                    <div id='status' class='closed'></div>
+                    <ul class='statusul'><li class='closed'>Closed</li>
+                        <li class='statusulli'>26/01 14:17</li>
+                        <li class='statusulli'>Emanuel</li>
+                        <li class='statusulli' name='userphone'>+46736881065</li>
+                        <li class='statusulli' name='usercompany'>Salus mea users</li>
+                    </ul>
+                </div>
+			</div>
+		</div>
+    <!-- <div id="statusdataheader" style="font-weight: bold;">
+      <p>Manage Geofences</p>
+  </div> -->
+        <div class="wrapper" style="display: grid;" id="createGeofenceView">
+            <div>
+                <form action="/">
+                    <div class="container">
+                        <h3 style="color: white;">Create a new geofence</h3>
+
+                        <input
+                            type="text"
+                            placeholder="Name"
+                            name="nameInput"
+                        />
+
+                        <div style="padding-top: 10px;">
+                            <label
+                                for=""
+                                style="color: white; padding-left: 12px;"
+                                >Type:</label
+                            >
+                            <form action="/">
+                                <select name="types">
+                                    <option
+                                        value=""
+                                        selected="true"
+                                        disabled="disabled"
+                                        >...</option
+                                    >
+                                    <option value="polygon">Polygon</option>
+                                    <option value="circle">Circle</option>
+                                </select>
+                            </form>
+                        </div>
+
+                        <input
+                            type="text"
+                            placeholder="Place"
+                            name="placeInput"
+                        />
+
+                        <input
+                            type="text"
+                            placeholder="Floor"
+                            name="floorInput"
+                        />
+
+                        <input
+                            type="text"
+                            placeholder="Department"
+                            name="departmentInput"
+                        />
+
+                        <input
+                            type="text"
+                            placeholder="Address"
+                            name="addressInput"
+                        />
+
+                        <input
+                            type="number"
+                            placeholder="Latitude"
+                            name="latitudeInput"
+                        />
+
+                        <input
+                            type="number"
+                            placeholder="Longitude"
+                            name="longitudeInput"
+                        />
+
+                        <input
+                            type="number"
+                            placeholder="Radius"
+                            name="radiusInput"
+                            id="radiusInput"
+                        />
+                        
+                        <form action="/index.html">
+
+                          <button  class="cancelbtn" id="cancelbtn" ">
+                              Cancel
+                          </button>
+                        </form>
+                        
+
+                        <button type="submit" class="registerbtn" id="registerbtn">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="mapContainer" style="position: relative; margin-right: 12px;">
+                <div id="map"></div>
+                    <div class="calculation-box">
+                        <p>Draw a polygon using the draw tools.</p>
+                    </div>
+                    <pre id="info"></pre>
+                <div id="calculated-area"></div>
+            </div>
+        </div>
+
+        
+        <table class="center" id="manageGeofenceTable">
+                
+                
+        </table class="center">
+
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+        <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v3.0.11/turf.min.js"></script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.js"></script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script>
+        
+        <script type="text/javascript" src="js/ruler1.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
+</html>

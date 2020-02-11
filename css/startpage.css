@@ -62,7 +62,7 @@ th {
 }
 
 .wrapper {
-    display: grid;
+    
     grid-template-columns: 1fr 3fr;
     grid-auto-rows: minmax(480px, auto);
     grid-column-gap: 5px;
@@ -70,9 +70,7 @@ th {
     background-color: #121e2d;
 }
 
-#createGeofenceView {
-    display: none;
-}
+
 
 * {
     box-sizing: border-box;
@@ -92,6 +90,14 @@ input {
 }
 
 input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    border-bottom: 1px solid grey;
+}
+input[type="number"] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -1020,4 +1026,41 @@ input[name="wlaninfo"] {
     border-width: 10px;
     border-style: solid;
     border-color: transparent transparent #1879d4 transparent;
+}
+
+ 
+/* Mapbox  */
+.calculation-box {
+    height: 75px;
+    width: 150px;
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    text-align: center;
+}
+
+#map { 
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    width: 100%; 
+    height: 100%;
+    
+}
+
+#info {
+display: block;
+position: relative;
+margin: 0px auto;
+width: 25%;
+padding: 10px;
+border: none;
+border-radius: 3px;
+font-size: 12px;
+text-align: center;
+color: #222;
+background: #fff;
+left: -250px;
 }

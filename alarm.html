@@ -81,7 +81,7 @@
 					<li class="toolTip"><a href="alarm.html" class="imageLink"><img src="images/portalHeader/alerts.png"/><span class="toolTipText">Handle all the Alarm</span><p>Alarm</p></a></li>
 					<li class="toolTip"><a href="manual.html" class="imageLink"><img src="images/portalHeader/help.png"/><span class="toolTipText">Support for more information</span><p>Guide</p></a></li>
 					
-						<li><a href='main.php?action=logout' class='imageLink'><img src='images/portalHeader/signout.png'/><p>Log out</p></a></li>	
+						<li><a href='login.html' class='imageLink'><img src='images/portalHeader/signout.png'/><p>Log out</p></a></li>	
 				</ul>	
 			</div>
 			<input type="text" id="filter" onkeyup="doFilter()" placeholder="Search..." maxlength="20">
@@ -208,7 +208,13 @@
 			</div>
 		</div>
 		<div id="gMapContainer">
-			<div class="mapClass" id="map"></div>
+			<div class="mapClass" id="map">
+				<iframe
+                    width="100%"
+                    height="100%"
+                    src="https://api.maptiler.com/maps/streets/?key=cRryMLniO3NyotbQKOtf#17.2/57.69252/11.97388"
+                ></iframe>
+			</div>
 			<div id="sticky"></div>
 			<div id="duration"></div>
 
