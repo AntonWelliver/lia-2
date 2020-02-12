@@ -61,15 +61,6 @@ th {
     margin: 5px 0 22px 0;
 }
 
-.wrapper {
-    height: 100%;
-    grid-template-columns: 1fr 3fr;
-    grid-auto-rows: minmax(480px, auto);
-    grid-column-gap: 5px;
-    font-family: Helvetica, Arial, sans-serif;
-    background-color: #121e2d;
-}
-
 * {
     box-sizing: border-box;
 }
@@ -196,29 +187,40 @@ table.center {
     margin-right: 20px;
 }
 
-#wrapper {
-    height: 100%;
+.wrapper {
+    grid-template-columns: 1fr 3fr;
+    grid-auto-rows: minmax(480px, auto);
+    grid-column-gap: 5px;
+    font-family: Helvetica, Arial, sans-serif;
     background-color: #121e2d;
     overflow: scroll;
+    height: 85%;
 }
 
-#wrapper::-webkit-scrollbar {
+#wrapper {
+    min-height: 100%;
+    height: 100%;
+    background-color: #121e2d;
+    overflow: hidden;
+}
+
+.wrapper::-webkit-scrollbar {
     width: 5px;
 }
 
-#wrapper::-webkit-scrollbar-track {
+.wrapper::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     -webkit-border-radius: 10px;
     border-radius: 10px;
 }
 
-#wrapper::-webkit-scrollbar-thumb {
+.wrapper::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
     background: #b2b2b2;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
-#wrapper::-webkit-scrollbar-thumb:window-inactive {
+.wrapper::-webkit-scrollbar-thumb:window-inactive {
     background: #b2b2b2;
 }
 
@@ -297,8 +299,8 @@ ul {
 #sidebar {
     background: #121e2d;
     width: 275px;
-    min-height: 100%;
-    height: 100%;
+    min-height: 82%;
+    height: 82%;
     float: left;
     margin-right: 15px;
     padding-bottom: -100px;
@@ -342,7 +344,7 @@ ul {
 
 #alerts {
     width: 275px;
-    height: 100%;
+    height: 90%;
     overflow: auto;
     background-color: #081420;
     padding-bottom: 8px;
@@ -1041,6 +1043,12 @@ input[name="wlaninfo"] {
     background-color: rgba(255, 255, 255, 0.9);
     padding: 15px;
     text-align: center;
+}
+
+.mapContainer {
+    position: relative;
+    margin-right: 12px;
+    height: 615px;
 }
 
 #map {
