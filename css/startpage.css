@@ -130,6 +130,10 @@ table.center {
     margin-right: auto;
 }
 
+.button2 {
+    margin: 7px;
+}
+
 .cancelbtn {
     background-image: linear-gradient(
         to right,

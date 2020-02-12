@@ -20,11 +20,22 @@
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css"
         />
-        
-
+        <link
+            rel="stylesheet"
+            href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.css"
+            type="text/css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
+            type="text/css"
+        />
+        <link
+            href="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css"
+            rel="stylesheet"
+        />
     </head>
     <body id="wrapper">
-    
         <div id="header" style="padding-bottom: 90px;">
             <img id="logo" src="brand/salusmea-logo3.png" class="left" />
             <div id="menu">
@@ -245,92 +256,115 @@
                 </div>
             </div>
         </div>
+        <div class="wrapper" style="display: grid; overflow: scroll;">
+            <div>
+                <form action="/">
+                    <div class="container">
+                        <h3 style="color: white;">Edit geofence</h3>
 
-        <!-- Content -->
+                        <input
+                            type="text"
+                            placeholder="Name"
+                            name="nameInput"
+                        />
 
-        <table class="center" >
-            <div id="statusdataheader" style="font-weight: bold;">
-                <p>Manage Geofences</p>
+                        <div style="padding-top: 10px;">
+                            <label
+                                for=""
+                                style="color: white; padding-left: 12px;"
+                                >Type:</label
+                            >
+                            <form action="/">
+                                <select name="types">
+                                    <option
+                                        value=""
+                                        selected="true"
+                                        disabled="disabled"
+                                        >...</option
+                                    >
+                                    <option value="polygon">Polygon</option>
+                                    <option value="circle">Circle</option>
+                                </select>
+                            </form>
+                        </div>
+
+                        <input
+                            type="text"
+                            placeholder="Place"
+                            name="placeInput"
+                        />
+
+                        <input
+                            type="text"
+                            placeholder="Floor"
+                            name="floorInput"
+                        />
+
+                        <input
+                            type="text"
+                            placeholder="Department"
+                            name="departmentInput"
+                        />
+
+                        <input
+                            type="text"
+                            placeholder="Address"
+                            name="addressInput"
+                        />
+
+                        <input
+                            type="number"
+                            placeholder="Latitude"
+                            name="latitudeInput"
+                        />
+
+                        <input
+                            type="number"
+                            placeholder="Longitude"
+                            name="longitudeInput"
+                        />
+
+                        <input
+                            type="number"
+                            placeholder="Radius"
+                            name="radiusInput"
+                            id="radiusInput"
+                        />
+
+                        <form action="/index.html">
+                            <button class="cancelbtn" id="cancelbtn">
+                                Cancel
+                            </button>
+                        </form>
+
+                        <button
+                            type="submit"
+                            class="registerbtn"
+                            id="registerbtn"
+                        >
+                            Submit
+                        </button>
+                    </div>
+                </form>
             </div>
-            <caption>
-                <button
-                    type="add"
-                    
-                    style="float: right; 
-                            padding: 7px; 
-                            margin-bottom: 5px; 
-                            background-color: white;
-                            border-radius: 10px; 
-                            cursor: pointer;"
-                    >
-                    
-                    <a href="createGeofence.html" style="text-decoration: none; color: black;" class="button">Add Geofence 
-                    <i class="fas fa-plus"></i></a>
-                </button>
-                </caption>
-            <tr>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Address</th>
-                <th>Place</th>
-                <th>Floor</th>
-                <th>Department</th>
-                <th>Latitude</th>
-                <th>Longitude</th>
-                <th>Created At</th>
-                <th>Actions</th>
-            </tr>
-            <tr>
-                <td>Office</td>
-                <td>Circle</td>
-                <td>Vera Sandbergs Allé 5B</td>
-                <td>Framtidens Företag</td>
-                <td>3</td>
-                <td>Johanneberg</td>
-                <td>57.6925358</td>
-                <td>11.9742881</td>
-                <td>Feb 11, 2020</td>
-                <td>
-                    <a href="editGeofence.html" style="color: rgb(20, 134, 168);" class="button button2"> 
-                        <i class="far fa-edit"></i>
-                    </a>
-                    <a href="/" style="color: rgb(248, 97, 97);" class="button button2"> 
-                        <i class="far fa-trash-alt"></i>
-                    </a>
-                    <!-- <img
-                        src="images/edit-pen.png"
-                        alt="edit icon"
-                        class="edit-icon"
-                    /> -->
-                    <!-- <img
-                        src="images/delete-trash.png"
-                        alt="delete icon"
-                        class="delete-icon"
-                    /> -->
-                </td>
-            </tr>
-            <tr>
-                <td>Home</td>
-                <td>Circle</td>
-                <td>Råmärkesvägen 18</td>
-                <td>Casa Vedefors</td>
-                <td></td>
-                <td></td>
-                <td>57.58777555</td>
-                <td>12.0588444</td>
-                <td>Apr 5, 2019</td>
-                <td>
-                    <a href="editGeofence.html" style="color: rgb(20, 134, 168);" class="button button2"> 
-                        <i class="far fa-edit"></i>
-                    </a>
-                    <a href="/" style="color: rgb(248, 97, 97);" class="button button2"> 
-                        <i class="far fa-trash-alt"></i>
-                    </a>
-                </td>
-            </tr>
-            <tbody id="tableBody"></tbody>
-        </table class="center">
+            <div>
+                <div class="mapContainer">
+                    <div id="map"></div>
+                    <div class="calculation-box">
+                        <p>Draw a polygon using the draw tools.</p>
+                    </div>
+                    <pre id="info"></pre>
+                    <div id="calculated-area"></div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+        <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v3.0.11/turf.min.js"></script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.js"></script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script>
+        <script type="text/javascript" src="js/ruler1.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
-        
     </body>
 </html>
