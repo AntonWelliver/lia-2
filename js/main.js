@@ -37,78 +37,119 @@ var geocoder = new MapboxGeocoder({
     },
     mapboxgl: mapboxgl
     });
-
-
     
-            var scale = new mapboxgl.ScaleControl({
-        maxWidth: 80,
+    
+    
+    //To See Scale
+/*             var scale = new mapboxgl.ScaleControl({
+                maxWidth: 80,
                 unit: 'imperial'
             });
             map.addControl(scale);
-
+            
             scale.setUnit('metric');
-
-            //scale unit menu
+            
+            //scale unit menu */
             
             
             
-            map.on('mousemove', function(e) {
-        document.getElementById('info').innerHTML =
-        // e.point is the x, y coordinates of the mousemove event relative
-        // to the top-left corner of the map
-        JSON.stringify(e.point) +
-        '<br />' +
-        // e.lngLat is the longitude, latitude geographical position of the event
-        JSON.stringify(e.lngLat.wrap());
-    });
-   /*  map.addControl(geocoder); */
-    
-    map.addControl(
-        new mapboxgl.GeolocateControl({
-            positionOptions: {
-            enableHighAccuracy: true
-            },
-            trackUserLocation: true
+            map.on('mousemove', function myFunction(e) {
+                var txt = e.lngLat
+                txt.lng = txt.lng.toString(); 
+                var my =  JSON.stringify(txt);
+                var abc = JSON.parse(my)
+                document.getElementById('longitudeInput').value = abc.lng; 
+                document.getElementById('latitudeInput').value = abc.lat; 
+                
+            });
+            
+            
+            
+            class MapboxGLButtonControl {
+            constructor({
+                className = "",
+                title = "",
+                eventHandler = evtHndlr
+            }) {
+                this._className = className;
+                this._title = title;
+                this._eventHandler = eventHandler;
+            }
+            
+            onAdd(map) {
+                this._btn = document.createElement("button");
+                this._btn.className = "mapboxgl-ctrl-icon" + " " + this._className;
+                this._btn.type = "button";
+                this._btn.title = this._title;
+                this._btn.onclick = this._eventHandler;
+                
+                this._container = document.createElement("div");
+                this._container.className = "mapboxgl-ctrl-group mapboxgl-ctrl";
+                this._container.appendChild(this._btn);
+                
+                return this._container;
+            }
+            
+            onRemove() {
+                this._container.parentNode.removeChild(this._container);
+                this._map = undefined;
+            }
+        }
+        function one(event) {
+            /* alert("Event handler when clicking on \r\n" + event.target.className); */
+            console.log("event number 1", event);
+            console.log("hej")
+        }
         
-        })
-    );
-   
-    map.addControl(new mapboxgl.FullscreenControl());
-    map.addControl(new mapboxgl.NavigationControl());
-    
-
-     map.addControl(new RulerControl());
-map.on('ruler.on', () => console.log('ruler: on'));
-map.on('ruler.off', () => console.log('ruler: off'));
-    
-    // with miles:
-    
-    
-    map.addControl(draw, 'top-left');
-    /* map.addControl(new CompassControl(), 'bottom-right'); */
-
-    map.on('draw.create', updateArea);
-    map.on('draw.delete', updateArea);
-    map.on('draw.update', updateArea);
-
-
-function updateArea(e) {
-    var data = draw.getAll();
-    var answer = document.getElementById('calculated-area');
-    if (data.features.length > 0) {
-        var area = turf.area(data);
-        // restrict to area to 2 decimal points
-        var rounded_area = Math.round(area * 100) / 100;
-        answer.innerHTML =
-            '<p><strong>' +
-            rounded_area +
-            '</strong></p><p>111square meters</p>';
-    } else {
-        answer.innerHTML = '';
-        if (e.type !== 'draw.delete')
-            alert('Use the draw tools to draw a polygon!');
+        
+        var ctrlPoint = new MapboxGLButtonControl({
+            className: "mapbox-gl-draw_point",
+            title: "Draw Point",
+            eventHandler: one
+        });
+        
+        //MapControl Icons added to map
+        
+        map.addControl(geocoder);
+        map.addControl(
+            new mapboxgl.GeolocateControl({
+                positionOptions: {
+                    enableHighAccuracy: true
+                },
+                trackUserLocation: true
+                
+            })
+            );
+        map.addControl(new mapboxgl.FullscreenControl());
+        map.addControl(new mapboxgl.NavigationControl());
+        map.addControl(ctrlPoint);
+        map.addControl(draw, 'top-left');
+        
+        
+        /* map.addControl(new CompassControl(), 'bottom-right'); */
+        
+        /* map.on('draw.create', updateArea); */
+        /*  map.on('draw.delete', updateArea);
+        map.on('draw.update', updateArea); */
+        
+        
+        /* function updateArea(e) {
+            var data = draw.getAll();
+            var answer = document.getElementById('radiusInput');
+            if (data.features.length > 0) {
+                var area = turf.area(data);
+                // restrict to area to 2 decimal points
+                var rounded_area = Math.round(area * 100) / 100;
+                answer.innerText =
+                '<number><strong>' +
+                rounded_area +
+                '</strong></number>';
+            } else {
+                answer.innerHTML = '';
+                if (e.type !== 'draw.delete')
+                alert('Use the draw tools to draw a polygon!');
     }
-}
+} */
 
 
 

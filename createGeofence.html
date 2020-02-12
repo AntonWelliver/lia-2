@@ -316,19 +316,22 @@
                             type="number"
                             placeholder="Latitude"
                             name="latitudeInput"
+                            id="latitudeInput"
                         />
 
                         <input
                             type="number"
                             placeholder="Longitude"
                             name="longitudeInput"
+                            id="longitudeInput"
                         />
 
                         <input
-                            type="number"
+                            type="text"
                             placeholder="Radius"
                             name="radiusInput"
                             id="radiusInput"
+                            
                         />
 
                         <form action="/index.html">
@@ -347,14 +350,10 @@
                     </div>
                 </form>
             </div>
-            <div>
-                <div class="mapContainer">
-                    <div id="map"></div>
-                    <div class="calculation-box">
-                        <p>Draw a polygon using the draw tools.</p>
-                    </div>
-                    <pre id="info"></pre>
-                    <div id="calculated-area"></div>
+                <div>
+                    <div class="mapContainer">
+                        <div id="map"></div>  
+                    </div>  
                 </div>
             </div>
         </div>
