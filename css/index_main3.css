@@ -361,8 +361,9 @@ div.accepted {
     left: 290px;
     right: 640px;
     background-color: #ddd;
-    overflow: auto;
+    overflow: hidden;
     border-radius: 3px;
+    width: 610px;
 }
 
 #pusher {
