@@ -8,6 +8,11 @@ body {
     font-family: Helvetica, Arial, sans-serif;
 }
 
+form {
+    width: 82%;
+    margin-left: 120px;
+}
+
 #filterWlan {
     width: 200px !important;
     height: 25px;
@@ -416,10 +421,30 @@ div.accepted {
     overflow: hidden;
     margin-bottom: 20px;
     border-radius: 7px;
-    margin-right: 20px;
+    margin-left: 120px;
+    width: 82%;
+}
+
+#statusdataheader2 {
+    height: 50px;
+    /* width:100%; */
+    background-color: #2192fe;
+    background-size: 50px;
+    -webkit-border-radius: 3px 3px 0px 0px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border-radius: 7px;
 }
 
 #statusdataheader .info {
+    height: 50px;
+    float: left;
+    color: #000;
+    line-height: 25px;
+    margin-left: 12px;
+}
+
+#statusdataheader2 .info {
     height: 50px;
     float: left;
     color: #000;
@@ -433,7 +458,9 @@ div.accepted {
     margin-bottom: 20px;
     margin-top: 20px;
     margin-right: 20px;
+    margin-left: 120px;
     background-color: #081420;
+    width: 80%;
 }
 
 .statusul {
@@ -486,12 +513,14 @@ div.accepted {
     margin-top: 14px;
     margin-bottom: 14px;
     margin-right: 20px;
+    margin-left: 120px;
     font-weight: bold;
     color: white;
     padding: 10px;
     border-radius: 12px;
     border: 1px solid #495966;
     background-color: #081420;
+    width: 80%;
 }
 
 #contactgroupheader input {

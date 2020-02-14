@@ -20,11 +20,8 @@
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css"
         />
-        
-
     </head>
     <body id="wrapper">
-    
         <div id="header" style="padding-bottom: 90px;">
             <img id="logo" src="brand/salusmea-logo3.png" class="left" />
             <div id="menu">
@@ -98,7 +95,7 @@
 
         <!-- Sidebar -->
 
-        <div id="sidebar">
+        <!--        <div id="sidebar">
             <div id="sidebarheader">
                 <p class="left">Alarm</p>
                 <a href="#" onclick="toggleSound();"
@@ -244,30 +241,32 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Content -->
 
-        <table class="center" >
+        <table class="center">
             <div id="statusdataheader" style="font-weight: bold;">
                 <p>Manage Geofences</p>
             </div>
             <caption>
                 <button
                     type="add"
-                    
-                    style="float: right; 
+                    style="float: left; 
                             padding: 7px; 
                             margin-bottom: 5px; 
                             background-color: white;
                             border-radius: 10px; 
                             cursor: pointer;"
-                    >
-                    
-                    <a href="createGeofence.html" style="text-decoration: none; color: black;" class="button">Add Geofence 
-                    <i class="fas fa-plus"></i></a>
+                >
+                    <a
+                        href="createGeofence.html"
+                        style="text-decoration: none; color: black;"
+                        class="button"
+                        >Add Geofence <i class="fas fa-plus"></i
+                    ></a>
                 </button>
-                </caption>
+            </caption>
             <tr>
                 <th>Name</th>
                 <th>Type</th>
@@ -291,22 +290,20 @@
                 <td>11.9742881</td>
                 <td>Feb 11, 2020</td>
                 <td>
-                    <a href="editGeofence.html" style="color: rgb(20, 134, 168);" class="button button2"> 
+                    <a
+                        href="editGeofence.html"
+                        style="color: rgb(20, 134, 168);"
+                        class="button button2"
+                    >
                         <i class="far fa-edit"></i>
                     </a>
-                    <a href="/" style="color: rgb(248, 97, 97);" class="button button2"> 
+                    <a
+                        href="/"
+                        style="color: rgb(248, 97, 97);"
+                        class="button button2"
+                    >
                         <i class="far fa-trash-alt"></i>
                     </a>
-                    <!-- <img
-                        src="images/edit-pen.png"
-                        alt="edit icon"
-                        class="edit-icon"
-                    /> -->
-                    <!-- <img
-                        src="images/delete-trash.png"
-                        alt="delete icon"
-                        class="delete-icon"
-                    /> -->
                 </td>
             </tr>
             <tr>
@@ -320,17 +317,24 @@
                 <td>12.0588444</td>
                 <td>Apr 5, 2019</td>
                 <td>
-                    <a href="editGeofence.html" style="color: rgb(20, 134, 168);" class="button button2"> 
+                    <a
+                        href="editGeofence.html"
+                        style="color: rgb(20, 134, 168);"
+                        class="button button2"
+                    >
                         <i class="far fa-edit"></i>
                     </a>
-                    <a href="/" style="color: rgb(248, 97, 97);" class="button button2"> 
+                    <a
+                        href="/"
+                        style="color: rgb(248, 97, 97);"
+                        class="button button2"
+                    >
                         <i class="far fa-trash-alt"></i>
                     </a>
                 </td>
             </tr>
-            <tbody id="tableBody"></tbody>
-        </table class="center">
+        </table>
+
         <script type="text/javascript" src="js/main.js"></script>
-        
     </body>
 </html>
