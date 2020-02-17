@@ -6,29 +6,29 @@ function sortDropdown() {
 
 // Close the dropdown if the user clicks outside of it
 window.onclick = function (e) {
-    e.preventDefault();
     if (!e.target.matches(".sortdropbtn")) {
         var mySortDropdown = document.getElementById("mySortDropdown");
         if (mySortDropdown.classList.contains("show")) {
             mySortDropdown.classList.remove("show");
         }
     }
+    var filterDropdown = document.getElementById("myFilterDropdown");
+    if (!e.target.matches(".filterdropbtn")) {
+        filterDropdown.style.display = "none";
+    }
 }
 
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
 function filterDropdown() {
     var filterDropdown = document.getElementById("myFilterDropdown");
-    if (filterDropdown.style.display === "inline-block") {
+    if (filterDropdown.style.display === "block") {
         filterDropdown.style.display = "none";
     } else {
-        filterDropdown.style.display = "inline-block";
+        filterDropdown.style.display = "block";
     }
 }
 
 function filterFunction() {
-    console.log("hej2");
-    var input, filter, ul, li, a, i;
+    var input, filter, div, a, i;
     input = document.getElementById("filterInput");
     filter = input.value.toUpperCase();
     div = document.getElementById("myFilterDropdown");
@@ -42,13 +42,3 @@ function filterFunction() {
         }
     }
 }
-
-/* window.onclick = function (e) {
-    e.preventDefault();
-    if (!e.target.matches(".filterdropbtn")) {
-        var myFilterDropdown = document.getElementById("myFilterDropdown");
-        if (myFilterDropdown.style.display("inline-block")) {
-            myFilterDropdown.style.display("none");
-        }
-    }
-} */
