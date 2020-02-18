@@ -11,12 +11,13 @@ body {
 
 table {
     font-family: Helvetica, Arial, sans-serif;
-    width: 80%;
-    border: 1px solid white;
-    border-radius: 5px;
-    border-collapse: collapse;
-    margin: 10px;
-    box-shadow: 2px 2px 2px grey;
+    width: 82%;
+    border: 1px solid #495966;
+    border-radius: 7px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
     background-color: #121e2d;
     color: white;
 }
@@ -24,6 +25,7 @@ table {
 tr {
     border: solid grey;
     border-width: 1px 0;
+    background-color: #081420;
 }
 
 tr:first-child {

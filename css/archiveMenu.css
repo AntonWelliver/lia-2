@@ -1,12 +1,10 @@
 #archiveFilterTable {
-    width: 80%;
-    border: 2px solid #ddd;
+    width: 82%;
+    border: 1px solid #495966;
     color: white;
-    border-radius: 5px;
-    border-collapse: collapse;
+    border-radius: 7px;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 2px 2px 2px grey;
     background-color: #121e2d;
     background-size: 10px 10px;
     font-family: Helvetica, Arial, sans-serif;
@@ -19,6 +17,7 @@ th {
 tr {
     border: solid grey;
     border-width: 1px 0;
+    background-color: #081420;
 }
 
 tr:first-child {
