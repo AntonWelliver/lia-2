@@ -13,7 +13,7 @@ window.onclick = function (e) {
         }
     }
     var filterDropdown = document.getElementById("myFilterDropdown");
-    if (!e.target.matches(".filterdropbtn")) {
+    if (!e.target.matches(".filterdropbtn") & !(e.target.matches("#filterInput"))) {
         filterDropdown.style.display = "none";
     }
 }
