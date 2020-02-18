@@ -1,293 +1,68 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 	<title>Salus mea - Alarm portal</title>
 
 	<link rel="stylesheet" type="text/css" href="css/index_main3.css" />
-	<link href="css/loginbox.css" rel="stylesheet" type="text/css" />
-       <link rel="icon" href="/alertyFavicon.png" type="image/png">
-       <link rel="shortcut icon" href="/alertyFavicon.png" type="image/png">
-	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA1vUw498bcppAYRAMyytc6Kr-oy1wRao&libraries=geometry"></script>
-	<script type="text/javascript" src="js/alerty.js"></script>
-	<script src="https://api.html5media.info/1.1.5/html5media.min.js"></script>
-	<script type="text/javascript">
-	var phoneVerification = 0;
-	var phoneNumber = '';
-	var email = '';
-	var battery_unknown = 'Unknown - Please check the battery and contact an authorized service provider can service the battery';
-	var battery_charging = 'charging';
-	var battery_unplugged = 'unplugged';
-	var battery_full = 'full';
-	function submitForm(form) {
-		var values = {};
-		$.each($(form).serializeArray(), function(i, field) {
-			values[field.name] = field.value;
-		});
-		var posting = $.post("user.php", values);
-		posting.done(function( data ) {
-			console.log(data.result);
-			var scroll = document.getElementById('mapContainer').scrollTop;
-			if (/*data.result == "updated" ||*/ data.result == "new") {
-				//window.location.reload();
-				//window.location.href = "https://beta.getalerty.com/users.php#user" + data.id;
-				window.location.href = "?scroll=" + scroll;
-			} else if (data.result == "deleted") {
-				window.location.href = "?scroll=" + scroll;
-			} else if (data.result == "phone") {
-				phoneVerification = data.id;
-				email = null;
-				toggleVisible('verify');
-			} else if (data.result == "email") {
-				phoneVerification = data.id;
-				phoneNumber = null;
-				toggleVisible('verify');
-			}
-		});
-	}
-
-	function checkPhoneAndSubmit(form) {
-		phoneNumber = form.elements["phonenr"].value;
-		if (phoneNumber.length > 0) {
-			if (phoneNumber.length < 11) {
-				alert('The number must be in a international format (e.g. +46708123456). Please change the number.');
-				return;
-			}
-			if (phoneNumber.substr(0,1) != '+') {
-				alert('The number must be in a international format (e.g. +46708123456). Please change the number.');
-				return;
-			}
-		}
-		email = form.elements["email"].value;
-		submitForm(form);
-	}
-
-	function startPings() {
-		/*$.ajax({
-   			url: "users_ping.php",
-   			context: document.body,
-			success: function(result){
-				alert('done');
-			}
-		});*/
-		document.getElementById('mapContainer').scrollTop = 0	}
-	function doFilter() {
-		var text = $('#filter').val().toUpperCase();
-		$("form").hide();
-		var userids = $( "span[name*='userid']" );
-		userids.each(function(index) {
-			if ($(this).html().toUpperCase().includes(text)) {
-				$(this).parents("form").show();				
-			}
-		});
-		var usernames = $( "input[name*='username']" );
-		usernames.each(function(index) {
-			if ($(this).val().toUpperCase().includes(text)) {
-				console.log($(this).parents("form"));
-				$(this).parents("form").show();				
-			}
-		});
-		var phonenumbers = $( "input[name*='phonenr']" );
-		phonenumbers.each(function(index) {
-			if ($(this).val().toUpperCase().includes(text)) {
-				$(this).parents("form").show();				
-			}
-		});
-		var statuses = $( "span[name*='status']" );
-		statuses.each(function(index) {
-			if ($(this).html().toUpperCase().includes(text)) {
-				$(this).parents("form").show();				
-			}
-		});
-		var versions = $( "span[name*='version']" );
-		versions.each(function(index) {
-			if ($(this).html().toUpperCase().includes(text)) {
-				$(this).parents("form").show();				
-			}
-		});
-	}
-	function filterAlerts() {
-		var text = $('#alarmFilter').val().toUpperCase();
-		$("div[name='alarm']").hide();
-		var usernames = $( "li[name*='alertusername']" );
-		console.log(usernames);
-		usernames.each(function(index) {
-			if ($(this).html().toUpperCase().includes(text)) {
-				$(this).parents("div[name*='alarm']").show();				
-			}
-		});
-	}
-	function deleteUser(id) {
-		document.getElementById('action'+id).value = 'deleteuser';
-		submitForm(document.getElementById('setUserForm'+id));
-	}
-	function verify() {
-		if (phoneNumber) {
-			verifyPhone(phoneVerification,"en",phoneNumber)
-		} else if (email) {
-			verifyEmail(phoneVerification,"en",email);
-		}
-	}
-
-	function showLastPosition(id) {
-		// handle overlays
-		/*for (var i=0; i<overlays.length; i++) {
-			overlays[i].setMap(null);
-			overlays[i] = null;
-		}
-
-		overlays = [];
-		var departmentId = document.getElementById("department" + id).value;
-		if (departmentId) {
-			$.getJSON("getMapForDepartment.php", { id:departmentId }, function(indoorMap) {
-				if (indoorMap) {
-					var bounds = new google.maps.LatLngBounds(
-								new google.maps.LatLng(indoorMap.bottom, indoorMap.left),
-								new google.maps.LatLng(indoorMap.top, indoorMap.right));
-					var overlay = new USGSOverlay(bounds, indoorMap.url, map, -1 * parseFloat(indoorMap.rotation));
-					overlays.push(overlay);
-				}
-			});
-		} else {
-			$.getJSON("getMapForWlan.php", { id:id }, function(indoorMap) {
-				if (indoorMap) {
-					var bounds = new google.maps.LatLngBounds(
-								new google.maps.LatLng(indoorMap.bottom, indoorMap.left),
-								new google.maps.LatLng(indoorMap.top, indoorMap.right));
-					var overlay = new USGSOverlay(bounds, 'https://portal.getalerty.com/maps/' + indoorMap.file, map, -1 * parseFloat(indoorMap.rotation));
-					overlays.push(overlay);
-				}
-			});
-		}*/
-
-		var popup = document.getElementById("lastpositionmap");
-		popup.style.visibility = "visible";
-
-		var mapDiv = document.getElementById("wmap");
-		var mapDivJQ = $("#wmap");
-
-		var latitude = document.getElementById("latitude" + id).value;
-		var longitude = document.getElementById("longitude" + id).value;
-
-		var center = new google.maps.LatLng(latitude, longitude);
-		var mapOptions = {
-			center: center,
-			zoom: 18,
-			mapTypeId: google.maps.MapTypeId.ROADMAP
-		};
-		map = new google.maps.Map(mapDiv, mapOptions);	
-		
-		var icon = new google.maps.MarkerImage("images/pin_green.png",
-			new google.maps.Size(74, 90),
-			new google.maps.Point(0,0),
-		 	new google.maps.Point(11, 41),
-			new google.maps.Size(37, 45));
-
-		var marker = new google.maps.Marker({
-			position: center,
-			map: map,
-			icon: icon
-		});
-	}
-	</script>
+	<link rel="stylesheet" type="text/css" href="css/archiveMenu.css" />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css"
+        />
 </head>
 
-<body onload="checkAlertNew();checkStatusesNew();checkUsers();startPings();">
-	<audio id="alertsound">
-		<source src="alert.wav" type="audio/wav" />
-	</audio>
-	<div id="sound_element"></div>
-	<div id="video" class="Popdiv"> 
-		<div class="Fader"></div>
-		<div class="Overlay">
-			<div class="Container" style="width:310px;height:250px">
-				<a href="javascript:toggleVisible('video');" class="Close"></a>
-				<div class="Content" id="videocontent">
-					<iframe id="videoframe" src="" width="265" height="200"> </iframe>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="verify" class="Popdiv" style="visibility:none"> 
-		<div class="Fader"></div>
-		<div class="Overlay">
-			<div class="Container" style="width:600px;height:300px;background:#ffffff;margin-left:-400px">
-				<a href="javascript:toggleVisible('verify');" class="Close"></a>
-				<div class="Content" id="videocontent">
-					The entered number is already used for another Alerty account. To create a new account and to disable the old one press the send button below. A 6 digit long code will be sent to the entered number. By submitting the same code below you accept that the old account is getting disabled and that a new one is created. 
-					<center>
-					<br/><input id='sendverify' type='button' value='Send code' onclick='verify()'/>
-					<br/><br/>
-					<input id='verificationCode' type='text' value='' placeholder='Enter verification code' maxlength='6'/><br/><br/>
-					<input type='button' value='Proceed' onclick='confirmPhone(phoneVerification, "en", phoneNumber, document.getElementById("verificationCode").value)' style='width:150px;height:25px;'/>
-					</center>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="lastpositionmap" class="Popdiv"> 
-		<div class="Fader"></div>
-		<div class="Overlay">
-			<div class="Container" style="width:800px;height:600px;background-color:#fff;margin-left:-350px;margin-top:-300px">
-				<a href="javascript:toggleVisible('lastpositionmap');" class="Close"></a>
-				<div class="Content">
-					<div class="mapClass" id="wmap" style="left:0;top:0px;right:0px">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<body>
 	<div id="wrapper">
 		<!-- Header -->
         <div id="header"><img id="logo" src="brand/salusmea-logo3.png" class="left">
 			<div id="menu" class="">
 				<ul>
-					<li class="toolTip"><a href="index.html" class="imageLink"><img src="images/portalHeader/map.png"/><span class="toolTipText">handle all geofence for users</span><p>Geofences</p></a></li>
-					<li class="toolTip"><a href="user.html" class="imageLink"><img src="images/portalHeader/users.png"/><span class="toolTipText">all users information</span><p>Users</p></a></li>
-					<li class="toolTip"><a href="contact.html" class="imageLink"><img src="images/portalHeader/contacts.png"/><span class="toolTipText">Save and delete Users</span><p>Contacts</p></a></li>
-					<li class="toolTip"><a href="wlan.html" class="imageLink"><img src="images/portalHeader/wlan.png"/><span class="toolTipText">Handle the position</span><p>Wlan</p></a></li>
 					<li class="toolTip"><a href="alarm.html" class="imageLink"><img src="images/portalHeader/alerts.png"/><span class="toolTipText">Handle all the Alarm</span><p>Alarm</p></a></li>
+					<li class="toolTip"><a href="user.html" class="imageLink"><img src="images/portalHeader/users.png"/><span class="toolTipText">All users information</span><p>Users</p></a></li>
+					<li class="toolTip"><a href="contact.html" class="imageLink"><img src="images/portalHeader/contacts.png"/><span class="toolTipText">Save and delete Users</span><p>Contacts</p></a></li>
+					<li class="toolTip"><a href="wlan.html" class="imageLink"><img src="images/portalHeader/places.png" /><span class="toolTipText">Handle the position</span><p>Places</p></a></li>
+					<li class="toolTip"><a href="archive.html" class="imageLink"><img src="images/portalHeader/archive.png" /><span class="toolTipText">Search through the archive for specific alarms</span><p>Archive</p></a></li>
+					<li class="toolTip"><a href="index.html" class="imageLink"><img src="images/portalHeader/map.png"/><span class="toolTipText">Handle all geofence for users</span><p>Geofences</p></a></li>
 					<li class="toolTip"><a href="manual.html" class="imageLink"><img src="images/portalHeader/help.png"/><span class="toolTipText">Support for more information</span><p>Guide</p></a></li>
-					
-						<li><a href='login.html' class='imageLink'><img src='images/portalHeader/signout.png'/><p>Log out</p></a></li>				</ul>	
+					<li><a href='login.html' class='imageLink'><img src='images/portalHeader/signout.png'/><p>Log out</p></a></li>
+				</ul>	
 			</div>
-			<input id="filter" onkeyup="doFilter()" placeholder="Search..." maxlength="20" type="text">
+			<input id="filter" placeholder="Search..." maxlength="20" type="text">
 		</div>
 
 		<!-- Map -->
-
-	        <div id="mapContainer">
+	    <div id="mapContainer">
 			<div id="satusdata">
 				<div id="statusdataheader">
 					<p class="left">Users</p>
 				</div>
 				<div id="datadiv" class="dSettings">
-					
-					
 					<form  id='setUserForm5013' action='' method='post'>
-							<button type="button" class="collapsible">
+						<button type="button" class="collapsible">
+							<td  rowspan='15' class='rownum'>1</td>
+							<td class='rowhdr'>User ID</td>
+							<td class='rowinfo'>
+								<span name='userid'>SMUU5013</span>
+							</td>
+							<td class='rowhdr' style="margin-left: 20px">Status</td>
+							<td class='rowinfo'>
+								<img id='online5013' style='display:none' src='images/userOnline.png'>
+								<img id='offline5013' style='display:none' src='images/userOffline.png'> 
+								<span id='status5013'></span></span>
+							</td>
+						</button>
+						<table class="formContainer" style='margin:0;padding-top:16px; margin-right: 20px; display: none;'>
+							<tr style='height:40px;'>
 								<td  rowspan='15' class='rownum'>1</td>
 								<td class='rowhdr'>User ID</td>
 								<td class='rowinfo'>
 									<span name='userid'>SMUU5013</span>
 								</td>
-								<td class='rowhdr' style="margin-left: 20px">Status</td>
-								<td class='rowinfo'>
-									<img id='online5013' style='display:none' src='images/userOnline.png'>
-									<img id='offline5013' style='display:none' src='images/userOffline.png'> 
-									<span id='status5013'></span></span>
-								</td>
-							</button>
-						<table class="formContainer" style='margin:0;padding-top:16px; margin-right: 20px; display: none;'>
-							<tr style='height:40px;'>
-									
-								<td  rowspan='15' class='rownum'>1</td>
-								<td class='rowhdr'>User ID</td>
-								<td class='rowinfo'>
-									<span name='userid'>SMUU5013</span>
-								</td>
-								
 								<td rowspan='15' class='rowbtn' style='vertical-align:center;padding-bottom:3px'>
 									<div class='savebtn'>
 										<a href='javascript:checkPhoneAndSubmit(document.getElementById("setUserForm5013"));'>
@@ -303,7 +78,6 @@
 									</div>
 								</td>
 							</tr>
-						
 							<tr style='height:40px;'>
 								<td class='rowhdr'>Status</td>
 								<td class='rowinfo'>
@@ -326,669 +100,102 @@
 									<input id='showlastposition5013' type='button' value='Show on map' onclick='showLastPosition(5013)' style='width:120px;float:right;height:25px;margin-right:3px;display:none'/>
 								</td>
 							</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Latest Alerty PBA test</td>
-									<td class='rowinfo'><span id='lasttest5013'></span>
-										<input id='flictest5013' type='button' value='Reminder' onclick='sendFlicTest(5013,"en")' style='width:120px;float:right;height:25px;margin-right:3px;display:none'/>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Version</td>
-									<td class='rowinfo'>
-										<span name='version'>
-											<span id='version5013' style="float:left;margin-top:4px;width:244px;">1.0.2</span>
-										</span>
-										<input id='update5013' type='button' value='Software update' onclick='sendSoftwareUpdate(5013,"en")' style='width: 150px; margin-left:10px;height:25px;'/>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Name</td>
-									<td class='rowinfo'>
-										<input name='username' type='text' placeholder='Full name' value='Sara Elg' maxlength='23'/>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Phone nr</td>
-									<td class='rowinfo'>
-										<input name='phonenr' type='text' placeholder='+46123123456' value='0760250360' onkeypress='return event.charCode <= 57'>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Phonenr2</td>
-									<td class='rowinfo'>
-										<input name='phone_secondary' type='text' placeholder='e.g. Apple Watch eSIM' value='' onkeypress='return event.charCode <= 57'>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Email</td>
-									<td class='rowinfo'>
-										<input name='email' type='text' placeholder='someone@somewhere' value=''>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Invitation</td>
-									<td class='rowinfo' style='padding-top:0px;'>
-										<select style='width:404px;' name='userlang'>
-											<option value='en'>Send SMS in English</option>
-											<option value='sv' >Skicka SMS på Svenska</option>
-										</select>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Contact group</td>
-									<td class='rowinfo'>
-										<select name='alarmgroup'>
-											<option value='0' selected>Default</option>
-											<option value='1'>Emanuel</option>
-										</select>
-									</td>
-									</tr>
-									<tr style='height:40px;'>
-										<td class='rowhdr'>Authorization code</td>
-										<td class='rowinfo'>
-											<span id='pin5013'>1234</span>
-										</td>
-									</tr>
-									<tr style='height:40px;'>
-										<td class='rowhdr'>SCAIP ARC</td>
-										<td class='rowinfo'>
-											<span id='scaip5013'></span>
-										</td>
-									</tr>
-									<input type='hidden' name='id' value='5013'/>
-									<input type='hidden' name='action' id='action5013' value='saveuser'/>
-									<input type='hidden' name='latitude' id='latitude5013'/>
-									<input type='hidden' name='longitude' id='longitude5013'/>
-								</table>
-								<!-- <hr/> -->
-							</form>
-
-
-				
-
-				
-					
-					
-					<form  id='setUserForm5013' action='' method='post'>
-							<button type="button" class="collapsible">
-								<td  rowspan='15' class='rownum'>2</td>
-								<td class='rowhdr'>User ID</td>
+							<tr style='height:40px;'>
+								<td class='rowhdr'>Latest Alerty PBA test</td>
+								<td class='rowinfo'><span id='lasttest5013'></span>
+									<input id='flictest5013' type='button' value='Reminder' onclick='sendFlicTest(5013,"en")' style='width:120px;float:right;height:25px;margin-right:3px;display:none'/>
+								</td>
+							</tr>
+							<tr style='height:40px;'>
+								<td class='rowhdr'>Version</td>
 								<td class='rowinfo'>
-									<span name='userid'>SMUU5013</span>
+									<span name='version'>
+										<span id='version5013' style="float:left;margin-top:4px;width:244px;">1.0.2</span>
+									</span>
+									<input id='update5013' type='button' value='Software update' onclick='sendSoftwareUpdate(5013,"en")' style='width: 150px; height: 25px;'/>
 								</td>
-								<td class='rowhdr' style="margin-left: 20px">Status</td>
+							</tr>
+							<tr style='height:40px;'>
+								<td class='rowhdr'>Name</td>
 								<td class='rowinfo'>
-									<img id='online5013' style='display:none' src='images/userOnline.png'>
-									<img id='offline5013' style='display:none' src='images/userOffline.png'> 
-									<span id='status5013'></span></span>
+									<input name='username' type='text' placeholder='Full name' value='Sara Elg' maxlength='23'/>
 								</td>
-							</button>
-						<table class="formContainer" style='margin:0;padding-top:16px; margin-right: 20px; display: none;'>
+							</tr>
 							<tr style='height:40px;'>
-									
-								<td  rowspan='15' class='rownum'>2</td>
-								<td class='rowhdr'>User ID</td>
+								<td class='rowhdr'>Phone nr</td>
 								<td class='rowinfo'>
-									<span name='userid'>SMUU5013</span>
-								</td>
-								
-								<td rowspan='15' class='rowbtn' style='vertical-align:center;padding-bottom:3px'>
-									<div class='savebtn'>
-										<a href='javascript:checkPhoneAndSubmit(document.getElementById("setUserForm5013"));'>
-											<img src='images/save.png' alt='save icon'/>
-										</a>
-									</div>
-								</td>
-								<td rowspan='15' class='rowbtn' style='vertical-align:center;padding-bottom:5px'>
-									<div class='savebtn'>
-										<a href='javascript:deleteUser(5013);'>
-											<img src='images/delete.png' alt='save icon'/>
-										</a>
-									</div>
+									<input name='phonenr' type='text' placeholder='+46123123456' value='0760250360' onkeypress='return event.charCode <= 57'>
 								</td>
 							</tr>
-						
 							<tr style='height:40px;'>
-								<td class='rowhdr'>Status</td>
+								<td class='rowhdr'>Phonenr2</td>
 								<td class='rowinfo'>
-									<img id='online5013' style='display:none' src='images/userOnline.png'>
-									<img id='offline5013' style='display:none' src='images/userOffline.png'> 
-									<span id='status5013'></span></span>
+									<input name='phone_secondary' type='text' placeholder='e.g. Apple Watch eSIM' value='' onkeypress='return event.charCode <= 57'>
 								</td>
 							</tr>
 							<tr style='height:40px;'>
-								<td class='rowhdr'>Battery</td>
-								<td class='rowinfo'><span id='battery5013'></span></td>
-							</tr>
-							<tr style='height:40px;'>
-								<td class='rowhdr'>Signal strength</td>
-								<td class='rowinfo'><span id='signal5013'></span></td>
-							</tr>
-							<tr style='height:40px;'>
-								<td class='rowhdr'>Last known position</td>
-								<td class='rowinfo'><span id='lastposition5013'></span>
-									<input id='showlastposition5013' type='button' value='Show on map' onclick='showLastPosition(5013)' style='width:120px;float:right;height:25px;margin-right:3px;display:none'/>
-								</td>
-							</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Latest Alerty PBA test</td>
-									<td class='rowinfo'><span id='lasttest5013'></span>
-										<input id='flictest5013' type='button' value='Reminder' onclick='sendFlicTest(5013,"en")' style='width:120px;float:right;height:25px;margin-right:3px;display:none'/>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Version</td>
-									<td class='rowinfo'>
-										<span name='version'>
-											<span id='version5013' style="float:left;margin-top:4px;width:244px;">1.0.2</span>
-										</span>
-										<input id='update5013' type='button' value='Software update' onclick='sendSoftwareUpdate(5013,"en")' style='width: 150px; margin-left:10px;height:25px;'/>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Name</td>
-									<td class='rowinfo'>
-										<input name='username' type='text' placeholder='Full name' value='Sara Elg' maxlength='23'/>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Phone nr</td>
-									<td class='rowinfo'>
-										<input name='phonenr' type='text' placeholder='+46123123456' value='0760250360' onkeypress='return event.charCode <= 57'>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Phonenr2</td>
-									<td class='rowinfo'>
-										<input name='phone_secondary' type='text' placeholder='e.g. Apple Watch eSIM' value='' onkeypress='return event.charCode <= 57'>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Email</td>
-									<td class='rowinfo'>
-										<input name='email' type='text' placeholder='someone@somewhere' value=''>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Invitation</td>
-									<td class='rowinfo' style='padding-top:0px;'>
-										<select style='width:404px;' name='userlang'>
-											<option value='en'>Send SMS in English</option>
-											<option value='sv' >Skicka SMS på Svenska</option>
-										</select>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Contact group</td>
-									<td class='rowinfo'>
-										<select name='alarmgroup'>
-											<option value='0' selected>Default</option>
-											<option value='1'>Emanuel</option>
-										</select>
-									</td>
-									</tr>
-									<tr style='height:40px;'>
-										<td class='rowhdr'>Authorization code</td>
-										<td class='rowinfo'>
-											<span id='pin5013'>1234</span>
-										</td>
-									</tr>
-									<tr style='height:40px;'>
-										<td class='rowhdr'>SCAIP ARC</td>
-										<td class='rowinfo'>
-											<span id='scaip5013'></span>
-										</td>
-									</tr>
-									<input type='hidden' name='id' value='5013'/>
-									<input type='hidden' name='action' id='action5013' value='saveuser'/>
-									<input type='hidden' name='latitude' id='latitude5013'/>
-									<input type='hidden' name='longitude' id='longitude5013'/>
-								</table>
-								<!-- <hr/> -->
-							</form>
-
-
-				
-
-					
-					
-					<form  id='setUserForm5013' action='' method='post'>
-							<button type="button" class="collapsible">
-								<td  rowspan='15' class='rownum'>3</td>
-								<td class='rowhdr'>User ID</td>
+								<td class='rowhdr'>Email</td>
 								<td class='rowinfo'>
-									<span name='userid'>SMUU5013</span>
+									<input name='email' type='text' placeholder='someone@somewhere' value=''>
 								</td>
-								<td class='rowhdr' style="margin-left: 20px">Status</td>
+							</tr>
+							<tr style='height:40px;'>
+								<td class='rowhdr'>Invitation</td>
+								<td class='rowinfo' style='padding-top:0px;'>
+									<select style='width:404px;' name='userlang'>
+										<option value='en'>Send SMS in English</option>
+										<option value='sv' >Skicka SMS på Svenska</option>
+									</select>
+								</td>
+							</tr>
+							<tr style='height:40px;'>
+								<td class='rowhdr'>Contact group</td>
 								<td class='rowinfo'>
-									<img id='online5013' style='display:none' src='images/userOnline.png'>
-									<img id='offline5013' style='display:none' src='images/userOffline.png'> 
-									<span id='status5013'></span></span>
+									<select name='alarmgroup'>
+										<option value='0' selected>Default</option>
+										<option value='1'>Emanuel</option>
+									</select>
 								</td>
-							</button>
-						<table class="formContainer" style='margin:0;padding-top:16px; margin-right: 20px; display: none;'>
+							</tr>
 							<tr style='height:40px;'>
-									
-								<td  rowspan='15' class='rownum'>3</td>
-								<td class='rowhdr'>User ID</td>
+								<td class='rowhdr'>Authorization code</td>
 								<td class='rowinfo'>
-									<span name='userid'>SMUU5013</span>
-								</td>
-								
-								<td rowspan='15' class='rowbtn' style='vertical-align:center;padding-bottom:3px'>
-									<div class='savebtn'>
-										<a href='javascript:checkPhoneAndSubmit(document.getElementById("setUserForm5013"));'>
-											<img src='images/save.png' alt='save icon'/>
-										</a>
-									</div>
-								</td>
-								<td rowspan='15' class='rowbtn' style='vertical-align:center;padding-bottom:5px'>
-									<div class='savebtn'>
-										<a href='javascript:deleteUser(5013);'>
-											<img src='images/delete.png' alt='save icon'/>
-										</a>
-									</div>
+									<span id='pin5013'>1234</span>
 								</td>
 							</tr>
-						
 							<tr style='height:40px;'>
-								<td class='rowhdr'>Status</td>
+								<td class='rowhdr'>SCAIP ARC</td>
 								<td class='rowinfo'>
-									<img id='online5013' style='display:none' src='images/userOnline.png'>
-									<img id='offline5013' style='display:none' src='images/userOffline.png'> 
-									<span id='status5013'></span></span>
+									<span id='scaip5013'></span>
 								</td>
 							</tr>
-							<tr style='height:40px;'>
-								<td class='rowhdr'>Battery</td>
-								<td class='rowinfo'><span id='battery5013'></span></td>
-							</tr>
-							<tr style='height:40px;'>
-								<td class='rowhdr'>Signal strength</td>
-								<td class='rowinfo'><span id='signal5013'></span></td>
-							</tr>
-							<tr style='height:40px;'>
-								<td class='rowhdr'>Last known position</td>
-								<td class='rowinfo'><span id='lastposition5013'></span>
-									<input id='showlastposition5013' type='button' value='Show on map' onclick='showLastPosition(5013)' style='width:120px;float:right;height:25px;margin-right:3px;display:none'/>
-								</td>
-							</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Latest Alerty PBA test</td>
-									<td class='rowinfo'><span id='lasttest5013'></span>
-										<input id='flictest5013' type='button' value='Reminder' onclick='sendFlicTest(5013,"en")' style='width:120px;float:right;height:25px;margin-right:3px;display:none'/>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Version</td>
-									<td class='rowinfo'>
-										<span name='version'>
-											<span id='version5013' style="float:left;margin-top:4px;width:244px;">1.0.2</span>
-										</span>
-										<input id='update5013' type='button' value='Software update' onclick='sendSoftwareUpdate(5013,"en")' style='width: 150px; margin-left:10px;height:25px;'/>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Name</td>
-									<td class='rowinfo'>
-										<input name='username' type='text' placeholder='Full name' value='Sara Elg' maxlength='23'/>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Phone nr</td>
-									<td class='rowinfo'>
-										<input name='phonenr' type='text' placeholder='+46123123456' value='0760250360' onkeypress='return event.charCode <= 57'>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Phonenr2</td>
-									<td class='rowinfo'>
-										<input name='phone_secondary' type='text' placeholder='e.g. Apple Watch eSIM' value='' onkeypress='return event.charCode <= 57'>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Email</td>
-									<td class='rowinfo'>
-										<input name='email' type='text' placeholder='someone@somewhere' value=''>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Invitation</td>
-									<td class='rowinfo' style='padding-top:0px;'>
-										<select style='width:404px;' name='userlang'>
-											<option value='en'>Send SMS in English</option>
-											<option value='sv' >Skicka SMS på Svenska</option>
-										</select>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Contact group</td>
-									<td class='rowinfo'>
-										<select name='alarmgroup'>
-											<option value='0' selected>Default</option>
-											<option value='1'>Emanuel</option>
-										</select>
-									</td>
-									</tr>
-									<tr style='height:40px;'>
-										<td class='rowhdr'>Authorization code</td>
-										<td class='rowinfo'>
-											<span id='pin5013'>1234</span>
-										</td>
-									</tr>
-									<tr style='height:40px;'>
-										<td class='rowhdr'>SCAIP ARC</td>
-										<td class='rowinfo'>
-											<span id='scaip5013'></span>
-										</td>
-									</tr>
-									<input type='hidden' name='id' value='5013'/>
-									<input type='hidden' name='action' id='action5013' value='saveuser'/>
-									<input type='hidden' name='latitude' id='latitude5013'/>
-									<input type='hidden' name='longitude' id='longitude5013'/>
-								</table>
-								<!-- <hr/> -->
-							</form>
-					<form  id='setUserForm5013' action='' method='post'>
-							<button type="button" class="collapsible">
-								<td  rowspan='15' class='rownum'>4</td>
-								<td class='rowhdr'>User ID</td>
-								<td class='rowinfo'>
-									<span name='userid'>SMUU5013</span>
-								</td>
-								<td class='rowhdr' style="margin-left: 20px">Status</td>
-								<td class='rowinfo'>
-									<img id='online5013' style='display:none' src='images/userOnline.png'>
-									<img id='offline5013' style='display:none' src='images/userOffline.png'> 
-									<span id='status5013'></span></span>
-								</td>
-							</button>
-						<table class="formContainer" style='margin:0;padding-top:16px; margin-right: 20px; display: none;'>
-							<tr style='height:40px;'>
-									
-								<td  rowspan='15' class='rownum'>4</td>
-								<td class='rowhdr'>User ID</td>
-								<td class='rowinfo'>
-									<span name='userid'>SMUU5013</span>
-								</td>
-								
-								<td rowspan='15' class='rowbtn' style='vertical-align:center;padding-bottom:3px'>
-									<div class='savebtn'>
-										<a href='javascript:checkPhoneAndSubmit(document.getElementById("setUserForm5013"));'>
-											<img src='images/save.png' alt='save icon'/>
-										</a>
-									</div>
-								</td>
-								<td rowspan='15' class='rowbtn' style='vertical-align:center;padding-bottom:5px'>
-									<div class='savebtn'>
-										<a href='javascript:deleteUser(5013);'>
-											<img src='images/delete.png' alt='save icon'/>
-										</a>
-									</div>
-								</td>
-							</tr>
-						
-							<tr style='height:40px;'>
-								<td class='rowhdr'>Status</td>
-								<td class='rowinfo'>
-									<img id='online5013' style='display:none' src='images/userOnline.png'>
-									<img id='offline5013' style='display:none' src='images/userOffline.png'> 
-									<span id='status5013'></span></span>
-								</td>
-							</tr>
-							<tr style='height:40px;'>
-								<td class='rowhdr'>Battery</td>
-								<td class='rowinfo'><span id='battery5013'></span></td>
-							</tr>
-							<tr style='height:40px;'>
-								<td class='rowhdr'>Signal strength</td>
-								<td class='rowinfo'><span id='signal5013'></span></td>
-							</tr>
-							<tr style='height:40px;'>
-								<td class='rowhdr'>Last known position</td>
-								<td class='rowinfo'><span id='lastposition5013'></span>
-									<input id='showlastposition5013' type='button' value='Show on map' onclick='showLastPosition(5013)' style='width:120px;float:right;height:25px;margin-right:3px;display:none'/>
-								</td>
-							</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Latest Alerty PBA test</td>
-									<td class='rowinfo'><span id='lasttest5013'></span>
-										<input id='flictest5013' type='button' value='Reminder' onclick='sendFlicTest(5013,"en")' style='width:120px;float:right;height:25px;margin-right:3px;display:none'/>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Version</td>
-									<td class='rowinfo'>
-										<span name='version'>
-											<span id='version5013' style="float:left;margin-top:4px;width:244px;">1.0.2</span>
-										</span>
-										<input id='update5013' type='button' value='Software update' onclick='sendSoftwareUpdate(5013,"en")' style='width: 150px; margin-left:10px;height:25px;'/>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Name</td>
-									<td class='rowinfo'>
-										<input name='username' type='text' placeholder='Full name' value='Sara Elg' maxlength='23'/>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Phone nr</td>
-									<td class='rowinfo'>
-										<input name='phonenr' type='text' placeholder='+46123123456' value='0760250360' onkeypress='return event.charCode <= 57'>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Phonenr2</td>
-									<td class='rowinfo'>
-										<input name='phone_secondary' type='text' placeholder='e.g. Apple Watch eSIM' value='' onkeypress='return event.charCode <= 57'>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Email</td>
-									<td class='rowinfo'>
-										<input name='email' type='text' placeholder='someone@somewhere' value=''>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Invitation</td>
-									<td class='rowinfo' style='padding-top:0px;'>
-										<select style='width:404px;' name='userlang'>
-											<option value='en'>Send SMS in English</option>
-											<option value='sv' >Skicka SMS på Svenska</option>
-										</select>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Contact group</td>
-									<td class='rowinfo'>
-										<select name='alarmgroup'>
-											<option value='0' selected>Default</option>
-											<option value='1'>Emanuel</option>
-										</select>
-									</td>
-									</tr>
-									<tr style='height:40px;'>
-										<td class='rowhdr'>Authorization code</td>
-										<td class='rowinfo'>
-											<span id='pin5013'>1234</span>
-										</td>
-									</tr>
-									<tr style='height:40px;'>
-										<td class='rowhdr'>SCAIP ARC</td>
-										<td class='rowinfo'>
-											<span id='scaip5013'></span>
-										</td>
-									</tr>
-									<input type='hidden' name='id' value='5013'/>
-									<input type='hidden' name='action' id='action5013' value='saveuser'/>
-									<input type='hidden' name='latitude' id='latitude5013'/>
-									<input type='hidden' name='longitude' id='longitude5013'/>
-								</table>
-								<!-- <hr/> -->
-							</form>
-					<form  id='setUserForm5013' action='' method='post'>
-							<button type="button" class="collapsible">
-								<td  rowspan='15' class='rownum'>5</td>
-								<td class='rowhdr'>User ID</td>
-								<td class='rowinfo'>
-									<span name='userid'>SMUU5013</span>
-								</td>
-								<td class='rowhdr' style="margin-left: 20px">Status</td>
-								<td class='rowinfo'>
-									<img id='online5013' style='display:none' src='images/userOnline.png'>
-									<img id='offline5013' style='display:none' src='images/userOffline.png'> 
-									<span id='status5013'></span></span>
-								</td>
-							</button>
-						<table class="formContainer" style='margin:0;padding-top:16px; margin-right: 20px; display: none;'>
-							<tr style='height:40px;'>
-									
-								<td  rowspan='15' class='rownum'>5</td>
-								<td class='rowhdr'>User ID</td>
-								<td class='rowinfo'>
-									<span name='userid'>SMUU5013</span>
-								</td>
-								
-								<td rowspan='15' class='rowbtn' style='vertical-align:center;padding-bottom:3px'>
-									<div class='savebtn'>
-										<a href='javascript:checkPhoneAndSubmit(document.getElementById("setUserForm5013"));'>
-											<img src='images/save.png' alt='save icon'/>
-										</a>
-									</div>
-								</td>
-								<td rowspan='15' class='rowbtn' style='vertical-align:center;padding-bottom:5px'>
-									<div class='savebtn'>
-										<a href='javascript:deleteUser(5013);'>
-											<img src='images/delete.png' alt='save icon'/>
-										</a>
-									</div>
-								</td>
-							</tr>
-						
-							<tr style='height:40px;'>
-								<td class='rowhdr'>Status</td>
-								<td class='rowinfo'>
-									<img id='online5013' style='display:none' src='images/userOnline.png'>
-									<img id='offline5013' style='display:none' src='images/userOffline.png'> 
-									<span id='status5013'></span></span>
-								</td>
-							</tr>
-							<tr style='height:40px;'>
-								<td class='rowhdr'>Battery</td>
-								<td class='rowinfo'><span id='battery5013'></span></td>
-							</tr>
-							<tr style='height:40px;'>
-								<td class='rowhdr'>Signal strength</td>
-								<td class='rowinfo'><span id='signal5013'></span></td>
-							</tr>
-							<tr style='height:40px;'>
-								<td class='rowhdr'>Last known position</td>
-								<td class='rowinfo'><span id='lastposition5013'></span>
-									<input id='showlastposition5013' type='button' value='Show on map' onclick='showLastPosition(5013)' style='width:120px;float:right;height:25px;margin-right:3px;display:none'/>
-								</td>
-							</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Latest Alerty PBA test</td>
-									<td class='rowinfo'><span id='lasttest5013'></span>
-										<input id='flictest5013' type='button' value='Reminder' onclick='sendFlicTest(5013,"en")' style='width:120px;float:right;height:25px;margin-right:3px;display:none'/>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Version</td>
-									<td class='rowinfo'>
-										<span name='version'>
-											<span id='version5013' style="float:left;margin-top:4px;width:244px;">1.0.2</span>
-										</span>
-										<input id='update5013' type='button' value='Software update' onclick='sendSoftwareUpdate(5013,"en")' style='width: 150px; margin-left:10px;height:25px;'/>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Name</td>
-									<td class='rowinfo'>
-										<input name='username' type='text' placeholder='Full name' value='Sara Elg' maxlength='23'/>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Phone nr</td>
-									<td class='rowinfo'>
-										<input name='phonenr' type='text' placeholder='+46123123456' value='0760250360' onkeypress='return event.charCode <= 57'>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Phonenr2</td>
-									<td class='rowinfo'>
-										<input name='phone_secondary' type='text' placeholder='e.g. Apple Watch eSIM' value='' onkeypress='return event.charCode <= 57'>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Email</td>
-									<td class='rowinfo'>
-										<input name='email' type='text' placeholder='someone@somewhere' value=''>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Invitation</td>
-									<td class='rowinfo' style='padding-top:0px;'>
-										<select style='width:404px;' name='userlang'>
-											<option value='en'>Send SMS in English</option>
-											<option value='sv' >Skicka SMS på Svenska</option>
-										</select>
-									</td>
-								</tr>
-								<tr style='height:40px;'>
-									<td class='rowhdr'>Contact group</td>
-									<td class='rowinfo'>
-										<select name='alarmgroup'>
-											<option value='0' selected>Default</option>
-											<option value='1'>Emanuel</option>
-										</select>
-									</td>
-									</tr>
-									<tr style='height:40px;'>
-										<td class='rowhdr'>Authorization code</td>
-										<td class='rowinfo'>
-											<span id='pin5013'>1234</span>
-										</td>
-									</tr>
-									<tr style='height:40px;'>
-										<td class='rowhdr'>SCAIP ARC</td>
-										<td class='rowinfo'>
-											<span id='scaip5013'></span>
-										</td>
-									</tr>
-									<input type='hidden' name='id' value='5013'/>
-									<input type='hidden' name='action' id='action5013' value='saveuser'/>
-									<input type='hidden' name='latitude' id='latitude5013'/>
-									<input type='hidden' name='longitude' id='longitude5013'/>
-								</table>
-								<!-- <hr/> -->
-							</form>
-
-
-						</div>
-
+							<input type='hidden' name='id' value='5013'/>
+							<input type='hidden' name='action' id='action5013' value='saveuser'/>
+							<input type='hidden' name='latitude' id='latitude5013'/>
+							<input type='hidden' name='longitude' id='longitude5013'/>
+						</table>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
 
-</div>
-
-<!-- handle collapse with a toggle -->
-<script>
-	var coll = document.getElementsByClassName("collapsible");
-	var i;
-	
-	for (i = 0; i < coll.length; i++) {
-		coll[i].addEventListener("click", function() {
-			this.classList.toggle("active");
-			var formContainer = this.nextElementSibling;
-			if (formContainer.style.display === "none") {
-				formContainer.style.display = "block";
-			} else {
-				formContainer.style.display = "none";
-			}
-		});
-	}
+	<!-- handle collapse with a toggle -->
+	<script>
+		var coll = document.getElementsByClassName("collapsible");
+		var i;
+		
+		for (i = 0; i < coll.length; i++) {
+			coll[i].addEventListener("click", function() {
+				this.classList.toggle("active");
+				var formContainer = this.nextElementSibling;
+				if (formContainer.style.display === "none") {
+					formContainer.style.display = "block";
+				} else {
+					formContainer.style.display = "none";
+				}
+			});
+		}
 	</script>
 </body>
 </html>
