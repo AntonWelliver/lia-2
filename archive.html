@@ -106,62 +106,92 @@
                 />
             </div>
 
-            <!-- Page Content -->
             <div id="mapContainer">
                 <div id="satusdata">
                     <div id="statusdataheader">
                         <p class="left">Archive</p>
                     </div>
                     <div id="datadiv" class="dSettings">
-                        <div class="navbar">
-                            <!-- Sort Content -->
-                            <div
-                                class="sortDropdown"
-                                style="margin-left: 100px;"
-                            >
-                                <button
-                                    class="sortdropbtn"
-                                    onclick="sortDropdown()"
-                                >
-                                    Sort by
-                                    <i class="fa fa-caret-down"></i>
-                                </button>
-                                <div
-                                    class="sortDropdown-content"
-                                    id="mySortDropdown"
-                                >
-                                    <a href="#">Senast inkomna</a>
-                                    <a href="#">A-Ö</a>
-                                </div>
-                            </div>
-
-                            <!-- Filter Content -->
-                            <div class="filterDropdown">
-                                <button
-                                    onclick="filterDropdown()"
-                                    class="filterdropbtn"
-                                >
-                                    Filter
-                                </button>
-                                <div
-                                    id="myFilterDropdown"
-                                    class="filterDropdown-content"
-                                >
-                                    <input
-                                        type="text"
-                                        placeholder="Search.."
-                                        id="filterInput"
-                                        onkeyup="filterFunction()"
+                        <table id="archiveFilterTable">
+                            <tr>
+                                <th onclick="sortTable(0)">
+                                    Datum
+                                    <img
+                                        src="images/down-arrow.png"
+                                        alt="Arrow Down"
                                     />
-                                    <a href="#">Namn</a>
-                                    <a href="#">Användar-ID</a>
-                                    <a href="#">Telefonnummer</a>
-                                    <a href="#">Larmtyp</a>
-                                    <a href="#">Adress</a>
-                                    <a href="#">Företag</a>
-                                </div>
-                            </div>
-                        </div>
+                                </th>
+                                <th onclick="sortTable(1)">
+                                    Namn
+                                    <img
+                                        src="images/down-arrow.png"
+                                        alt="Arrow Down"
+                                    />
+                                </th>
+                                <th onclick="sortTable(2)">
+                                    Användar-ID
+                                    <img
+                                        src="images/down-arrow.png"
+                                        alt="Arrow Down"
+                                    />
+                                </th>
+                                <th onclick="sortTable(3)">
+                                    Tfn nr
+                                    <img
+                                        src="images/down-arrow.png"
+                                        alt="Arrow Down"
+                                    />
+                                </th>
+                                <th onclick="sortTable(4)">
+                                    Adress
+                                    <img
+                                        src="images/down-arrow.png"
+                                        alt="Arrow Down"
+                                    />
+                                </th>
+                                <th onclick="sortTable(5)">
+                                    Larmtyp
+                                    <img
+                                        src="images/down-arrow.png"
+                                        alt="Arrow Down"
+                                    />
+                                </th>
+                                <th onclick="sortTable(6)">
+                                    Företag
+                                    <img
+                                        src="images/down-arrow.png"
+                                        alt="Arrow Down"
+                                    />
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>2020-01-13 10:00</td>
+                                <td>Emanuel</td>
+                                <td>SMUU5757</td>
+                                <td>+46736881065</td>
+                                <td>Vera Sandbergs Allé 5B</td>
+                                <td>Rörelselarm</td>
+                                <td>Salus Mea</td>
+                            </tr>
+                            <tr>
+                                <td>2020-02-10 15:00</td>
+                                <td>Anton</td>
+                                <td>SMUU5682</td>
+                                <td>+46707301293</td>
+                                <td>Solståndsgatan 2</td>
+                                <td>Telefonsamtal/SMS</td>
+                                <td>Salus Mea</td>
+                            </tr>
+                            <tr>
+                                <td>2020-02-17 12:00</td>
+                                <td>Lars</td>
+                                <td>SMUU5731</td>
+                                <td>+46700513810</td>
+                                <td>Guldhedsgatan 1</td>
+                                <td>App-knapp</td>
+                                <td>Salus Mea</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
