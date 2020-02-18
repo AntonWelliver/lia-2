@@ -1,44 +1,55 @@
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function sortDropdown() {
-    document.getElementById("mySortDropdown").classList.toggle("show");
-}
 
-// Close the dropdown if the user clicks outside of it
-window.onclick = function (e) {
-    if (!e.target.matches(".sortdropbtn")) {
-        var mySortDropdown = document.getElementById("mySortDropdown");
-        if (mySortDropdown.classList.contains("show")) {
-            mySortDropdown.classList.remove("show");
+function sortTable(n) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("archiveFilterTable");
+    switching = true;
+    //Set the sorting direction to ascending:
+    dir = "asc";
+    /*Make a loop that will continue until
+    no switching has been done:*/
+    while (switching) {
+        //start by saying: no switching is done:
+        switching = false;
+        rows = table.rows;
+        /*Loop through all table rows (except the
+        first, which contains table headers):*/
+        for (i = 1; i < (rows.length - 1); i++) {
+            //start by saying there should be no switching:
+            shouldSwitch = false;
+            /*Get the two elements you want to compare,
+            one from current row and one from the next:*/
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+            /*check if the two rows should switch place,
+            based on the direction, asc or desc:*/
+            if (dir == "asc") {
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    //if so, mark as a switch and break the loop:
+                    shouldSwitch = true;
+                    break;
+                }
+            } else if (dir == "desc") {
+                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                    //if so, mark as a switch and break the loop:
+                    shouldSwitch = true;
+                    break;
+                }
+            }
         }
-    }
-    var filterDropdown = document.getElementById("myFilterDropdown");
-    if (!e.target.matches(".filterdropbtn") & !(e.target.matches("#filterInput"))) {
-        filterDropdown.style.display = "none";
-    }
-}
-
-function filterDropdown() {
-    var filterDropdown = document.getElementById("myFilterDropdown");
-    if (filterDropdown.style.display === "block") {
-        filterDropdown.style.display = "none";
-    } else {
-        filterDropdown.style.display = "block";
-    }
-}
-
-function filterFunction() {
-    var input, filter, div, a, i;
-    input = document.getElementById("filterInput");
-    filter = input.value.toUpperCase();
-    div = document.getElementById("myFilterDropdown");
-    a = div.getElementsByTagName("a");
-    for (i = 0; i < a.length; i++) {
-        txtValue = a[i].textContent || a[i].innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            a[i].style.display = "";
+        if (shouldSwitch) {
+            /*If a switch has been marked, make the switch
+            and mark that a switch has been done:*/
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            //Each time a switch is done, increase this count by 1:
+            switchcount++;
         } else {
-            a[i].style.display = "none";
+            /*If no switching has been done AND the direction is "asc",
+            set the direction to "desc" and run the while loop again.*/
+            if (switchcount == 0 && dir == "asc") {
+                dir = "desc";
+                switching = true;
+            }
         }
     }
 }

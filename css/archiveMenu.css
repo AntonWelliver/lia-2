@@ -1,104 +1,35 @@
-.navbar {
-    overflow: hidden;
+#archiveFilterTable {
+    width: 80%;
+    border: 2px solid #ddd;
+    color: white;
+    border-radius: 5px;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 2px 2px 2px grey;
     background-color: #121e2d;
-    font-family: Arial, Helvetica, sans-serif;
+    background-size: 10px 10px;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
-.navbar a {
-    font-size: 16px;
-    color: white;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.sortDropdown {
-    float: left;
-    overflow: hidden;
-}
-
-.sortDropdown .sortdropbtn {
+th {
     cursor: pointer;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
 }
 
-.sortDropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+tr {
+    border: solid grey;
+    border-width: 1px 0;
 }
 
-.sortDropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+tr:first-child {
+    border-top: none;
+}
+tr:last-child {
+    border-bottom: none;
+}
+
+th,
+td {
     text-align: left;
-}
-
-.sortDropdown-content a:hover {
-    background-color: #ddd;
-}
-
-.filterdropbtn {
-    background-color: #121e2d;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-#filterInput {
-    box-sizing: border-box;
-    background-position: 14px 12px;
-    background-repeat: no-repeat;
-    font-size: 16px;
-    padding: 14px 20px 12px 45px;
-    border: none;
-    border-bottom: 1px solid #ddd;
-}
-
-#filterInput:focus {
-    outline: 3px solid #ddd;
-}
-
-.filterDropdown {
-    display: inline-block;
-}
-
-.filterDropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f6f6f6;
-    padding-top: 7px;
-    min-width: 230px;
-    overflow: auto;
-    border: 1px solid #ddd;
-    z-index: 1;
-}
-
-.filterDropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.filterDropdown a:hover {
-    background-color: #ddd;
-}
-
-.show {
-    display: block;
+    padding: 8px;
 }
