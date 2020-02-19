@@ -128,22 +128,11 @@
                             name="nameInput"
                         />
 
-                        <div style="padding-top: 10px;">
-                            <label
-                                for=""
-                                style="color: white; padding-left: 12px;"
-                                >Type:</label
-                            >
+                        <div style="padding-top: 10px;">                          
                             <form action="/">
-                                <select name="types" style="border-radius: 7px;">
-                                    <option
-                                        value=""
-                                        selected="true"
-                                        disabled="disabled"
-                                        >...</option
-                                    >
-                                    <option value="polygon">Polygon</option>
-                                    <option value="circle">Circle</option>
+                                <select id="selectID" name="types" onchange="swapType()" style="border-radius: 10px; width: 100%; padding: 7px; margin-bottom: 18px;">
+                                    <option id="circle" value="circle">Circle</option>
+                                    <option id="polygon" value="polygon">Polygon</option>
                                 </select>
                             </form>
                         </div>
@@ -165,12 +154,15 @@
                             placeholder="Department"
                             name="departmentInput"
                         />
+                        <div id="addressInput" placeholder="adress" name="addressInput" style="width: 100%;">
 
-                        <input
-                            type="text"
-                            placeholder="Address"
-                            name="addressInput"
-                        />
+                            <input
+                                type="text"
+                                placeholder="Address"
+                                name="addressInput"
+                                id="addressInput"
+                            />
+                        </div>
 
                         <input
                             type="number"
@@ -213,10 +205,13 @@
                 <div>
                     <div class="mapContainer">
                         <div id="map"></div>  
+                        <nav id="menupicture"></nav> 
+                        
                     </div>  
                 </div>
             </div>
         </div>
+        <script src='https://npmcdn.com/mapbox-gl-circle/dist/mapbox-gl-circle.min.js'></script>
         <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
         <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v3.0.11/turf.min.js"></script>
