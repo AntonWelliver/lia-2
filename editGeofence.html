@@ -121,13 +121,13 @@
                 <form action="/">
                     <div class="container">
                         <h3 style="color: white;">Create a new geofence</h3>
-
+                        
                         <input
                             type="text"
                             placeholder="Name"
                             name="nameInput"
                         />
-
+                        
                         <div style="padding-top: 10px;">                          
                             <form action="/">
                                 <select id="selectID" name="types" onchange="swapType()" style="border-radius: 10px; width: 100%; padding: 7px; margin-bottom: 18px;">
@@ -137,6 +137,37 @@
                             </form>
                         </div>
 
+                        <input
+                        type="text"
+                        placeholder="Radius"
+                        name="radiusInput"
+                        id="radiusInput"
+                        
+                        />
+                        
+                        <input
+                            type="number"
+                            placeholder="Latitude"
+                            name="latitudeInput"
+                            id="latitudeInput"
+                        />
+
+                        <input
+                            type="number"
+                            placeholder="Longitude"
+                            name="longitudeInput"
+                            id="longitudeInput"
+                        />
+                        
+                        <div id="addressInput" placeholder="adress" name="addressInput" style="width: 100%;">
+                            <input
+                                type="text"
+                                placeholder="Address"
+                                name="addressInput"
+                                id="addressInput"
+                            />
+                        </div>
+                        
                         <input
                             type="text"
                             placeholder="Place"
@@ -154,37 +185,8 @@
                             placeholder="Department"
                             name="departmentInput"
                         />
-                        <div id="addressInput" placeholder="adress" name="addressInput" style="width: 100%;">
 
-                            <input
-                                type="text"
-                                placeholder="Address"
-                                name="addressInput"
-                                id="addressInput"
-                            />
-                        </div>
 
-                        <input
-                            type="number"
-                            placeholder="Latitude"
-                            name="latitudeInput"
-                            id="latitudeInput"
-                        />
-
-                        <input
-                            type="number"
-                            placeholder="Longitude"
-                            name="longitudeInput"
-                            id="longitudeInput"
-                        />
-
-                        <input
-                            type="text"
-                            placeholder="Radius"
-                            name="radiusInput"
-                            id="radiusInput"
-                            
-                        />
 
                         <form action="/index.html">
                             <button class="cancelbtn" id="cancelbtn">
