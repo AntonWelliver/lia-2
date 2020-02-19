@@ -245,10 +245,6 @@ ul {
     overflow: auto;
 }
 
-#wifiTable {
-    margin-top: 10px;
-}
-
 #status {
     width: 24px;
     height: 116px;
@@ -332,6 +328,7 @@ div.accepted {
     min-height: 100%;
     height: 100%;
     overflow: auto;
+    border-radius: 3px;
     -webkit-border-radius: 3px 3px 0px 0px;
 }
 #mapContainer::-webkit-scrollbar {
@@ -378,7 +375,6 @@ div.accepted {
 }
 
 #satusdata {
-    /* background-color: #444; */
     border-radius: 3px;
     -webkit-border-radius: 3px 3px 0px 0px;
 }
@@ -411,13 +407,9 @@ div.accepted {
 .active:after {
     content: "\21E7";
 }
-/* .active, .collapsible {
-  border-radius: 10px 10px 0px 0px;
-} */
 
 #statusdataheader {
     height: 50px;
-    /* width:100%; */
     background-color: #2192fe;
     background-size: 50px;
     -webkit-border-radius: 3px 3px 0px 0px;
@@ -431,7 +423,6 @@ div.accepted {
 
 #statusdataheader2 {
     height: 50px;
-    /* width:100%; */
     background-color: #2192fe;
     background-size: 50px;
     -webkit-border-radius: 3px 3px 0px 0px;
@@ -458,13 +449,13 @@ div.accepted {
 .userinfo {
     border: 1px solid #495966;
     border-radius: 12px;
-    padding: 12px;
+    padding: 1px;
     margin-bottom: 20px;
     margin-top: 20px;
-    margin-right: 20px;
-    margin-left: 120px;
+    margin-right: auto;
+    margin-left: auto;
     background-color: #081420;
-    width: 80%;
+    width: 82%;
 }
 
 .statusul {
@@ -516,15 +507,15 @@ div.accepted {
     font-size: 16px;
     margin-top: 14px;
     margin-bottom: 14px;
-    margin-right: 20px;
-    margin-left: 120px;
+    margin-right: auto;
+    margin-left: auto;
     font-weight: bold;
     color: white;
-    padding: 10px;
+    padding: 10px 1px;
     border-radius: 12px;
     border: 1px solid #495966;
     background-color: #081420;
-    width: 80%;
+    width: 82%;
 }
 
 #contactgroupheader input {
@@ -563,15 +554,12 @@ div.accepted {
 }
 
 .datadiv {
-    /* width: 100%; */
     height: 132px;
     background-color: #0f1f2e;
     color: #fff;
 }
 
 .dSettings {
-    /* background-color: #081420 !important; */
-    /* height:100% !important; */
     min-height: 100% !important;
     padding-bottom: 90px;
 }
@@ -743,6 +731,9 @@ input {
 
 table {
     margin-top: 16px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 82%;
 }
 
 td {
@@ -756,6 +747,10 @@ td {
 
 .savebtn2 {
     margin-left: 30px;
+}
+
+#wifiTable {
+    margin-top: 10px;
 }
 
 /* --- Mätare på kartan --- */

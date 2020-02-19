@@ -9,10 +9,8 @@
        <link rel="icon" href="/alertyFavicon.png" type="image/png">
        <link rel="shortcut icon" href="/alertyFavicon.png" type="image/png">
 	<script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA1vUw498bcppAYRAMyytc6Kr-oy1wRao&libraries=geometry"></script>
 	<script type="text/javascript" src="js/alerty.js"></script>
 	<script type="text/javascript" src="js/overlay.js"></script>
-	<script src="https://api.html5media.info/1.1.5/html5media.min.js"></script>
 	<script type="text/javascript">
 	function doFilter() {
 		var text = $('#filter').val().toUpperCase();
@@ -126,8 +124,62 @@
 				</div>
 
 				<div id="datadiv" class="dSettings">
-					<div class='userinfo'><form id='setWlanListForm1151' action='' method='post'><table style='margin:0;padding-top:16px'><tr><td rowspan='5' class='rownum'>1</td><td class='rowhdr'>BSSID</td><td class='rowinfo'><input name='wlanbssid' type='text' placeholder='00:1a:00:a1:b1:00' value='70:73:cb:bc:53:c0' id='wlanbssid1151'></td><td rowspan='5' class='rowbtn'><div class='savebtn2'><a href='javascript:showMap(1151)'><img src='images/mapW.png' alt='show map'/></a></div></td><td rowspan='5' class='rowbtn'><div class='savebtn2'><a href='javascript:submitform(document.getElementById("setWlanListForm1151"))'><img src='images/save.png' alt='save'/></a></div></td><td rowspan='5' class='rowbtn'><div class='savebtn2'><a href='javascript:deleteWlan(1151);'><img src='images/delete.png' alt='save icon'/></a></div></td></tr><tr><td class='rowhdr'>Description</td><td class='rowinfo'><input name='wlanname' type='text' placeholder='Kontoret' value='Framtidens företag/Vån 2/Johanneberg' id='wlanname1151' maxlength='60' readonly></td></tr><tr style='height:40px;'><td class='rowhdr'>Floor plan</td><td class='rowinfo'><select name='department' id='department1151' class='department' title='67b8c02e-578f-41aa-b836-a67899a0b93b' onchange='departmentChanged(1151);'></select></td></tr><input type='hidden' name='id' value='1151'/><input type='hidden' name='action' id='action1151' value='savewlan'/><input type='hidden' name='floor' id='floor1151' value='14'/><tr><td class='rowhdr'>Address</td><td class='rowinfo'><input name='wlaninfo' type='text' id='wlaninfo1151' placeholder='Vägen 1, Stad' value='Vera Sandbergs Allé 5B' readonly></td></tr></table></form></div>
-					<div class='userinfo'><form id='setWlanListForm1152' action='' method='post'><table style='margin:0;padding-top:16px'><tr><td rowspan='5' class='rownum'>2</td><td class='rowhdr'>BSSID</td><td class='rowinfo'><input name='wlanbssid' type='text' placeholder='00:1a:00:a1:b1:00' value='f2:9f:c2:af:6f:96' id='wlanbssid1152'></td><td rowspan='5' class='rowbtn'><div class='savebtn2'><a href='javascript:showMap(1152)'><img src='images/mapW.png' alt='show map'/></a></div></td><td rowspan='5' class='rowbtn'><div class='savebtn2'><a href='javascript:submitform(document.getElementById("setWlanListForm1152"))'><img src='images/save.png' alt='save'/></a></div></td><td rowspan='5' class='rowbtn'><div class='savebtn2'><a href='javascript:deleteWlan(1152);'><img src='images/delete.png' alt='save icon'/></a></div></td></tr><tr><td class='rowhdr'>Description</td><td class='rowinfo'><input name='wlanname' type='text' placeholder='Kontoret' value='Framtidens företag/Vån 2/Johanneberg' id='wlanname1152' maxlength='60' readonly></td></tr><tr style='height:40px;'><td class='rowhdr'>Floor plan</td><td class='rowinfo'><select name='department' id='department1152' class='department' title='67b8c02e-578f-41aa-b836-a67899a0b93b' onchange='departmentChanged(1152);'></select></td></tr><input type='hidden' name='id' value='1152'/><input type='hidden' name='action' id='action1152' value='savewlan'/><input type='hidden' name='floor' id='floor1152' value='14'/><tr><td class='rowhdr'>Address</td><td class='rowinfo'><input name='wlaninfo' type='text' id='wlaninfo1152' placeholder='Vägen 1, Stad' value='Vera Sandbergs Allé 5B' readonly></td></tr></table></form></div>
+					<div class='userinfo'>
+						<form id='setWlanListForm1151' action='' method='post'>
+							<table style='margin-left: auto; margin-right: auto; padding-top:16px; width: 82%;'>
+								<tr>
+									<td rowspan='5' class='rownum'>1</td>
+									<td class='rowhdr'>BSSID</td>
+									<td class='rowinfo'>
+										<input name='wlanbssid' type='text' placeholder='00:1a:00:a1:b1:00' value='70:73:cb:bc:53:c0' id='wlanbssid1151'>
+									</td>
+									<td rowspan='5' class='rowbtn'>
+										<div class='savebtn2'>
+											<a href='javascript:showMap(1151)'>
+												<img src='images/mapW.png' alt='show map'/>
+											</a>
+										</div>
+									</td>
+									<td rowspan='5' class='rowbtn'>
+										<div class='savebtn2'>
+											<a href='javascript:submitform(document.getElementById("setWlanListForm1151"))'>
+												<img src='images/save.png' alt='save'/>
+											</a>
+										</div>
+									</td>
+									<td rowspan='5' class='rowbtn'>
+										<div class='savebtn2'>
+											<a href='javascript:deleteWlan(1151);'>
+												<img src='images/delete.png' alt='save icon'/>
+											</a>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td class='rowhdr'>Description</td>
+									<td class='rowinfo'>
+										<input name='wlanname' type='text' placeholder='Kontoret' value='Framtidens företag/Vån 2/Johanneberg' id='wlanname1151' maxlength='60' readonly>
+									</td>
+								</tr>
+								<tr style='height:40px;'>
+									<td class='rowhdr'>Floor plan</td>
+									<td class='rowinfo'>
+										<select name='department' id='department1151' class='department' title='67b8c02e-578f-41aa-b836-a67899a0b93b' onchange='departmentChanged(1151);'>
+										</select>
+									</td>
+								</tr>
+								<input type='hidden' name='id' value='1151'/>
+								<input type='hidden' name='action' id='action1151' value='savewlan'/>
+								<input type='hidden' name='floor' id='floor1151' value='14'/>
+								<tr>
+									<td class='rowhdr'>Address</td>
+									<td class='rowinfo'>
+										<input name='wlaninfo' type='text' id='wlaninfo1151' placeholder='Vägen 1, Stad' value='Vera Sandbergs Allé 5B' readonly>
+									</td>
+								</tr>
+							</table>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
