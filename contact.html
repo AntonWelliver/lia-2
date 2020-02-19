@@ -2,7 +2,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-	<title>Salus mea - Alarm portal</title>
+	<title>Salus mea - Larmportal</title>
 
 	<link rel="stylesheet" type="text/css" href="css/index_main3.css" />
 	<link href="css/loginbox.css" rel="stylesheet" type="text/css" />
@@ -74,37 +74,37 @@
         <div id="header"><img id="logo" src="brand/salusmea-logo3.png" class="left">
 			<div id="menu" class="">
 				<ul>
-					<li class="toolTip"><a href="alarm.html" class="imageLink"><img src="images/portalHeader/alerts.png"/><span class="toolTipText">Handle all alarms</span><p>Alarm</p></a></li>
-					<li class="toolTip"><a href="user.html" class="imageLink"><img src="images/portalHeader/users.png"/><span class="toolTipText">All user information</span><p>Users</p></a></li>
-					<li class="toolTip"><a href="contact.html" class="imageLink"><img src="images/portalHeader/contacts.png"/><span class="toolTipText">Save and delete users</span><p>Contacts</p></a></li>
-					<li class="toolTip"><a href="wlan.html" class="imageLink"><img src="images/portalHeader/places.png" /><span class="toolTipText">Handle the position</span><p>Places</p></a></li>
-					<li class="toolTip"><a href="archive.html" class="imageLink"><img src="images/portalHeader/archive.png" /><span class="toolTipText">Archive of all alarms</span><p>Archive</p></a></li>
-					<li class="toolTip"><a href="index.html" class="imageLink"><img src="images/portalHeader/map.png"/><span class="toolTipText">Handle the geofencing zones</span><p>Geofences</p></a></li>
-					<li class="toolTip"><a href="manual.html" class="imageLink"><img src="images/portalHeader/help.png"/><span class="toolTipText">Support and information about site</span><p>Guide</p></a></li>
-					
-						<li><a href='login.html' class='imageLink'><img src='images/portalHeader/signout.png'/><p>Log out</p></a></li>				</ul>	
+					<li class="toolTip"><a href="alarm.html" class="imageLink"><img src="images/portalHeader/alerts.png"/><span class="toolTipText">Hantering av larm</span><p>Larm</p></a></li>
+					<li class="toolTip"><a href="user.html" class="imageLink"><img src="images/portalHeader/users.png"/><span class="toolTipText">All användarinformation</span><p>Användare</p></a></li>
+					<li class="toolTip"><a href="contact.html" class="imageLink"><img src="images/portalHeader/contacts.png"/><span class="toolTipText">Spara och radera användare</span><p>Kontakter</p></a></li>
+					<li class="toolTip"><a href="wlan.html" class="imageLink"><img src="images/portalHeader/places.png" /><span class="toolTipText">Hantering av positionering</span><p>Platser</p></a></li>
+					<li class="toolTip"><a href="archive.html" class="imageLink"><img src="images/portalHeader/archive.png" /><span class="toolTipText">Arkiv över alla larm</span><p>Arkiv</p></a></li>
+					<li class="toolTip"><a href="index.html" class="imageLink"><img src="images/portalHeader/map.png"/><span class="toolTipText">Hantering av trygghetszonerna</span><p>Trygghetszoner</p></a></li>
+					<li class="toolTip"><a href="manual.html" class="imageLink"><img src="images/portalHeader/help.png"/><span class="toolTipText">Information och support för sidan</span><p>Guide</p></a></li>
+					<li><a href='login.html' class='imageLink'><img src='images/portalHeader/signout.png'/><p>Logga ut</p></a></li>
+				</ul>	
 			</div>
-			<input id="filter" onkeyup="doFilter()" placeholder="Search..." maxlength="20" type="text">
+			<input id="filter" onkeyup="doFilter()" placeholder="Sök..." maxlength="20" type="text">
 		</div>	
 
 		<!-- Map -->
         <div id="mapContainer">
 			<div id="satusdata">
 				<div id="statusdataheader">
-					<p class="left">Contacts</p>
+					<p class="left">Kontakter</p>
 				</div>
 				<div id="contactgroupheader">
 					<form id='contactgroupform' action='' method='post'>
-					Please select a group:
+					Välj en grupp:
 					<input name='action' id="contactgroupaction" value='creategroup' type='hidden'/>
 					<select name="contactGroup" id="contactGroup" onchange="contactGroupChanged()">
-					<option value="0" selected>Default</option>
+					<option value="0" selected>Standard</option>
 					<option value='1'>Emanuel</option>
 					</select>
-					Or
-					<input name="groupname" type="text" placeholder="Create New Group" style="padding-left:10px"></input>
-					<input type="submit" value="Add" style="background:#65DBDB;border: 1px solid #000000;width:100px"/>
-					<input type="button" value="Delete" style="background:#B2B2B2;border: 1px solid #000000;width:100px; color:black;" onclick="javascript:deleteGroup()" disabled  />
+					Eller
+					<input name="groupname" type="text" placeholder="Skapa Ny Grupp" style="padding-left:10px"></input>
+					<input type="submit" value="Lägg till" style="background:#65DBDB;border: 1px solid #000000;width:100px"/>
+					<input type="button" value="Radera" style="background:#B2B2B2;border: 1px solid #000000;width:100px; color:black;" onclick="javascript:deleteGroup()" disabled  />
 					</form>
 				</div>
 
@@ -114,9 +114,9 @@
 							<table style='margin:0;padding-top:16px'>
 								<tr>
 									<td rowspan='2' class='rownum'>1</td>
-									<td class='rowhdr'>Name</td>
+									<td class='rowhdr'>Namn</td>
 									<td class='rowinfo'>
-										<input name='username' type='text' placeholder='Full name' value='Emanuel' maxlength='23'/>
+										<input name='username' type='text' placeholder='Fullständigt namn' value='Emanuel' maxlength='23'/>
 									</td>
 								<td rowspan='3' class='rowbtn'>
 									<div class='savebtn2'>
@@ -128,15 +128,15 @@
 								<td rowspan='3' class='rowbtn'>
 									<div class='savebtn2'>
 										<a href='javascript:deleteContact(664);'>
-											<img src='images/delete.png' alt='save icon'/>
+											<img src='images/delete.png' alt='delete icon'/>
 										</a>
 									</div>
 								</td>
 							</tr>
 							<tr>
-								<td class='rowhdr'>Phone Nr</td>
+								<td class='rowhdr'>Telefonnr</td>
 								<td class='rowinfo'>
-									<input id='phonenr664' name='phonenr' type='text' placeholder='Phone number' value='+46701020304'>
+									<input id='phonenr664' name='phonenr' type='text' placeholder='Telefonnummer' value='+46701020304'>
 								</td>
 							</tr>
 								<input type='hidden' name='id' value='664'/>
@@ -146,34 +146,41 @@
 						</form>
 					</div>
 					<div class='userinfo'>
-						<form name='contact' id='setContactForm' action='' method='post'>
+						<form name='contact' id='setContactForm664' action='' method='post'>
 							<table style='margin:0;padding-top:16px'>
 								<tr>
 									<td rowspan='2' class='rownum'>2</td>
-									<td class='rowhdr'>Name</td>
+									<td class='rowhdr'>Namn</td>
 									<td class='rowinfo'>
-										<input name='username' type='text' placeholder='Full name' value='' maxlength='23'/>
+										<input name='username' type='text' placeholder='Fullständigt namn' value='' maxlength='23'/>
 									</td>
-									<td rowspan='3' class='rowbtn'>
-										<div class='savebtn2'>
-											<a href='javascript:checkNumber("", document.getElementById("setContactForm"))'>
-												<img src='images/save.png' alt='save icon'/>
-											</a>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td class='rowhdr'>Phone Nr</td>
-									<td class='rowinfo'>
-										<input id='phonenr' name='phonenr' type='text' placeholder='Phone number' value=''>
-									</td>
-								</tr>
-								<input type='hidden' name='id' value=''/>
-								<input type='hidden' name='action' value='savecontact'/>
+								<td rowspan='3' class='rowbtn'>
+									<div class='savebtn2'>
+										<a href='javascript:checkNumber("664", document.getElementById("setContactForm664"))'>
+											<img src='images/save.png' alt='save icon'/>
+										</a>
+									</div>
+								</td>
+								<td rowspan='3' class='rowbtn'>
+									<div class='savebtn2'>
+										<a href='javascript:deleteContact(664);'>
+											<img src='images/delete.png' alt='delete icon'/>
+										</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class='rowhdr'>Telefonnr</td>
+								<td class='rowinfo'>
+									<input id='phonenr664' name='phonenr' type='text' placeholder='Telefonnummer' value=''>
+								</td>
+							</tr>
+								<input type='hidden' name='id' value='664'/>
+								<input type='hidden' name='action' id='action664' value='savecontact'/>
 								<input type='hidden' name='group' value='0'/>
 							</table>
 						</form>
-					</div>		
+					</div>
 				</div>
 			</div>
 		</div>

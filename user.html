@@ -2,7 +2,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-	<title>Salus mea - Alarm portal</title>
+	<title>Salus mea - Larmportal</title>
 
 	<link rel="stylesheet" type="text/css" href="css/index_main3.css" />
 	<link rel="stylesheet" type="text/css" href="css/archiveMenu.css" />
@@ -22,30 +22,30 @@
         <div id="header"><img id="logo" src="brand/salusmea-logo3.png" class="left">
 			<div id="menu" class="">
 				<ul>
-					<li class="toolTip"><a href="alarm.html" class="imageLink"><img src="images/portalHeader/alerts.png"/><span class="toolTipText">Handle all alarms</span><p>Alarm</p></a></li>
-					<li class="toolTip"><a href="user.html" class="imageLink"><img src="images/portalHeader/users.png"/><span class="toolTipText">All user information</span><p>Users</p></a></li>
-					<li class="toolTip"><a href="contact.html" class="imageLink"><img src="images/portalHeader/contacts.png"/><span class="toolTipText">Save and delete users</span><p>Contacts</p></a></li>
-					<li class="toolTip"><a href="wlan.html" class="imageLink"><img src="images/portalHeader/places.png" /><span class="toolTipText">Handle the position</span><p>Places</p></a></li>
-					<li class="toolTip"><a href="archive.html" class="imageLink"><img src="images/portalHeader/archive.png" /><span class="toolTipText">Archive of all alarms</span><p>Archive</p></a></li>
-					<li class="toolTip"><a href="index.html" class="imageLink"><img src="images/portalHeader/map.png"/><span class="toolTipText">Handle the geofencing zones</span><p>Geofences</p></a></li>
-					<li class="toolTip"><a href="manual.html" class="imageLink"><img src="images/portalHeader/help.png"/><span class="toolTipText">Support and information about site</span><p>Guide</p></a></li>
-					<li><a href='login.html' class='imageLink'><img src='images/portalHeader/signout.png'/><p>Log out</p></a></li>
+					<li class="toolTip"><a href="alarm.html" class="imageLink"><img src="images/portalHeader/alerts.png"/><span class="toolTipText">Hantering av larm</span><p>Larm</p></a></li>
+					<li class="toolTip"><a href="user.html" class="imageLink"><img src="images/portalHeader/users.png"/><span class="toolTipText">All användarinformation</span><p>Användare</p></a></li>
+					<li class="toolTip"><a href="contact.html" class="imageLink"><img src="images/portalHeader/contacts.png"/><span class="toolTipText">Spara och radera användare</span><p>Kontakter</p></a></li>
+					<li class="toolTip"><a href="wlan.html" class="imageLink"><img src="images/portalHeader/places.png" /><span class="toolTipText">Hantering av positionering</span><p>Platser</p></a></li>
+					<li class="toolTip"><a href="archive.html" class="imageLink"><img src="images/portalHeader/archive.png" /><span class="toolTipText">Arkiv över alla larm</span><p>Arkiv</p></a></li>
+					<li class="toolTip"><a href="index.html" class="imageLink"><img src="images/portalHeader/map.png"/><span class="toolTipText">Hantering av trygghetszonerna</span><p>Trygghetszoner</p></a></li>
+					<li class="toolTip"><a href="manual.html" class="imageLink"><img src="images/portalHeader/help.png"/><span class="toolTipText">Information och support för sidan</span><p>Guide</p></a></li>
+					<li><a href='login.html' class='imageLink'><img src='images/portalHeader/signout.png'/><p>Logga ut</p></a></li>
 				</ul>	
 			</div>
-			<input id="filter" placeholder="Search..." maxlength="20" type="text">
+			<input id="filter" placeholder="Sök..." maxlength="20" type="text">
 		</div>
 
 		<!-- Map -->
 	    <div id="mapContainer">
 			<div id="satusdata">
 				<div id="statusdataheader">
-					<p class="left">Users</p>
+					<p class="left">Användare</p>
 				</div>
 				<div id="datadiv" class="dSettings">
 					<form  id='setUserForm5013' action='' method='post'>
 						<button type="button" class="collapsible">
 							<td  rowspan='15' class='rownum'>1</td>
-							<td class='rowhdr'>User ID</td>
+							<td class='rowhdr'>Användar ID</td>
 							<td class='rowinfo'>
 								<span name='userid'>SMUU5013</span>
 							</td>
@@ -59,7 +59,7 @@
 						<table class="formContainer" style='margin:0; padding-top:16px; width: 100%; margin-right: auto; margin-left: auto; display: none;'>
 							<tr style='height:40px;'>
 								<td  rowspan='15' class='rownum'>1</td>
-								<td class='rowhdr'>User ID</td>
+								<td class='rowhdr'>Användar ID</td>
 								<td class='rowinfo'>
 									<span name='userid'>SMUU5013</span>
 								</td>
@@ -87,21 +87,21 @@
 								</td>
 							</tr>
 							<tr style='height:40px;'>
-								<td class='rowhdr'>Battery</td>
+								<td class='rowhdr'>Batteri</td>
 								<td class='rowinfo'><span id='battery5013'></span></td>
 							</tr>
 							<tr style='height:40px;'>
-								<td class='rowhdr'>Signal strength</td>
+								<td class='rowhdr'>Signalstyrka</td>
 								<td class='rowinfo'><span id='signal5013'></span></td>
 							</tr>
 							<tr style='height:40px;'>
-								<td class='rowhdr'>Last known position</td>
+								<td class='rowhdr'>Senast kända position</td>
 								<td class='rowinfo'><span id='lastposition5013'></span>
 									<input id='showlastposition5013' type='button' value='Show on map' onclick='showLastPosition(5013)' style='width:120px;float:right;height:25px;margin-right:3px;display:none'/>
 								</td>
 							</tr>
 							<tr style='height:40px;'>
-								<td class='rowhdr'>Latest Alerty PBA test</td>
+								<td class='rowhdr'>Senaste Alerty PBA-test</td>
 								<td class='rowinfo'><span id='lasttest5013'></span>
 									<input id='flictest5013' type='button' value='Reminder' onclick='sendFlicTest(5013,"en")' style='width:120px;float:right;height:25px;margin-right:3px;display:none'/>
 								</td>
@@ -112,23 +112,23 @@
 									<span name='version'>
 										<span id='version5013' style="float:left;margin-top:4px;width:244px;">1.0.2</span>
 									</span>
-									<input id='update5013' type='button' value='Software update' onclick='sendSoftwareUpdate(5013,"en")' style='width: 150px; height: 25px;'/>
+									<input id='update5013' type='button' value='Programuppdatering' onclick='sendSoftwareUpdate(5013,"en")' style='width: 150px; height: 25px;'/>
 								</td>
 							</tr>
 							<tr style='height:40px;'>
-								<td class='rowhdr'>Name</td>
+								<td class='rowhdr'>Namn</td>
 								<td class='rowinfo'>
-									<input name='username' type='text' placeholder='Full name' value='Sara Elg' maxlength='23'/>
+									<input name='username' type='text' placeholder='Fullständigt namn' value='Sara Elg' maxlength='23'/>
 								</td>
 							</tr>
 							<tr style='height:40px;'>
-								<td class='rowhdr'>Phone nr</td>
+								<td class='rowhdr'>Telefonnr</td>
 								<td class='rowinfo'>
-									<input name='phonenr' type='text' placeholder='+46123123456' value='0760250360' onkeypress='return event.charCode <= 57'>
+									<input name='phonenr' type='text' placeholder='+46701020304' value='0760250360' onkeypress='return event.charCode <= 57'>
 								</td>
 							</tr>
 							<tr style='height:40px;'>
-								<td class='rowhdr'>Phonenr2</td>
+								<td class='rowhdr'>Telefonnr 2</td>
 								<td class='rowinfo'>
 									<input name='phone_secondary' type='text' placeholder='e.g. Apple Watch eSIM' value='' onkeypress='return event.charCode <= 57'>
 								</td>
@@ -136,29 +136,29 @@
 							<tr style='height:40px;'>
 								<td class='rowhdr'>Email</td>
 								<td class='rowinfo'>
-									<input name='email' type='text' placeholder='someone@somewhere' value=''>
+									<input name='email' type='text' placeholder='något@något.se' value=''>
 								</td>
 							</tr>
 							<tr style='height:40px;'>
-								<td class='rowhdr'>Invitation</td>
+								<td class='rowhdr'>Inbjudan</td>
 								<td class='rowinfo' style='padding-top:0px;'>
 									<select style='width:404px;' name='userlang'>
-										<option value='en'>Send SMS in English</option>
-										<option value='sv' >Skicka SMS på Svenska</option>
+										<option value='en'>Skicka SMS på engelska</option>
+										<option value='sv' >Skicka SMS på svenska</option>
 									</select>
 								</td>
 							</tr>
 							<tr style='height:40px;'>
-								<td class='rowhdr'>Contact group</td>
+								<td class='rowhdr'>Kontaktgrupp</td>
 								<td class='rowinfo'>
 									<select name='alarmgroup'>
-										<option value='0' selected>Default</option>
+										<option value='0' selected>Standard</option>
 										<option value='1'>Emanuel</option>
 									</select>
 								</td>
 							</tr>
 							<tr style='height:40px;'>
-								<td class='rowhdr'>Authorization code</td>
+								<td class='rowhdr'>Behörighetskod</td>
 								<td class='rowinfo'>
 									<span id='pin5013'>1234</span>
 								</td>

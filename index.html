@@ -9,7 +9,7 @@
             charset="UTF-8"
         />
 
-        <title>Salus mea - Alarm portal</title>
+        <title>Salus mea - Larmportal</title>
 
         <link rel="stylesheet" type="text/css" href="css/startpage.css" />
         <link
@@ -27,78 +27,80 @@
             <div id="menu">
                 <ul>
                     <li class="toolTip">
-                        <a href="alarm.html" class="imageLink">
-                            <img src="images/portalHeader/alerts.png" />
-                            <span class="toolTipText">Handle all alarms</span>
-                            <p>Alarm</p>
+                        <a href="alarm.html" class="imageLink"
+                            ><img src="images/portalHeader/alerts.png" />
+                            <span class="toolTipText">Hantering av larm</span>
+                            <p>Larm</p>
                         </a>
                     </li>
                     <li class="toolTip">
-                        <a href="user.html" class="imageLink">
-                            <img src="images/portalHeader/users.png" />
-                            <span class="toolTipText"
-                                >All user information</span
+                        <a href="user.html" class="imageLink"
+                            ><img src="images/portalHeader/users.png" /><span
+                                class="toolTipText"
+                                >All användarinformation</span
                             >
-                            <p>Users</p>
-                        </a>
+                            <p>Användare</p></a
+                        >
                     </li>
                     <li class="toolTip">
-                        <a href="contact.html" class="imageLink">
-                            <img src="images/portalHeader/contacts.png" />
-                            <span class="toolTipText"
-                                >Save and delete users</span
+                        <a href="contact.html" class="imageLink"
+                            ><img src="images/portalHeader/contacts.png" /><span
+                                class="toolTipText"
+                                >Spara och radera användare</span
                             >
-                            <p>Contacts</p>
-                        </a>
+                            <p>Kontakter</p></a
+                        >
                     </li>
                     <li class="toolTip">
-                        <a href="wlan.html" class="imageLink">
-                            <img src="images/portalHeader/places.png" />
-                            <span class="toolTipText">Handle the position</span>
-                            <p>Places</p>
-                        </a>
-                    </li>
-                    <li class="toolTip">
-                        <a href="archive.html" class="imageLink">
-                            <img src="images/portalHeader/archive.png" />
-                            <span class="toolTipText"
-                                >Archive of all alarms</span
+                        <a href="wlan.html" class="imageLink"
+                            ><img src="images/portalHeader/places.png" /><span
+                                class="toolTipText"
+                                >Hantering av positionering</span
                             >
-                            <p>Archive</p>
-                        </a>
+                            <p>Platser</p></a
+                        >
                     </li>
                     <li class="toolTip">
-                        <a href="index.html" class="imageLink">
-                            <img src="images/portalHeader/map.png" />
-                            <span class="toolTipText"
-                                >Handle the geofencing zones</span
+                        <a href="archive.html" class="imageLink"
+                            ><img src="images/portalHeader/archive.png" /><span
+                                class="toolTipText"
                             >
-                            <p>Geofences</p>
-                        </a>
+                                Arkiv över alla larm</span
+                            >
+                            <p>Arkiv</p></a
+                        >
                     </li>
                     <li class="toolTip">
-                        <a href="manual.html" class="imageLink">
-                            <img src="images/portalHeader/help.png" />
-                            <span class="toolTipText"
-                                >Support and information about site</span
+                        <a href="index.html" class="imageLink"
+                            ><img src="images/portalHeader/map.png" /><span
+                                class="toolTipText"
+                                >Hantering av trygghetszonerna</span
                             >
-                            <p>Guide</p>
-                        </a>
+                            <p>Trygghetszoner</p></a
+                        >
+                    </li>
+                    <li class="toolTip">
+                        <a href="manual.html" class="imageLink"
+                            ><img src="images/portalHeader/help.png" /><span
+                                class="toolTipText"
+                                >Information och support för sidan</span
+                            >
+                            <p>Guide</p></a
+                        >
                     </li>
                     <li>
-                        <a href="login.html" class="imageLink">
-                            <img src="images/portalHeader/signout.png" />
-                            <p>Log out</p>
-                        </a>
+                        <a href="login.html" class="imageLink"
+                            ><img src="images/portalHeader/signout.png" />
+                            <p>Logga ut</p></a
+                        >
                     </li>
                 </ul>
             </div>
             <input
-                type="text"
                 id="filter"
-                onkeyup="doFilter()"
-                placeholder="Search..."
+                placeholder="Sök..."
                 maxlength="20"
+                type="text"
             />
         </div>
 
@@ -106,7 +108,7 @@
 
         <table class="center">
             <div id="statusdataheader" style="font-weight: bold;">
-                <p>Manage Geofences</p>
+                <p>Hantera Trygghetszoner</p>
             </div>
             <caption>
                 <button
@@ -122,25 +124,25 @@
                         href="createGeofence.html"
                         style="text-decoration: none; color: black;"
                         class="button"
-                        >Add Geofence <i class="fas fa-plus"></i
+                        >Lägg till trygghetszon <i class="fas fa-plus"></i
                     ></a>
                 </button>
             </caption>
             <tr>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Address</th>
-                <th>Place</th>
-                <th>Floor</th>
-                <th>Department</th>
-                <th>Latitude</th>
-                <th>Longitude</th>
-                <th>Created At</th>
-                <th>Actions</th>
+                <th>Namn</th>
+                <th>Typ</th>
+                <th>Adress</th>
+                <th>Plats</th>
+                <th>Våning</th>
+                <th>Avdelning</th>
+                <th>Latitud</th>
+                <th>Longitud</th>
+                <th>Skapad vid</th>
+                <th>Alternativ</th>
             </tr>
             <tr>
-                <td>Office</td>
-                <td>Circle</td>
+                <td>Kontor</td>
+                <td>Cirkel</td>
                 <td>Vera Sandbergs Allé 5B</td>
                 <td>Framtidens Företag</td>
                 <td>3</td>
@@ -166,8 +168,8 @@
                 </td>
             </tr>
             <tr>
-                <td>Home</td>
-                <td>Circle</td>
+                <td>Hem</td>
+                <td>Polygon</td>
                 <td>Råmärkesvägen 18</td>
                 <td>Casa Vedefors</td>
                 <td></td>
