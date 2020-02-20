@@ -1012,7 +1012,7 @@ input[name="wlaninfo"] {
     border-radius: 6px;
     padding: 10px 0;
     margin: 10px;
-    border: 1px solid #1879d4;
+    border: 1px solid #1879d491;
 
     /* Position the tooltip */
     position: absolute;
@@ -1035,7 +1035,7 @@ input[name="wlaninfo"] {
     margin-left: -10px;
     border-width: 10px;
     border-style: solid;
-    border-color: transparent transparent #1879d4 transparent;
+    border-color: transparent transparent #1879d491 transparent;
 }
 
 /* Mapbox  */
