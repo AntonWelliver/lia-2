@@ -41,78 +41,80 @@
             <div id="menu">
                 <ul>
                     <li class="toolTip">
-                        <a href="alarm.html" class="imageLink">
-                            <img src="images/portalHeader/alerts.png" />
-                            <span class="toolTipText">Handle all alarms</span>
-                            <p>Alarm</p>
+                        <a href="alarm.html" class="imageLink"
+                            ><img src="images/portalHeader/alerts.png" />
+                            <span class="toolTipText">Hantering av larm</span>
+                            <p>Larm</p>
                         </a>
                     </li>
                     <li class="toolTip">
-                        <a href="user.html" class="imageLink">
-                            <img src="images/portalHeader/users.png" />
-                            <span class="toolTipText"
-                                >All user information</span
+                        <a href="user.html" class="imageLink"
+                            ><img src="images/portalHeader/users.png" /><span
+                                class="toolTipText"
+                                >All användarinformation</span
                             >
-                            <p>Users</p>
-                        </a>
+                            <p>Användare</p></a
+                        >
                     </li>
                     <li class="toolTip">
-                        <a href="contact.html" class="imageLink">
-                            <img src="images/portalHeader/contacts.png" />
-                            <span class="toolTipText"
-                                >Save and delete users</span
+                        <a href="contact.html" class="imageLink"
+                            ><img src="images/portalHeader/contacts.png" /><span
+                                class="toolTipText"
+                                >Spara och radera användare</span
                             >
-                            <p>Contacts</p>
-                        </a>
+                            <p>Kontakter</p></a
+                        >
                     </li>
                     <li class="toolTip">
-                        <a href="wlan.html" class="imageLink">
-                            <img src="images/portalHeader/places.png" />
-                            <span class="toolTipText">Handle the position</span>
-                            <p>Places</p>
-                        </a>
-                    </li>
-                    <li class="toolTip">
-                        <a href="archive.html" class="imageLink">
-                            <img src="images/portalHeader/archive.png" />
-                            <span class="toolTipText"
-                                >Archive of all alarms</span
+                        <a href="wlan.html" class="imageLink"
+                            ><img src="images/portalHeader/places.png" /><span
+                                class="toolTipText"
+                                >Hantering av positionering</span
                             >
-                            <p>Archive</p>
-                        </a>
+                            <p>Platser</p></a
+                        >
                     </li>
                     <li class="toolTip">
-                        <a href="index.html" class="imageLink">
-                            <img src="images/portalHeader/map.png" />
-                            <span class="toolTipText"
-                                >Handle the geofencing zones</span
+                        <a href="archive.html" class="imageLink"
+                            ><img src="images/portalHeader/archive.png" /><span
+                                class="toolTipText"
                             >
-                            <p>Geofences</p>
-                        </a>
+                                Arkiv över alla larm</span
+                            >
+                            <p>Arkiv</p></a
+                        >
                     </li>
                     <li class="toolTip">
-                        <a href="manual.html" class="imageLink">
-                            <img src="images/portalHeader/help.png" />
-                            <span class="toolTipText"
-                                >Support and information about site</span
+                        <a href="index.html" class="imageLink"
+                            ><img src="images/portalHeader/map.png" /><span
+                                class="toolTipText"
+                                >Hantering av trygghetszonerna</span
                             >
-                            <p>Guide</p>
-                        </a>
+                            <p>Trygghetszoner</p></a
+                        >
+                    </li>
+                    <li class="toolTip">
+                        <a href="manual.html" class="imageLink"
+                            ><img src="images/portalHeader/help.png" /><span
+                                class="toolTipText"
+                                >Information och support för sidan</span
+                            >
+                            <p>Guide</p></a
+                        >
                     </li>
                     <li>
-                        <a href="login.html" class="imageLink">
-                            <img src="images/portalHeader/signout.png" />
-                            <p>Log out</p>
-                        </a>
+                        <a href="login.html" class="imageLink"
+                            ><img src="images/portalHeader/signout.png" />
+                            <p>Logga ut</p></a
+                        >
                     </li>
                 </ul>
             </div>
             <input
-                type="text"
                 id="filter"
-                onkeyup="doFilter()"
-                placeholder="Search..."
+                placeholder="Sök..."
                 maxlength="20"
+                type="text"
             />
         </div>
 
@@ -120,18 +122,18 @@
             <div>
                 <form action="/">
                     <div class="container">
-                        <h3 style="color: white;">Create a new geofence</h3>
+                        <h3 style="color: white;">Redigera trygghetszon</h3>
                         
                         <input
                             type="text"
-                            placeholder="Name"
+                            placeholder="Namn"
                             name="nameInput"
                         />
                         
                         <div style="padding-top: 10px;">                          
                             <form action="/">
                                 <select id="selectID" name="types" onchange="swapType()" style="border-radius: 10px; width: 100%; padding: 7px; margin-bottom: 18px;">
-                                    <option id="circle" value="circle">Circle</option>
+                                    <option id="circle" value="circle">Cirkel</option>
                                     <option id="polygon" value="polygon">Polygon</option>
                                 </select>
                             </form>
@@ -139,7 +141,7 @@
 
                         <input
                         type="text"
-                        placeholder="Radius"
+                        placeholder="Radie"
                         name="radiusInput"
                         id="radiusInput"
                         
@@ -147,14 +149,14 @@
                         
                         <input
                             type="number"
-                            placeholder="Latitude"
+                            placeholder="Latitud"
                             name="latitudeInput"
                             id="latitudeInput"
                         />
 
                         <input
                             type="number"
-                            placeholder="Longitude"
+                            placeholder="Longitud"
                             name="longitudeInput"
                             id="longitudeInput"
                         />
@@ -162,7 +164,7 @@
                         <div id="addressInput" placeholder="adress" name="addressInput" style="width: 100%;">
                             <input
                                 type="text"
-                                placeholder="Address"
+                                placeholder="Adress"
                                 name="addressInput"
                                 id="addressInput"
                             />
@@ -170,19 +172,19 @@
                         
                         <input
                             type="text"
-                            placeholder="Place"
+                            placeholder="Plats"
                             name="placeInput"
                         />
 
                         <input
                             type="text"
-                            placeholder="Floor"
+                            placeholder="Våning"
                             name="floorInput"
                         />
 
                         <input
                             type="text"
-                            placeholder="Department"
+                            placeholder="Avdelning"
                             name="departmentInput"
                         />
 
@@ -190,7 +192,7 @@
 
                         <form action="/index.html">
                             <button class="cancelbtn" id="cancelbtn">
-                                Cancel
+                                Avbryt
                             </button>
                         </form>
 
@@ -199,7 +201,7 @@
                             class="registerbtn"
                             id="registerbtn"
                         >
-                            Submit
+                            Skicka in
                         </button>
                     </div>
                 </form>
