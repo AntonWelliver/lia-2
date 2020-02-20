@@ -1,1 +1,3 @@
-# Sida för struktur och kodsamling för Lia 2
+# Sida för kodsamling
+
+Demolänk: https://antonwelliver.github.io/lia-2/
