@@ -182,18 +182,6 @@ table.center {
     opacity: 1;
 }
 
-#statusdataheader {
-    height: 50px;
-    background-color: #2192fe;
-    background-size: 50px;
-    -webkit-border-radius: 3px 3px 0px 0px;
-    overflow: hidden;
-    margin-bottom: 20px;
-    border-radius: 7px;
-    margin-left: 115px;
-    width: 82%;
-}
-
 .wrapper {
     grid-template-columns: 1fr 3fr;
     grid-auto-rows: minmax(480px, auto);
@@ -520,6 +508,8 @@ div.accepted {
     margin-bottom: 20px;
     border-radius: 7px;
     margin-right: 20px;
+    margin-left: 115px;
+    width: 82%;
 }
 
 #statusdataheader .info {
