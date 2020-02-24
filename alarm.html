@@ -153,34 +153,32 @@
 	<!-- Map -->
 	<div id="mapContainer" style="background-color:#0f1f2e" >
 		<div id="satusdata">
-			<div id='statusdataheader2'>
-						<div id='alertbuttons' style="float:right;padding-left:10px;line-height:50px;">
-							<button id='acceptbutton' style="display:none;height:50px;" class='acceptbutton' onclick='setAlertAccepted()'>Acceptera</button>
-							<button id='closebutton' style="display:none;height:50px;" class='closebutton' onclick='setAlertClosed()'>Stoppa</button>
-							<img id='archivebutton' style="display:none;margin-top:10px;margin-right:10px" title='Archive' src='images/archive2.png' onclick='setArchived()'>
-						</div>
-						<div class="info" style="color: whitesmoke;">
-							Stängd: <span id='alertend'></span><br/>
-							Stängd av: <span id='alertclosedby'></span>
-						</div>
-						<div class="info" style="color:whitesmoke">
-							Accepterad: <span id='alertacceptedtime'></span><br/>
-							Accepterad av: <span id='alertaccepters'></span>
-						</div>
-						<div>
-							<div id="alertactive" style="display:none"><div id="alertactivetext"></div></div>
-							<div id="alertaccepted" style="display:none"><div id="alertacceptedtext"></div></div>
-							<div id="alertclosed" style="display:none"><div id="alertclosedtext"></div></div>
-							<div id="noposition" style="display:none"><p>Ingen kontakt med telefon</p></div>
-						</div>
-					</tr>
-				</table>
+			<div id='statusdataheader2' style="padding-top: 8px; padding-bottom: 5px; font-weight: bold; font-size: 14px;">
+				<div id='alertbuttons' style="float:right;padding-left:10px;line-height:50px;">
+					<button id='acceptbutton' style="display:none;height:50px;" class='acceptbutton' onclick='setAlertAccepted()'>Acceptera</button>
+					<button id='closebutton' style="display:none;height:50px;" class='closebutton' onclick='setAlertClosed()'>Stoppa</button>
+					<img id='archivebutton' style="display:none;margin-top:10px;margin-right:10px" title='Archive' src='images/archive2.png' onclick='setArchived()'>
+				</div>
+				<div class="info" style="color: whitesmoke;">
+					Stängd: <span id='alertend'></span><br/>
+					Stängd av: <span id='alertclosedby'></span>
+				</div>
+				<div class="info" style="color:whitesmoke">
+					Accepterad: <span id='alertacceptedtime'></span><br/>
+					Accepterad av: <span id='alertaccepters'></span>
+				</div>
+				<div>
+					<div id="alertactive" style="display:none"><div id="alertactivetext"></div></div>
+					<div id="alertaccepted" style="display:none"><div id="alertacceptedtext"></div></div>
+					<div id="alertclosed" style="display:none"><div id="alertclosedtext"></div></div>
+					<div id="noposition" style="display:none"><p>Ingen kontakt med telefon</p></div>
+				</div>
 			</div>
 
 			<div class='datadiv' id='alertinfo'>
-				<div id='personcontainer'>
+				<div id='personcontainer' style="font-size: 13px; font-weight: bold;">
 					<ul>
-						<li>Adress: <span id='alertinfoaddress'></span> <a id="screenshotlink" href="javascript:showSlide();" style="display:none">Assignment</a></li>
+						<li>Adress: <span id='alertinfoaddress'></span></li>
 						<li>Plats: <span id='alertinfowifi'></span></li>
 						<li>Larmtyp: <span id='alertinfosource'></span></li>
 						<li>Precision: <span id='alertinfoaccuracy'></span></li>
