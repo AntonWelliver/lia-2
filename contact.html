@@ -64,14 +64,15 @@
 			<div class="Container" style="width:310px;height:250px">
 				<a href="javascript:toggleVisible('video');" class="Close"></a>
 				<div class="Content" id="videocontent">
-					<iframe id="videoframe" src="" width="265" height="200"> </iframe>
+					<iframe id="videoframe" src="" width="265" height="200"></iframe>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div id="wrapper">
 		<!-- Header -->
-        <div id="header"><img id="logo" src="brand/salusmea-logo3.png" class="left">
+        <div id="header">
+			<img id="logo" src="brand/salusmea-logo3.png" class="left">
 			<div id="menu" class="">
 				<ul>
 					<li class="toolTip"><a href="alarm.html" class="imageLink"><img src="images/portalHeader/alerts.png"/><span class="toolTipText">Hantering av larm</span><p>Larm</p></a></li>
@@ -95,16 +96,16 @@
 				</div>
 				<div id="contactgroupheader">
 					<form id='contactgroupform' action='' method='post'>
-					Välj en grupp:
-					<input name='action' id="contactgroupaction" value='creategroup' type='hidden'/>
-					<select name="contactGroup" id="contactGroup" onchange="contactGroupChanged()">
-					<option value="0" selected>Standard</option>
-					<option value='1'>Emanuel</option>
-					</select>
-					Eller
-					<input name="groupname" type="text" placeholder="Skapa Ny Grupp" style="padding-left:10px"></input>
-					<input type="submit" value="Lägg till" style="background:#65DBDB;border: 1px solid #000000;width:100px"/>
-					<input type="button" value="Radera" style="background:#B2B2B2;border: 1px solid #000000;width:100px; color:black;" onclick="javascript:deleteGroup()" disabled  />
+						Välj en grupp:
+						<input name='action' id="contactgroupaction" value='creategroup' type='hidden'/>
+						<select name="contactGroup" id="contactGroup" onchange="contactGroupChanged()">
+							<option value="0" selected>Standard</option>
+							<option value='1'>Emanuel</option>
+						</select>
+						Eller
+						<input name="groupname" type="text" placeholder="Skapa Ny Grupp"></input>
+						<input type="submit" value="Lägg till" style="background:#65DBDB;border: 1px solid #000000;width:100px"/>
+						<input type="button" value="Radera" style="background:#B2B2B2;border: 1px solid #000000;width:100px; color:black;" onclick="javascript:deleteGroup()" disabled  />
 					</form>
 				</div>
 
