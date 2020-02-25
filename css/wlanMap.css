@@ -26,6 +26,13 @@ body {
     cursor: pointer;
 }
 
+#menu {
+    position: absolute;
+    background: #121e2d;
+    padding: 10px;
+    font-family: "Open Sans", sans-serif;
+}
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */

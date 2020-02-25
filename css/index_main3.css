@@ -108,7 +108,7 @@ ul {
     width: 200px;
 }
 
-#menu {
+#menu2 {
     list-style-type: none;
     margin-top: 0px;
     width: 550px;
@@ -116,7 +116,7 @@ ul {
     margin-right: auto;
 }
 
-#menu li {
+#menu2 li {
     float: left;
     color: white;
     margin-right: 10px;
@@ -124,7 +124,7 @@ ul {
     padding-top: 10px;
 }
 
-#menu ul {
+#menu2 ul {
     width: 800px;
 }
 

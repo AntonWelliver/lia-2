@@ -1,6 +1,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset="UTF-8" />
+        <meta
+            http-equiv="Content-Type"
+            content="text/html; initial-scale=1,maximum-scale=1,user-scalable=no;"
+            charset="UTF-8"
+        />
 
         <title>Salus mea - Larmportal</title>
 
@@ -18,7 +22,7 @@
             <!-- Header -->
             <div id="header">
                 <img id="logo" src="brand/salusmea-logo3.png" class="left" />
-                <div id="menu" class="">
+                <div id="menu2">
                     <ul>
                         <li class="toolTip">
                             <a href="alarm.html" class="imageLink"
@@ -173,6 +177,30 @@
                                                 <div class="modal-body">
                                                     <div class="mapContainer">
                                                         <div id="map"></div>
+                                                        <div id="menu">
+                                                            <input
+                                                                id="streets-v11"
+                                                                type="radio"
+                                                                name="rtoggle"
+                                                                value="streets"
+                                                                onclick="switchLayer()"
+                                                                checked="checked"
+                                                            />
+                                                            <label for="streets"
+                                                                >Streets</label
+                                                            >
+                                                            <input
+                                                                id="satellite-v9"
+                                                                type="radio"
+                                                                name="rtoggle"
+                                                                value="satellite"
+                                                                onclick="switchLayer()"
+                                                            />
+                                                            <label
+                                                                for="satellite"
+                                                                >Satellite</label
+                                                            >
+                                                        </div>
                                                         <nav
                                                             id="menupicture"
                                                         ></nav>
