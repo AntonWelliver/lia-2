@@ -28,9 +28,22 @@ body {
 
 #menu {
     position: absolute;
-    background: #121e2d;
     padding: 10px;
     font-family: "Open Sans", sans-serif;
+}
+
+#streets-v11 {
+    border-radius: 0;
+    width: 60px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#satellite-v9 {
+    border-radius: 0;
+    width: 60px;
+    cursor: pointer;
+    margin-top: 15px;
 }
 
 /* The Modal (background) */
