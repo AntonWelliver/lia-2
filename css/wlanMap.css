@@ -13,6 +13,19 @@ body {
     background-color: white;
 }
 
+.savebtn2 {
+    margin-left: 30px;
+}
+
+.deletebtn {
+    margin-left: 30px;
+}
+
+.mapbtn {
+    margin-left: 30px;
+    cursor: pointer;
+}
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
