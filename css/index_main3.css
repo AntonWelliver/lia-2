@@ -751,6 +751,14 @@ td {
     margin-left: 30px;
 }
 
+.deletebtn {
+    margin-left: 30px;
+}
+
+.mapbtn {
+    margin-left: 30px;
+}
+
 #wifiTable {
     margin-top: 10px;
 }
