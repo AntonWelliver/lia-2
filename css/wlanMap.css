@@ -5,12 +5,45 @@ body {
 #map {
     position: absolute;
     top: 0;
-    bottom: 2;
-    left: 2;
-    right: 2;
+    bottom: 0;
+    left: 0;
     margin-top: 100px;
     border-radius: 12px;
     background-color: white;
+    transition: all 0.3s;
+}
+
+.savebtn2 {
+    margin-left: 30px;
+}
+
+.deletebtn {
+    margin-left: 30px;
+}
+
+.mapbtn {
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+#menu {
+    position: absolute;
+    padding: 10px;
+    font-family: "Open Sans", sans-serif;
+}
+
+#streets-v11 {
+    border-radius: 0;
+    width: 60px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#satellite-v9 {
+    border-radius: 0;
+    width: 60px;
+    cursor: pointer;
+    margin-top: 15px;
 }
 
 /* The Modal (background) */
