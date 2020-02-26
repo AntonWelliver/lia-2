@@ -1,4 +1,6 @@
 
+ /* var theMarker = {}; */
+
 //Function mapbox
 mapboxgl.accessToken = 'pk.eyJ1IjoibGFyc24iLCJhIjoiY2s2YzByNTh4MDZjdTNxb21lMjY3NjBnMSJ9.bbEbVqLCn7Oco1FXsI1nFQ'; // token key
 
@@ -91,6 +93,12 @@ var draw = new MapboxDraw({
 //Set search geocoder
 var geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
+    marker: false,
+    placeholder: "Adress",
+    countries: 'SE',
+    minLength: 2,
+    clearOnBlur: true,
+    /* collapsed: true, */
         flyTo: {
             bearing: 0,
             // These options control the flight curve, making it move
@@ -107,31 +115,33 @@ var geocoder = new MapboxGeocoder({
     mapboxgl: mapboxgl
     });
     
-            //To See Scale
-            var scale = new mapboxgl.ScaleControl({
-                maxWidth: 80,
-                unit: 'imperial'
-            });
-            map.addControl(scale);
-            
-            scale.setUnit('metric');
-            
-            //scale unit menu
-            
-            
-            
-            /* map.on('mousemove', function myFunction(e) {
-                var txt = e.lngLat
-                txt.lng = txt.lng.toString(); 
-                var my =  JSON.stringify(txt);
-                var abc = JSON.parse(my)
-                document.getElementById('longitudeInput').value = abc.lng; 
-                document.getElementById('latitudeInput').value = abc.lat; 
-                
-            }); */
+        geocoder.on('loading', function(){
+                var optionValue = document.getElementById('selectID');
+                if(myCircle.options.test.boolean === true){
+                    myCircle.options.test.boolean = false;
+                    myCircle.remove(map);
+                    console.log('Circle OFF Map');
+                }  
+                else if(optionValue.value == 'polygon'){
+                    console.log('polygon ON');
+                }
 
-            //Circle 
-            var myCircle = new MapboxCircle({lat: 57.69282011876044, lng: 11.975482095909456}, 100, {
+             
+        })
+    
+
+    geocoder.on('result', function(ev) {
+        
+        /* console.log(ev.result); */
+        
+        var lngArray = ev.result.geometry.coordinates[0];
+        var latArray = ev.result.geometry.coordinates[1];
+
+        /* console.log(lngArray);
+        console.log(latArray); */
+        
+        
+            var myCircleInput =  new MapboxCircle({lat: latArray, lng: lngArray}, 100, {
                 editable: true,
                 minRadius: 1,
                 maxRadius: 2000000,
@@ -144,11 +154,133 @@ var geocoder = new MapboxGeocoder({
                     "circle-opacity": 10,
                     "circle-stroke-width": 10,
                     "circle-stroke-color": "red"
+                },
+                "test":{
+                    "boolean": false,
                 }
             })
-        
+            
+            var inputText = document.getElementsByClassName('mapboxgl-ctrl-geocoder--input');
+
+            var optionValue = document.getElementById('selectID');
+
+            inputText[0].value = "Sök igen på en adress";
+
+           
+           
+           if(optionValue.value == "circle"){
+
+               myCircleInput.addTo(map);
+               
+               console.log("Circle ON")
+            }
+            
+            else if(optionValue.value == "polygon"){
+                /* myCircleInput.remove(map); */
+                
+                console.log("Polygon ON")
+                
+            }else{
+
+                myCircleInput.addTo(map);
+                
+                console.log("Added 1 more Circle")
+            }
+            
+            myCircle = myCircleInput;
+            myCircle.options.test.boolean = true;
+         
+            
+            myCircleInput.on('centerchanged', function (circleObj) {
+                console.log('New center:', circleObj.getCenter());
+                var lngLat = circleObj.getCenter()
+                lngLat.lng = lngLat.lng.toString(); 
+                var stringLngLat =  JSON.stringify(lngLat);
+                var single = JSON.parse(stringLngLat)
+                document.getElementById('longitudeInput').value = single.lng; 
+                document.getElementById('latitudeInput').value = single.lat; 
+                
+            });
+            //Get radius when change the circle diameter
+            myCircleInput.on('radiuschanged', function (circleObj) {
+
+                document.getElementById('radiusInput').value = circleObj.getRadius(); 
+                console.log('New radius (once!):', circleObj.getRadius());
+            });
+
+            myCircleInput.on('click', function (mapMouseEvent) {
+                console.log('Click:', mapMouseEvent.point);
+            });
+            //Get lnglat when rickclick
+            myCircleInput.on('contextmenu', function (mapMouseEvent) {
+            var lngLat = mapMouseEvent.lngLat;
+            lngLat.lng = lngLat.lng.toString(); 
+            var stringLngLat =  JSON.stringify(lngLat);
+            var single = JSON.parse(stringLngLat)
+            document.getElementById('longitudeInput').value = single.lng; 
+            document.getElementById('latitudeInput').value = single.lat; 
+                console.log('Right-click:', mapMouseEvent.lngLat);
+            }); 
+
+           
+    })
+    
+    /* geocoder.on('clear', function(ev) {
+        myCircle.remove(map);
+        var optionValue = document.getElementById('selectID');
+        if(optionValue.value === 'circle'){
+            myCircle.remove(map);
+            
+            
+        }else if(optionValue.value === 'polygon'){
+            console.log('test9999')
+        }else{
+            console.log("test101010")
+        }
+    }) */
+    
+
+    
+            //To See Scale
+            /* var scale = new mapboxgl.ScaleControl({
+                maxWidth: 80,
+                unit: 'imperial'
+            });
+            map.addControl(scale);
+            
+            scale.setUnit('metric'); */
+            
+            //scale unit menu
+            /* var radius = document.getElementById('radiusInput').value;
+            var lang = document.getElementById('longitudeInput').value;
+            var laty = document.getElementById('latitudeInput').value; */
+            
+                
+            //Circle 
+             var myCircle = new MapboxCircle({lat: 57.69282011876044, lng: 11.975482095909456}, 100, {
+                editable: true,
+                minRadius: 1,
+                maxRadius: 2000000,
+                fillColor: 'royalblue',
+                fillOpacity: 0.2,
+                
+                strokeColor: "red",
+                strokeOpacity: 0.5,
+                strokeWeight: 1.3,
+                "paint": {
+                    "circle-opacity": 10,
+                    "circle-stroke-width": 10,
+                    "circle-stroke-color": "red"
+                },
+                "test":{
+                    "boolean": false,
+                }
+            })
+
+            myCircle.options.test.boolean = true; 
+            myCircle.addTo(map);
             //Get lnglat when new postion on circle 
-        myCircle.on('centerchanged', function (circleObj) {
+         myCircle.on('centerchanged', function (circleObj) {
                 console.log('New center:', circleObj.getCenter());
                 var lngLat = circleObj.getCenter()
                 lngLat.lng = lngLat.lng.toString(); 
@@ -177,19 +309,31 @@ var geocoder = new MapboxGeocoder({
             document.getElementById('longitudeInput').value = single.lng; 
             document.getElementById('latitudeInput').value = single.lat; 
                 console.log('Right-click:', mapMouseEvent.lngLat);
-            });
-
+            }); 
+            
+            
             //Hide circle when polygon option on
             function swapType() {
+                /* var inputText = document.getElementsByClassName('mapboxgl-ctrl-geocoder--input'); */
                 if(document.getElementById('selectID').value == "circle"){
                     myCircle.addTo(map);
+                    map.removeControl(draw, 'top-left');
+                    myCircle.options.test.boolean = true;
+                    document.getElementById('radiusInput').value = "100"; 
                     
                 }  else{
+                    map.addControl(draw, 'top-left');
                     myCircle.remove(map);
+                    myCircle.options.test.boolean = false;              
                     document.getElementById("radiusInput").value = "";
-                }     
+
+                }  
+                for (var i = 0; i < selectID.length; i++) {
+                    selectID[i].on = swapType;
+                    }   
                 
             }
+
                       
             
             //Add your own icon to the map with a class
@@ -260,19 +404,25 @@ var geocoder = new MapboxGeocoder({
                 this._map = undefined;
             }
         }
-        function one (event) {     
+       /*  function one (event) {     
             var markerValue = document.getElementById("toggleMarker");
+            var inputText = document.getElementsByClassName('mapboxgl-ctrl-geocoder--input');
             console.log("event number 1", event);
                 if(markerValue.value=="1"){
                     markerValue.value = "2";
                     myCircle.addTo(map);
                     
-                }else {
+                    
+                    
+                } 
+                else {
+                    inputText[0].value = ""
                     markerValue.value = "1"
                     myCircle.remove(map);
                     
+                    
                 }
-        }
+        } */
         function two (event){
             console.log("function two Menutyler", event);
             var markerValue = document.getElementById("toggleMenuTyler");
@@ -291,12 +441,12 @@ var geocoder = new MapboxGeocoder({
         }
         
         //Get Icons from css circle
-        var ctrlPoint = new MapboxGLButtonControl({
+       /*  var ctrlPoint = new MapboxGLButtonControl({
             className: "mapbox-gl-draw_point",
             title: "Circle tool (p)",
             eventHandler: one,
             
-        });
+        }); */
         //Get icons from css Menu
         var menuPoint = new TylerMenu({
             className: "mapbox-gl-menu_point",
@@ -319,14 +469,15 @@ var geocoder = new MapboxGeocoder({
             );
         map.addControl(new mapboxgl.FullscreenControl());
         map.addControl(new mapboxgl.NavigationControl());
-        map.addControl(ctrlPoint, 'top-left');
         map.addControl(menuPoint);
-        map.addControl(draw, 'top-left');
+        /* map.addControl(ctrlPoint, 'top-left');
+        map.addControl(draw, 'top-left'); */
+        
         
         
         /* map.addControl(new CompassControl(), 'bottom-right'); */
         
- /*         map.on('draw.create', updateArea); 
+/*          map.on('draw.create', updateArea); 
           map.on('draw.delete', updateArea);
         map.on('draw.update', updateArea); 
         
