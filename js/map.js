@@ -31,7 +31,6 @@ var layerList = document.getElementById('menu');
 var inputs = layerList.getElementsByTagName('input');
 
 function switchLayer(layer) {
-    console.log(layerList);
     var layerId = layer.target.id;
     map.setStyle('mapbox://styles/mapbox/' + layerId);
 };
