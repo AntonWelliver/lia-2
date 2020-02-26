@@ -13,6 +13,20 @@ body {
     transition: all 0.3s;
 }
 
+#map1 {
+    position: absolute;
+    margin-bottom: 10px;
+    transition: all 0.3s;
+    width: 60%;
+    height: 80%;
+}
+
+.mapContainer1 {
+    position: relative;
+    margin-right: 12px;
+    height: 60%;
+}
+
 .savebtn2 {
     margin-left: 30px;
 }
@@ -27,6 +41,12 @@ body {
 }
 
 #menu {
+    position: absolute;
+    padding: 10px;
+    font-family: "Open Sans", sans-serif;
+}
+
+#menu3 {
     position: absolute;
     padding: 10px;
     font-family: "Open Sans", sans-serif;
