@@ -3,15 +3,17 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
-            http-equiv="X-UA-Compatible"
-            content="text/html"
-            ;
-            charset="UTF-8"
+        http-equiv="X-UA-Compatible"
+        content="text/html"
+        ;
+        charset="UTF-8"
         />
-
+        
         <title>Salus mea - Alarm portal</title>
-
+        
+        <!-- <script type="module" src="./node_modules/mapbox-gl-controls/lib/ruler.js" ></script> -->
         <link rel="stylesheet" type="text/css" href="css/startpage.css" />
+        <!-- <link href="mapbox-gl-controls/theme.css" rel="stylesheet"> -->
         <link
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
@@ -133,6 +135,7 @@
                                 placeholder="Address"
                                 name="addressInput"
                                 id="addressInput"
+                                disabled
                             />
                         </div>
                         <input
@@ -171,14 +174,14 @@
                             id="longitudeInput"
                         />
 
-                        <div id="addressInput" placeholder="adress" name="addressInput" style="width: 100%;">
+                        <!-- <div id="addressInput" placeholder="adress" name="addressInput" style="width: 100%;">
                             <input
                                 type="text"
                                 placeholder="Adress"
                                 name="addressInput"
                                 id="addressInput"
                             />
-                        </div>
+                        </div> -->
 
                         <input
                             type="text"
@@ -217,19 +220,23 @@
             <div>
                 <div class="mapContainer">
                     <div id="map"></div>  
-                    <nav id="menupicture"></nav> 
+                    <nav id="menupicture"></nav>
+                    <div id="distance" class="distance-container"></div> 
                 </div>  
             </div>
         </div>
     </div>
+
         <script src='https://npmcdn.com/mapbox-gl-circle/dist/mapbox-gl-circle.min.js'></script>
         <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
         <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v3.0.11/turf.min.js"></script>
+        <script src="https://npmcdn.com/@turf/turf@5.1.6/turf.min.js"></script>
         <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.js"></script>
         <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
         <script src="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script>
-        <script type="text/javascript" src="js/ruler1.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
+        <!-- <script type="text/javascript" src="js/ruler1.js"></script> -->
+        
+            <script type="text/javascript" src="js/main.js"></script>
     </body>
 </html>
