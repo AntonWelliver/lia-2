@@ -57,7 +57,6 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
         e.preventDefault();
         e.stopPropagation();
         
-        /* map.getContainer().requestFullscreen() */
         var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
         if (visibility === 'visible') {
             map.setLayoutProperty(clickedLayer, 'visibility', 'none');
@@ -278,9 +277,7 @@ var geocoder = new MapboxGeocoder({
             scale.setUnit('metric'); */
             
             //scale unit menu
-            /* var radius = document.getElementById('radiusInput').value;
-            var lang = document.getElementById('longitudeInput').value;
-            var laty = document.getElementById('latitudeInput').value; */
+            
             
             
             //Circle 
@@ -351,7 +348,7 @@ var geocoder = new MapboxGeocoder({
             
             //Hide circle when polygon option on
             function swapType() {
-                /* var inputText = document.getElementsByClassName('mapboxgl-ctrl-geocoder--input'); */
+                
                 if(document.getElementById('selectID').value == "circle"){
                     myCircle.addTo(map);
                     map.removeControl(draw, 'top-left');
@@ -476,21 +473,8 @@ var geocoder = new MapboxGeocoder({
                 this._map = undefined;
             }
         }
-       /*  _onClickFullscreen()    
-        {
-            if (this._isFullscreen()) {
-                if (window.document.exitFullscreen) {
-                    window.document.exitFullscreen();
-                } else if (window.document.mozCancelFullScreen) {
-                    window.document.mozCancelFullScreen();
-                } else if (window.document.msExitFullscreen) {
-                    window.document.msExitFullscreen();
-                } else if (window.document.webkitCancelFullScreen) {
-                    window.document.webkitCancelFullScreen();
-                }
-            }
-        } */
-       /*  function one (event) {     
+       
+        /* function one (event) {     
             var markerValue = document.getElementById("toggleMarker");
             var inputText = document.getElementsByClassName('mapboxgl-ctrl-geocoder--input');
             console.log("event number 1", event);
@@ -512,18 +496,15 @@ var geocoder = new MapboxGeocoder({
         function two (event){
             console.log("function two Menutyler", event);
             var markerValue = document.getElementById("toggleMenuTyler");
-            var hideMenuPoint = document.getElementsByClassName("mapbox-gl-menu_point")
+            
             if(markerValue.value=="1"){
                 markerValue.value = "2";
                 
-                /* ctrlPoint.addTo(map); */
+                
                 layers.style.display = "block";
                 
             }
-           /*  else if(map.mapboxgl.FullscreenControl === true){
-                hideMenuPoint.style.display = "none";
-
-            } */
+           
             else {
                 markerValue.value = "1"
                 /* ctrlPoint.remove(map); */
@@ -550,7 +531,7 @@ var geocoder = new MapboxGeocoder({
         }
         
         //Get Icons from css circle
-       /*  var ctrlPoint = new MapboxGLButtonControl({
+        /* var ctrlPoint = new MapboxGLButtonControl({
             className: "mapbox-gl-draw_point",
             title: "Circle tool (p)",
             eventHandler: one,
@@ -575,7 +556,7 @@ var geocoder = new MapboxGeocoder({
     
         /* map.addControl(geocoder, 'top-left'); */
         document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
-        /* document.getElementsByClassName("mapboxgl-ctrl-geocoder").style.color = "red"; */
+        
         map.addControl(
             new mapboxgl.GeolocateControl({
                 positionOptions: {
@@ -593,6 +574,7 @@ var geocoder = new MapboxGeocoder({
        
         map.addControl(new mapboxgl.NavigationControl({visualizePitch: true}));
         map.addControl(menuPoint);
+        /* map.addControl(ctrlPoint); */
 
 
        /*  map.addControl(rulerPoint); */
@@ -603,6 +585,8 @@ var geocoder = new MapboxGeocoder({
         map.on('ruler.on', () => console.log('ruler: on'));
         map.on('ruler.off', () => console.log('ruler: off')); */
 
+        //Button toggle for show advance settings and resize container div
+        
         function cogTools(){
             var settingToggle = document.getElementsByClassName("settings");
             
