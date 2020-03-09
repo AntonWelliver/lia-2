@@ -68,7 +68,7 @@ th {
 }
 
 .container {
-    height: 640px;
+    height: 450px;
     padding: 16px;
     background-color: #081420;
 }
@@ -116,7 +116,7 @@ input[type="number"] {
 }
 
 #placeInput {
-    width: 80%;
+    width: 100%;
     float: left;
 }
 
@@ -508,6 +508,8 @@ div.accepted {
     overflow: hidden;
     margin-bottom: 20px;
     border-radius: 7px;
+    margin-right: 20px;
+    margin-left: 115px;
     width: 82%;
 }
 
@@ -1042,7 +1044,7 @@ input[name="wlaninfo"] {
 .mapContainer {
     position: relative;
     margin-right: 12px;
-    height: 640px;
+    height: 700px;
 }
 
 #map {
@@ -1051,6 +1053,7 @@ input[name="wlaninfo"] {
     bottom: 0;
     width: 100%;
     height: 100%;
+    
 }
 
 #info {
@@ -1163,9 +1166,9 @@ input[class="mapboxgl-ctrl-geocoder--input"] {
     top: 10px;
     left: 10px;
     z-index: 1;
-}
-
-.distance-container > * {
+    }
+     
+    .distance-container > * {
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     font-size: 11px;
@@ -1174,4 +1177,15 @@ input[class="mapboxgl-ctrl-geocoder--input"] {
     margin: 0;
     padding: 5px 10px;
     border-radius: 3px;
-}
+    }
+
+    .settings {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .mapboxgl-ctrl-geocoder {
+        width: 100% !important;
+        max-width: 400px !important;
+        border-radius: 13px !important;
+    }    
