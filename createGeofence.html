@@ -123,13 +123,17 @@
         <div class="wrapper" style="display: grid; overflow: scroll;">
             <div>
                 <form action="/">
-                    <div class="container">
-                        <h3 style="color: white;">Skapa ny trygghetszon</h3>
+                    <div id="container" class="container">
+                        <h3 style="color: white;">Skapa ny trygghetszon
+                       
+                        </h3>
+                        <div id="geocoder" style="margin-bottom: 15px;"></div>
                         
-                        <div  placeholder="adress" name="addressInput">
+                        <div placeholder="adress" name="addressInput">
+        
                             <input
                                 type="text"
-                                placeholder="Adress"
+                                placeholder="Sparad adress"
                                 name="addressInput"
                                 id="addressInput"
                                 disabled
@@ -137,31 +141,34 @@
                         </div>
                         <input
                             type="text"
-                            placeholder="Namn"
+                            placeholder="Trygghetszon namn"
                             name="nameInput"
                         />
 
                         <div style="padding-top: 10px;">                          
                             <form action="/">
                                 <select id="selectID" name="types" onchange="swapType()" style="border-radius: 10px; width: 100%; padding: 7px; margin-bottom: 18px;">
-                                    <option id="circle" value="circle">Cirkel</option>
-                                    <option id="polygon" value="polygon">Polygon</option>
+                                    <option id="circle" value="circle">Välj cirkulär zon</option>
+                                    <option id="polygon" value="polygon">Rita egen zon</option>
                                 </select>
                             </form>
                         </div>
 
                         <input
-                            type="text"
+                            type="number"
                             placeholder="Radie"
                             name="radiusInput"
                             id="radiusInput"
+                            onchange="radiusOnchange()"
                         />
+                        
 
                         <input
                             type="number"
                             placeholder="Latitud"
                             name="latitudeInput"
                             id="latitudeInput"
+                            style="display: none;"
                         />
 
                         <input
@@ -169,6 +176,7 @@
                             placeholder="Longitud"
                             name="longitudeInput"
                             id="longitudeInput"
+                            style="display: none;"
                         />
 
                         <!-- <div id="addressInput" placeholder="adress" name="addressInput" style="width: 100%;">
@@ -184,19 +192,33 @@
                             type="text"
                             placeholder="Plats"
                             name="placeInput"
+                            id="placeInput"
+                            style="display: none;"
                         />
 
                         <input
                             type="text"
                             placeholder="Våning"
                             name="floorInput"
+                            id="floorInput"
+                            style="display: none;"
                         />
 
                         <input
                             type="text"
                             placeholder="Avdelning"
                             name="departmentInput"
+                            id="departmentInput"
+                            style="display: none;"
                         />
+                        
+                            <div style="padding-bottom: 5px; margin-bottom: 10px; background-color: whitesmoke; border-radius: 15px;border-bottom: 1px solid grey;" onclick="cogTools()">
+                                
+                                <img class="settings" src="images/cog-setting.png" value="1" style="bottom: -5px; left:25px;" />
+                                <span style="color: black; margin-left: 70px;">Avancerade inställningar</span>
+                            </div>
+                                                                                                                    
+                        
 
                         <form action="/index.html">
                             <button class="cancelbtn" id="cancelbtn">
@@ -215,7 +237,7 @@
                 </form>
             </div>
             <div>
-                <div class="mapContainer">
+                <div id="mapContainer" class="mapContainer">
                     <div id="map"></div>  
                     <nav id="menupicture"></nav>
                     <div id="distance" class="distance-container"></div> 

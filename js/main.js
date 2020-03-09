@@ -1,6 +1,6 @@
 
  /* var theMarker = {}; */
-
+ /* import {RulerControl} from '../mapbox-gl-controls/lib/ruler'; */
 //Function mapbox
 mapboxgl.accessToken = 'pk.eyJ1IjoibGFyc24iLCJhIjoiY2s2YzByNTh4MDZjdTNxb21lMjY3NjBnMSJ9.bbEbVqLCn7Oco1FXsI1nFQ'; // token key
 
@@ -57,13 +57,15 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
         e.preventDefault();
         e.stopPropagation();
         
+        /* map.getContainer().requestFullscreen() */
         var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
-        
-            if (visibility === 'visible') {
+        if (visibility === 'visible') {
             map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+            
             this.className = 'false';
             } 
             else {
+            
             this.className = 'active';
             map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
             }
@@ -78,9 +80,26 @@ var draw = new MapboxDraw({
     displayControlsDefault: false,
     controls: {
         polygon: true,
-        trash: true
+        trash: true,
+        activateUIButton: true
     }
 });
+
+map.on('draw.modechange', (e) => {
+  const data = draw.getAll();
+  if (draw.getMode() == 'draw_polygon') {
+    var pids = []
+    const polygon = data.features[data.features.length - 1].id
+    data.features.forEach((f) => {
+      if (f.geometry.type === 'Polygon' && f.id !== polygon) {
+        pids.push(f.id)
+      }
+    })
+    draw.delete(pids)
+  }
+});
+
+
 
 //Add marker 
 /* var marker = new mapboxgl.Marker({
@@ -97,7 +116,6 @@ var geocoder = new MapboxGeocoder({
     placeholder: "Adress",
     countries: 'SE',
     minLength: 2,
-    clearOnBlur: true,
     /* collapsed: true, */
         flyTo: {
             bearing: 0,
@@ -125,6 +143,9 @@ var geocoder = new MapboxGeocoder({
                 else if(optionValue.value == 'polygon'){
                     console.log('polygon ON');
                 }
+                /* document.getElementById("radiusInput").value = 0;
+                document.getElementById("latitudeInput").value = "";
+                document.getElementById("longitudeInput").value = ""; */
 
              
         })
@@ -159,11 +180,13 @@ var geocoder = new MapboxGeocoder({
                     "boolean": false,
                 }
             })
-            
             var inputText = document.getElementsByClassName('mapboxgl-ctrl-geocoder--input');
-
+            document.getElementById("radiusInput").value = 100;
+            document.getElementById("latitudeInput").value = latArray;
+            document.getElementById("longitudeInput").value = lngArray;
+            document.getElementById('addressInput').value = inputText[0].value;
             var optionValue = document.getElementById('selectID');
-
+            
             inputText[0].value = "Sök igen på en adress";
 
            
@@ -225,8 +248,12 @@ var geocoder = new MapboxGeocoder({
            
     })
     
-    /* geocoder.on('clear', function(ev) {
-        myCircle.remove(map);
+    geocoder.on('clear', function(ev) {
+        /* document.getElementById('addressInput').value = ""; */
+        /* document.getElementById("radiusInput").value = 0;
+        document.getElementById("latitudeInput").value = "";
+        document.getElementById("longitudeInput").value = ""; */
+        /* myCircle.remove(map);
         var optionValue = document.getElementById('selectID');
         if(optionValue.value === 'circle'){
             myCircle.remove(map);
@@ -236,8 +263,8 @@ var geocoder = new MapboxGeocoder({
             console.log('test9999')
         }else{
             console.log("test101010")
-        }
-    }) */
+        } */
+    }) 
     
 
     
@@ -255,10 +282,11 @@ var geocoder = new MapboxGeocoder({
             var lang = document.getElementById('longitudeInput').value;
             var laty = document.getElementById('latitudeInput').value; */
             
-                
+            
             //Circle 
-             var myCircle = new MapboxCircle({lat: 57.69282011876044, lng: 11.975482095909456}, 100, {
+             var myCircle = new MapboxCircle({lat: 57.69282011876044, lng: 11.975482095909456},100, {
                 editable: true,
+                
                 minRadius: 1,
                 maxRadius: 2000000,
                 fillColor: 'royalblue',
@@ -276,8 +304,13 @@ var geocoder = new MapboxGeocoder({
                     "boolean": false,
                 }
             })
+            
 
             myCircle.options.test.boolean = true; 
+            document.getElementById("radiusInput").value = 100;
+            document.getElementById("latitudeInput").value = 57.69282011876044;
+            document.getElementById("longitudeInput").value = 11.975482095909456;
+            
             myCircle.addTo(map);
             //Get lnglat when new postion on circle 
          myCircle.on('centerchanged', function (circleObj) {
@@ -292,7 +325,6 @@ var geocoder = new MapboxGeocoder({
             });
             //Get radius when change the circle diameter
         myCircle.on('radiuschanged', function (circleObj) {
-
                 document.getElementById('radiusInput').value = circleObj.getRadius(); 
                 console.log('New radius (once!):', circleObj.getRadius());
             });
@@ -310,6 +342,11 @@ var geocoder = new MapboxGeocoder({
             document.getElementById('latitudeInput').value = single.lat; 
                 console.log('Right-click:', mapMouseEvent.lngLat);
             }); 
+            //New value for radius input
+            function radiusOnchange(){
+                var updateRadius = document.getElementById("radiusInput");
+                myCircle.setRadius(updateRadius.value);           
+            }
             
             
             //Hide circle when polygon option on
@@ -318,21 +355,23 @@ var geocoder = new MapboxGeocoder({
                 if(document.getElementById('selectID').value == "circle"){
                     myCircle.addTo(map);
                     map.removeControl(draw, 'top-left');
+                    map.getContainer().classList.remove("mouse-add");
                     myCircle.options.test.boolean = true;
-                    document.getElementById('radiusInput').value = "100"; 
+                    document.getElementById("radiusInput").style.display = "block";                   
                     
                 }  else{
                     map.addControl(draw, 'top-left');
+                    
                     myCircle.remove(map);
                     myCircle.options.test.boolean = false;              
-                    document.getElementById("radiusInput").value = "";
-
+                    document.getElementById("radiusInput").style.display = "none";
+                    draw.changeMode('draw_polygon');                   
+                    
                 }  
-                for (var i = 0; i < selectID.length; i++) {
-                    selectID[i].on = swapType;
-                    }   
-                
+                           
             }
+        
+            
 
                       
             
@@ -404,6 +443,53 @@ var geocoder = new MapboxGeocoder({
                 this._map = undefined;
             }
         }
+            class RulerPoint {
+            constructor({
+                className = "",
+                title = "",
+                eventHandler = evtHndlr
+            }) {
+                this._className = className;
+                this._title = title;
+                this._eventHandler = eventHandler;
+            }
+            
+            onAdd(map) {
+                this._btn = document.createElement("button");
+                
+                this._btn.className = "mapboxgl-ctrl-icon" + " " + this._className;
+                this._btn.type = "button";
+                this._btn.title = this._title;
+                this._btn.id = "rulerPoint"
+                this._btn.value = "1"
+                this._btn.onclick = this._eventHandler;
+                
+                this._container = document.createElement("div");
+                this._container.className = "mapboxgl-ctrl-group mapboxgl-ctrl";
+                this._container.appendChild(this._btn);
+                
+                return this._container;
+            }
+            
+            onRemove() {
+                this._container.parentNode.removeChild(this._container);
+                this._map = undefined;
+            }
+        }
+       /*  _onClickFullscreen()    
+        {
+            if (this._isFullscreen()) {
+                if (window.document.exitFullscreen) {
+                    window.document.exitFullscreen();
+                } else if (window.document.mozCancelFullScreen) {
+                    window.document.mozCancelFullScreen();
+                } else if (window.document.msExitFullscreen) {
+                    window.document.msExitFullscreen();
+                } else if (window.document.webkitCancelFullScreen) {
+                    window.document.webkitCancelFullScreen();
+                }
+            }
+        } */
        /*  function one (event) {     
             var markerValue = document.getElementById("toggleMarker");
             var inputText = document.getElementsByClassName('mapboxgl-ctrl-geocoder--input');
@@ -426,16 +512,39 @@ var geocoder = new MapboxGeocoder({
         function two (event){
             console.log("function two Menutyler", event);
             var markerValue = document.getElementById("toggleMenuTyler");
+            var hideMenuPoint = document.getElementsByClassName("mapbox-gl-menu_point")
             if(markerValue.value=="1"){
                 markerValue.value = "2";
                 
                 /* ctrlPoint.addTo(map); */
                 layers.style.display = "block";
                 
-            }else {
+            }
+           /*  else if(map.mapboxgl.FullscreenControl === true){
+                hideMenuPoint.style.display = "none";
+
+            } */
+            else {
                 markerValue.value = "1"
                 /* ctrlPoint.remove(map); */
                 layers.style.display = "none";
+                
+            }
+        }
+       
+        function three (event){
+            console.log("function three RulerPoint", event);
+            var rulerValue = document.getElementById("rulerPoint");
+            
+    
+            if(rulerValue.value == "1"){
+                rulerValue.value = "2";
+                    console.log("ruler1")
+                    ruler();
+                    
+            }else{
+                console.log("ruler2")
+                rulerValue.value = "1";
                 
             }
         }
@@ -454,26 +563,207 @@ var geocoder = new MapboxGeocoder({
             eventHandler: two,
             
         });
+        var rulerPoint = new RulerPoint({
+            className: "mapbox-gl-ruler_point",
+            title: "Ruler Point",          
+            eventHandler: three,
+            
+        });
         
         //MapControl Icons added to map
         
-        map.addControl(geocoder);
+    
+        /* map.addControl(geocoder, 'top-left'); */
+        document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+        /* document.getElementsByClassName("mapboxgl-ctrl-geocoder").style.color = "red"; */
         map.addControl(
             new mapboxgl.GeolocateControl({
                 positionOptions: {
                     enableHighAccuracy: true
                 },
-                trackUserLocation: true
-                
+                trackUserLocation: true,
+               
             })
             );
+            
+                
+              
+            
         map.addControl(new mapboxgl.FullscreenControl());
-        map.addControl(new mapboxgl.NavigationControl());
+       
+        map.addControl(new mapboxgl.NavigationControl({visualizePitch: true}));
         map.addControl(menuPoint);
-        /* map.addControl(ctrlPoint, 'top-left');
-        map.addControl(draw, 'top-left'); */
+
+
+       /*  map.addControl(rulerPoint); */
+
+
+
+        /* map.addControl(new RulerControl(), 'top-right');
+        map.on('ruler.on', () => console.log('ruler: on'));
+        map.on('ruler.off', () => console.log('ruler: off')); */
+
+        function cogTools(){
+            var settingToggle = document.getElementsByClassName("settings");
+            
+            if(settingToggle.value == "1" ){
+                settingToggle.value = "2";
+                document.getElementById("container").style.height = "450px";
+                
+              
+                document.getElementById("latitudeInput").style.display = "none"
+                document.getElementById("longitudeInput").style.display = "none"
+                document.getElementById("placeInput").style.display = "none"
+                document.getElementById("floorInput").style.display = "none"
+                document.getElementById("departmentInput").style.display = "none"
+                
+            }else{
+                settingToggle.value = "1";
+                document.getElementById("container").style.height = "700px";
+              
+
+                document.getElementById("latitudeInput").style.display = "block"
+                document.getElementById("longitudeInput").style.display = "block"
+                document.getElementById("placeInput").style.display = "block"
+                document.getElementById("floorInput").style.display = "block"
+                document.getElementById("departmentInput").style.display = "block"
+            }
+        }
+
+        //Console log out the coordinates for drawing out polygon all the points
+        map.on('draw.create', updateArea);
+        map.on('draw.update', updateArea);
+        function updateArea(e){
+            var data = draw.getAll().features[0].geometry.coordinates;
+            arrayContent = data.flat();
+            console.log(arrayContent); 
+             if(document.getElementById('selectID').value == "polygon"){
+                document.getElementsByClassName('mapbox-gl-draw_polygon').active = true;
+            }  
+        }
+
+        var distanceContainer = document.getElementById('distance');
+ 
+       /*  // GeoJSON object to hold our measurement features
+function ruler(){
+    // GeoJSON object to hold our measurement features
+var geojson = {
+    'type': 'FeatureCollection',
+    'features': []
+    };
+     
+    // Used to draw a line between points
+    var linestring = {
+    'type': 'Feature',
+    'geometry': {
+    'type': 'LineString',
+    'coordinates': []
+    }
+    };
+     
+    map.on('load', function() {
+    map.addSource('geojson', {
+    'type': 'geojson',
+    'data': geojson
+    });
+     
+    // Add styles to the map
+    map.addLayer({
+    id: 'measure-points',
+    type: 'circle',
+    source: 'geojson',
+    paint: {
+    'circle-radius': 5,
+    'circle-color': '#000'
+    },
+    filter: ['in', '$type', 'Point']
+    });
+    map.addLayer({
+    id: 'measure-lines',
+    type: 'line',
+    source: 'geojson',
+    layout: {
+    'line-cap': 'round',
+    'line-join': 'round'
+    },
+    paint: {
+    'line-color': '#000',
+    'line-width': 2.5
+    },
+    filter: ['in', '$type', 'LineString']
+    });
+     
+    map.on('click', function(e) {
+    var features = map.queryRenderedFeatures(e.point, {
+    layers: ['measure-points']
+    });
+     
+    // Remove the linestring from the group
+    // So we can redraw it based on the points collection
+    if (geojson.features.length > 1) geojson.features.pop();
+     
+    // Clear the Distance container to populate it with a new value
+    distanceContainer.innerHTML = '';
+     
+    // If a feature was clicked, remove it from the map
+    if (features.length) {
+    var id = features[0].properties.id;
+    geojson.features = geojson.features.filter(function(point) {
+    return point.properties.id !== id;
+    });
+    } else {
+    var point = {
+    'type': 'Feature',
+    'geometry': {
+    'type': 'Point',
+    'coordinates': [e.lngLat.lng, e.lngLat.lat]
+    },
+    'properties': {
+    'id': String(new Date().getTime())
+    }
+    };
+     
+    geojson.features.push(point);
+    }
+     
+    if (geojson.features.length > 1) {
+    linestring.geometry.coordinates = geojson.features.map(function(
+    point
+    ) {
+    return point.geometry.coordinates;
+    });
+     
+    geojson.features.push(linestring);
+     
+    // Populate the distanceContainer with total distance
+    var value = document.createElement('pre');
+    value.textContent =
+    'Total distance: ' +
+    turf.length(linestring).toLocaleString() +
+    'km';
+    distanceContainer.appendChild(value);
+    }
+     
+    map.getSource('geojson').setData(geojson);
+    });
+    });
+     
+    map.on('mousemove', function(e) {
+    var features = map.queryRenderedFeatures(e.point, {
+    layers: ['measure-points']
+    });
+    // UI indicator for clicking/hovering a point on the map
+    map.getCanvas().style.cursor = features.length
+    ? 'pointer'
+    : 'crosshair';
+    });
+    
+} */
+    
+       
         
-        
+       
+                
         
         /* map.addControl(new CompassControl(), 'bottom-right'); */
         
