@@ -124,7 +124,7 @@ input[type="number"] {
     border: none;
     border-bottom: 1px solid grey;
     padding: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
 }
 
 table.center {
@@ -1053,7 +1053,6 @@ input[name="wlaninfo"] {
     bottom: 0;
     width: 100%;
     height: 100%;
-    
 }
 
 #info {
@@ -1166,9 +1165,9 @@ input[class="mapboxgl-ctrl-geocoder--input"] {
     top: 10px;
     left: 10px;
     z-index: 1;
-    }
-     
-    .distance-container > * {
+}
+
+.distance-container > * {
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     font-size: 11px;
@@ -1177,15 +1176,15 @@ input[class="mapboxgl-ctrl-geocoder--input"] {
     margin: 0;
     padding: 5px 10px;
     border-radius: 3px;
-    }
+}
 
-    .settings {
-        position: relative;
-        display: inline-block;
-    }
-    
-    .mapboxgl-ctrl-geocoder {
-        width: 100% !important;
-        max-width: 400px !important;
-        border-radius: 13px !important;
-    }    
+.settings {
+    position: relative;
+    display: inline-block;
+}
+
+.mapboxgl-ctrl-geocoder {
+    width: 100% !important;
+    max-width: 400px !important;
+    border-radius: 13px !important;
+}
