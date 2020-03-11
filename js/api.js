@@ -1,5 +1,4 @@
 
-
 const apiGeofence = "https://api.proximi.fi/core/geofences";
 const apiFloor = "https://api.proximi.fi/core/floors";
 const apiPlace = "https://api.proximi.fi/core/places";
@@ -18,20 +17,20 @@ var dict = {"one" : [15, 4.5],
 
 
 //Geofence API
-function axiosTest(newArray){
+function axiosTest(newArray) {
 
   var newArray = [];
- 
-  axios.get(apiGeofence,{ headers: { Authorization: AuthStr } })
-    .then(function(response){
-      for (var i = 0; i < response.data.length; i++){
+
+  axios.get(apiGeofence, { headers: { Authorization: AuthStr } })
+    .then(function (response) {
+      for (var i = 0; i < response.data.length; i++) {
         newArray[i] = (response.data[i]);
-        
-      } 
-         
+
+      }
+
       /* console.log(newArray); */
       /* console.log(response); */
-      
+
       function generateTable(table, data) {
         console.log(data);
         for (element of data) {
@@ -46,7 +45,7 @@ function axiosTest(newArray){
           var longitud = element.area.lng;
           var createdAt = element.createdAt;
 
-          var sliceDate = createdAt.slice(0, 10 );
+          var sliceDate = createdAt.slice(0, 10);
 
           var cell = row.insertCell(0);
           var cell1 = row.insertCell(1);
@@ -58,7 +57,7 @@ function axiosTest(newArray){
           var cell7 = row.insertCell(7);
           var cell8 = row.insertCell(8);
           var cell9 = row.insertCell(9);
-          
+
           var nameValue = document.createTextNode(name);
           var typeValue = document.createTextNode(type);
           var addressValue = document.createTextNode(address);
@@ -68,40 +67,40 @@ function axiosTest(newArray){
           var latitudValue = document.createTextNode(latitud);
           var longitudValue = document.createTextNode(longitud);
           var createdAtValue = document.createTextNode(sliceDate);
-          
+
 
           if (element.place_name == null) {
-            placeValue = document.createTextNode("");  
+            placeValue = document.createTextNode("");
           }
-          if(element.floor_name == null){
+          if (element.floor_name == null) {
             floorValue = document.createTextNode("");
           }
-          if(element.department_name == null){
+          if (element.department_name == null) {
             departmentValue = document.createTextNode("");
           }
 
-          function createEditButton(){
+          function createEditButton() {
             var editButton = document.createElement('a');
 
             editButton.href = 'editGeofence.html';
             editButton.className = 'editIconButton, far fa-edit';
             editButton.id = 'editButton';
-            editButton.style = "margin-left: 7px; margin-right: 20px; color: rgb(20, 134, 168);"  
-          
+            editButton.style = "margin-left: 7px; margin-right: 20px; color: rgb(20, 134, 168);"
+
             return editButton;
           }
-          function createDeleteButton(){
+          function createDeleteButton() {
             var deleteButton = document.createElement('a');
-               
+
             deleteButton.href = '#';
             deleteButton.className = 'deleteIconButton, far fa-trash-alt';
             deleteButton.id = 'deleteButton';
-            deleteButton.style = "color: rgb(248, 97, 97);" 
-          
+            deleteButton.style = "color: rgb(248, 97, 97);"
+
             return deleteButton;
           }
-          
-          
+
+
           cell.appendChild(nameValue);
           cell1.appendChild(typeValue);
           cell2.appendChild(addressValue);
@@ -112,27 +111,27 @@ function axiosTest(newArray){
           cell7.appendChild(longitudValue);
           cell8.appendChild(createdAtValue);
           cell9.appendChild(createEditButton());
-          cell9.appendChild( createDeleteButton());
+          cell9.appendChild(createDeleteButton());
 
         }
-        
+
       }
-      
+
       let table = document.querySelector(".center");
       generateTable(table, newArray);
-      
+
     })
-    .catch(function(error){
-      
+    .catch(function (error) {
+
       console.log(error);
-      
-      
+
+
     })
-    
+
 }
-  axiosTest();
-  
-  
+axiosTest();
+
+
 
 
 /* // Floor API
@@ -140,53 +139,46 @@ function axiosTest(newArray){
   .then(function(response){
     console.log(response.data)
     geofenceFloor.innerHTML = response.data[1].name;
-   
+
   })
   .catch(function(error){
     geofenceName.innerHTML = ("error")
-    
+
   })
 //Place API
  axios.get(apiPlace,{ headers: { Authorization: AuthStr } })
   .then(function(response){
     console.log(response.data)
     geofencePlace.innerHTML = response.data[2].name;
-   
+
   })
   .catch(function(error){
     geofenceName.innerHTML = ("error")
-    
+
   })
   //Departments API
  axios.get(apiDepartments,{ headers: { Authorization: AuthStr } })
   .then(function(response){
     console.log(response.data)
     geofenceDepartment.innerHTML = response.data[7].name;
-   
+
   })
   .catch(function(error){
     geofenceName.innerHTML = ("error")
-    
-  }) */
-  let mountains = [
-    { namn: "Monte Falco", typ: 1658, adress: "Parco Foreste Casentinesi", plats: "Doktor Belfrages", våning: "Vån 8", Avdelning: "Möterum",lat: "4345345", lng: "113863", created: "2020-01-25",edit: "EDIT" },
-    { name: "Monte Falterona", height: 1654, place: "Parco Foreste Casentinesi" },
-    { name: "Poggio Scali", height: 1520, place: "Parco Foreste Casentinesi" },
-    { name: "Pratomagno", height: 1592, place: "Parco Foreste Casentinesi" },
-    { name: "Monte Amiata", height: 1738, place: "Siena" }
-  ];
 
-  /* function generateTableHead(table, data) {
-    let thead = table.createTHead();
-    let row = thead.insertRow();
-    for (let key of data) {
-      let th = document.createElement("th");
-      let text = document.createTextNode(key);
-      th.appendChild(text);
-      row.appendChild(th);
-    }
-  } */
-  
+  }) */
+
+/* function generateTableHead(table, data) {
+  let thead = table.createTHead();
+  let row = thead.insertRow();
+  for (let key of data) {
+    let th = document.createElement("th");
+    let text = document.createTextNode(key);
+    th.appendChild(text);
+    row.appendChild(th);
+  }
+} */
+
 /*   function generateTable(table, data) {
     for (let element of data) {
       let row = table.insertRow();
@@ -197,8 +189,8 @@ function axiosTest(newArray){
       }
     }
   }
-  
+
   let table = document.querySelector("table");
   let data = Object.keys(mountains[0]);
   generateTable(table, mountains); */
-  /* generateTableHead(table, data); */
+/* generateTableHead(table, data); */
