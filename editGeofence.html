@@ -13,6 +13,7 @@
         
         <!-- <script type="module" src="./node_modules/mapbox-gl-controls/lib/ruler.js" ></script> -->
         <link rel="stylesheet" type="text/css" href="css/startpage.css" />
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <!-- <link href="mapbox-gl-controls/theme.css" rel="stylesheet"> -->
         <link
             rel="stylesheet"
@@ -142,6 +143,7 @@
                             type="text"
                             placeholder="Trygghetszon namn"
                             name="nameInput"
+                            id="nameInput"
                         />
                         <div>                          
                             <form action="/">
@@ -164,6 +166,7 @@
                             name="latitudeInput"
                             id="latitudeInput"
                             style="display: none;"
+                            onchange="latOnchange()"
                         />
                         <input
                             type="number"
@@ -171,6 +174,7 @@
                             name="longitudeInput"
                             id="longitudeInput"
                             style="display: none;"
+                            onchange="lngOnchange()"
                         />
                         <input
                             type="text"
@@ -240,7 +244,8 @@
         <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
         <script src="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script>
         <!-- <script type="text/javascript" src="js/ruler1.js"></script> -->
-        
-            <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/editGeoApi.js"></script>
+        <!-- <script type="text/javascript" src="js/api.js"></script> -->
+        <script type="text/javascript" src="js/main.js"></script>
     </body>
 </html>
