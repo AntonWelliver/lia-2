@@ -191,22 +191,15 @@ var geocoder = new MapboxGeocoder({
            
            
            if(optionValue.value == "circle"){
-
                myCircleInput.addTo(map);
-               
-               console.log("Circle ON")
             }
             
             else if(optionValue.value == "polygon"){
                 /* myCircleInput.remove(map); */
-                
                 console.log("Polygon ON")
-                
-            }else{
 
+            }else{
                 myCircleInput.addTo(map);
-                
-                console.log("Added 1 more Circle")
             }
             
             myCircle = myCircleInput;
@@ -342,10 +335,22 @@ var geocoder = new MapboxGeocoder({
             //New value for radius input
             function radiusOnchange(){
                 var updateRadius = document.getElementById("radiusInput");
-                myCircle.setRadius(updateRadius.value);           
-            }
+                myCircle.setRadius(updateRadius.value); 
+                
+            };
+            function latOnchange(){
+                var updateLat = parseFloat(document.getElementById("latitudeInput").value);
+                var updateLng = parseFloat(document.getElementById("longitudeInput").value);
+                myCircle.setCenter({lat:updateLat , lng:updateLng});
+
+            };
             
-            
+            function lngOnchange(){
+                var updateLat = parseFloat(document.getElementById("latitudeInput").value);
+                var updateLng = parseFloat(document.getElementById("longitudeInput").value);
+                myCircle.setCenter({lat:updateLat , lng:updateLng});
+            };
+
             //Hide circle when polygon option on
             function swapType() {
                 

@@ -65,9 +65,12 @@ function axiosTest(newArray) {
             var editButton = document.createElement('a');
             editButton.href = 'editGeofence.html';
             editButton.className = 'editIconButton, far fa-edit';
-            editButton.id = 'editButton';
+            editButton.id = getID;
             editButton.style = "margin-left: 7px; margin-right: 20px; color: rgb(20, 134, 168); cursor: pointer;"
+            editButton.onclick = function (){
 
+              console.log(editButton.id);
+            }
             return editButton;
           }
           function createDeleteButton() {
@@ -112,6 +115,8 @@ function axiosTest(newArray) {
     })
 }
 axiosTest();
+
+
 
 /* // Floor API
 axios.get(apiFloor,{ headers: { Authorization: AuthStr } })
