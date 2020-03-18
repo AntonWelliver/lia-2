@@ -19,7 +19,7 @@ function axiosTest(newArray) {
       }
 
       function generateTable(table, data) {
-        console.log(data);
+        /* console.log(data); */
         for (element of data) {
           var row = table.insertRow();
           var name = element.name;
@@ -72,11 +72,11 @@ function axiosTest(newArray) {
             editButton.className = 'editIconButton, far fa-edit';
             editButton.id = getID;
             editButton.style = "margin-left: 7px; margin-right: 20px; color: rgb(20, 134, 168); cursor: pointer;"
-            editButton.onclick = function (){
-              
+            editButton.onclick = function () {
+
               test123.id = editButton.id
-              /* editButton.id = test123.id; */
               console.log(test123);
+              sessionStorage.test123 = editButton.id;
             }
             return editButton;
           }
