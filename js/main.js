@@ -10,8 +10,8 @@ var map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/streets-v11', //hosted style id
     center: [11.975482095909456, 57.69282011876044], // starting position
     zoom: 17, // starting zoom
-      
 });
+          
 //Get image
 map.on('load', function() {
     map.addSource("Floor", {
@@ -26,6 +26,12 @@ map.on('load', function() {
         ],
         
     });
+     
+        //new input map autoFly to destination
+        var updateLat = parseFloat(document.getElementById("latitudeInput").value);
+        var updateLng = parseFloat(document.getElementById("longitudeInput").value);
+        map.flyTo({ center: [updateLng, updateLat] });
+        
 
     map.addLayer({
         "id": "Floor",
@@ -115,7 +121,7 @@ var geocoder = new MapboxGeocoder({
     placeholder: "Adress",
     countries: 'SE',
     minLength: 2,
-    /* collapsed: true, */
+    
         flyTo: {
             bearing: 0,
             // These options control the flight curve, making it move
@@ -178,9 +184,12 @@ var geocoder = new MapboxGeocoder({
             document.getElementById("latitudeInput").value = latArray;
             document.getElementById("longitudeInput").value = lngArray;
             document.getElementById('addressInput').value = inputText[0].value;
+            var addressInput1 = document.getElementById('addressInput').value
             var optionValue = document.getElementById('selectID');
             
             inputText[0].value = "Sök igen på en adress";
+            console.log(addressInput1);
+           
            
            if(optionValue.value == "circle"){
                myCircleInput.addTo(map);
@@ -193,6 +202,9 @@ var geocoder = new MapboxGeocoder({
             }else{
                 myCircleInput.addTo(map);
             }
+                            /* if(addressInput1 === "string"){
+                                addressInput1.value = inputText[0].value;
+                            } */
             
             myCircle = myCircleInput;
             myCircle.options.test.boolean = true;
@@ -282,8 +294,7 @@ var geocoder = new MapboxGeocoder({
                     "boolean": false,
                 }
             })
-            
-
+           
             myCircle.options.test.boolean = true; 
             document.getElementById("radiusInput").value = 100;
             document.getElementById("latitudeInput").value = 57.69282011876044;

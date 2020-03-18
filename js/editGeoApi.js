@@ -14,12 +14,13 @@ const geofenceData = {
   "floor_name": "",
   "department_name": ""
 }
+/* var savedGeoId = localStorage.getItem("singleID") */ 
 
-var test123 = {
-  "id": sessionStorage.test123
+var arrayID = {
+  "id": sessionStorage.arrayID
 }
 
-axios.get(apiEditGeofence + test123.id, { headers: { Authorization: AuthEditStr } })
+axios.get(apiEditGeofence + arrayID.id, { headers: { Authorization: AuthEditStr } })
 
   .then(function (response) {
     var adress = document.getElementById("addressInput");
