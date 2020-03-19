@@ -184,11 +184,11 @@ var geocoder = new MapboxGeocoder({
             document.getElementById("latitudeInput").value = latArray;
             document.getElementById("longitudeInput").value = lngArray;
             document.getElementById('addressInput').value = inputText[0].value;
-            var addressInput1 = document.getElementById('addressInput').value
+            
             var optionValue = document.getElementById('selectID');
             
             inputText[0].value = "Sök igen på en adress";
-            console.log(addressInput1);
+            
            
            
            if(optionValue.value == "circle"){
@@ -202,9 +202,7 @@ var geocoder = new MapboxGeocoder({
             }else{
                 myCircleInput.addTo(map);
             }
-                            /* if(addressInput1 === "string"){
-                                addressInput1.value = inputText[0].value;
-                            } */
+                            
             
             myCircle = myCircleInput;
             myCircle.options.test.boolean = true;
