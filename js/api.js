@@ -73,11 +73,8 @@ function axiosTest(newArray) {
             editButton.id = getID;
             editButton.style = "margin-left: 7px; margin-right: 20px; color: rgb(20, 134, 168); cursor: pointer;"
             editButton.onclick = function () {
-
               arrayID.id = editButton.id
-              console.log(arrayID);
               sessionStorage.arrayID = editButton.id;
-              
             }
             return editButton;
           }

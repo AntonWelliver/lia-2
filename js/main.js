@@ -614,8 +614,10 @@ var geocoder = new MapboxGeocoder({
         map.on('draw.update', updateArea);
         function updateArea(e){
             var data = draw.getAll().features[0].geometry.coordinates;
+            
             arrayContent = data.flat();
-            console.log(arrayContent); 
+            /* console.log(arrayContent);  */
+            
              if(document.getElementById('selectID').value == "polygon"){
                 document.getElementsByClassName('mapbox-gl-draw_polygon').active = true;
             }  
