@@ -4,6 +4,10 @@ const apiPlace = "https://api.proximi.fi/core/places";
 const apiDepartments = "https://api.proximi.fi/core/departments";
 const AuthStr = 'Bearer '.concat("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImlzcyI6ImM4OTA0YzkyLTlmN2MtNGE3Yy1iZDZjLTZiMjBiMTczZDEwZSIsInR5cGUiOiJ1c2VyIiwidXNlciI6IlZlZGVmb3JzIEVtYW51ZWwiLCJ1c2VyX2lkIjoiN2VmNTI2MzctZGFmNy00ZGRlLTljMjAtNGIwNmZhMjJhNTIyIiwidGVuYW50X2lkIjoiYzg5MDRjOTItOWY3Yy00YTdjLWJkNmMtNmIyMGIxNzNkMTBlIn0.mYpZ--Ecuzc37FHCh4oyGj1gdy_CEpvOhQg0vTS0alE");
 
+const arrayID = {
+  "id": ""
+}
+
 //Geofence API
 function axiosTest(newArray) {
   var newArray = [];
@@ -15,6 +19,7 @@ function axiosTest(newArray) {
       }
 
       function generateTable(table, data) {
+        /* console.log(data); */
         for (element of data) {
           var row = table.insertRow();
           var name = element.name;
@@ -62,14 +67,17 @@ function axiosTest(newArray) {
           }
 
           function createEditButton() {
-            var editButton = document.createElement('a');
+            const editButton = document.createElement('a');
             editButton.href = 'editGeofence.html';
             editButton.className = 'editIconButton, far fa-edit';
             editButton.id = getID;
             editButton.style = "margin-left: 7px; margin-right: 20px; color: rgb(20, 134, 168); cursor: pointer;"
-            editButton.onclick = function (){
+            editButton.onclick = function () {
 
-              console.log(editButton.id);
+              arrayID.id = editButton.id
+              console.log(arrayID);
+              sessionStorage.arrayID = editButton.id;
+              
             }
             return editButton;
           }
@@ -116,7 +124,7 @@ function axiosTest(newArray) {
 }
 axiosTest();
 
-
+/* c */
 
 /* // Floor API
 axios.get(apiFloor,{ headers: { Authorization: AuthStr } })

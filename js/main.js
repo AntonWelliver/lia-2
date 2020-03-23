@@ -10,8 +10,8 @@ var map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/streets-v11', //hosted style id
     center: [11.975482095909456, 57.69282011876044], // starting position
     zoom: 17, // starting zoom
-      
 });
+          
 //Get image
 map.on('load', function() {
     map.addSource("Floor", {
@@ -26,6 +26,12 @@ map.on('load', function() {
         ],
         
     });
+     
+        //new input map autoFly to destination
+        var updateLat = parseFloat(document.getElementById("latitudeInput").value);
+        var updateLng = parseFloat(document.getElementById("longitudeInput").value);
+        map.flyTo({ center: [updateLng, updateLat] });
+        
 
     map.addLayer({
         "id": "Floor",
@@ -115,7 +121,7 @@ var geocoder = new MapboxGeocoder({
     placeholder: "Adress",
     countries: 'SE',
     minLength: 2,
-    /* collapsed: true, */
+    
         flyTo: {
             bearing: 0,
             // These options control the flight curve, making it move
@@ -151,15 +157,9 @@ var geocoder = new MapboxGeocoder({
     
 
     geocoder.on('result', function(ev) {
-        
-        /* console.log(ev.result); */
-        
+                
         var lngArray = ev.result.geometry.coordinates[0];
         var latArray = ev.result.geometry.coordinates[1];
-
-        /* console.log(lngArray);
-        console.log(latArray); */
-        
         
             var myCircleInput =  new MapboxCircle({lat: latArray, lng: lngArray}, 100, {
                 editable: true,
@@ -184,10 +184,11 @@ var geocoder = new MapboxGeocoder({
             document.getElementById("latitudeInput").value = latArray;
             document.getElementById("longitudeInput").value = lngArray;
             document.getElementById('addressInput').value = inputText[0].value;
+            
             var optionValue = document.getElementById('selectID');
             
             inputText[0].value = "Sök igen på en adress";
-
+            
            
            
            if(optionValue.value == "circle"){
@@ -201,6 +202,7 @@ var geocoder = new MapboxGeocoder({
             }else{
                 myCircleInput.addTo(map);
             }
+                            
             
             myCircle = myCircleInput;
             myCircle.options.test.boolean = true;
@@ -218,9 +220,7 @@ var geocoder = new MapboxGeocoder({
             });
             //Get radius when change the circle diameter
             myCircleInput.on('radiuschanged', function (circleObj) {
-
                 document.getElementById('radiusInput').value = circleObj.getRadius(); 
-                console.log('New radius (once!):', circleObj.getRadius());
             });
 
             myCircleInput.on('click', function (mapMouseEvent) {
@@ -236,8 +236,6 @@ var geocoder = new MapboxGeocoder({
             document.getElementById('latitudeInput').value = single.lat; 
                 console.log('Right-click:', mapMouseEvent.lngLat);
             }); 
-
-           
     })
     
     geocoder.on('clear', function(ev) {
@@ -294,8 +292,7 @@ var geocoder = new MapboxGeocoder({
                     "boolean": false,
                 }
             })
-            
-
+           
             myCircle.options.test.boolean = true; 
             document.getElementById("radiusInput").value = 100;
             document.getElementById("latitudeInput").value = 57.69282011876044;
@@ -304,7 +301,6 @@ var geocoder = new MapboxGeocoder({
             myCircle.addTo(map);
             //Get lnglat when new postion on circle 
          myCircle.on('centerchanged', function (circleObj) {
-                console.log('New center:', circleObj.getCenter());
                 var lngLat = circleObj.getCenter()
                 lngLat.lng = lngLat.lng.toString(); 
                 var stringLngLat =  JSON.stringify(lngLat);
@@ -316,7 +312,6 @@ var geocoder = new MapboxGeocoder({
             //Get radius when change the circle diameter
         myCircle.on('radiuschanged', function (circleObj) {
                 document.getElementById('radiusInput').value = circleObj.getRadius(); 
-                console.log('New radius (once!):', circleObj.getRadius());
             });
 
         myCircle.on('click', function (mapMouseEvent) {
@@ -342,7 +337,6 @@ var geocoder = new MapboxGeocoder({
                 var updateLat = parseFloat(document.getElementById("latitudeInput").value);
                 var updateLng = parseFloat(document.getElementById("longitudeInput").value);
                 myCircle.setCenter({lat:updateLat , lng:updateLng});
-
             };
             
             function lngOnchange(){
@@ -372,11 +366,7 @@ var geocoder = new MapboxGeocoder({
                 }  
                            
             }
-        
-            
 
-                      
-            
             //Add your own icon to the map with a class
             class MapboxGLButtonControl {
             constructor({

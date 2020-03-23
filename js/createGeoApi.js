@@ -12,8 +12,8 @@ const geofenceData = {
   "name": "",
   "address": "",
   "area": {
-    "lat": 57.6925358,
-    "lng": 11.9742881        
+    "lat": "",
+    "lng": ""
   },
   "radius": 100,
   "type": "",
@@ -24,45 +24,45 @@ const geofenceData = {
 
 console.log(geofenceData);
 
-function inputCheck(){
+function inputCheck() {
 
   var NameInput = document.getElementById("nameInput").value;
-  geofenceData["name"]=NameInput;
+  geofenceData["name"] = NameInput;
 
   var AddressInput = document.getElementById("addressInput").value;
-  geofenceData["address"]=AddressInput;
+  geofenceData["address"] = AddressInput;
 
   var TypeInput = document.getElementById("selectID").value;
-  geofenceData["type"]=TypeInput;
+  geofenceData["type"] = TypeInput;
 
   var LatitudeInput = document.getElementById("latitudeInput").value;
-  geofenceData.area.lat=LatitudeInput;
+  geofenceData.area.lat = LatitudeInput;
 
   var LongitudeInput = document.getElementById("longitudeInput").value;
-  geofenceData.area.lng=LongitudeInput;
-  
+  geofenceData.area.lng = LongitudeInput;
+
   var RadiusInput = document.getElementById("radiusInput").value;
-  geofenceData["radius"]=RadiusInput;
+  geofenceData["radius"] = RadiusInput;
 
   var PlaceInput = document.getElementById("placeInput").value;
-  geofenceData["place_name"]=PlaceInput;
+  geofenceData["place_name"] = PlaceInput;
 
   var FloorInput = document.getElementById("floorInput").value;
-  geofenceData["floor_name"]=FloorInput;
+  geofenceData["floor_name"] = FloorInput;
 
   var DepartmentInput = document.getElementById("departmentInput").value;
-  geofenceData["department_name"]=DepartmentInput;
+  geofenceData["department_name"] = DepartmentInput;
 
   axios.post(apiGeofence, geofenceData, {
     headers: { Authorization: AuthStr }
   })
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
       console.log(error.response);
-  })
-  setTimeout(function(){ 
-    window.location.href = "/index.html" 
+    })
+  setTimeout(function () {
+    window.location.href = "/index.html"
   }, 1000);
 }
