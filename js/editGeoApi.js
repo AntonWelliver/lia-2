@@ -14,7 +14,6 @@ const geofenceData = {
   "floor_name": "",
   "department_name": ""
 }
-/* var savedGeoId = localStorage.getItem("singleID") */ 
 
 var arrayID = {
   "id": sessionStorage.arrayID

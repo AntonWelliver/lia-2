@@ -15,8 +15,13 @@ const geofenceData = {
   "place_name": "",
   "floor_name": "",
   "department_name": ""
-
 }
+
+var arrayID = {
+  "id": ""
+}
+var optionValue = sessionStorage.optionValue
+
 
 function inputCheck() {
 
@@ -38,7 +43,8 @@ function inputCheck() {
   var RadiusInput = document.getElementById("radiusInput").value;
   geofenceData["radius"] = RadiusInput;
 
-  var PlaceInput = document.getElementById("placeInput").value;
+  var PlaceInput = document.getElementById("selectPlaces").value;
+  PlaceInput = optionValue;
   geofenceData["place_name"] = PlaceInput;
 
   var FloorInput = document.getElementById("floorInput").value;
@@ -74,44 +80,39 @@ function inputCheck() {
 
 var placeArray = [];
 
-line = "";
-line += "<option hidden>" + "Välj en plats" + "</optionhidden>";
-test = "";
+
+var sel = document.getElementById("selectPlaces")
+var optSecond = document.createElement('option');
+
+optSecond.innerHTML = "Välj en plats";
+optSecond.hidden = "Välj en plats";
+
+
+sel.appendChild(optSecond);
 axios.get(apiPlace,{ headers: { Authorization: AuthStr } })
 .then(function(response){
   for (var i = 0; i < response.data.length; i++) {
     placeArray[i] = (response.data[i]);
-    line += "<option>";
-    line += placeArray[i].name;
-    line += "</option>";
-    /* if(placeArray[i].name == placeArray[i].id){
-      test = placeArray[i].id
-      console.log(test);
-
-    } */
+   
+    var opt = document.createElement('option');
+    opt.value = i;
+    opt.innerHTML = placeArray[i].name;
+    sel.appendChild(opt);
+    
+    
   }
-  /* console.log(placeArray); */
+        sel.onchange = function(){      
+        var placeId = placeArray[opt.value].id;         
+          console.log(placeId);               
+        var placeName = placeArray[opt.value].name;         
+        sessionStorage.optionValue = placeName;              
+        console.log(sessionStorage.optionValue); 
+ }
   
-  document.getElementById("selectPlaces").innerHTML = line;
+ opt =  document.getElementById("selectPlaces");
+
 })
 .catch(function(error){
   console.log(error);
 })
-
-/* function test123(){
-  placeArray[i].name = placeArray[i].id;
-  console.log(placeArray[id]);
-} */
-
-
-/* axios.get(apiFloor,{ headers: { Authorization: AuthStr } })
-.then(function(response){
-  console.log(response.data)
-  
-
-})
-.catch(function(error){
-  console.log(error);
-
-}) */
 
