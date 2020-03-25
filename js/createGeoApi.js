@@ -75,7 +75,7 @@ function inputCheck() {
 var placeArray = [];
 
 line = "";
-line += "<option hidden>" + "Välj en plats" + "</optionhidden>";
+line += "<option hidden>" + "Välj en plats" + "</option>";
 test = "";
 axios.get(apiPlace, { headers: { Authorization: AuthStr } })
   .then(function (response) {
