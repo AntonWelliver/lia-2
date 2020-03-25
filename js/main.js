@@ -143,10 +143,8 @@ var geocoder = new MapboxGeocoder({
                 if(myCircle.options.test.boolean === true){
                     myCircle.options.test.boolean = false;
                     myCircle.remove(map);
-                    console.log('Circle OFF Map');
                 }  
                 else if(optionValue.value == 'polygon'){
-                    console.log('polygon ON');
                 }
                 /* document.getElementById("radiusInput").value = 0;
                 document.getElementById("latitudeInput").value = "";

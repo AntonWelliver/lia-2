@@ -14,42 +14,42 @@
 	<script type="text/javascript" src="js/alerty.js"></script>
 	<script src="https://api.html5media.info/1.1.5/html5media.min.js"></script>
 	<script type="text/javascript">
-	function checkNumber(index, form) {
-		var number = document.getElementById('phonenr'+index).value;
-		if (number != null && number.length > 0) {
-			if (number.substr(0,1) != '+') {
-				alert('The number must be in a international format (e.g. +46708123456). Please change the number.');
-			} else {
-				form.submit();
+		function checkNumber(index, form) {
+			var number = document.getElementById('phonenr'+index).value;
+			if (number != null && number.length > 0) {
+				if (number.substr(0,1) != '+') {
+					alert('The number must be in a international format (e.g. +46708123456). Please change the number.');
+				} else {
+					form.submit();
+				}
 			}
 		}
-	}
-	function contactGroupChanged() {
-		location.href = "?contactGroup=" + document.getElementById("contactGroup").value;
-	}
-	function deleteGroup() {
-		if (confirm('Are you sure you want to delete this group? The contacts in this group will be deleted as well.')) {
-			document.getElementById('contactgroupaction').value="deletegroup";
-			document.getElementById('contactgroupform').submit();
+		function contactGroupChanged() {
+			location.href = "?contactGroup=" + document.getElementById("contactGroup").value;
 		}
-	}
-	function doFilter() {
-		var text = $('#filter').val().toUpperCase();
-		$("form[name*='contact']").hide();
-		var usernames = $( "input[name*='username']" );
-		usernames.each(function(index) {
-			if ($(this).val().toUpperCase().includes(text)) {
-				console.log($(this).parents("form"));
-				$(this).parents("form").show();				
+		function deleteGroup() {
+			if (confirm('Are you sure you want to delete this group? The contacts in this group will be deleted as well.')) {
+				document.getElementById('contactgroupaction').value="deletegroup";
+				document.getElementById('contactgroupform').submit();
 			}
-		});
-		var phonenumbers = $( "input[name*='phonenr']" );
-		phonenumbers.each(function(index) {
-			if ($(this).val().toUpperCase().includes(text)) {
-				$(this).parents("form").show();				
-			}
-		});
-	}
+		}
+		function doFilter() {
+			var text = $('#filter').val().toUpperCase();
+			$("form[name*='contact']").hide();
+			var usernames = $( "input[name*='username']" );
+			usernames.each(function(index) {
+				if ($(this).val().toUpperCase().includes(text)) {
+					console.log($(this).parents("form"));
+					$(this).parents("form").show();				
+				}
+			});
+			var phonenumbers = $( "input[name*='phonenr']" );
+			phonenumbers.each(function(index) {
+				if ($(this).val().toUpperCase().includes(text)) {
+					$(this).parents("form").show();				
+				}
+			});
+		}
 	</script>
 </head>
 

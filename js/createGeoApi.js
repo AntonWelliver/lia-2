@@ -48,16 +48,16 @@ function inputCheck() {
   geofenceData["department_name"] = DepartmentInput;
 
   /* var polygonInput = document.getElementById("polygon"); */
- /*  if(document.getElementById('selectID').value == "polygon"){
-    
-    var polygonArray = draw.getAll().features[0].geometry.coordinates;
-    polygonArray.forEach(updateArea)
-    geofenceData["polygon"] = polygonArray;
-    
-    console.log(polygonArray);
-}else{
-  geofenceData["polygon"] = "";
-} */
+  /*  if(document.getElementById('selectID').value == "polygon"){
+     
+     var polygonArray = draw.getAll().features[0].geometry.coordinates;
+     polygonArray.forEach(updateArea)
+     geofenceData["polygon"] = polygonArray;
+     
+     console.log(polygonArray);
+ }else{
+   geofenceData["polygon"] = "";
+ } */
   axios.post(apiGeofence, geofenceData, {
     headers: { Authorization: AuthStr }
   })
@@ -77,37 +77,24 @@ var placeArray = [];
 line = "";
 line += "<option hidden>" + "Välj en plats" + "</optionhidden>";
 test = "";
-axios.get(apiPlace,{ headers: { Authorization: AuthStr } })
-.then(function(response){
-  for (var i = 0; i < response.data.length; i++) {
-    placeArray[i] = (response.data[i]);
-    line += "<option>";
-    line += placeArray[i].name;
-    line += "</option>";
-    /* if(placeArray[i].name == placeArray[i].id){
-      test = placeArray[i].id
-      console.log(test);
-
-    } */
-  }
-  /* console.log(placeArray); */
-  
-  document.getElementById("selectPlaces").innerHTML = line;
-})
-.catch(function(error){
-  console.log(error);
-})
-
-/* function test123(){
-  placeArray[i].name = placeArray[i].id;
-  console.log(placeArray[id]);
-} */
-
+axios.get(apiPlace, { headers: { Authorization: AuthStr } })
+  .then(function (response) {
+    for (var i = 0; i < response.data.length; i++) {
+      placeArray[i] = (response.data[i]);
+      line += "<option>";
+      line += placeArray[i].name;
+      line += "</option>";
+    }
+    document.getElementById("selectPlaces").innerHTML = line;
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
 
 /* axios.get(apiFloor,{ headers: { Authorization: AuthStr } })
 .then(function(response){
   console.log(response.data)
-  
+
 
 })
 .catch(function(error){
