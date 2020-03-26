@@ -22,6 +22,10 @@ var arrayID = {
 }
 var optionValue = sessionStorage.optionValue
 
+var savePlaceId = sessionStorage.savePlaceId
+var testUrl = [sessionStorage.urlValue]
+    
+console.log(testUrl)
 
 function inputCheck() {
 
@@ -84,6 +88,7 @@ var placeArray = [];
 var sel = document.getElementById("selectPlaces")
 var optSecond = document.createElement('option');
 
+
 optSecond.innerHTML = "Välj en plats";
 optSecond.hidden = "Välj en plats";
 
@@ -100,13 +105,17 @@ axios.get(apiPlace,{ headers: { Authorization: AuthStr } })
     sel.appendChild(opt);
     
     
+    /* sessionStorage.clear();  */    
   }
-        sel.onchange = function(){      
-        var placeId = placeArray[opt.value].id;         
-          console.log(placeId);               
+        sel.onchange = function(){ 
+        var placeId = placeArray[opt.value].id;
+        sessionStorage.savePlaceId = placeId;        
+        console.log(placeId);               
         var placeName = placeArray[opt.value].name;         
         sessionStorage.optionValue = placeName;              
-        console.log(sessionStorage.optionValue); 
+        console.log(sessionStorage.optionValue);
+        /* myTest() */
+        waitForPlace() 
  }
   
  opt =  document.getElementById("selectPlaces");
@@ -115,4 +124,55 @@ axios.get(apiPlace,{ headers: { Authorization: AuthStr } })
 .catch(function(error){
   console.log(error);
 })
+
+function waitForPlace(){
+  var floorArray = []
+  var selFloor = document.getElementById("selectFloor")
+  var floorArrayName = []
+  var floorArrayUrl = []
+  var clear = true
+  axios.get(apiFloor,{ headers: { Authorization: AuthStr } })
+  .then(function(response){
+    for (var i = 0; i < response.data.length; i++) {
+      floorArray[i] = response.data[i].place_id
+      floorArrayName[i] = response.data[i].name
+      floorArrayUrl[i] = response.data[i].editor.url
+
+      FloorName = floorArrayName[i]
+      floorIDPlace = floorArray[i]
+      floorUrl = floorArrayUrl[i]
+      /* test123 = sessionStorage.savePlaceId
+      console.log(test123); */
+      if(sessionStorage.savePlaceId == floorIDPlace){
+        sessionStorage.urlValue = floorUrl;
+        sessionStorage.nameValue = FloorName;
+        sessionStorage.floorValuePlaceID = floorIDPlace;
+        
+        var optFloor = document.createElement('option');
+        optFloor.value = i;
+        optFloor.id = "optionFloor"
+        optFloor.innerHTML = sessionStorage.nameValue;
+        /* optFloor.innerHTML = ""; */
+        console.log(sessionStorage.nameValue);
+        selFloor.appendChild(optFloor);
+        optFloor =  document.getElementById("selectFloor");
+
+        
+      }    
+    }
+        
+  }).catch(function(error){
+        console.log(error);
+    
+  })
+
+}
+
+/* function myTest(){
+ 
+  sessionStorage.removeItem(nameValue);
+  
+} */
+
+
 

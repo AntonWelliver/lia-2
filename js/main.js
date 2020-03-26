@@ -3,6 +3,13 @@
  /* import {RulerControl} from '../mapbox-gl-controls/lib/ruler'; */
 //Function mapbox
 mapboxgl.accessToken = 'pk.eyJ1IjoibGFyc24iLCJhIjoiY2s2YzByNTh4MDZjdTNxb21lMjY3NjBnMSJ9.bbEbVqLCn7Oco1FXsI1nFQ'; // token key
+var urlValue = {
+    "url": sessionStorage.urlValue
+    
+} 
+var nameValue = {
+    "name": sessionStorage.nameValue
+}
 
 //set out the map
 var map = new mapboxgl.Map({
@@ -14,9 +21,9 @@ var map = new mapboxgl.Map({
           
 //Get image
 map.on('load', function() {
-    map.addSource("Floor", {
+    map.addSource(nameValue.name, {
         "type": "image",
-        "url": "/images/testpicture.png",
+        "url": urlValue.url,
         
         "coordinates": [
             [11.974295724725835, 57.69314253574006],
@@ -34,8 +41,8 @@ map.on('load', function() {
         
 
     map.addLayer({
-        "id": "Floor",
-        "source": "Floor",
+        "id": nameValue.name,
+        "source": nameValue.name,
         "type": "raster",
         'layout': {
             'visibility': 'visible'
@@ -47,7 +54,7 @@ map.on('load', function() {
 });
 
 // Add layer box
-var toggleableLayerIds = ['Floor'];
+var toggleableLayerIds = [nameValue.name];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
     var id = toggleableLayerIds[i];
