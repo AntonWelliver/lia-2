@@ -93,7 +93,7 @@ ul {
 }
 
 #header input {
-    margin-top: 25px;
+    margin-top: 35px;
     margin-right: 15px;
     margin-bottom: 0px;
     padding-left: 10px;
@@ -557,6 +557,7 @@ div.accepted {
     height: 132px;
     background-color: #0f1f2e;
     color: #fff;
+    margin-bottom: 10px;
 }
 
 .dSettings {
@@ -718,7 +719,7 @@ input {
     moz-border-radius: 5px;
     border-radius: 5px;
     border: 1px solid #c9c9c9;
-    padding-left: 5px;
+    padding: 5px;
 }
 
 .rowinfo select {
