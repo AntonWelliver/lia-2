@@ -3,13 +3,6 @@
  /* import {RulerControl} from '../mapbox-gl-controls/lib/ruler'; */
 //Function mapbox
 mapboxgl.accessToken = 'pk.eyJ1IjoibGFyc24iLCJhIjoiY2s2YzByNTh4MDZjdTNxb21lMjY3NjBnMSJ9.bbEbVqLCn7Oco1FXsI1nFQ'; // token key
-var urlValue = {
-    "url": sessionStorage.urlValue
-    
-} 
-var nameValue = {
-    "name": sessionStorage.nameValue
-}
 
 //set out the map
 var map = new mapboxgl.Map({
@@ -18,6 +11,18 @@ var map = new mapboxgl.Map({
     center: [11.975482095909456, 57.69282011876044], // starting position
     zoom: 17, // starting zoom
 });
+
+if(urlValue = sessionStorage.urlValue){
+
+    
+var urlValue = {
+    "url": sessionStorage.urlValue
+    
+} 
+var nameValue = {
+    "name": sessionStorage.nameValue
+}
+
           
 //Get image
 map.on('load', function() {
@@ -87,6 +92,8 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
     layers.style.display = "none";
     layers.appendChild(link);
 }
+}
+
 //Polygon control 
 var draw = new MapboxDraw({
     displayControlsDefault: false,
