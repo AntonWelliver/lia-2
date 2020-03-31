@@ -15,6 +15,29 @@
             href="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css"
             rel="stylesheet"
         />
+        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript">
+            function doFilter() {
+                var text = $("#filter")
+                    .val()
+                    .toUpperCase();
+                $("form[name*='location']").hide();
+                var usernames = $("input[name*='wlanbssid']");
+                usernames.each(function(index) {
+                    if (
+                        $(this)
+                            .html()
+                            .toUpperCase()
+                            .startsWith(text)
+                    ) {
+                        $(this)
+                            .parents("form")
+                            .show();
+                    }
+                });
+            }
+        </script>
     </head>
 
     <body>
@@ -122,6 +145,7 @@
                                 id="setWlanListForm1151"
                                 action=""
                                 method="post"
+                                name="location"
                             >
                                 <table
                                     style="margin-left: auto; margin-right: auto; padding-top:16px; width: 82%;"

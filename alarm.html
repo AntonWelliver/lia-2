@@ -35,19 +35,6 @@
                             .show();
                     }
                 });
-               /*  var userphones = $("li[name*='userphone']");
-                userphones.each(function(index) {
-                    if (
-                        $(this)
-                            .html()
-                            .toUpperCase()
-                            .startsWith(text)
-                    ) {
-                        $(this)
-                            .parents("div[name*='alarm']")
-                            .show();
-                    }
-                }); */
                 var userdates = $("li[name*='userdate']");
                 userdates.each(function(index) {
                     if (
@@ -61,6 +48,19 @@
                             .show();
                     }
                 });
+               /*  var userphones = $("li[name*='userphone']");
+                userphones.each(function(index) {
+                    if (
+                        $(this)
+                            .html()
+                            .toUpperCase()
+                            .startsWith(text)
+                    ) {
+                        $(this)
+                            .parents("div[name*='alarm']")
+                            .show();
+                    }
+                }); */
             }
         </script>
     </head>
@@ -69,7 +69,7 @@
         <div id="wrapper">
             <!-- Header -->
             <div id="header">
-                <a href="http://www.getalerty.com"
+                <a href="http://www.salusmea.com"
                     ><img id="logo" src="brand/salusmea-logo3.png" class="left"
                 /></a>
                 <div id="menu2">
@@ -319,7 +319,7 @@
                     <div class="datadiv" id="alertinfo">
                         <div
                             id="personcontainer"
-                            style="font-size: 13px; font-weight: bold;"
+                            style="font-size: 13px; font-weight: bold; padding-top: 5px;"
                         >
                             <ul>
                                 <li>
@@ -342,16 +342,16 @@
                         <div
                             class="right"
                             id="chatcontainer"
-                            style="width: 350px; background:#081420; height: 120px; padding: 5px; border: 1px solid #495966; border-radius: 10px; margin-right: 20px;"
+                            style="width: 350px; background:#081420; height: 110px; padding: 5px; border: 1px solid #495966; border-radius: 5px; margin-right: 10px;"
                         >
                             <div
                                 id="chatmessages"
-                                style="overflow-y: auto; height: 85px; font-size: 16px; line-height: 13px; margin-bottom: 5px;"
+                                style="overflow-y: auto; height: 70px; font-size: 16px; line-height: 13px; margin-bottom: 5px;"
                             ></div>
                             <input
                                 type="text"
                                 placeholder="Meddelande..."
-                                style="width: 256px; margin-left: 11px; height: 29px; border-radius: 15px; padding-left: 10px;"
+                                style="width: 256px; margin-left: 11px; height: 29px; border-radius: 5px; padding-left: 10px;"
                                 id="chat_message"
                             />
                             <input
