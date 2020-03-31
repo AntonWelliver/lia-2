@@ -882,6 +882,7 @@ input[name="wlaninfo"] {
     border: 0px;
     background-color: transparent;
     color: gainsboro;
+    width: 350px;
 }
 
 .portaladdress {
