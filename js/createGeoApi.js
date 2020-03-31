@@ -105,7 +105,7 @@ axios.get(apiPlace,{ headers: { Authorization: AuthStr } })
     sel.appendChild(opt);
     
     
-    /* sessionStorage.clear();  */    
+      
   }
         sel.onchange = function(){ 
         var placeId = placeArray[opt.value].id;
@@ -114,7 +114,7 @@ axios.get(apiPlace,{ headers: { Authorization: AuthStr } })
         var placeName = placeArray[opt.value].name;         
         sessionStorage.optionValue = placeName;              
         console.log(sessionStorage.optionValue);
-        /* myTest() */
+        
         waitForPlace() 
  }
   
@@ -130,7 +130,7 @@ function waitForPlace(){
   var selFloor = document.getElementById("selectFloor")
   var floorArrayName = []
   var floorArrayUrl = []
-  var clear = true
+  
   axios.get(apiFloor,{ headers: { Authorization: AuthStr } })
   .then(function(response){
     for (var i = 0; i < response.data.length; i++) {
@@ -168,11 +168,7 @@ function waitForPlace(){
 
 }
 
-/* function myTest(){
- 
-  sessionStorage.removeItem(nameValue);
-  
-} */
+
 
 
 
