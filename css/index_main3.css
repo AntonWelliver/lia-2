@@ -17,7 +17,7 @@ form {
 #filterWlan {
     width: 200px !important;
     height: 25px;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid #c9c9c9;
     margin: 5px 0 22px 0;
 }
@@ -48,14 +48,14 @@ form {
 /* Track */
 #manualPageContent::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
 }
 
 /* Handle */
 #manualPageContent::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
     background: #b2b2b2;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
@@ -73,7 +73,6 @@ ul {
     margin: 0px;
     padding: 0px;
     list-style: none;
-    /*font-weight: bold;*/
 }
 
 .left {
@@ -161,8 +160,8 @@ ul {
     background-color: #081420;
     background-size: 50px;
     float: left;
-    -webkit-border-radius: 3px 3px 0px 0px;
-    border-radius: 0px 8px 0px 0px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
 }
 
 #sidebarheader img {
@@ -191,7 +190,7 @@ ul {
     overflow: auto;
     background-color: #081420;
     padding-bottom: 8px;
-    border-radius: 0 0 8px;
+    border-radius: 5px;
 }
 
 #alerts::-webkit-scrollbar {
@@ -201,14 +200,14 @@ ul {
 /* Track */
 #alerts::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
 }
 
 /* Handle */
 #alerts::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
     background: #b2b2b2;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
@@ -229,7 +228,7 @@ ul {
     border-width: 1px;
     overflow: hidden;
     line-height: 20px;
-    margin-top: 20px;
+    margin: 10px;
 }
 
 .alarm.selected {
@@ -329,8 +328,8 @@ div.accepted {
     min-height: 100%;
     height: 100%;
     overflow: auto;
-    border-radius: 3px;
-    -webkit-border-radius: 3px 3px 0px 0px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 #mapContainer::-webkit-scrollbar {
     width: 8px;
@@ -339,14 +338,14 @@ div.accepted {
 /* Track */
 #mapContainer::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
 }
 
 /* Handle */
 #mapContainer::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
     background: #b2b2b2;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
@@ -366,7 +365,7 @@ div.accepted {
     right: 640px;
     background-color: #ddd;
     overflow: hidden;
-    border-radius: 3px;
+    border-radius: 5px;
     width: 48%;
     margin-top: 5px;
 }
@@ -377,8 +376,8 @@ div.accepted {
 }
 
 #satusdata {
-    border-radius: 3px;
-    -webkit-border-radius: 3px 3px 0px 0px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 
 #iceinfo {
@@ -392,7 +391,7 @@ div.accepted {
     padding: 18px;
     width: 100%;
     border: 1px solid #414f5a;
-    border-radius: 10px;
+    border-radius: 5px;
     text-align: left;
     outline: none;
     font-size: 15px;
@@ -414,10 +413,10 @@ div.accepted {
     height: 50px;
     background-color: #2192fe;
     background-size: 50px;
-    -webkit-border-radius: 3px 3px 0px 0px;
+    -webkit-border-radius: 5px;
     overflow: hidden;
     margin-bottom: 20px;
-    border-radius: 7px;
+    border-radius: 5px;
     margin-left: auto;
     margin-right: auto;
     width: 82%;
@@ -427,10 +426,11 @@ div.accepted {
     height: 50px;
     background-color: #2192fe;
     background-size: 50px;
-    -webkit-border-radius: 3px 3px 0px 0px;
+    -webkit-border-radius: 5px;
     overflow: hidden;
     margin-bottom: 10px;
-    border-radius: 7px;
+    border-radius: 5px;
+    margin-right: 10px;
 }
 
 #statusdataheader .info {
@@ -450,7 +450,7 @@ div.accepted {
 }
 .userinfo {
     border: 1px solid #495966;
-    border-radius: 12px;
+    border-radius: 5px;
     padding: 1px;
     margin-bottom: 20px;
     margin-top: 20px;
@@ -514,7 +514,7 @@ div.accepted {
     font-weight: bold;
     color: white;
     padding: 10px 1px;
-    border-radius: 12px;
+    border-radius: 5px;
     border: 1px solid #495966;
     background-color: #081420;
     width: 82%;
@@ -524,7 +524,7 @@ div.accepted {
     border: 1px solid #c9c9c9;
     height: 25px;
     width: 200px;
-    border-radius: 12px;
+    border-radius: 5px;
     margin-left: 20px;
 }
 
@@ -532,9 +532,9 @@ div.accepted {
     border: 1px solid #c9c9c9;
     height: 25px;
     width: 200px;
-    -webkit-border-radius: 4px;
-    moz-border-radius: 4px;
-    border-radius: 12px;
+    -webkit-border-radius: 5px;
+    moz-border-radius: 5px;
+    border-radius: 5px;
     margin-right: 20px;
 }
 
@@ -548,7 +548,6 @@ div.accepted {
 }
 
 #personcontainer ul {
-    margin: 10px 0px 0px 15px;
     padding: 0px;
     list-style: none;
     font-size: 16px;
@@ -636,7 +635,7 @@ div.accepted {
 }
 .formContainer {
     border: 1px solid #414f5a;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-right: 20px;
     background-color: #081420;
 }
@@ -715,9 +714,9 @@ div.accepted {
 input {
     width: 300px;
     height: 25px;
-    -webkit-border-radius: 4px;
-    moz-border-radius: 4px;
-    border-radius: 12px;
+    -webkit-border-radius: 5px;
+    moz-border-radius: 5px;
+    border-radius: 5px;
     border: 1px solid #c9c9c9;
     padding-left: 5px;
 }
@@ -725,9 +724,9 @@ input {
 .rowinfo select {
     width: 300px;
     height: 25px;
-    -webkit-border-radius: 4px;
-    moz-border-radius: 4px;
-    border-radius: 10px;
+    -webkit-border-radius: 5px;
+    moz-border-radius: 5px;
+    border-radius: 5px;
     border: 1px solid #c9c9c9;
 }
 
@@ -848,7 +847,7 @@ td {
 #tabheader {
     background-color: #232323;
     color: #ededed;
-    border-radius: 5px 5px 0px 0px;
+    border-radius: 5px;
     width: 800px;
 }
 #tabheader ul {
@@ -867,7 +866,7 @@ td {
     font-size: 19px;
     padding: 8px 30px;
     cursor: pointer;
-    border-radius: 5px 5px 0px 0px;
+    border-radius: 5px;
 }
 #tabheader li.selected {
     background-color: #444;
@@ -965,7 +964,7 @@ input[name="wlaninfo"] {
     background-color: #0f1f2e;
     color: #fff;
     text-align: center;
-    border-radius: 6px;
+    border-radius: 5px;
     padding: 10px 0;
     margin: 10px;
     border: 1px solid #1879d491;

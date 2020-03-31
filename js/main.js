@@ -11,12 +11,24 @@ var map = new mapboxgl.Map({
     center: [11.975482095909456, 57.69282011876044], // starting position
     zoom: 17, // starting zoom
 });
+
+if(urlValue = sessionStorage.urlValue){
+
+    
+var urlValue = {
+    "url": sessionStorage.urlValue
+    
+} 
+var nameValue = {
+    "name": sessionStorage.nameValue
+}
+
           
 //Get image
 map.on('load', function() {
-    map.addSource("Floor", {
+    map.addSource(nameValue.name, {
         "type": "image",
-        "url": "/images/testpicture.png",
+        "url": urlValue.url,
         
         "coordinates": [
             [11.974295724725835, 57.69314253574006],
@@ -34,8 +46,8 @@ map.on('load', function() {
         
 
     map.addLayer({
-        "id": "Floor",
-        "source": "Floor",
+        "id": nameValue.name,
+        "source": nameValue.name,
         "type": "raster",
         'layout': {
             'visibility': 'visible'
@@ -47,7 +59,7 @@ map.on('load', function() {
 });
 
 // Add layer box
-var toggleableLayerIds = ['Floor'];
+var toggleableLayerIds = [nameValue.name];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
     var id = toggleableLayerIds[i];
@@ -80,6 +92,8 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
     layers.style.display = "none";
     layers.appendChild(link);
 }
+}
+
 //Polygon control 
 var draw = new MapboxDraw({
     displayControlsDefault: false,
@@ -143,10 +157,8 @@ var geocoder = new MapboxGeocoder({
                 if(myCircle.options.test.boolean === true){
                     myCircle.options.test.boolean = false;
                     myCircle.remove(map);
-                    console.log('Circle OFF Map');
                 }  
                 else if(optionValue.value == 'polygon'){
-                    console.log('polygon ON');
                 }
                 /* document.getElementById("radiusInput").value = 0;
                 document.getElementById("latitudeInput").value = "";
@@ -614,8 +626,10 @@ var geocoder = new MapboxGeocoder({
         map.on('draw.update', updateArea);
         function updateArea(e){
             var data = draw.getAll().features[0].geometry.coordinates;
+            
             arrayContent = data.flat();
-            console.log(arrayContent); 
+            /* console.log(arrayContent);  */
+            
              if(document.getElementById('selectID').value == "polygon"){
                 document.getElementsByClassName('mapbox-gl-draw_polygon').active = true;
             }  
