@@ -1,10 +1,9 @@
 #archiveFilterTable {
-    width: 82%;
     border: 1px solid #495966;
     color: white;
     border-radius: 7px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 10px;
+    margin-right: 10px;
     background-color: #121e2d;
     background-size: 10px 10px;
     font-family: Helvetica, Arial, sans-serif;

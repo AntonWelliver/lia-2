@@ -5,7 +5,6 @@
         <title>Salus mea - Larmportal</title>
 
         <link rel="stylesheet" type="text/css" href="css/index_main3.css" />
-        <link rel="stylesheet" type="text/css" href="css/archiveMenu.css" />
         <link
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
@@ -169,10 +168,7 @@
                                     <span id="status5013"></span>
                                 </td>
                             </button>
-                            <table
-                                class="formContainer"
-                                style="margin:0; padding-top:16px; width: 100%; margin-right: auto; margin-left: auto; display: none;"
-                            >
+                            <table class="formContainer">
                                 <tr style="height:40px;">
                                     <td rowspan="15" class="rownum">1</td>
                                     <td class="rowhdr">Användar ID</td>
@@ -428,10 +424,7 @@
                                     <span id="status5031"></span>
                                 </td>
                             </button>
-                            <table
-                                class="formContainer"
-                                style="margin:0; padding-top:16px; width: 100%; margin-right: auto; margin-left: auto; display: none;"
-                            >
+                            <table class="formContainer">
                                 <tr style="height:40px;">
                                     <td rowspan="15" class="rownum">1</td>
                                     <td class="rowhdr">Användar ID</td>
@@ -687,10 +680,7 @@
                                     <span id="status5020"></span>
                                 </td>
                             </button>
-                            <table
-                                class="formContainer"
-                                style="margin:0; padding-top:16px; width: 100%; margin-right: auto; margin-left: auto; display: none;"
-                            >
+                            <table class="formContainer">
                                 <tr style="height:40px;">
                                     <td rowspan="15" class="rownum">1</td>
                                     <td class="rowhdr">Användar ID</td>
@@ -923,16 +913,14 @@
         <!-- handle collapse with a toggle -->
         <script>
             var coll = document.getElementsByClassName("collapsible");
-            var i;
-
             for (i = 0; i < coll.length; i++) {
                 coll[i].addEventListener("click", function() {
                     this.classList.toggle("active");
                     var formContainer = this.nextElementSibling;
-                    if (formContainer.style.display === "none") {
-                        formContainer.style.display = "block";
-                    } else {
+                    if (formContainer.style.display === "block") {
                         formContainer.style.display = "none";
+                    } else {
+                        formContainer.style.display = "block";
                     }
                 });
             }

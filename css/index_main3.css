@@ -9,9 +9,9 @@ body {
 }
 
 form {
-    width: 82%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 99%;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 #filterWlan {
@@ -94,7 +94,7 @@ ul {
 
 #header input {
     margin-top: 35px;
-    margin-right: 15px;
+    margin-right: 13px;
     margin-bottom: 0px;
     padding-left: 10px;
     float: right;
@@ -403,7 +403,7 @@ div.accepted {
     color: white;
     font-weight: bold;
     float: right;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 .active:after {
     content: "\21E7";
@@ -417,9 +417,8 @@ div.accepted {
     overflow: hidden;
     margin-bottom: 20px;
     border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 82%;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 #statusdataheader2 {
@@ -454,10 +453,9 @@ div.accepted {
     padding: 1px;
     margin-bottom: 20px;
     margin-top: 20px;
-    margin-right: auto;
-    margin-left: auto;
+    margin-right: 10px;
+    margin-left: 10px;
     background-color: #081420;
-    width: 82%;
 }
 
 .statusul {
@@ -509,15 +507,14 @@ div.accepted {
     font-size: 16px;
     margin-top: 14px;
     margin-bottom: 14px;
-    margin-right: auto;
-    margin-left: auto;
+    margin-right: 10px;
+    margin-left: 10px;
     font-weight: bold;
     color: white;
     padding: 10px 1px;
     border-radius: 5px;
     border: 1px solid #495966;
     background-color: #081420;
-    width: 82%;
 }
 
 #contactgroupheader input {
@@ -637,8 +634,13 @@ div.accepted {
 .formContainer {
     border: 1px solid #414f5a;
     border-radius: 5px;
-    margin-right: 20px;
     background-color: #081420;
+    padding-top: 16px;
+    width: 100%;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-left: auto;
+    display: none;
 }
 
 #alertclosed div {
@@ -733,9 +735,9 @@ input {
 
 table {
     margin-top: 16px;
-    margin-right: auto;
-    margin-left: auto;
-    width: 82%;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 99%;
 }
 
 td {
