@@ -10,54 +10,51 @@
 
         <link rel="stylesheet" type="text/css" href="css/index_main3.css" />
         <link rel="stylesheet" type="text/css" href="css/alarm.css" />
-        <!-- <link href="css/loginbox.css" rel="stylesheet" type="text/css" />
-        <link rel="manifest" href="manifest.json" /> -->
         <link
             href="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css"
             rel="stylesheet"
         />
-        <!-- <script src="https://api.html5media.info/1.1.8/html5media.min.js"></script>
-        <script src="https://media.twiliocdn.com/sdk/js/video/v1/twilio-video.min.js"></script>
-        <script type="text/javascript" src="js/twilio.js"></script> -->
-        <!-- <script type="text/javascript">
+        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript">
             function doFilter() {
                 var text = $("#filter")
                     .val()
                     .toUpperCase();
-                $("div[name='alarm']").hide();
+                $("div[name*='alarm']").hide();
                 var usernames = $("li[name*='username']");
                 usernames.each(function(index) {
                     if (
                         $(this)
-                            .html()
+                            .text()
                             .toUpperCase()
-                            .includes(text)
+                            .startsWith(text)
                     ) {
                         $(this)
                             .parents("div[name*='alarm']")
                             .show();
                     }
                 });
-                var userphones = $("li[name*='userphone']");
+               /*  var userphones = $("li[name*='userphone']");
                 userphones.each(function(index) {
                     if (
                         $(this)
                             .html()
                             .toUpperCase()
-                            .includes(text)
+                            .startsWith(text)
                     ) {
                         $(this)
                             .parents("div[name*='alarm']")
                             .show();
                     }
-                });
-                var userlocations = $("li[name*='userlocation']");
-                userlocations.each(function(index) {
+                }); */
+                var userdates = $("li[name*='userdate']");
+                userdates.each(function(index) {
                     if (
                         $(this)
                             .html()
                             .toUpperCase()
-                            .includes(text)
+                            .startsWith(text)
                     ) {
                         $(this)
                             .parents("div[name*='alarm']")
@@ -65,33 +62,10 @@
                     }
                 });
             }
-        </script> -->
-        <!-- Photoswipe
-        <link rel="stylesheet" href="css/photoswipe.css" />
-        <link rel="stylesheet" href="css/photoswipe-skin/default-skin.css" />
-        <script src="js/photoswipe.min.js"></script>
-        <script src="js/photoswipe-ui-default.min.js"></script> -->
+        </script>
     </head>
 
     <body>
-	<!-- onload="checkAlertNew();checkStatusesNew();showMapNew();setVideoPane();$('.info').hide();" -->
-        <!-- <audio id="alertsound">
-            <source src="alert.wav" type="audio/wav" />
-        </audio>
-        <div id="sound_element"></div>
-        <div id="loginbox"></div>
-        <div id="video" class="Popdiv">
-            <div class="Fader"></div>
-            <div class="Overlay">
-                <div class="Container" style="width:685px;height:530px">
-                    <a
-                        href="javascript:toggleVisible('video');"
-                        class="Close"
-                    ></a>
-                    <div class="Content" id="videocontent"></div>
-                </div>
-            </div>
-        </div> -->
         <div id="wrapper">
             <!-- Header -->
             <div id="header">
@@ -195,21 +169,22 @@
                     /></a>
                 </div>
 
-                <div id="alerts">
+                <div id="alerts" name="alerts">
                     <script type="text/javascript">
                         lastAlert = 24979833602514314471;
                     </script>
                     <div
                         class="alarm"
+                        name="alarm"
                         id="alert12888981454269784372"
                         onclick='javascript:window.location.assign("main.php?action=show&id=12888981454269784372&status=3")'
                         style="cursor:pointer"
                     >
                         <div id="status" class="closed"></div>
                         <ul class="statusul">
-                            <li class="closed">Stängd</li>
-                            <li class="statusulli">26/01 14:17</li>
-                            <li class="statusulli">Emanuel</li>
+                            <li class="closed" name="alarmStatus">Stängd</li>
+                            <li class="statusulli" name="userdate">01/01 12:12</li>
+                            <li class="statusulli" name="username">Emanuel</li>
                             <li class="statusulli" name="userphone">
                                 +46736881065
                             </li>
@@ -220,17 +195,18 @@
                     </div>
                     <div
                         class="alarm"
+                        name="alarm"
                         id="alert12888981454269784372"
                         onclick='javascript:window.location.assign("main.php?action=show&id=12888981454269784372&status=3")'
                         style="cursor:pointer"
                     >
                         <div id="status" class="closed"></div>
                         <ul class="statusul">
-                            <li class="closed">Stängd</li>
-                            <li class="statusulli">26/01 14:17</li>
-                            <li class="statusulli">Emanuel</li>
+                            <li class="closed" name="alarmStatus">Stängd</li>
+                            <li class="statusulli" name="userdate">26/01 14:17</li>
+                            <li class="statusulli" name="username">Calle</li>
                             <li class="statusulli" name="userphone">
-                                +46736881065
+                                +46791404040
                             </li>
                             <li class="statusulli" name="usercompany">
                                 Salus mea användare
@@ -239,17 +215,18 @@
                     </div>
                     <div
                         class="alarm"
+                        name="alarm"
                         id="alert12888981454269784372"
                         onclick='javascript:window.location.assign("main.php?action=show&id=12888981454269784372&status=3")'
                         style="cursor:pointer"
                     >
                         <div id="status" class="closed"></div>
                         <ul class="statusul">
-                            <li class="closed">Stängd</li>
-                            <li class="statusulli">26/01 14:17</li>
-                            <li class="statusulli">Emanuel</li>
+                            <li class="closed" name="alarmStatus">Stängd</li>
+                            <li class="statusulli" name="userdate">16/02 15:15</li>
+                            <li class="statusulli" name="username">Lars</li>
                             <li class="statusulli" name="userphone">
-                                +46736881065
+                                +46701202020
                             </li>
                             <li class="statusulli" name="usercompany">
                                 Salus mea användare
@@ -258,55 +235,18 @@
                     </div>
                     <div
                         class="alarm"
+                        name="alarm"
                         id="alert12888981454269784372"
                         onclick='javascript:window.location.assign("main.php?action=show&id=12888981454269784372&status=3")'
                         style="cursor:pointer"
                     >
                         <div id="status" class="closed"></div>
                         <ul class="statusul">
-                            <li class="closed">Stängd</li>
-                            <li class="statusulli">26/01 14:17</li>
-                            <li class="statusulli">Emanuel</li>
+                            <li class="closed" name="alarmStatus">Stängd</li>
+                            <li class="statusulli" name="userdate">01/03 18:18</li>
+                            <li class="statusulli" name="username">Anton</li>
                             <li class="statusulli" name="userphone">
-                                +46736881065
-                            </li>
-                            <li class="statusulli" name="usercompany">
-                                Salus mea användare
-                            </li>
-                        </ul>
-                    </div>
-                    <div
-                        class="alarm"
-                        id="alert12888981454269784372"
-                        onclick='javascript:window.location.assign("main.php?action=show&id=12888981454269784372&status=3")'
-                        style="cursor:pointer"
-                    >
-                        <div id="status" class="closed"></div>
-                        <ul class="statusul">
-                            <li class="closed">Stängd</li>
-                            <li class="statusulli">26/01 14:17</li>
-                            <li class="statusulli">Emanuel</li>
-                            <li class="statusulli" name="userphone">
-                                +46736881065
-                            </li>
-                            <li class="statusulli" name="usercompany">
-                                Salus mea användare
-                            </li>
-                        </ul>
-                    </div>
-                    <div
-                        class="alarm"
-                        id="alert12888981454269784372"
-                        onclick='javascript:window.location.assign("main.php?action=show&id=12888981454269784372&status=3")'
-                        style="cursor:pointer"
-                    >
-                        <div id="status" class="closed"></div>
-                        <ul class="statusul">
-                            <li class="closed">Stängd</li>
-                            <li class="statusulli">26/01 14:17</li>
-                            <li class="statusulli">Emanuel</li>
-                            <li class="statusulli" name="userphone">
-                                +46736881065
+                                +46707301293
                             </li>
                             <li class="statusulli" name="usercompany">
                                 Salus mea användare
@@ -417,7 +357,7 @@
                             <input
                                 type="button"
                                 value="Skicka"
-                                style="width: 60px;float: right;height: 29px;"
+                                style="width: 60px; float: right; height: 29px; margin-right: 11px;"
                                 onclick="sendMessage()"
                             />
                         </div>
@@ -444,15 +384,6 @@
 					</div>
 					<nav id="menupicture"></nav>
             	</div>
-            <!-- <div id="gMapContainer">
-				<div class="mapClass" id="map">
-					<iframe
-						width="100%"
-						height="100%"
-						src="https://api.maptiler.com/maps/streets/?key=cRryMLniO3NyotbQKOtf#17.2/57.69252/11.97388"
-					></iframe>
-				</div>
-			</div> -->
         </div>
         <script src="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script>
         <script type="text/javascript" src="js/alarmMap.js"></script>

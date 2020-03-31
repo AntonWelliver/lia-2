@@ -24,7 +24,7 @@ var optionValue = sessionStorage.optionValue
 
 var savePlaceId = sessionStorage.savePlaceId
 var testUrl = [sessionStorage.urlValue]
-    
+
 console.log(testUrl)
 
 function inputCheck() {
@@ -58,16 +58,16 @@ function inputCheck() {
   geofenceData["department_name"] = DepartmentInput;
 
   /* var polygonInput = document.getElementById("polygon"); */
- /*  if(document.getElementById('selectID').value == "polygon"){
-    
-    var polygonArray = draw.getAll().features[0].geometry.coordinates;
-    polygonArray.forEach(updateArea)
-    geofenceData["polygon"] = polygonArray;
-    
-    console.log(polygonArray);
-}else{
-  geofenceData["polygon"] = "";
-} */
+  /*  if(document.getElementById('selectID').value == "polygon"){
+     
+     var polygonArray = draw.getAll().features[0].geometry.coordinates;
+     polygonArray.forEach(updateArea)
+     geofenceData["polygon"] = polygonArray;
+     
+     console.log(polygonArray);
+ }else{
+   geofenceData["polygon"] = "";
+ } */
   axios.post(apiGeofence, geofenceData, {
     headers: { Authorization: AuthStr }
   })
@@ -94,81 +94,85 @@ optSecond.hidden = "Välj en plats";
 
 
 sel.appendChild(optSecond);
-axios.get(apiPlace,{ headers: { Authorization: AuthStr } })
-.then(function(response){
-  for (var i = 0; i < response.data.length; i++) {
-    placeArray[i] = (response.data[i]);
-   
-    var opt = document.createElement('option');
-    opt.value = i;
-    opt.innerHTML = placeArray[i].name;
-    sel.appendChild(opt);
-    
-    
-      
-  }
-        sel.onchange = function(){ 
-        var placeId = placeArray[opt.value].id;
-        sessionStorage.savePlaceId = placeId;        
-        console.log(placeId);               
-        var placeName = placeArray[opt.value].name;         
-        sessionStorage.optionValue = placeName;              
-        console.log(sessionStorage.optionValue);
-        
-        waitForPlace() 
- }
-  
- opt =  document.getElementById("selectPlaces");
+axios.get(apiPlace, { headers: { Authorization: AuthStr } })
+  .then(function (response) {
+    for (var i = 0; i < response.data.length; i++) {
+      placeArray[i] = (response.data[i]);
 
-})
-.catch(function(error){
-  console.log(error);
-})
+      var opt = document.createElement('option');
+      opt.value = i;
+      opt.innerHTML = placeArray[i].name;
+      sel.appendChild(opt);
 
-function waitForPlace(){
+
+      /* sessionStorage.clear();  */
+    }
+    sel.onchange = function () {
+      var placeId = placeArray[opt.value].id;
+      sessionStorage.savePlaceId = placeId;
+      console.log(placeId);
+      var placeName = placeArray[opt.value].name;
+      sessionStorage.optionValue = placeName;
+      console.log(sessionStorage.optionValue);
+      /* myTest() */
+      waitForPlace()
+    }
+
+    opt = document.getElementById("selectPlaces");
+
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+
+function waitForPlace() {
   var floorArray = []
   var selFloor = document.getElementById("selectFloor")
   var floorArrayName = []
   var floorArrayUrl = []
-  
-  axios.get(apiFloor,{ headers: { Authorization: AuthStr } })
-  .then(function(response){
-    for (var i = 0; i < response.data.length; i++) {
-      floorArray[i] = response.data[i].place_id
-      floorArrayName[i] = response.data[i].name
-      floorArrayUrl[i] = response.data[i].editor.url
+  var clear = true
+  axios.get(apiFloor, { headers: { Authorization: AuthStr } })
+    .then(function (response) {
+      for (var i = 0; i < response.data.length; i++) {
+        floorArray[i] = response.data[i].place_id
+        floorArrayName[i] = response.data[i].name
+        floorArrayUrl[i] = response.data[i].editor.url
 
-      FloorName = floorArrayName[i]
-      floorIDPlace = floorArray[i]
-      floorUrl = floorArrayUrl[i]
-      /* test123 = sessionStorage.savePlaceId
-      console.log(test123); */
-      if(sessionStorage.savePlaceId == floorIDPlace){
-        sessionStorage.urlValue = floorUrl;
-        sessionStorage.nameValue = FloorName;
-        sessionStorage.floorValuePlaceID = floorIDPlace;
-        
-        var optFloor = document.createElement('option');
-        optFloor.value = i;
-        optFloor.id = "optionFloor"
-        optFloor.innerHTML = sessionStorage.nameValue;
-        /* optFloor.innerHTML = ""; */
-        console.log(sessionStorage.nameValue);
-        selFloor.appendChild(optFloor);
-        optFloor =  document.getElementById("selectFloor");
+        FloorName = floorArrayName[i]
+        floorIDPlace = floorArray[i]
+        floorUrl = floorArrayUrl[i]
+        /* test123 = sessionStorage.savePlaceId
+        console.log(test123); */
+        if (sessionStorage.savePlaceId == floorIDPlace) {
+          sessionStorage.urlValue = floorUrl;
+          sessionStorage.nameValue = FloorName;
+          sessionStorage.floorValuePlaceID = floorIDPlace;
 
-        
-      }    
-    }
-        
-  }).catch(function(error){
-        console.log(error);
-    
-  })
+          var optFloor = document.createElement('option');
+          optFloor.value = i;
+          optFloor.id = "optionFloor"
+          optFloor.innerHTML = sessionStorage.nameValue;
+          /* optFloor.innerHTML = ""; */
+          console.log(sessionStorage.nameValue);
+          selFloor.appendChild(optFloor);
+          optFloor = document.getElementById("selectFloor");
+
+
+        }
+      }
+
+    }).catch(function (error) {
+      console.log(error);
+
+    })
 
 }
 
+/* function myTest(){
 
+  sessionStorage.removeItem(nameValue);
+
+} */
 
 
 
