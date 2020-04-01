@@ -39,7 +39,6 @@
 			var usernames = $( "input[name*='username']" );
 			usernames.each(function(index) {
 				if ($(this).val().toUpperCase().includes(text)) {
-					console.log($(this).parents("form"));
 					$(this).parents("form").show();				
 				}
 			});
@@ -104,8 +103,8 @@
 						</select>
 						Eller
 						<input name="groupname" type="text" placeholder="Skapa Ny Grupp"></input>
-						<input type="submit" value="Lägg till" style="background:#65DBDB;border: 1px solid #000000;width:100px"/>
-						<input type="button" value="Radera" style="background:#B2B2B2;border: 1px solid #000000;width:100px; color:black;" onclick="javascript:deleteGroup()" disabled  />
+						<input type="submit" value="Lägg till" style="background:#65DBDB; border: 1px solid #000000; width: 100px; margin-left: 620px;"/>
+						<input type="button" value="Radera" style="background:#B2B2B2; border: 1px solid #000000; width: 100px; color:black; margin-left: 60px;" onclick="javascript:deleteGroup()" disabled  />
 					</form>
 				</div>
 
