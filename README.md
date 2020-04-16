@@ -1,3 +1,3 @@
 # Sida för kodsamling
 
-Demolänk: https://antonwelliver.github.io/lia-2/
+Demolänk: https://antonwelliver.github.io/salus-mea/
