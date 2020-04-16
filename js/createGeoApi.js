@@ -138,14 +138,14 @@ function waitForPlace() {
         floorArrayName[i] = response.data[i].name
         floorArrayUrl[i] = response.data[i].editor.url
 
-        FloorName = floorArrayName[i]
+        floorName = floorArrayName[i]
         floorIDPlace = floorArray[i]
         floorUrl = floorArrayUrl[i]
         /* test123 = sessionStorage.savePlaceId
         console.log(test123); */
         if (sessionStorage.savePlaceId == floorIDPlace) {
           sessionStorage.urlValue = floorUrl;
-          sessionStorage.nameValue = FloorName;
+          sessionStorage.nameValue = floorName;
           sessionStorage.floorValuePlaceID = floorIDPlace;
 
           var optFloor = document.createElement('option');

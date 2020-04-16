@@ -28,6 +28,8 @@ function manualLarm(){
   $('#showPicPlaces').hide()
   $('#showPicHistory').hide()
   $('#showPicGeofence').hide()
+  $('#showPicGeofence1').hide()
+  $('#showPicGeofence2').hide()
 
   //Text hide
   $('#textContact').hide()
@@ -35,6 +37,8 @@ function manualLarm(){
   $('#textHistory').hide()
   $('#textPlaces').hide()
   $('#textGeofence').hide()
+  $('#textGeofence1').hide()
+  $('#textGeofence2').hide()
 
  //Icons HeaderText
  $('#userHeaderText').css("color", "white")
@@ -62,6 +66,8 @@ function manualUser(){
   $('#showPicPlaces').hide()
   $('#showPicHistory').hide()
   $('#showPicGeofence').hide()
+  $('#showPicGeofence1').hide()
+  $('#showPicGeofence2').hide()
 
   //Text hide
   $('#textContact').hide()
@@ -69,6 +75,8 @@ function manualUser(){
   $('#textPlaces').hide()
   $('#textHistory').hide()
   $('#textGeofence').hide()
+  $('#textGeofence1').hide()
+  $('#textGeofence2').hide()
 
   //Icons HeaderText
   $('#larmHeaderText').css("color", "white")
@@ -94,6 +102,8 @@ function manualContacts(){
   $('#showPicPlaces').hide()
   $('#showPicHistory').hide()
   $('#showPicGeofence').hide()
+  $('#showPicGeofence1').hide()
+  $('#showPicGeofence2').hide()
 
   //Text hide
   $('#textAlarm').hide()
@@ -101,6 +111,8 @@ function manualContacts(){
   $('#textPlaces').hide()
   $('#textHistory').hide()
   $('#textGeofence').hide()
+  $('#textGeofence1').hide()
+  $('#textGeofence2').hide()
 
   //Icons HeaderText
   $('#larmHeaderText').css("color", "white")
@@ -127,6 +139,8 @@ function manualPlaces(){
   $('#showPicContacts').hide()
   $('#showPicHistory').hide()
   $('#showPicGeofence').hide()
+  $('#showPicGeofence1').hide()
+  $('#showPicGeofence2').hide()
 
   //Text hide
   $('#textContact').hide()
@@ -134,6 +148,8 @@ function manualPlaces(){
   $('#textUser').hide()
   $('#textHistory').hide()
   $('#textGeofence').hide()
+  $('#textGeofence1').hide()
+  $('#textGeofence2').hide()
 
   //Icons HeaderText
   $('#larmHeaderText').css("color", "white")
@@ -160,6 +176,8 @@ function manualHistory(){
   $('#showPicContacts').hide()
   $('#showPicPlaces').hide()
   $('#showPicGeofence').hide()
+  $('#showPicGeofence1').hide()
+  $('#showPicGeofence2').hide()
 
   //Text hide
   $('#textContact').hide()
@@ -167,6 +185,8 @@ function manualHistory(){
   $('#textUser').hide()
   $('#textPlaces').hide()
   $('#textGeofence').hide()
+  $('#textGeofence1').hide()
+  $('#textGeofence2').hide()
 
   //Icons HeaderText
   $('#larmHeaderText').css("color", "white")
@@ -194,6 +214,8 @@ function manualGeofence(){
   $('#showPicContacts').hide()
   $('#showPicPlaces').hide()
   $('#showPicHistory').hide()
+  $('#showPicGeofence1').hide()
+  $('#showPicGeofence2').hide()
 
   //Text hide
   $('#textContact').hide()
@@ -212,7 +234,13 @@ function manualGeofence(){
 
   //show
   $('#showPicGeofence').show()
+  $('#showPicGeofence1').show()
+  $('#showPicGeofence2').show()
+
   $('#textGeofence').show()
+  $('#textGeofence1').show()
+  $('#textGeofence2').show()
+
   $('#geofenceHeaderText').css("color", "#2192fe")
   
 }

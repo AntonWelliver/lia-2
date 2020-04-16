@@ -1,6 +1,5 @@
 
- /* var theMarker = {}; */
- /* import {RulerControl} from '../mapbox-gl-controls/lib/ruler'; */
+
 //Function mapbox
 mapboxgl.accessToken = 'pk.eyJ1IjoibGFyc24iLCJhIjoiY2s2YzByNTh4MDZjdTNxb21lMjY3NjBnMSJ9.bbEbVqLCn7Oco1FXsI1nFQ'; // token key
 
@@ -12,7 +11,7 @@ var map = new mapboxgl.Map({
     zoom: 17, // starting zoom
 });
 
-if(urlValue = sessionStorage.urlValue){
+/* if(urlValue = sessionStorage.urlValue){
 
     
 var urlValue = {
@@ -21,14 +20,14 @@ var urlValue = {
 } 
 var nameValue = {
     "name": sessionStorage.nameValue
-}
+} */
 
           
 //Get image
 map.on('load', function() {
-    map.addSource(nameValue.name, {
+    map.addSource("floor", {
         "type": "image",
-        "url": urlValue.url,
+        "url": "/images/testpicture.png",
         
         "coordinates": [
             [11.974295724725835, 57.69314253574006],
@@ -46,8 +45,8 @@ map.on('load', function() {
         
 
     map.addLayer({
-        "id": nameValue.name,
-        "source": nameValue.name,
+        "id": "floor",
+        "source": "floor",
         "type": "raster",
         'layout': {
             'visibility': 'visible'
@@ -59,7 +58,7 @@ map.on('load', function() {
 });
 
 // Add layer box
-var toggleableLayerIds = [nameValue.name];
+var toggleableLayerIds = ["floor"];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
     var id = toggleableLayerIds[i];
@@ -92,7 +91,7 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
     layers.style.display = "none";
     layers.appendChild(link);
 }
-}
+
 
 //Polygon control 
 var draw = new MapboxDraw({
@@ -628,7 +627,7 @@ var geocoder = new MapboxGeocoder({
             var data = draw.getAll().features[0].geometry.coordinates;
             
             arrayContent = data.flat();
-            /* console.log(arrayContent);  */
+            console.log(arrayContent); 
             
              if(document.getElementById('selectID').value == "polygon"){
                 document.getElementsByClassName('mapbox-gl-draw_polygon').active = true;
@@ -637,149 +636,4 @@ var geocoder = new MapboxGeocoder({
 
         var distanceContainer = document.getElementById('distance');
  
-       /*  // GeoJSON object to hold our measurement features
-function ruler(){
-    // GeoJSON object to hold our measurement features
-var geojson = {
-    'type': 'FeatureCollection',
-    'features': []
-    };
      
-    // Used to draw a line between points
-    var linestring = {
-    'type': 'Feature',
-    'geometry': {
-    'type': 'LineString',
-    'coordinates': []
-    }
-    };
-     
-    map.on('load', function() {
-    map.addSource('geojson', {
-    'type': 'geojson',
-    'data': geojson
-    });
-     
-    // Add styles to the map
-    map.addLayer({
-    id: 'measure-points',
-    type: 'circle',
-    source: 'geojson',
-    paint: {
-    'circle-radius': 5,
-    'circle-color': '#000'
-    },
-    filter: ['in', '$type', 'Point']
-    });
-    map.addLayer({
-    id: 'measure-lines',
-    type: 'line',
-    source: 'geojson',
-    layout: {
-    'line-cap': 'round',
-    'line-join': 'round'
-    },
-    paint: {
-    'line-color': '#000',
-    'line-width': 2.5
-    },
-    filter: ['in', '$type', 'LineString']
-    });
-     
-    map.on('click', function(e) {
-    var features = map.queryRenderedFeatures(e.point, {
-    layers: ['measure-points']
-    });
-     
-    // Remove the linestring from the group
-    // So we can redraw it based on the points collection
-    if (geojson.features.length > 1) geojson.features.pop();
-     
-    // Clear the Distance container to populate it with a new value
-    distanceContainer.innerHTML = '';
-     
-    // If a feature was clicked, remove it from the map
-    if (features.length) {
-    var id = features[0].properties.id;
-    geojson.features = geojson.features.filter(function(point) {
-    return point.properties.id !== id;
-    });
-    } else {
-    var point = {
-    'type': 'Feature',
-    'geometry': {
-    'type': 'Point',
-    'coordinates': [e.lngLat.lng, e.lngLat.lat]
-    },
-    'properties': {
-    'id': String(new Date().getTime())
-    }
-    };
-     
-    geojson.features.push(point);
-    }
-     
-    if (geojson.features.length > 1) {
-    linestring.geometry.coordinates = geojson.features.map(function(
-    point
-    ) {
-    return point.geometry.coordinates;
-    });
-     
-    geojson.features.push(linestring);
-     
-    // Populate the distanceContainer with total distance
-    var value = document.createElement('pre');
-    value.textContent =
-    'Total distance: ' +
-    turf.length(linestring).toLocaleString() +
-    'km';
-    distanceContainer.appendChild(value);
-    }
-     
-    map.getSource('geojson').setData(geojson);
-    });
-    });
-     
-    map.on('mousemove', function(e) {
-    var features = map.queryRenderedFeatures(e.point, {
-    layers: ['measure-points']
-    });
-    // UI indicator for clicking/hovering a point on the map
-    map.getCanvas().style.cursor = features.length
-    ? 'pointer'
-    : 'crosshair';
-    });
-    
-} */
-    
-       
-        
-       
-                
-        
-        /* map.addControl(new CompassControl(), 'bottom-right'); */
-        
-/*          map.on('draw.create', updateArea); 
-          map.on('draw.delete', updateArea);
-        map.on('draw.update', updateArea); 
-        
-        
-         function updateArea(e) {
-            var data = draw.getAll();
-            var answer = document.getElementById('radiusInput');
-            if (data.features.length > 0) {
-                var area = turf.area(data);
-                // restrict to area to 2 decimal points
-                var rounded_area = Math.round(area * 100) / 100;
-                answer.innerText =
-                '<number><strong>' +
-                rounded_area +
-                '</strong></number>';
-            } else {
-                answer.innerHTML = '';
-                if (e.type !== 'draw.delete')
-                alert('Use the draw tools to draw a polygon!');
-    }
-}  */
-

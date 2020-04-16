@@ -155,38 +155,30 @@
                 <div id="menu2">
                     <ul>
                         <li class="imageLink" id="imageLink2" value="1" style="float: left; width: 10%;" onclick="manualLarm()">
-                                <img src="images/portalHeader/alerts.png"  />
-                                <p id="larmHeaderText" style="font-weight: normal; color: #2192fe;">Larm</p>
-                                <!-- <img id="showTest1"  src="images/save.png" style="display: none; width: 100%;"/> -->
+                            <img src="images/portalHeader/alerts.png"  />
+                            <p id="larmHeaderText" style="font-weight: normal; color: #2192fe;">Larm</p>                       
                         </li>
-                        
 
-                            <li class="imageLink" id="imageLink2" value="2" style="float: left; width: 10%;" onclick="manualUser()">
-                                <img src="images/portalHeader/users.png" />
-                                <p id="userHeaderText" style="font-weight: normal; color: white;">Användare</p>
-                                <!-- <img id="showTest" src="images/test123.png" style="display: none; width: 100%;"/> -->
-                            </li>
-                        
-                                        
+                        <li class="imageLink" id="imageLink2" value="2" style="float: left; width: 10%;" onclick="manualUser()">
+                            <img src="images/portalHeader/users.png" />
+                            <p id="userHeaderText" style="font-weight: normal; color: white;">Användare</p>                               
+                        </li>
+                                                               
                         <li class="imageLink" style="float: left; width: 10%;" onclick="manualContacts()">
                             <img src="images/portalHeader/contacts.png"/>
-                                <p id="contactHeaderText" style="font-weight: normal; color: white;">Kontakter</p>
-                            
+                            <p id="contactHeaderText" style="font-weight: normal; color: white;">Kontakter</p>                           
                         </li>
                         <li class="imageLink" style="float: left; width: 10%;" onclick="manualPlaces()">
                             <img src="images/portalHeader/places.png"/>
-                            <p id="placesHeaderText" style="font-weight: normal; color: white;">Platser</p>
-                            
+                            <p id="placesHeaderText" style="font-weight: normal; color: white;">Platser</p>                          
                         </li>
                         <li class="imageLink" style="float: left; width: 10%;" onclick="manualHistory()">
                             <img src="images/portalHeader/archive.png"/>
-                            <p id="historyHeaderText" style="font-weight: normal; color: white;">Arkiv</p>
-                            
+                            <p id="historyHeaderText" style="font-weight: normal; color: white;">Arkiv</p>                          
                         </li>
                         <li class="imageLink" style="float: left; width: 10%;" onclick="manualGeofence()">
                             <img src="images/portalHeader/map.png"/>
-                            <p id="geofenceHeaderText" style="font-weight: normal; color: white;">Trygghetszoner</p>
-                            
+                            <p id="geofenceHeaderText" style="font-weight: normal; color: white;">Trygghetszoner</p>                           
                         </li>
                     </ul>
                 </div>
@@ -264,23 +256,23 @@
                                 <p>
                                     På larmsidan ovanför kartan visas fyra flikar
                                     med information om larmhändelsen.
-                                    <b>Info, Video, Personuppgifter &
+                                    <b style="color: white;">Info, Video, Personuppgifter &
                                         ICE-kontakter.
                                     </b>
                                     <br />
                                     <br />
-                                    - <b>Info</b> - Information om tid och plats då larmet
+                                     <b style="color: white;"> - Info</b> - Information om tid och plats då larmet
                                     aktiverades, namnet på larmbäraren och den
                                     aktuella adress då larmet aktiverades. Till
                                     höger ser man även när ett larm accepterats och
                                     av vem.
                                     <br />
-                                    - <b>Video</b> - Video i realtid, tvåvägskommunikation.
+                                     <b style="color: white;"> - Video</b> - Video i realtid, tvåvägskommunikation.
                                     <br />
-                                    - <b>Personuppgifter</b> - Uppgifter om larmbäraren,
+                                     <b style="color: white;"> - Personuppgifter</b> - Uppgifter om larmbäraren,
                                     fylls i via appen (valfrittt).
                                     <br />
-                                    - <b>ICE-kontakter</b> - Uppgifter om In Case of
+                                     <b style="color: white;"> - ICE-kontakter</b> - Uppgifter om In Case of
                                     Emergency-kontakter, fylls i via appen
                                     (valfrittt).
                                 </p>
@@ -300,7 +292,7 @@
                                     En kontakt som läggs till från larmportalen
                                     kommer att stå som larmmottagare i appen i
                                     gruppen
-                                    <b>Företagsgrupp</b>. Användaren av appen kan
+                                    <b style="color: white;">Företagsgrupp</b>. Användaren av appen kan
                                     inte ta bort dessa, dessa kan bara tas bort
                                     eller ändras via larmportalen.
                                     <br />
@@ -363,45 +355,54 @@
                                         användar-ID är unikt och bundet till det
                                         aktuella företaget.
                                         <br />
-                                        - <b>Anslut</b> - 
+                                         <b style="color: white;">- Anslut</b>  
                                         Klicka på knappen för att skicka
                                         ett meddelande till användaren om att öppna
                                         Salus Mea för att ansluta.
                                         <br />
-                                        - <b>Version</b> - 
+                                         <b style="color: white;"> - Version</b>  
                                         Visar vilken version av appen som är
                                         installerad. Ingen app installerad Användaren
                                         har inte installerat Salus Mea-appen alternativt
                                         har användaren bytt användar-ID.
                                         <br />
-                                         - <b>Programuppdatering</b> - 
+                                          <b style="color: white;"> - Programuppdatering</b>  
                                         Klicka på knappen för
                                         att för att skicka ett meddelande till
                                         användaren om att uppdatera appen.
                                     </p>
         
                                     <br />
-                                    <b style="color: white;">Status</b>
-                                    <p>
-                                        Status visar om Salus Mea-appen är igång och
-                                        ansluten till internet. Om appen skulle stängs
-                                        ner försöker den automatiskt att starta inom 600
-                                        sekunder. Om appen inte återanslutningen inom
-                                        675 sekunder ändras statusen till ”Offline”.
-                                        <br />
-                                        <ul style="list-style-type: square; padding-left: 20px;">
-                                            <li>
-                                                Online: Salus Mea är igång och ansluten till
-                                        internet.
-                                            </li>
-                                            <li>
-                                                Offline: Salus Mea är avstängd eller att internet
-                                        anslutning saknas.
-                                            </li>
-                                        </ul>
-                                    </p>
-
+                                                                   
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div
+                        class="box"
+                        style="background: #121e2d; color: white; border: none; text-align: left;"
+                    >
+                        <div><b>Status</b></div>
+                        <div style="color: grey;">
+                            <p>
+                                Status visar om Salus Mea-appen är igång och
+                                ansluten till internet. Om appen skulle stängs
+                                ner försöker den automatiskt att starta inom 600
+                                sekunder. Om appen inte återanslutningen inom
+                                675 sekunder ändras statusen till ”Offline”.
+                                <br />
+                                <ul style="list-style-type: square; padding-left: 20px;">
+                                    <li>
+                                        Online: Salus Mea är igång och ansluten till
+                                internet.
+                                    </li>
+                                    <li>
+                                        Offline: Salus Mea är avstängd eller att internet
+                                anslutning saknas.
+                                    </li>
+                                </ul>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -423,7 +424,6 @@
                                         avarkivera de larm som visas i arkivet.
                                         <br />
                                     </p>
-
                             </div>
                         </div>
                     </div>
@@ -451,7 +451,54 @@
                     </div>
                 </div>
             </div>
-            
+            <div id="box" style="width: 85%; padding-left: 100px; padding-top: 3em;">
+                <img id="showPicGeofence1" value="5" name="images" src="images/createGeofencePic.png" style="width: 100%; display: none;"/>
+            </div>
+            <div id="textGeofence1" style="display: none;">
+                <div class="row" style="padding-left: 100px; padding-right: 100px;">
+                    <div class="col-xs-6">
+                        <div class="box" style="background: #121e2d; color: white; border: none; text-align: left;">
+                            <div style="color: grey;">
+                                <b style="color: white;">Skappa en Trygghetszoner</b>
+                                    <p>
+                                        Här kan man markera ut trygghetszoner där man kan röra sig fritt. 
+                                        Om man går in i eller ut ur geofencingzonen så aktiveras larmet.
+                                        <br />
+                                        Det går bara att lägga till en trygghetszon i taget.
+                                        <br />
+                                        Sök på en adress och sedan välj trygghetszon i form av 
+                                        en cirkel eller rita en egen zon med polygonvertyget.
+                                    </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="box" style="width: 85%; padding-left: 100px; padding-top: 3em;">
+                <img id="showPicGeofence2" value="5" name="images" src="images/editGeofencePic.png" style="width: 100%; display: none;"/>
+            </div>
+            <div id="textGeofence2" style="display: none;">
+                <div class="row" style="padding-left: 100px; padding-right: 100px;">
+                    <div class="col-xs-6">
+                        <div class="box" style="background: #121e2d; color: white; border: none; text-align: left;">
+                            <div style="color: grey;">
+                                <b style="color: white;">Redigera en Trygghetszoner</b>
+                                    <p>
+                                        Här kan man markera ut trygghetszoner där man kan röra sig fritt. 
+                                        Om man går in i eller ut ur geofencingzonen så aktiveras larmet.
+                                        <br />
+                                        Det går bara att lägga till en trygghetszon i taget.
+                                        <br />
+                                        Sök på en adress och sedan välj trygghetszon i form av 
+                                        en cirkel eller rita en egen zon med polygonvertyget.
+                                    </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div> 
       
         <script type="text/javascript" src="js/manual.js"></script>
