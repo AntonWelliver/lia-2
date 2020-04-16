@@ -35,10 +35,19 @@ function manualLarm(){
   $('#textHistory').hide()
   $('#textPlaces').hide()
   $('#textGeofence').hide()
+
+ //Icons HeaderText
+ $('#userHeaderText').css("color", "white")
+ $('#contactHeaderText').css("color", "white")
+ $('#placesHeaderText').css("color", "white")
+ $('#historyHeaderText').css("color", "white")
+ $('#geofenceHeaderText').css("color", "white")
   
   //Show
   $('#showPicAlarm').show()
   $('#textAlarm').show()
+  $('#larmHeaderText').css("color", "#2192fe")
+
   
 }
 
@@ -61,9 +70,17 @@ function manualUser(){
   $('#textHistory').hide()
   $('#textGeofence').hide()
 
+  //Icons HeaderText
+  $('#larmHeaderText').css("color", "white")
+  $('#contactHeaderText').css("color", "white")
+  $('#placesHeaderText').css("color", "white")
+  $('#historyHeaderText').css("color", "white")
+  $('#geofenceHeaderText').css("color", "white")
+
   //show
   $('#showPicUser').show()
   $('#textUser').show()
+  $('#userHeaderText').css("color", "#2192fe")
 }
 
 function manualContacts(){
@@ -85,9 +102,18 @@ function manualContacts(){
   $('#textHistory').hide()
   $('#textGeofence').hide()
 
+  //Icons HeaderText
+  $('#larmHeaderText').css("color", "white")
+  $('#userHeaderText').css("color", "white")
+  $('#placesHeaderText').css("color", "white")
+  $('#historyHeaderText').css("color", "white")
+  $('#geofenceHeaderText').css("color", "white")
+
   //show
   $('#textContact').show()
   $('#showPicContacts').show()
+  $('#contactHeaderText').css("color", "#2192fe")
+
 }
 
 function manualPlaces(){
@@ -109,9 +135,18 @@ function manualPlaces(){
   $('#textHistory').hide()
   $('#textGeofence').hide()
 
+  //Icons HeaderText
+  $('#larmHeaderText').css("color", "white")
+  $('#userHeaderText').css("color", "white")
+  $('#contactHeaderText').css("color", "white")
+  $('#historyHeaderText').css("color", "white")
+  $('#geofenceHeaderText').css("color", "white")
+
   //Show
   $('#showPicPlaces').show()
   $('#textPlaces').show()
+  $('#placesHeaderText').css("color", "#2192fe")
+  
 }
 
 function manualHistory(){
@@ -133,9 +168,19 @@ function manualHistory(){
   $('#textPlaces').hide()
   $('#textGeofence').hide()
 
+  //Icons HeaderText
+  $('#larmHeaderText').css("color", "white")
+  $('#userHeaderText').css("color", "white")
+  $('#contactHeaderText').css("color", "white")
+  $('#placesHeaderText').css("color", "white")
+  $('#geofenceHeaderText').css("color", "white")
+  
+
   //show
   $('#showPicHistory').show()
   $('#textHistory').show()
+  $('#historyHeaderText').css("color", "#2192fe")
+  
 }
 
 function manualGeofence(){
@@ -157,8 +202,17 @@ function manualGeofence(){
   $('#textPlaces').hide()
   $('#textHistory').hide()
 
+  //Icons HeaderText
+  $('#larmHeaderText').css("color", "white")
+  $('#userHeaderText').css("color", "white")
+  $('#contactHeaderText').css("color", "white")
+  $('#placesHeaderText').css("color", "white")
+  $('#historyHeaderText').css("color", "white")
+  
+
   //show
   $('#showPicGeofence').show()
   $('#textGeofence').show()
+  $('#geofenceHeaderText').css("color", "#2192fe")
   
 }
