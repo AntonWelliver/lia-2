@@ -21,6 +21,8 @@ function manualLarm(){
   //fadeTimer
   $('#showPicAlarm').fadeIn(1000);
   $('#textAlarm').fadeIn(1000);
+  $('#showPicAlarm1').fadeIn(1000);
+  $('#textAlarm1').fadeIn(1000);
 
   //Picture hide
   $('#showPicUser').hide()
@@ -217,7 +219,11 @@ function manualHistory(){
 function manualGeofence(){
   //fadeTimer
   $('#showPicGeofence').fadeIn(1000);
+  $('#showPicGeofence1').fadeIn(1000);
+  $('#showPicGeofence2').fadeIn(1000);
   $('#textGeofence').fadeIn(1000);
+  $('#textGeofence1').fadeIn(1000);
+  $('#textGeofence2').fadeIn(1000);
 
   //Picture hide
   $('#showPicUser').hide()

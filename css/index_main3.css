@@ -157,29 +157,10 @@ ul {
 .imageLink {
     text-align: center;
 }
-.textUnderline {
-    text-decoration: none;
-    /* color:black */
-    text-decoration-thickness: 5px;
-    text-underline-offset: 3px;
-}
-.textUnderline:hover {
-    font-size:1em;
-    border: solid 
-    #2192fe;
-    border-width:0 0 0.2em;
-}
-.testTextUnderline {
-    text-decoration: none;
-}
-.testTextUnderline:hover {
-    
-    text-decoration: underline;
-    text-decoration-color: red;
-    
-}
+
+
 #textUnderline:hover{
-    opacity: .7;
+    
     background-size: 10em;
     border: solid 
     #2192fe;

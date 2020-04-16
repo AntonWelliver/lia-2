@@ -59,10 +59,10 @@
                                 <span class="toolTipText" style="font-weight: normal; color: white;"
                                     >Hantering av larm</span
                                 >
-                                <p class="textUnderline" style="font-weight: normal; color: white;">Larm</p>
+                                <p  style="font-weight: normal; color: white;">Larm</p>
                             </a>
                         </li>
-                        <li class="toolTip">
+                        <li class="toolTip" id="textUnderline">
                             <a href="user.html" class="imageLink"
                                 ><img
                                     src="images/portalHeader/users.png"
@@ -72,7 +72,7 @@
                                 <p class="testTextUnderline" style="font-weight: normal; color: white;">Användare</p></a
                             >
                         </li>
-                        <li class="toolTip">
+                        <li class="toolTip" id="textUnderline">
                             <a href="contact.html" class="imageLink"
                                 ><img
                                     src="images/portalHeader/contacts.png"
@@ -82,7 +82,7 @@
                                 <p style="font-weight: normal; color: white;">Kontakter</p></a
                             >
                         </li>
-                        <li class="toolTip">
+                        <li class="toolTip" id="textUnderline">
                             <a href="wlan.html" class="imageLink"
                                 ><img
                                     src="images/portalHeader/places.png"
@@ -92,7 +92,7 @@
                                 <p style="font-weight: normal; color: white;">Platser</p></a
                             >
                         </li>
-                        <li class="toolTip">
+                        <li class="toolTip" id="textUnderline">
                             <a href="archive.html" class="imageLink"
                                 ><img
                                     src="images/portalHeader/archive.png"
@@ -102,7 +102,7 @@
                                 <p style="font-weight: normal; color: white;">Arkiv</p></a
                             >
                         </li>
-                        <li class="toolTip">
+                        <li class="toolTip" id="textUnderline">
                             <a href="index.html" class="imageLink"
                                 ><img src="images/portalHeader/map.png" /><span
                                     class="toolTipText" style="font-weight: normal; color: white;"
@@ -111,7 +111,7 @@
                                 <p style="font-weight: normal; color: white;">Trygghetszoner</p></a
                             >
                         </li>
-                        <li class="toolTip">
+                        <li class="toolTip" id="textUnderline">
                             <a href="manual.html" class="imageLink"
                                 ><img src="images/portalHeader/help.png" /><span
                                     class="toolTipText" style="font-weight: normal; color: white;"
@@ -120,7 +120,7 @@
                                 <p style="font-weight: normal; color: white;">Guide</p></a
                             >
                         </li>
-                        <li>
+                        <li id="textUnderline">
                             <a href="login.html" class="imageLink"
                                 ><img src="images/portalHeader/signout.png" />
                                 <p style="font-weight: normal; margin-top: 5px; color: white;">Logga ut</p></a
@@ -202,56 +202,22 @@
                                 style="background: #121e2d; color: white; border: none; text-align: left;"
                             >
                                 <div>
-                                    <b>Larmhistorik</b>
+                                    <b>Inkommande larm</b>
                                 </div>
                                 <div style="color: grey;">
                                     <p>
-                                        Det första du möts av när du loggat in
-                                        är det senaste larmet. Till väster visas
-                                        larmstatus, när det är startat och vem
-                                        som har skickat det.
+                                        Här visas inkommande larm.
+                                        När du accepterar larmet, så sparas larm informationen och video som visar mottagare och sändare av larmet.
+                                        Chatmeny är då i realtid och kan skickas meddelande till användare och mottare meddelande.
+                                        <br>
+                                        <b style="color: white;"> - Acceptera:</b> mottare du larmet
+                                        <br>
+                                        <b style="color: white;"> - Stopp:</b> Avslutar du larmet
+                                        
                                     </p>
-                                    <p>
-                                        <b style="color: white;">Larmstatus har tre olika färger:</b>
-                                    </p>
-                                    <ul>
-                                        <li>
-                                            <b style="color: lime;">Grön</b> - Larmet är avslutat
-                                        </li>
-                                        <li>
-                                            <b style="color: aqua;">Blå</b style="color: white;"> - Larmet är aktivt och
-                                            accepterat av någon larmmottagare.
-                                        </li>
-                                        <li>
-                                            <b style="color: red;">Röd</b style="color: white;"> - Aktivt ännu inte
-                                            accepterat av någon larmmottagre
-                                        </li>
-                                    </ul>
+                                   <br>
                                 </div>
-                            </div>
-                        </div>
-                    <div class="col-xs-6">
-                        <div
-                            class="box"
-                            style="background: #121e2d; color: white; border: none; text-align: left;"
-                        >
-                            <div><b>Karta</b></div>
-                            <div style="color: grey;">
-                                <p>
-                                    Kartan visar positionen för den som har startat det aktuella larmet, detta visas som en blå prick. 
-                                    Larmets startposition är markerat med en röd pil. 
-                                    Efter pricken ritas ett rött spår som visar hur mobilen har förflyttat sig under larmets gång. 
-                                    Då mobiltelefonen använder sig av GPS och inte inomhuspositionering visas även positionens noggranhet med en cirkel.
-                                    Då ett larm är aktivt har kartan visas hur länge larmet har varit aktivt samt ett avstånd mellan mobiltelefonen och datorn där larmportalen används, avståndet som anges gäller fågelvägen.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" style="padding-left: 100px; padding-right: 100px;">
-                    <div class="col-xs-6">
-                        <div class="box" style="background: #121e2d; color: white; border: none; text-align: left;">
-                            <div><b>Larminformation</b></div>
+                                <div><b>Larminformation</b></div>
                             <div style="color: grey;">
                                 <p>
                                     På larmsidan ovanför kartan visas fyra flikar
@@ -277,6 +243,39 @@
                                     (valfrittt).
                                 </p>
 
+                            </div>
+                            </div>
+                        </div>
+                    <div class="col-xs-6">
+                        <div
+                            class="box"
+                            style="background: #121e2d; color: white; border: none; text-align: left;"
+                        >
+                            <div><b>Karta</b></div>
+                            <div style="color: grey;">
+                                <p>
+                                    Kartan visar positionen för den som har startat det aktuella larmet, detta visas som en blå prick. 
+                                    Larmets startposition är markerat med en röd pil. 
+                                    Efter pricken ritas ett rött spår som visar hur mobilen har förflyttat sig under larmets gång. 
+                                    Då mobiltelefonen använder sig av GPS och inte inomhuspositionering visas även positionens noggranhet med en cirkel.
+                                    Då ett larm är aktivt har kartan visas hur länge larmet har varit aktivt samt ett avstånd mellan mobiltelefonen och datorn där larmportalen används, avståndet som anges gäller fågelvägen.
+                                </p>
+                                <p>
+                                    <b style="color: white;">Larmstatus har tre olika färger:</b>
+                                </p>
+                                <ul>
+                                    <li>
+                                        <b style="color: lime;">Grön</b> - Larmet är avslutat
+                                    </li>
+                                    <li>
+                                        <b style="color: aqua;">Blå</b style="color: white;"> - Larmet är aktivt och
+                                        accepterat av någon larmmottagare.
+                                    </li>
+                                    <li>
+                                        <b style="color: red;">Röd</b style="color: white;"> - Aktivt ännu inte
+                                        accepterat av någon larmmottagre
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -394,11 +393,11 @@
                                 <br />
                                 <ul style="list-style-type: square; padding-left: 20px;">
                                     <li>
-                                        Online: Salus Mea är igång och ansluten till
+                                        <b style="color: white;">Online:</b> Salus Mea är igång och ansluten till
                                 internet.
                                     </li>
                                     <li>
-                                        Offline: Salus Mea är avstängd eller att internet
+                                        <b style="color: white;">Offline:</b> Salus Mea är avstängd eller att internet
                                 anslutning saknas.
                                     </li>
                                 </ul>
@@ -419,9 +418,10 @@
                                     <p>
                                         Här visas arkiverade larm man inte längre vill
                                         visa i den aktuella larmlista. För att arkivera
-                                        ett larm, välj ett larm och tryck på ikonen som
-                                        föreställer en låda. Man kan på samma sätt
-                                        avarkivera de larm som visas i arkivet.
+                                        ett larm, sker automatisk efter alarmet är avslutat.
+                                        I sök fältet kan du söka på vilket larm du vill komma åt,
+                                        varje colum har en rubrik som är ett filter för att se exemple senaste inom datumet/tid larmet kom in.
+                                        
                                         <br />
                                     </p>
                             </div>
@@ -505,14 +505,15 @@
                     <div class="col-xs-6">
                         <div class="box" style="background: #121e2d; color: white; border: none; text-align: left;">
                             <div style="color: grey;">
-                                <b style="color: white;">Accepterad Alarm</b>
+                                <b style="color: white;">Larmhistorik</b>
                                     <p>
-                                        Här redigerar du en skappade zon till nya värden.
-                                        <br />
-                                        Det går bara att lägga till en trygghetszon i taget.
-                                        <br />
-                                        Sök på en adress och sedan välj trygghetszon i form av 
-                                        en cirkel eller rita en egen zon med polygonvertyget.
+                                        Här visas sidan när du har avslutat ett larm
+                                        <br/>
+                                        Till vänster visas
+                                        larmstatus, när det är avslutat och vem
+                                        som har skickat det.
+                                        
+                                        
                                     </p>
 
                             </div>
