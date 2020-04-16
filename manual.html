@@ -43,6 +43,8 @@
             href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css"
         />
         <script type="text/javascript" src="js/main.js"></script>
+        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     </head>
     <body>
         <div id="wrapperManual">
@@ -51,13 +53,13 @@
                 <img id="logo" src="brand/salusmea-logo3.png" class="left" />
                 <div id="menu2">
                     <ul>
-                        <li class="toolTip">
-                            <a href="alarm.html" class="imageLink"
-                                ><img src="images/portalHeader/alerts.png" />
+                        <li class="toolTip" id="textUnderline">
+                            <a href="alarm.html" class="imageLink" 
+                                ><img class="iconTest" src="images/portalHeader/alerts.png" />
                                 <span class="toolTipText" style="font-weight: normal; color: white;"
                                     >Hantering av larm</span
                                 >
-                                <p style="font-weight: normal; color: white;">Larm</p>
+                                <p class="textUnderline" style="font-weight: normal; color: white;">Larm</p>
                             </a>
                         </li>
                         <li class="toolTip">
@@ -67,7 +69,7 @@
                                 /><span class="toolTipText" style="font-weight: normal; color: white;"
                                     >All användarinformation</span
                                 >
-                                <p style="font-weight: normal; color: white;">Användare</p></a
+                                <p class="testTextUnderline" style="font-weight: normal; color: white;">Användare</p></a
                             >
                         </li>
                         <li class="toolTip">
@@ -127,44 +129,80 @@
                     </ul>
                 </div>
             </div>
+
+
             <div id="manualPageContent">
-                <!-- <div class="row">
-                    <div class="col-xs">
-                        <div class="box" style="background: #121e2d; color: white; text-align:center; border: none;">
-                            <div class="row">
-                                <div class="col-xs">
-                                    <h1 class="box"  style="background: #121e2d; color: white; border: none;">Guide</h1>
-                                </div>
-                            </div>
-                        </div>
+            <h1 style="color:white; text-align:center; margin-top: 5%; margin-bottom: 5%;">Guide</h1>
+            <div class="col-md-10">
+                <div class="box" style="background: #121e2d; color: white; border: none; text-align: center; width: 120%;">                            
+                    <div><b>Larmlista</b></div>
+                    <div style="color: grey;">
+                        <p>
+                            Längst upp finner du menyn och rubrikerna i
+                            larmportalen. 
+                        </b><span>
+                            <br>
+                        </span>
+                        <br>
+                            Klicka nedanför på iconerna för att se informationen för varje flik 
+                        </p>
                     </div>
                 </div>
-                <br> -->
-                <div class="row">
-                    <div class="col-md-10">
-                        <div class="box" style="background: #121e2d; color: white; border: none; text-align: center; padding-left: 200px;">                            
-                            <div><b>Larmlista</b></div>
-                            <div style="color: grey;">
-                                <p>
-                                    Längst upp finner du menyn och rubrikerna i
-                                    larmportalen. 
-                                </b>
-                                    Larm listas till vänster i
-                                    larmhistorik, tillhörande karta och
-                                    larminformation visas till höger.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-10">
-                        <div class="box" style="background: #121e2d; border: none;">
-                            <img
-                                style="margin-left:200px;"
-                                src="images/wireframe_se.png"
-                            />
-                        </div>
-                    </div>
+            </div>
+        
+            <div id="headerTest">
+                <!-- <img id="logo" src="brand/salusmea-logo3.png" class="left" /> -->
+                <div id="menu2">
+                    <ul>
+                        <li class="imageLink" id="imageLink2" value="1" style="float: left; width: 10%;" onclick="manualLarm()">
+                                <img src="images/portalHeader/alerts.png"  />
+                                <p style="font-weight: normal; color: white;">Larm</p>
+                                <!-- <img id="showTest1"  src="images/save.png" style="display: none; width: 100%;"/> -->
+                        </li>
+                        
+
+                            <li class="imageLink" id="imageLink2" value="2" style="float: left; width: 10%;" onclick="manualUser()">
+                                <img src="images/portalHeader/users.png" />
+                                <p style="font-weight: normal; color: white;">Användare</p>
+                                <!-- <img id="showTest" src="images/test123.png" style="display: none; width: 100%;"/> -->
+                            </li>
+                        
+                                        
+                        <li class="imageLink" style="float: left; width: 10%;" onclick="manualContacts()">
+                            <img src="images/portalHeader/contacts.png"/>
+                                <p style="font-weight: normal; color: white;">Kontakter</p>
+                            
+                        </li>
+                        <li class="imageLink" style="float: left; width: 10%;" onclick="manualPlaces()">
+                            <img src="images/portalHeader/places.png"/>
+                            <p style="font-weight: normal; color: white;">Platser</p>
+                            
+                        </li>
+                        <li class="imageLink" style="float: left; width: 10%;" onclick="manualHistory()">
+                            <img src="images/portalHeader/archive.png"/>
+                            <p style="font-weight: normal; color: white;">Arkiv</p>
+                            
+                        </li>
+                        <li class="imageLink" style="float: left; width: 10%;" onclick="manualGeofence()">
+                            <img src="images/portalHeader/map.png"/>
+                            <p style="font-weight: normal; color: white;">Trygghetszoner</p>
+                            
+                        </li>
+                    </ul>
                 </div>
+            </div>
+
+                <div id="box" style="width: 85%; padding-left: 100px; padding-top: 3em;">
+                    <img id="showPicAlarm" value="1" name="images" src="images/AlarmPic.png" style="width: 100%;"/>
+                    <img id="showPicUser" value="2" name="images" src="images/test123.png" style="width: 100%; display: none;"/>
+                    <img id="showPicContacts" value="3" name="images" src="images/KontakterPic.png" style="width: 100%; display: none;"/>
+                    <img id="showPicPlaces" value="4" name="images" src="images/PlatersPic.png" style="width: 100%; display: none;"/>
+                    <img id="showPicHistory" value="5" name="images" src="images/ArkivPic.png" style="width: 100%; display: none;"/>
+                    <img id="showPicGeofence" value="5" name="images" src="images/TrygghetszonerPic.png" style="width: 100%; display: none;"/>
+                   
+                </div>
+                
+                <div id="textAlarm" >
                     <div class="row" style="padding-left: 100px; padding-right: 100px;">
                         <div class="col-xs-6">
                             <div
@@ -200,69 +238,90 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-6">
-                            <div
-                                class="box"
-                                style="background: #121e2d; color: white; border: none; text-align: left;"
-                            >
-                                <div><b>Karta</b></div>
-                                <div style="color: grey;">
-                                    <p>
-                                        Kartan visar positionen för den som har startat det aktuella larmet, detta visas som en blå prick. 
-                                        Larmets startposition är markerat med en röd pil. 
-                                        Efter pricken ritas ett rött spår som visar hur mobilen har förflyttat sig under larmets gång. 
-                                        Då mobiltelefonen använder sig av GPS och inte inomhuspositionering visas även positionens noggranhet med en cirkel.
-                                        Då ett larm är aktivt har kartan visas hur länge larmet har varit aktivt samt ett avstånd mellan mobiltelefonen och datorn där larmportalen används, avståndet som anges gäller fågelvägen.
-                                    </p>
-                                </div>
+                    <div class="col-xs-6">
+                        <div
+                            class="box"
+                            style="background: #121e2d; color: white; border: none; text-align: left;"
+                        >
+                            <div><b>Karta</b></div>
+                            <div style="color: grey;">
+                                <p>
+                                    Kartan visar positionen för den som har startat det aktuella larmet, detta visas som en blå prick. 
+                                    Larmets startposition är markerat med en röd pil. 
+                                    Efter pricken ritas ett rött spår som visar hur mobilen har förflyttat sig under larmets gång. 
+                                    Då mobiltelefonen använder sig av GPS och inte inomhuspositionering visas även positionens noggranhet med en cirkel.
+                                    Då ett larm är aktivt har kartan visas hur länge larmet har varit aktivt samt ett avstånd mellan mobiltelefonen och datorn där larmportalen används, avståndet som anges gäller fågelvägen.
+                                </p>
                             </div>
                         </div>
                     </div>
-                    <div class="row" style="padding-left: 100px; padding-right: 100px;">
-                        <div class="col-xs-6">
-                            <div class="box" style="background: #121e2d; color: white; border: none; text-align: left;">
-                                <div><b>Larminformation</b></div>
-                                <div style="color: grey;">
-                                    <p>
-                                        På larmsidan ovanför kartan visas fyra flikar
-                                        med information om larmhändelsen.
-                                        <b>Info, Video, Personuppgifter &
-                                            ICE-kontakter.
-                                        </b>
-                                        <br />
-                                        <br />
-                                        - <b>Info</b> - Information om tid och plats då larmet
-                                        aktiverades, namnet på larmbäraren och den
-                                        aktuella adress då larmet aktiverades. Till
-                                        höger ser man även när ett larm accepterats och
-                                        av vem.
-                                        <br />
-                                        - <b>Video</b> - Video i realtid, tvåvägskommunikation.
-                                        <br />
-                                        - <b>Personuppgifter</b> - Uppgifter om larmbäraren,
-                                        fylls i via appen (valfrittt).
-                                        <br />
-                                        - <b>ICE-kontakter</b> - Uppgifter om In Case of
-                                        Emergency-kontakter, fylls i via appen
-                                        (valfrittt).
-                                    </p>
+                </div>
+                <div class="row" style="padding-left: 100px; padding-right: 100px;">
+                    <div class="col-xs-6">
+                        <div class="box" style="background: #121e2d; color: white; border: none; text-align: left;">
+                            <div><b>Larminformation</b></div>
+                            <div style="color: grey;">
+                                <p>
+                                    På larmsidan ovanför kartan visas fyra flikar
+                                    med information om larmhändelsen.
+                                    <b>Info, Video, Personuppgifter &
+                                        ICE-kontakter.
+                                    </b>
+                                    <br />
+                                    <br />
+                                    - <b>Info</b> - Information om tid och plats då larmet
+                                    aktiverades, namnet på larmbäraren och den
+                                    aktuella adress då larmet aktiverades. Till
+                                    höger ser man även när ett larm accepterats och
+                                    av vem.
+                                    <br />
+                                    - <b>Video</b> - Video i realtid, tvåvägskommunikation.
+                                    <br />
+                                    - <b>Personuppgifter</b> - Uppgifter om larmbäraren,
+                                    fylls i via appen (valfrittt).
+                                    <br />
+                                    - <b>ICE-kontakter</b> - Uppgifter om In Case of
+                                    Emergency-kontakter, fylls i via appen
+                                    (valfrittt).
+                                </p>
 
-                                </br>
-                                    <b style="color: white;">Kontakter</b>
-                                    <p>
-                                        En kontakt som läggs till från larmportalen
-                                        kommer att stå som larmmottagare i appen i
-                                        gruppen
-                                        <b>Företagsgrupp</b>. Användaren av appen kan
-                                        inte ta bort dessa, dessa kan bara tas bort
-                                        eller ändras via larmportalen.
-                                        <br />
-                                        För att lägga till en ny kontakt, fyll i namn
-                                        och telefonnummer. Tryck sedan på spara.
-                                        Observera att alla nummer måste läggas till med
-                                        internationell standard. Exempel: +46701234567
-                                    </p>
-                                    <b style="color: white;">Platser</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="textContact" style="display: none;">
+                <div class="row" style="padding-left: 100px; padding-right: 100px;">
+                    <div class="col-xs-6">
+                        <div class="box" style="background: #121e2d; color: white; border: none; text-align: left;">
+                            <div style="color: grey;">
+                                <b style="color: white;">Kontakter</b>
+                                <p>
+                                    En kontakt som läggs till från larmportalen
+                                    kommer att stå som larmmottagare i appen i
+                                    gruppen
+                                    <b>Företagsgrupp</b>. Användaren av appen kan
+                                    inte ta bort dessa, dessa kan bara tas bort
+                                    eller ändras via larmportalen.
+                                    <br />
+                                    För att lägga till en ny kontakt, fyll i namn
+                                    och telefonnummer. Tryck sedan på spara.
+                                    Observera att alla nummer måste läggas till med
+                                    internationell standard. Exempel: +46701234567
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="textPlaces" style="display: none;">
+                <div class="row" style="padding-left: 100px; padding-right: 100px;">
+                    <div class="col-xs-6">
+                        <div class="box" style="background: #121e2d; color: white; border: none; text-align: left;">
+                            <div style="color: grey;">
+                                <b style="color: white;">Platser</b>
                                     <p>
                                         Med ett ”WIFI” förbättras noggrannheten på
                                         positionen när man befinner sig på en plats där
@@ -281,18 +340,19 @@
                                         man valt att spara som företag, visas och kan
                                         ändras här.
                                     </p>
-                                    <b style="color: white;">Inställningar</b>
-                                    <p>
-                                        Här väljer man en plats där larmportalen
-                                        befinner sig. Platsen används för att beräkna
-                                        avståndet (fågelvägen) till larmbäraren.
-                                    </p>
-                                </div>
+
                             </div>
                         </div>
-                        <div class="col-xs-6">
-                            <div class="box" style="background: #121e2d; color: white; border: none; text-align: left;">
-                                <div><b>Användare (larmbärare)</b></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="textUser" style="display: none;">
+                <div class="row" style="padding-left: 100px; padding-right: 100px;">
+                    <div class="col-xs-6">
+                        <div class="box" style="background: #121e2d; color: white; border: none; text-align: left;">
+                            <div style="color: grey;">
+                                <div style="color: white;"><b>Användare (larmbärare)</b></div>
                                 <div style="color: grey;">
                                     <p>
                                         Här kan du registrera användare, ett sms skickas
@@ -340,7 +400,21 @@
                                             </li>
                                         </ul>
                                     </p>
-                                    <b style="color: white;">Arkiv</b>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            
+
+            <div id="textHistory" style="display: none;">
+                <div class="row" style="padding-left: 100px; padding-right: 100px;">
+                    <div class="col-xs-6">
+                        <div class="box" style="background: #121e2d; color: white; border: none; text-align: left;">
+                            <div style="color: grey;">
+                                <b style="color: white;">Arkiv</b>
                                     <p>
                                         Här visas arkiverade larm man inte längre vill
                                         visa i den aktuella larmlista. För att arkivera
@@ -349,7 +423,19 @@
                                         avarkivera de larm som visas i arkivet.
                                         <br />
                                     </p>
-                                    <b style="color: white;">Trygghetszoner</b>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="textGeofence" style="display: none;">
+                <div class="row" style="padding-left: 100px; padding-right: 100px;">
+                    <div class="col-xs-6">
+                        <div class="box" style="background: #121e2d; color: white; border: none; text-align: left;">
+                            <div style="color: grey;">
+                                <b style="color: white;">Trygghetszoner</b>
                                     <p>
                                         Här kan man markera ut trygghetszoner där man kan röra sig fritt. 
                                         Om man går in i eller ut ur geofencingzonen så aktiveras larmet.
@@ -359,12 +445,15 @@
                                         Sök på en adress och sedan välj trygghetszon i form av 
                                         en cirkel eller rita en egen zon med polygonvertyget.
                                     </p>
-                                </div>
+
                             </div>
                         </div>
-                    <hr />
-                </ul>
+                    </div>
+                </div>
             </div>
-        </div>
+            
+        </div> 
+      
+        <script type="text/javascript" src="js/manual.js"></script>
     </body>
 </html>
