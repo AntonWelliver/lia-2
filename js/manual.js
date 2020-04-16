@@ -49,7 +49,9 @@ function manualLarm(){
   
   //Show
   $('#showPicAlarm').show()
+  $('#showPicAlarm1').show()
   $('#textAlarm').show()
+  $('#textAlarm1').show()
   $('#larmHeaderText').css("color", "#2192fe")
 
   
@@ -62,16 +64,19 @@ function manualUser(){
 
   //Picture hide
   $('#showPicAlarm').hide()
+  $('#showPicAlarm1').hide()
   $('#showPicContacts').hide()
   $('#showPicPlaces').hide()
   $('#showPicHistory').hide()
   $('#showPicGeofence').hide()
   $('#showPicGeofence1').hide()
   $('#showPicGeofence2').hide()
+  
 
   //Text hide
   $('#textContact').hide()
   $('#textAlarm').hide()
+  $('#textAlarm1').hide()
   $('#textPlaces').hide()
   $('#textHistory').hide()
   $('#textGeofence').hide()
@@ -99,6 +104,7 @@ function manualContacts(){
   //Picture hide
   $('#showPicUser').hide()
   $('#showPicAlarm').hide()
+  $('#showPicAlarm1').hide()
   $('#showPicPlaces').hide()
   $('#showPicHistory').hide()
   $('#showPicGeofence').hide()
@@ -107,6 +113,7 @@ function manualContacts(){
 
   //Text hide
   $('#textAlarm').hide()
+  $('#textAlarm1').hide()
   $('#textUser').hide()
   $('#textPlaces').hide()
   $('#textHistory').hide()
@@ -136,6 +143,7 @@ function manualPlaces(){
   //Picture hide
   $('#showPicUser').hide()
   $('#showPicAlarm').hide()
+  $('#showPicAlarm1').hide()
   $('#showPicContacts').hide()
   $('#showPicHistory').hide()
   $('#showPicGeofence').hide()
@@ -145,6 +153,7 @@ function manualPlaces(){
   //Text hide
   $('#textContact').hide()
   $('#textAlarm').hide()
+  $('#textAlarm1').hide()
   $('#textUser').hide()
   $('#textHistory').hide()
   $('#textGeofence').hide()
@@ -173,6 +182,7 @@ function manualHistory(){
   //Picture hide
   $('#showPicUser').hide()
   $('#showPicAlarm').hide()
+  $('#showPicAlarm1').hide()
   $('#showPicContacts').hide()
   $('#showPicPlaces').hide()
   $('#showPicGeofence').hide()
@@ -182,6 +192,7 @@ function manualHistory(){
   //Text hide
   $('#textContact').hide()
   $('#textAlarm').hide()
+  $('#textAlarm1').hide()
   $('#textUser').hide()
   $('#textPlaces').hide()
   $('#textGeofence').hide()
@@ -211,6 +222,7 @@ function manualGeofence(){
   //Picture hide
   $('#showPicUser').hide()
   $('#showPicAlarm').hide()
+  $('#showPicAlarm1').hide()
   $('#showPicContacts').hide()
   $('#showPicPlaces').hide()
   $('#showPicHistory').hide()
@@ -220,6 +232,7 @@ function manualGeofence(){
   //Text hide
   $('#textContact').hide()
   $('#textAlarm').hide()
+  $('#textAlarm1').hide()
   $('#textUser').hide()
   $('#textPlaces').hide()
   $('#textHistory').hide()
