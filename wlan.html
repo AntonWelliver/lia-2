@@ -19,47 +19,24 @@
         <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script type="text/javascript">
             function doFilter() {
-                var text = $("#filter")
-                    .val()
-                    .toUpperCase();
+                var text = $("#filter").val().toUpperCase();
                 $("form[name*='location']").hide();
                 var wlanbssids = $("input[name*='wlanbssid']");
-                wlanbssids.each(function(index) {
-                    if (
-                        $(this)
-                            .val()
-                            .toUpperCase()
-                            .startsWith(text)
-                    ) {
-                        $(this)
-                            .parents("form")
-                            .show();
+                wlanbssids.each(function (index) {
+                    if ($(this).val().toUpperCase().startsWith(text)) {
+                        $(this).parents("form").show();
                     }
                 });
                 var wlannames = $("input[name*='wlanname']");
-                wlannames.each(function(index) {
-                    if (
-                        $(this)
-                            .val()
-                            .toUpperCase()
-                            .startsWith(text)
-                    ) {
-                        $(this)
-                            .parents("form")
-                            .show();
+                wlannames.each(function (index) {
+                    if ($(this).val().toUpperCase().startsWith(text)) {
+                        $(this).parents("form").show();
                     }
                 });
                 var wlaninfos = $("input[name*='wlaninfo']");
-                wlaninfos.each(function(index) {
-                    if (
-                        $(this)
-                            .val()
-                            .toUpperCase()
-                            .startsWith(text)
-                    ) {
-                        $(this)
-                            .parents("form")
-                            .show();
+                wlaninfos.each(function (index) {
+                    if ($(this).val().toUpperCase().startsWith(text)) {
+                        $(this).parents("form").show();
                     }
                 });
             }
@@ -179,7 +156,12 @@
                                 name="location"
                             >
                                 <table
-                                    style="margin-left: auto; margin-right: auto; padding-top:16px; width: 82%;"
+                                    style="
+                                        margin-left: auto;
+                                        margin-right: auto;
+                                        padding-top: 16px;
+                                        width: 82%;
+                                    "
                                 >
                                     <tr>
                                         <td rowspan="5" class="rownum">1</td>
@@ -202,7 +184,13 @@
                                                         style="height: 40px;"
                                                     />
                                                 </a>
-                                                <span style="color: whitesmoke; display: block;">Karta</span>
+                                                <span
+                                                    style="
+                                                        color: whitesmoke;
+                                                        display: block;
+                                                    "
+                                                    >Karta</span
+                                                >
                                             </div>
                                         </td>
                                         <!-- The Modal -->
@@ -214,7 +202,9 @@
                                                         >&times;</span
                                                     >
                                                     <p
-                                                        style="margin-bottom: 0;"
+                                                        style="
+                                                            margin-bottom: 0;
+                                                        "
                                                     >
                                                         Enter your address, the
                                                         map is used to adjust
@@ -270,7 +260,13 @@
                                                         style="height: 40px;"
                                                     />
                                                 </a>
-                                                <span style="color: whitesmoke; display: block;">Spara</span>
+                                                <span
+                                                    style="
+                                                        color: whitesmoke;
+                                                        display: block;
+                                                    "
+                                                    >Spara</span
+                                                >
                                             </div>
                                         </td>
                                         <td rowspan="5" class="rowbtn">
@@ -284,7 +280,13 @@
                                                         style="height: 40px;"
                                                     />
                                                 </a>
-                                                <span style="color: whitesmoke; display: block;">Radera</span>
+                                                <span
+                                                    style="
+                                                        color: whitesmoke;
+                                                        display: block;
+                                                    "
+                                                    >Radera</span
+                                                >
                                             </div>
                                         </td>
                                     </tr>
@@ -365,7 +367,12 @@
                                 name="location"
                             >
                                 <table
-                                    style="margin-left: auto; margin-right: auto; padding-top:16px; width: 82%;"
+                                    style="
+                                        margin-left: auto;
+                                        margin-right: auto;
+                                        padding-top: 16px;
+                                        width: 82%;
+                                    "
                                 >
                                     <tr>
                                         <td rowspan="5" class="rownum">2</td>
@@ -388,7 +395,13 @@
                                                         style="height: 40px;"
                                                     />
                                                 </a>
-                                                <span style="color: whitesmoke; display: block;">Karta</span>
+                                                <span
+                                                    style="
+                                                        color: whitesmoke;
+                                                        display: block;
+                                                    "
+                                                    >Karta</span
+                                                >
                                             </div>
                                         </td>
                                         <!-- The Modal -->
@@ -396,27 +409,20 @@
                                             <!-- Modal content -->
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <span class="close"
-                                                        >&times;</span
-                                                    >
+                                                    <span class="close">
+                                                        &times;
+                                                    </span>
                                                     <p
-                                                        style="margin-bottom: 0;"
+                                                        style="
+                                                            margin-bottom: 0;
+                                                        "
                                                     >
                                                         Enter your address, the
                                                         map is used to adjust
                                                         the location.
                                                     </p>
                                                     <br />
-                                                    <!-- <label
-                                                        style="margin-top: 0; margin-bottom: 10px; margin-right: 60px;"
-                                                    >
-                                                        Adress
-                                                    </label> -->
                                                     <div id="geocoder"></div>
-                                                    <!-- <input
-                                                        type="text"
-                                                        placeholder="Sök..."
-                                                    /> -->
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="mapContainer">
@@ -456,7 +462,13 @@
                                                         style="height: 40px;"
                                                     />
                                                 </a>
-                                                <span style="color: whitesmoke; display: block;">Spara</span>
+                                                <span
+                                                    style="
+                                                        color: whitesmoke;
+                                                        display: block;
+                                                    "
+                                                    >Spara</span
+                                                >
                                             </div>
                                         </td>
                                         <td rowspan="5" class="rowbtn">
@@ -470,7 +482,13 @@
                                                         style="height: 40px;"
                                                     />
                                                 </a>
-                                                <span style="color: whitesmoke; display: block;">Radera</span>
+                                                <span
+                                                    style="
+                                                        color: whitesmoke;
+                                                        display: block;
+                                                    "
+                                                    >Radera</span
+                                                >
                                             </div>
                                         </td>
                                     </tr>
@@ -558,17 +576,17 @@
             var span = document.getElementsByClassName("close")[0];
 
             // When the user clicks the button, open the modal
-            btn.onclick = function() {
+            btn.onclick = function () {
                 modal.style.display = "block";
             };
 
             // When the user clicks on <span> (x), close the modal
-            span.onclick = function() {
+            span.onclick = function () {
                 modal.style.display = "none";
             };
 
             // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function(event) {
+            window.onclick = function (event) {
                 if (event.target == modal) {
                     modal.style.display = "none";
                 }

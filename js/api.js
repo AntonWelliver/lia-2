@@ -120,39 +120,3 @@ function axiosTest(newArray) {
     })
 }
 axiosTest();
-
-/* c */
-
-/* // Floor API
-axios.get(apiFloor,{ headers: { Authorization: AuthStr } })
-.then(function(response){
-  console.log(response.data)
-  geofenceFloor.innerHTML = response.data[1].name;
-
-})
-.catch(function(error){
-  geofenceName.innerHTML = ("error")
-
-})
-//Place API
-axios.get(apiPlace,{ headers: { Authorization: AuthStr } })
-.then(function(response){
-  console.log(response.data)
-  geofencePlace.innerHTML = response.data[2].name;
-
-})
-.catch(function(error){
-  geofenceName.innerHTML = ("error")
-
-})
-//Departments API
-axios.get(apiDepartments,{ headers: { Authorization: AuthStr } })
-.then(function(response){
-  console.log(response.data)
-  geofenceDepartment.innerHTML = response.data[7].name;
-
-})
-.catch(function(error){
-  geofenceName.innerHTML = ("error")
-
-}) */
