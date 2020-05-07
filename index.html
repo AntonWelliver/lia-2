@@ -12,6 +12,7 @@
         <title>Salus mea - Larmportal</title>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/startpage.css" />
+        <link rel="stylesheet" type="text/css" href="css/test.css" />
         <link
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
@@ -109,7 +110,11 @@
         <table class="center">
             <div id="statusdataheader">
                 <p
-                    style="margin-right: auto; margin-left: auto; padding-left: 14px;"
+                    style="
+                        margin-right: auto;
+                        margin-left: auto;
+                        padding-left: 14px;
+                    "
                 >
                     Hantera Trygghetszoner
                 </p>
@@ -117,12 +122,14 @@
             <caption>
                 <button
                     type="add"
-                    style="float: left; 
-                            padding: 7px; 
-                            margin-bottom: 5px; 
-                            background-color: white;
-                            border-radius: 5px;
-                            cursor: pointer;"
+                    style="
+                        float: left;
+                        padding: 7px;
+                        margin-bottom: 5px;
+                        background-color: white;
+                        border-radius: 5px;
+                        cursor: pointer;
+                    "
                 >
                     <a
                         href="createGeofence.html"
@@ -145,8 +152,91 @@
                 <th>Skapad vid</th>
                 <th>Alternativ</th>
             </tr>
+            <!-- <tr>
+                <td>Namn</td>
+                <td>Typ</td>
+                <td>Adress</td>
+                <td>Plats</td>
+                <td>Våning</td>
+                <td>Avdelning</td>
+                <td>Latitud</td>
+                <td>Longitud</td>
+                <td>Skapad vid</td>
+                <td>
+                    <button
+                        id="myBtn"
+                        class="deleteIconButton far fa-trash-alt"
+                        style="
+                            color: rgb(202, 43, 43);
+                            cursor: pointer;
+                            background-color: #081420;
+                            border: solid #081420;
+                        "
+                    ></button>
+
+                    <div id="myModal" class="modal" style="text-align: center;">
+                        <div
+                            class="modal-content"
+                            style="
+                                background-color: #081420;
+                                border-radius: 8px;
+                            "
+                        >
+                            <p style="font-size: 20px;">
+                                Är du säker?
+                            </p>
+                            <button
+                                class="modalCancelBtn"
+                                style="
+                                    border-radius: 8px;
+                                    padding: 10px 15px;
+                                    font-size: 15px;
+                                    margin-right: 15px;
+                                "
+                            >
+                                Avbryt
+                            </button>
+                            <button
+                                style="
+                                    background-color: rgb(202, 43, 43);
+                                    border-radius: 8px;
+                                    border-color: rgba(202, 43, 43, 0.877);
+                                    padding: 10px 15px;
+                                    font-size: 15px;
+                                    margin-left: 15px;
+                                "
+                            >
+                                Radera
+                            </button>
+                        </div>
+                    </div>
+                </td>
+            </tr> -->
         </table>
 
+        <script>
+            var modal = document.getElementById("myModal");
+
+            var btn = document.getElementById("myBtn");
+
+            var cancelBtn = document.getElementsByClassName(
+                "modalCancelBtn"
+            )[0];
+
+            btn.onclick = function () {
+                modal.style.display = "block";
+            };
+
+            cancelBtn.onclick = function () {
+                modal.style.display = "none";
+            };
+
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            };
+        </script>
         <script type="text/javascript" src="js/main.js"></script>
         <script type="text/javascript" src="js/api.js"></script>
     </body>
