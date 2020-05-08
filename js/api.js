@@ -83,46 +83,48 @@ function axiosTest(newArray) {
             deleteButton.className = 'deleteIconButton, far fa-trash-alt';
             deleteButton.id = getID;
             deleteButton.style = "color: rgb(248, 97, 97); cursor: pointer";
+
             deleteButton.onclick = function () {
-              // Creation of confirm modal
-              /* var confirmModal = document.createElement('div');
-              confirmModal.id = "myModal";
-              confirmModal.className = 'modal';
-              confirmModal.style = "text-align: center;";
+              var modal = document.getElementById("myModal");
 
-              var confirmModalContent = document.createElement('div');
-              confirmModalContent.className = 'modal-content';
-              confirmModalContent.style = "background-color: #081420; border-radius: 8px;";
+              modal.style.display = "block";
 
-              var titleText = document.createElement('p');
-              titleText.style = "font-size: 20px";
-              titleText.textContent = "Är du säker?";
+              var btn = document.getElementsByClassName("modalDeleteBtn")[0];
 
-              var modalCancelButton = document.createElement('button');
-              modalCancelButton.className = 'modalCancelBtn';
-              modalCancelButton.style = "border-radius: 8px; padding: 10px 15px; font-size: 15px; margin-right: 15px;";
-              titleText.textContent = "Avbryt";
+              var cancelBtn = document.getElementsByClassName(
+                "modalCancelBtn"
+              )[0];
 
-              var modalDeleteButton = document.createElement('button');
-              modalDeleteButton.style = "background-color: rgb(202, 43, 43); border-radius: 8px; border-color: rgba(202, 43, 43, 0.877); padding: 10px 15px; font-size: 15px; margin-left: 15px;";
-              titleText.textContent = "Radera"; */
-
-              // Delete function
-              var apiGeofenceDelete = "https://api.proximi.fi/core/geofences/";
-              axios.delete(apiGeofenceDelete + deleteButton.id, {
-                headers: {
-                  Authorization: AuthStr
-                }
-              })
-                .then(function (response) {
-
-                }).catch(function (error) {
-                  console.log(error)
+              btn.onclick = function () {
+                // Delete function
+                var apiGeofenceDelete = "https://api.proximi.fi/core/geofences/";
+                axios.delete(apiGeofenceDelete + deleteButton.id, {
+                  headers: {
+                    Authorization: AuthStr
+                  }
                 })
-              setTimeout(function () { window.location.reload(); }, 300);
+                  .then(function (response) {
+
+                  }).catch(function (error) {
+                    console.log(error)
+                  })
+                setTimeout(function () { window.location.reload(); }, 700);
+                console.log("test2");
+              };
+
+              cancelBtn.onclick = function () {
+                modal.style.display = "none";
+              };
+
+              window.onclick = function (event) {
+                if (event.target == modal) {
+                  modal.style.display = "none";
+                }
+              };
             }
             return deleteButton;
           }
+
           cell.appendChild(nameValue);
           cell1.appendChild(typeValue);
           cell2.appendChild(addressValue);
