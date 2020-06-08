@@ -47,7 +47,7 @@ function inputCheck() {
   var RadiusInput = document.getElementById("radiusInput").value;
   geofenceData["radius"] = RadiusInput;
 
-  var PlaceInput = document.getElementById("selectPlaces").value;
+  var PlaceInput = document.getElementById("placeInput").value;
   PlaceInput = optionValue;
   geofenceData["place_name"] = PlaceInput;
 
@@ -57,17 +57,7 @@ function inputCheck() {
   var DepartmentInput = document.getElementById("departmentInput").value;
   geofenceData["department_name"] = DepartmentInput;
 
-  /* var polygonInput = document.getElementById("polygon"); */
-  /*  if(document.getElementById('selectID').value == "polygon"){
-     
-     var polygonArray = draw.getAll().features[0].geometry.coordinates;
-     polygonArray.forEach(updateArea)
-     geofenceData["polygon"] = polygonArray;
-     
-     console.log(polygonArray);
- }else{
-   geofenceData["polygon"] = "";
- } */
+ 
   axios.post(apiGeofence, geofenceData, {
     headers: { Authorization: AuthStr }
   })
@@ -105,7 +95,7 @@ axios.get(apiPlace, { headers: { Authorization: AuthStr } })
       sel.appendChild(opt);
 
 
-      /* sessionStorage.clear();  */
+     
     }
     sel.onchange = function () {
       var placeId = placeArray[opt.value].id;
@@ -114,7 +104,7 @@ axios.get(apiPlace, { headers: { Authorization: AuthStr } })
       var placeName = placeArray[opt.value].name;
       sessionStorage.optionValue = placeName;
       console.log(sessionStorage.optionValue);
-      /* myTest() */
+     
       waitForPlace()
     }
 
@@ -168,11 +158,7 @@ function waitForPlace() {
 
 }
 
-/* function myTest(){
 
-  sessionStorage.removeItem(nameValue);
-
-} */
 
 
 
