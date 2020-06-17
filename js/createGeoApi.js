@@ -1,5 +1,5 @@
 const apiGeofence = "https://api.proximi.fi/core/geofences/";
-const AuthStr = 'Bearer '.concat("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImlzcyI6ImM4OTA0YzkyLTlmN2MtNGE3Yy1iZDZjLTZiMjBiMTczZDEwZSIsInR5cGUiOiJ1c2VyIiwidXNlciI6IlZlZGVmb3JzIEVtYW51ZWwiLCJ1c2VyX2lkIjoiN2VmNTI2MzctZGFmNy00ZGRlLTljMjAtNGIwNmZhMjJhNTIyIiwidGVuYW50X2lkIjoiYzg5MDRjOTItOWY3Yy00YTdjLWJkNmMtNmIyMGIxNzNkMTBlIn0.mYpZ--Ecuzc37FHCh4oyGj1gdy_CEpvOhQg0vTS0alE");
+const AuthStr = 'Bearer '.concat("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImlzcyI6ImQzMTI5MDM1LWI2NzYtNGU3ZC1hZTUxLWEzZTcxYzAwZGIzMSIsInR5cGUiOiJ1c2VyIiwidXNlciI6IlZlZGVmb3JzIFRlc3QgRW1hbnVlbCIsInVzZXJfaWQiOiIxMDc5NjFlMC1mNzg0LTQyOGQtYTRlNS1jMTM3MjcxMmEwMTEiLCJ0ZW5hbnRfaWQiOiJkMzEyOTAzNS1iNjc2LTRlN2QtYWU1MS1hM2U3MWMwMGRiMzEifQ.xRPfNGyo0whSAxy30LP9GBioZubNMR0j3oynl1yHYtU");
 const apiFloor = "https://api.proximi.fi/core/floors";
 const apiPlace = "https://api.proximi.fi/core/places";
 
@@ -7,25 +7,51 @@ const geofenceData = {
   "name": "",
   "address": "",
   "area": {
-    "lat": "",
-    "lng": ""
+    "lat": [],
+    "lng": []
   },
   "radius": "",
   "type": "",
   "place_name": "",
   "floor_name": "",
-  "department_name": ""
+  "department_name": "",
+  "geopoint": [],
+  "polygon":[
+
+  ]
 }
 
 var arrayID = {
   "id": ""
 }
+
+/* if(document.getElementById('selectID').value == "polygon"){
+  var storedPolygonArray = JSON.parse(sessionStorage.getItem("polygon"));
+  geofenceData["polygon"] = storedPolygonArray
+  console.log(storedPolygonArray)
+} */
+
+
+var storedPolygonArray = JSON.parse(sessionStorage.getItem("polygon"));
+geofenceData["polygon"] = storedPolygonArray
+console.log(storedPolygonArray)
+
+
+var polygonLatTest = JSON.parse(sessionStorage.getItem("polygonLat")); 
+  console.log(polygonLatTest);
+
+var polygonLngTest = JSON.parse(sessionStorage.getItem("polygonLng")); 
+  console.log(polygonLngTest);
+
+
+
 var optionValue = sessionStorage.optionValue
 
 var savePlaceId = sessionStorage.savePlaceId
 var testUrl = [sessionStorage.urlValue]
 
 console.log(testUrl)
+
 
 function inputCheck() {
 
@@ -57,6 +83,7 @@ function inputCheck() {
   var DepartmentInput = document.getElementById("departmentInput").value;
   geofenceData["department_name"] = DepartmentInput;
 
+  console.log(geofenceData)
  
   axios.post(apiGeofence, geofenceData, {
     headers: { Authorization: AuthStr }
@@ -67,9 +94,9 @@ function inputCheck() {
     .catch(function (error) {
       console.log(error.response);
     })
-  setTimeout(function () {
+  /* setTimeout(function () {
     window.location.href = "/index.html"
-  }, 1000);
+  }, 1000); */
 }
 
 var placeArray = [];

@@ -1,5 +1,5 @@
 const apiEditGeofence = "https://api.proximi.fi/core/geofences/";
-const AuthEditStr = 'Bearer '.concat("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImlzcyI6ImM4OTA0YzkyLTlmN2MtNGE3Yy1iZDZjLTZiMjBiMTczZDEwZSIsInR5cGUiOiJ1c2VyIiwidXNlciI6IlZlZGVmb3JzIEVtYW51ZWwiLCJ1c2VyX2lkIjoiN2VmNTI2MzctZGFmNy00ZGRlLTljMjAtNGIwNmZhMjJhNTIyIiwidGVuYW50X2lkIjoiYzg5MDRjOTItOWY3Yy00YTdjLWJkNmMtNmIyMGIxNzNkMTBlIn0.mYpZ--Ecuzc37FHCh4oyGj1gdy_CEpvOhQg0vTS0alE");
+const AuthEditStr = 'Bearer '.concat("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImlzcyI6ImQzMTI5MDM1LWI2NzYtNGU3ZC1hZTUxLWEzZTcxYzAwZGIzMSIsInR5cGUiOiJ1c2VyIiwidXNlciI6IlZlZGVmb3JzIFRlc3QgRW1hbnVlbCIsInVzZXJfaWQiOiIxMDc5NjFlMC1mNzg0LTQyOGQtYTRlNS1jMTM3MjcxMmEwMTEiLCJ0ZW5hbnRfaWQiOiJkMzEyOTAzNS1iNjc2LTRlN2QtYWU1MS1hM2U3MWMwMGRiMzEifQ.xRPfNGyo0whSAxy30LP9GBioZubNMR0j3oynl1yHYtU");
 
 const geofenceData = {
   "name": "",
@@ -12,16 +12,34 @@ const geofenceData = {
   "type": "",
   "place_name": "",
   "floor_name": "",
-  "department_name": ""
+  "department_name": "",
+  "polygon": [
+
+  ],
 }
 
 var arrayID = {
   "id": sessionStorage.arrayID
 }
 
+
+/* var editPolygon = JSON.parse(sessionStorage.getItem("polygon1")) */
+
+
+/* console.log(editPolygon) */
+console.log(arrayID)
+
 axios.get(apiEditGeofence + arrayID.id, { headers: { Authorization: AuthEditStr } })
 
   .then(function (response) {
+
+    console.log(response.data);
+    var setPolygon = response.data.polygon
+    sessionStorage.setItem("polygon1", JSON.stringify(setPolygon))
+
+     
+    /* console.log(storedEditPolygonArray); */
+    
     var adress = document.getElementById("addressInput");
     adress.value = response.data.address;
 
@@ -49,9 +67,13 @@ axios.get(apiEditGeofence + arrayID.id, { headers: { Authorization: AuthEditStr 
     var floor = document.getElementById("floorInput");
     floor.value = response.data.floor_name;
 
-    var department = document.getElementById("departmentInput");
+    var department = document.getElementById("departmentInput");    
     department.value = response.data.department_name;
   })
   .catch(function (error) {
     console.log(error);
   })
+
+ 
+
+  

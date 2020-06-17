@@ -365,6 +365,7 @@ div.accepted {
     min-height: 100%;
     height: 100%;
     overflow: auto;
+    overflow-x: hidden;
     border-radius: 5px;
     -webkit-border-radius: 5px;
 }

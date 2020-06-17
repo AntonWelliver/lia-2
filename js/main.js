@@ -21,6 +21,35 @@ var urlValue = {
 var nameValue = {
     "name": sessionStorage.nameValue
 } */
+var storedEditPolygonArray = JSON.parse(sessionStorage.getItem("polygon1"));
+console.log(storedEditPolygonArray)
+
+map.on('load', function() {
+    map.addSource('maine', {
+        'type': 'geojson',
+        'data': {
+            'type': 'Feature',
+            'geometry': {
+                'type': 'Polygon',
+                'coordinates':[ storedEditPolygonArray
+                                                          
+                ]
+                  
+             }
+        }
+    
+    });
+        map.addLayer({
+        'id': 'maine',
+        'type': 'fill',
+        'source': 'maine',
+        'layout': {},
+        'paint': {
+        'fill-color': '#088',
+        'fill-opacity': 0.8
+        }
+        });
+    });
 
           
 //Get image
@@ -106,13 +135,16 @@ var draw = new MapboxDraw({
 map.on('draw.modechange', (e) => {
   const data = draw.getAll();
   if (draw.getMode() == 'draw_polygon') {
-    var pids = []
-    const polygon = data.features[data.features.length - 1].id
-    data.features.forEach((f) => {
-      if (f.geometry.type === 'Polygon' && f.id !== polygon) {
-        pids.push(f.id)
+      var pids = []
+      var polygonIds = []
+      const polygon = data.features[data.features.length - 1].id
+      data.features.forEach((f) => {
+          if (f.geometry.type === 'Polygon' && f.id !== polygon) {
+              pids.push(f.id)
+              polygonIds.push(f.id)
       }
     })
+    draw.delete(polygonIds)
     draw.delete(pids)
   }
 });
@@ -158,6 +190,7 @@ var geocoder = new MapboxGeocoder({
                     myCircle.remove(map);
                 }  
                 else if(optionValue.value == 'polygon'){
+                    
                 }
                 /* document.getElementById("radiusInput").value = 0;
                 document.getElementById("latitudeInput").value = "";
@@ -209,6 +242,7 @@ var geocoder = new MapboxGeocoder({
             else if(optionValue.value == "polygon"){
                 /* myCircleInput.remove(map); */
                 console.log("Polygon ON")
+                
 
             }else{
                 myCircleInput.addTo(map);
@@ -364,9 +398,14 @@ var geocoder = new MapboxGeocoder({
                     map.removeControl(draw, 'top-left');
                     map.getContainer().classList.remove("mouse-add");
                     myCircle.options.test.boolean = true;
-                    document.getElementById("radiusInput").style.display = "block";                   
+                    document.getElementById("radiusInput").style.display = "block"; 
+                    console.log("circle");                  
+                    sessionStorage.removeItem("polygon");             
+                    sessionStorage.removeItem("polygon1");             
                     
-                }  else{
+                } 
+                
+                 else{
                     map.addControl(draw, 'top-left');
                     
                     myCircle.remove(map);
@@ -619,20 +658,56 @@ var geocoder = new MapboxGeocoder({
                 document.getElementById("departmentInput").style.display = "block"
             }
         }
-
+        
         //Console log out the coordinates for drawing out polygon all the points
         map.on('draw.create', updateArea);
         map.on('draw.update', updateArea);
-        function updateArea(e){
-            var data = draw.getAll().features[0].geometry.coordinates;
-            
-            arrayContent = data.flat();
-            console.log(arrayContent); 
-            
-             if(document.getElementById('selectID').value == "polygon"){
-                document.getElementsByClassName('mapbox-gl-draw_polygon').active = true;
-            }  
-        }
+        map.on('draw.delete', updateArea);
+        
+
+            function updateArea(e){
+                var data = draw.getAll().features[0].geometry.coordinates;
+                console.log(draw.getAll().features)
+                          
+                arrayContent = data.flat();
+                polygonArray = arrayContent;             
+                    
+                  /* var featureIds = draw.add({ type: 'Polygon', coordinates: [JSON.parse(sessionStorage.getItem("polygon1"))] });
+                    var pointId = featureIds[0];
+                    console.log(draw.get(pointId)); */
+                /* arrayContent.forEach( (item,i) => arrayContent[i] = item + 10); */
+                /* console.log(polygonArray); */
+                sessionStorage.setItem('polygon', JSON.stringify(arrayContent))
+                var storedPolygonArray = JSON.parse(sessionStorage.getItem("polygon")); 
+                console.log(storedPolygonArray);
+                var updateLat = parseFloat(document.getElementById("latitudeInput").value);
+                var updateLng = parseFloat(document.getElementById("longitudeInput").value);
+                
+                
+                
+                    var feature = {
+                        id: 'unique-id',
+                        type: 'Feature',
+                        properties: {
+                            lat: updateLat,
+                            lng: updateLng,
+                            geopoint: [updateLat, updateLng]
+                        },
+                        geometry: { type: 'Polygon', coordinates: [storedPolygonArray] }
+                      };
+                      
+                      var polygonLat = feature.properties.lat
+                      var polygonlng = feature.properties.lng
+                      
+                      sessionStorage.setItem('polygonLat', JSON.stringify(polygonLat))
+                      var polygonLatTest = JSON.parse(sessionStorage.getItem("polygonLat")); 
+                        console.log(polygonLatTest);
+                      sessionStorage.setItem('polygonLng', JSON.stringify(polygonlng))
+                      var polygonLngTest = JSON.parse(sessionStorage.getItem("polygonLng")); 
+                        console.log(polygonLngTest);
+    
+                    }
+
 
         var distanceContainer = document.getElementById('distance');
  
